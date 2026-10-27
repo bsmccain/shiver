@@ -3,7 +3,7 @@
     <div class="item-name">Name</div>
     <!-- <div class="item-formula">Skill</div> -->
     <div class="item-controls">
-      <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
+      <a class="item-control item-create" data-action="createItem" title="Create item" data-type="item"><i class="fas fa-plus"></i> Add item</a>
     </div>
   </li>
   <!--
@@ -17,8 +17,8 @@
       </div>
       <div class="item-formula item-prop">{{item.system.formula}}</div>
       <div class="item-controls">
-        <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-        <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        <a class="item-control item-edit" data-action="editItem" title="Edit Item"><i class="fas fa-edit"></i></a>
+        <a class="item-control item-delete" data-action="deleteItem" title="Delete Item"><i class="fas fa-trash"></i></a>
       </div>
     </li>
   {{/each}}
@@ -28,42 +28,39 @@
     <li class="item" data-item-id="{{item._id}}">
       <div class="trait grid grid-2col">
         <div class="flexrow grid-span-2">
-          <div class="trait-name togglable-description" data-target="display"> 
+          <div class="trait-name togglable-description" data-action="toggleDescription"> 
             <h4>{{item.name}}</h4>
           </div> 
           {{#if item.system.skill}}
           <!-- rolling from item using dialog roller - look in actor-sheet _onRoll() --> 
-          <div  class="trait-name rollable" data-target="display" data-rollType="item"  
-          data-skillRoll="{{toLowerCase item.system.skill}}" 
-          data-skilldice="{{@abilities.grit.skill.value}}" 
-          data-talentdice="{{@abilities.grit.talent.value}}"> 
-          <img src="{{item.system.skill-img}}" width="20" height="20">
+          <div class="trait-name rollable" data-action="roll" data-roll-type="item" title="Roll {{item.system.skill}}">
+          <img src="{{item.skillImg}}" width="20" height="20">
           </div> 
           <!-- end -->
-          <div  class="background-black togglable-description">
+          <div  class="background-black togglable-description" data-action="toggleDescription">
             <span class="skill-text">Skill:{{item.system.skill}}</span>
           </div>
-          <div  class="background-black togglable-description">
+          <div  class="background-black togglable-description" data-action="toggleDescription">
             <span class="skill-text">Range:{{item.system.range}}ft</span>
           </div>
-          <div  class="background-black togglable-description">
+          <div  class="background-black togglable-description" data-action="toggleDescription">
             <span class="skill-text">Damage:{{item.system.damage}} {{item.system.damagetype}}</span>
           </div>
           {{/if}}
           {{#if item.system.hp}}
-          <div  class="background-black togglable-description">
+          <div  class="background-black togglable-description" data-action="toggleDescription">
             <span class="skill-text">Armour HP:{{item.system.hp}}</span>
           </div>
           {{/if}}
 
           <div class="trait-controls">
 
-            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-            <a class="item-control item-chat" title="To Chat"><i class="far fa-comment-alt"></i></a>
+            <a class="item-control item-edit" data-action="editItem" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" data-action="deleteItem" title="Delete Item"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-chat" data-action="itemToChat" title="To Chat"><i class="far fa-comment-alt"></i></a>
           </div>
         </div>
-        <div class="flexrow grid-span-2 description" style="display:{{item.system.display}};">
+        <div class="flexrow grid-span-2 description" style="display:{{item.display}};">
         <span>{{{item.enrichDescription}}}</span>
         <!-- <span>{{{editor item.enrichDescription  target="item.system.description" button=true editable=editable}}}</span> -->
         </div>

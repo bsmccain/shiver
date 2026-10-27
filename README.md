@@ -1,5 +1,5 @@
 # Shiver
-![Foundry v9](https://img.shields.io/badge/foundry-v12-green)
+![Foundry v14](https://img.shields.io/badge/foundry-v14-green)
 
 Unofficial Shiver game system for Foundry VTT (https://foundryvtt.com/)
 

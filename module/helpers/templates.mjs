@@ -4,10 +4,9 @@
  * @return {Promise}
  */
  export const preloadHandlebarsTemplates = async function() {
-  return loadTemplates([
+  return foundry.applications.handlebars.loadTemplates([
 
     // Actor partials.
-    "systems/shiver/templates/actor/parts/actor-skills.html",
     "systems/shiver/templates/actor/parts/actor-items.html",
     "systems/shiver/templates/actor/parts/actor-powers.html",
     "systems/shiver/templates/actor/parts/actor-effects.html",

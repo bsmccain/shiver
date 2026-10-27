@@ -1,9 +1,9 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<div class="{{actor.type}} flexcol">
 
   {{!-- Sheet Header --}}
   <header class="sheet-header ">
 
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
 
     <div class="header-fields grid grid-8col">
 
@@ -13,7 +13,7 @@
       </div>
 
       <div class="grid-span-3 resource-content">
-        <input name="system.attributes.archetype" type="text" value="{{system.attributes.archetype}}" placeholder="Archetype"/></h3>
+        <input name="system.attributes.archetype" type="text" value="{{system.attributes.archetype}}" placeholder="Archetype"/>
         <label for="system.attributes.archetype" class="resource-label">Archetype</label>
       </div>
 
@@ -40,7 +40,7 @@
       </div>
 
       <div class="resource-content">
-        <input name="system.attributes.luck.value" type="number" value="{{system.attributes.luck.value}}" placeholder="0"/></h3>
+        <input name="system.attributes.luck.value" type="number" value="{{system.attributes.luck.value}}" placeholder="0"/>
         <label for="system.attributes.luck.value" class="resource-label">Luck</label>
       </div>
 
@@ -58,21 +58,15 @@
       <!-- fear breakdown -->
       <div class="resource flex-group-center grid-span-4">
         <hr>
-        <!--
-        <input class="checkbox-fear" type="radio" id="stable" name="fear-level" value="0" data-status="stable" {{checked system.attributes.stable}}> -->
-        <a class="checkbox-fear" title="stable" data-status="stable" data-target="system.attributes.fear-level.value">
-        stable 
-        <i class="{{system.attributes.fear-level.icon.stable}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
-        <a class="checkbox-fear" title="afraid" data-status="afraid" data-target="system.attributes.fear-level.value">
-          afraid 
-        <i class="{{system.attributes.fear-level.icon.afraid}}" data-target="system.attributes['fear-level'].icon"></i></a>
-        <a class="checkbox-fear" title="terrified" data-status="terrified" data-target="system.attributes.fear-level.value">
-          terrified 
-        <i class="{{system.attributes.fear-level.icon.terrified}}" data-target="system.attributes['fear-level'].icon.stable"></i></a>
+        {{#each fearLevels as |fear|}}
+        <a class="checkbox-fear" title="{{fear.key}}" data-action="setFear" data-level="{{fear.value}}">
+          {{fear.key}}
+        <i class="far {{#if fear.active}}fa-times-circle{{else}}fa-circle{{/if}}"></i></a>
+        {{/each}}
       </div>
   
       <div>
-        <input name="system.speed.value" type="Number" value="{{system.speed.value}}" placeholder="20"/></h3>
+        <input name="system.speed.value" type="number" value="{{system.speed.value}}" placeholder="20"/>
         <label for="Speed" class="resource-label">Speed</label>
       </div>
 
@@ -81,7 +75,7 @@
       </div>
 
       <div class="grid-span-7 flex-group-center">
-        {{#each system.attributes.lifeline as |check key|}}
+        {{#each lifeline as |check|}}
         {{#if check}}
         <span><i class="far fa-times-circle"></i></span>
         {{/if}}
@@ -92,7 +86,7 @@
       </div>
 
       <div class="resource">
-        <input class="health" type="Number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" data-target="system.hp.value"/>
+        <input class="health" type="number" name="system.hp.value" value="{{system.hp.value}}" min="{{system.hp.min}}" max="{{system.hp.max}}"/>
       </div>
 
       <div class="grid-span-7 flex-group-center lifeline-offset">
@@ -112,20 +106,17 @@
   
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs nopadding nomargin" data-group="primary">
-    {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="skills">Skills</a>
-    <a class="item" data-tab="traits">Traits</a>
-    <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Powers</a>
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="effects">Effects</a>
+    {{!-- Tabs are specified in actor-sheet.mjs --}}
+    {{#each tabs as |tab|}}
+    <a class="item {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
+    {{/each}}
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body"> 
 
     {{!-- Owned skills Tab --}}
-    <div class="tab skills" data-group="primary" data-tab="skills">
+    <div class="tab skills {{tabs.skills.cssClass}}" data-group="primary" data-tab="skills">
 
       <!-- Skills and Talents -->
       <div class="">
@@ -142,20 +133,21 @@
                   <div class="skill-label">skill</div>
                   <div class="skill-label">talent</div>
                 </div>
-                {{#each system.abilities as |ability key|}}
+                {{#each abilities as |ability|}}
                 <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{ability.img}}" title="system.abilities.{{key}}.img" height="50" width="50" 
-                    data-skillRoll="{{key}}" 
-                    data-skilldice="{{ability.skill.value}}" 
-                    data-talentdice="{{ability.talent.value}}"/> 
-                  <span class="skill-text">{{key}}</span>
+                  <img class="skill-img rollable" src="{{ability.img}}" title="{{ability.label}}" height="50" width="50"
+                    data-action="roll"
+                    data-skill="{{ability.key}}"
+                    data-skill-dice="{{ability.skill.value}}"
+                    data-talent-dice="{{ability.talent.value}}"/>
+                  <span class="skill-text">{{ability.label}}</span>
                   <div class="header-fields grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="system.abilities.{{key}}.skill.reference" value="{{ability.skill.reference}}" data-dtype="Number"/> 
-                    <input class="skill-text" type="text" name="system.abilities.{{key}}.skill.value" value="{{ability.skill.value}}" data-dtype="Number"/> 
+                    <input class="skill-text text-grey" type="text" name="system.abilities.{{ability.key}}.skill.reference" value="{{ability.skill.reference}}" data-dtype="Number"/>
+                    <input class="skill-text" type="text" name="system.abilities.{{ability.key}}.skill.value" value="{{ability.skill.value}}" data-dtype="Number"/>
                   </div>
                   <div class="grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="system.abilities.{{key}}.talent.reference" value="{{ability.talent.reference}}" data-dtype="Number"/>
-                    <input class="skill-text" type="text" name="system.abilities.{{key}}.talent.value" value="{{ability.talent.value}}" data-dtype="Number"/>
+                    <input class="skill-text text-grey" type="text" name="system.abilities.{{ability.key}}.talent.reference" value="{{ability.talent.reference}}" data-dtype="Number"/>
+                    <input class="skill-text" type="text" name="system.abilities.{{ability.key}}.talent.value" value="{{ability.talent.value}}" data-dtype="Number"/>
                   </div>
                 </div>
                 {{/each}}
@@ -168,45 +160,33 @@
       <div class="sheet-skills">
        <img class="logo-img flex-group-center" src="systems/shiver/assets/sheet-elements/COMPATIBLE_WITH_SHIVER-03.png" title="shiver logo" height="135" width="520"/> 
       </div>
-      <section class="grid grid-col">
-        <aside class="sidebar">
-        </aside>
-        <!--
-        {{!-- For the main skills list, span the right two columns --}}
-        <section class="main grid-span-2">
-          {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/shiver/templates/actor/parts/actor-skills.html"}}
-        </section>
-      -->
-      </section>
     </div>
 
     {{!-- Biography Tab --}}
-    <div class="tab biography" data-group="primary" data-tab="description">
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor enrichBio target="system.biography" button=true editable=editable}}
+    <div class="tab biography {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
+      {{formInput systemFields.biography value=system.biography enriched=enrichBio toggled=true}}
     </div>
 
     {{!-- Owned Items Tab --}}
-    <div class="tab items" data-group="primary" data-tab="items">
+    <div class="tab items {{tabs.items.cssClass}}" data-group="primary" data-tab="items">
        {{> "systems/shiver/templates/actor/parts/actor-items.html"}}
     </div>
 
     {{!-- Owned Spells Tab --}}
-    <div class="tab spells" data-group="primary" data-tab="spells">
+    <div class="tab spells {{tabs.spells.cssClass}}" data-group="primary" data-tab="spells">
       {{> "systems/shiver/templates/actor/parts/actor-powers.html"}}
     </div>
 
     {{!-- Active Effects Tab --}}
-    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+    <div class="tab effects flexcol {{tabs.effects.cssClass}}" data-group="primary" data-tab="effects">
       {{> "systems/shiver/templates/actor/parts/actor-effects.html"}}
     </div>
 
-    {{!-- Active Effects Tab --}}
-    <div class="tab traits flexcol" data-group="primary" data-tab="traits">
+    {{!-- Traits Tab --}}
+    <div class="tab traits flexcol {{tabs.traits.cssClass}}" data-group="primary" data-tab="traits">
       {{> "systems/shiver/templates/actor/parts/actor-traits.html"}}
     </div>
 
   </section>
-</form>
+</div>
 

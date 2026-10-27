@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* Global styles */
-.window-app {
+.application.shiver {
   font-family: "Roboto", sans-serif;
 }
 
@@ -205,20 +205,21 @@
 }
 
 /* Styles limited to shiver sheets */
-.shiver {
-  /* ----------------------------------------- */
-  /*  Items Lists                              */
-  /* ----------------------------------------- */
-  /* Example style for shiver (can be removed if not needed) */
-}
 .shiver .item-form {
   font-family: "Roboto", sans-serif;
 }
 .shiver .window-content {
   background: rgb(228, 228, 228);
+  padding: 8px;
+}
+.shiver .window-content > div {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .shiver .sheet-header {
-  flex: 0 auto;
+  flex: 0 0 auto;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -248,15 +249,19 @@
   margin: 0;
 }
 .shiver .sheet-tabs {
-  flex: 0;
+  flex: 0 0 auto;
 }
 .shiver nav.tabs {
   border-bottom: 2px solid #000;
   border-top: 3px solid #000;
 }
-.shiver .sheet-body,
+.shiver .sheet-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
 .shiver .sheet-body .tab,
-.shiver .sheet-body .tab .editor {
+.shiver .sheet-body .tab prose-mirror {
   height: 100%;
 }
 .shiver .small-tab {
@@ -268,12 +273,6 @@
 .shiver .sheet-skills {
   width: 480px;
   margin: auto;
-}
-.shiver .tox .tox-editor-container {
-  background: #fff;
-}
-.shiver .tox .tox-edit-area {
-  padding: 0 8px;
 }
 .shiver .lifeline {
   width: 360px;
@@ -399,6 +398,9 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.shiver .trait-name h4 {
+  color: inherit;
+}
 .shiver .trait-controls {
   background: #000;
   color: #fff;
@@ -450,6 +452,11 @@
   padding-left: 5px;
   text-align: left;
   display: flex;
+}
+.shiver {
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
 }
 .shiver .items-list {
   list-style: none;
@@ -531,6 +538,9 @@
 .shiver .items-list .items-header .item-name {
   padding-left: 5px;
   text-align: left;
+}
+.shiver {
+  /* Example style for shiver (can be removed if not needed) */
 }
 .shiver .item-formula {
   flex: 0 0 200px;

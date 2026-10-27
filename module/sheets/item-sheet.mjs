@@ -1,68 +1,80 @@
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ItemSheetV2 } = foundry.applications.sheets;
+const TextEditor = foundry.applications.ux.TextEditor.implementation;
+
 /**
- * Extend the basic ItemSheet with some very simple modifications
- * @extends {ItemSheet}
+ * The Item sheet, with a separate template for each Item type.
+ * @extends {ItemSheetV2}
  */
-export class shiverItemSheet extends ItemSheet {
+export class shiverItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
 
   /** @override */
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["shiver", "sheet", "item"],
-      width: 520,
-      height: 480,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
-    });
-  }
+  static DEFAULT_OPTIONS = {
+    classes: ["shiver", "sheet", "item", "themed", "theme-light"],
+    position: { width: 520, height: 480 },
+    window: { resizable: true },
+    form: { submitOnChange: true }
+  };
 
   /** @override */
-  get template() {
-    const path = "systems/shiver/templates/item";
-    // Return a single sheet for all item types.
-    // return `${path}/item-sheet.html`;
+  static PARTS = {
+    item: { template: "systems/shiver/templates/item/item-item-sheet.html", scrollable: [".sheet-body"] },
+    trait: { template: "systems/shiver/templates/item/item-trait-sheet.html", scrollable: [".sheet-body"] },
+    power: { template: "systems/shiver/templates/item/item-power-sheet.html", scrollable: [".sheet-body"] },
+    weapon: { template: "systems/shiver/templates/item/item-weapon-sheet.html", scrollable: [".sheet-body"] },
+    armour: { template: "systems/shiver/templates/item/item-armour-sheet.html", scrollable: [".sheet-body"] }
+  };
 
-    // Alternatively, you could use the following return statement to do a
-    // unique item sheet by type, like `weapon-sheet.html`.
-    return `${path}/item-${this.item.type}-sheet.html`;
+  /** @override */
+  static TABS = {
+    primary: {
+      tabs: [{ id: "description" }, { id: "attributes" }],
+      initial: "description",
+      labelPrefix: "shiver.Tab"
+    }
+  };
+
+  /* -------------------------------------------- */
+
+  /** @override */
+  _configureRenderParts(options) {
+    const parts = super._configureRenderParts(options);
+    return { [this.item.type]: parts[this.item.type] };
   }
 
   /* -------------------------------------------- */
 
   /** @override */
-  async getData() {
-    // Retrieve base data structure.
-    const context = await super.getData();
-
-    // Use a safe clone of the item data for further operations.
-    const itemData = context.item;
-
-    // Retrieve the roll data for TinyMCE editors.
-    context.rollData = {};
-    let actor = this.object?.parent ?? null;
-    if (actor) {
-      context.rollData = actor.getRollData();
+  _getTabsConfig(group) {
+    const config = super._getTabsConfig(group);
+    // Armour has nothing to show on the attributes tab.
+    if ( (group === "primary") && (this.item.type === "armour") ) {
+      return { ...config, tabs: config.tabs.filter(tab => tab.id !== "attributes") };
     }
+    return config;
+  }
 
-    // Add the actor's data to context.data for easier access, as well as flags.
-    context.system = itemData.system;
-    context.flags = itemData.flags;
+  /* -------------------------------------------- */
 
-   // console.log("getData item sheet");
-   // console.log(context.system.description );
-    context.enrichDescription = await TextEditor.enrichHTML(context.system.description, {async: true });
-    //context.DUPA = "dupa";
+  /** @override */
+  async _prepareContext(options) {
+    // Retrieve base data structure.
+    const context = await super._prepareContext(options);
+    const item = this.item;
+
+    // Retrieve the roll data for rich text enrichment.
+    context.rollData = item.getRollData();
+
+    // Add the item's data to context for easier access, as well as flags.
+    context.item = item;
+    context.system = item.system;
+    context.flags = item.flags;
+    context.systemFields = item.system.schema.fields;
+
+    context.enrichDescription = await TextEditor.enrichHTML(item.system.description, {
+      rollData: context.rollData, relativeTo: item, secrets: item.isOwner
+    });
 
     return context;
-  }
-
-  /* -------------------------------------------- */
-
-  /** @override */
-  activateListeners(html) {
-    super.activateListeners(html);
-
-    // Everything below here is only needed if the sheet is editable
-    if (!this.isEditable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
   }
 }

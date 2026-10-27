@@ -1,3 +1,6 @@
+// Import data models.
+import { CharacterData, NpcData } from "./data/actor.mjs";
+import { ArmourData, GearData, PowerData, TraitData, WeaponData } from "./data/item.mjs";
 // Import document classes.
 import { shiverActor } from "./documents/actor.mjs";
 import { shiverItem } from "./documents/item.mjs";
@@ -42,11 +45,23 @@ Hooks.once('init', async function() {
   CONFIG.Actor.documentClass = shiverActor;
   CONFIG.Item.documentClass = shiverItem;
 
+  // Define the data models for each Document type
+  Object.assign(CONFIG.Actor.dataModels, {
+    character: CharacterData,
+    npc: NpcData
+  });
+  Object.assign(CONFIG.Item.dataModels, {
+    item: GearData,
+    trait: TraitData,
+    power: PowerData,
+    weapon: WeaponData,
+    armour: ArmourData
+  });
+
   // Register sheet application classes
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("shiver", shiverActorSheet, { makeDefault: true });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("shiver", shiverItemSheet, { makeDefault: true });
+  const { Actors, Items } = foundry.documents.collections;
+  Actors.registerSheet("shiver", shiverActorSheet, { makeDefault: true, label: "shiver.SheetActor" });
+  Items.registerSheet("shiver", shiverItemSheet, { makeDefault: true, label: "shiver.SheetItem" });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -119,7 +134,14 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 
 Hooks.once("ready", async function() {
   // Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-  Hooks.on("hotbarDrop", (bar, data, slot) => createItemMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => {
+    if (data.type !== "Item") return;
+    // Only owned Items get an item macro; leave anything else to the core hotbar.
+    const item = foundry.utils.fromUuidSync(data.uuid, { strict: false });
+    if (!item?.isEmbedded) return;
+    createItemMacro(item, slot);
+    return false;
+  });
 });
 
 /* -------------------------------------------- */
@@ -129,17 +151,13 @@ Hooks.once("ready", async function() {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
+ * @param {Item} item       The dropped owned Item
  * @param {number} slot     The hotbar slot to use
  * @returns {Promise}
  */
-async function createItemMacro(data, slot) {
-  if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
-
+async function createItemMacro(item, slot) {
   // Create the macro command
-  const command = `game.shiver.rollItemMacro("${item.name}");`;
+  const command = `game.shiver.rollItemMacro(${JSON.stringify(item.name)});`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -150,8 +168,7 @@ async function createItemMacro(data, slot) {
       flags: { "shiver.itemMacro": true }
     });
   }
-  game.user.assignHotbarMacro(macro, slot);
-  return false;
+  return game.user.assignHotbarMacro(macro, slot);
 }
 
 /**
