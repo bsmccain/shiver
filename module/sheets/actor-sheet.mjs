@@ -23,6 +23,19 @@ const ACTOR_TABS = {
 };
 
 /**
+ * Wrap a sheet action so that it does nothing unless the sheet is editable. Observers can still view items and their
+ * descriptions, but can't change the actor, roll for it, or post its items to chat.
+ * @param {Function} handler    The action handler
+ * @returns {Function}
+ */
+function editableOnly(handler) {
+  return function(event, target) {
+    if ( !this.isEditable ) return;
+    return handler.call(this, event, target);
+  };
+}
+
+/**
  * The Actor sheet used for both characters and NPCs.
  * @extends {ActorSheetV2}
  */
@@ -35,14 +48,14 @@ export class shiverActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: { resizable: true },
     form: { submitOnChange: true },
     actions: {
-      createItem: shiverActorSheet.#onCreateItem,
       editItem: shiverActorSheet.#onEditItem,
-      deleteItem: shiverActorSheet.#onDeleteItem,
-      itemToChat: shiverActorSheet.#onItemToChat,
       toggleDescription: shiverActorSheet.#onToggleDescription,
-      roll: shiverActorSheet.#onRoll,
-      setFear: shiverActorSheet.#onSetFear,
-      manageEffect: shiverActorSheet.#onManageEffect
+      createItem: editableOnly(shiverActorSheet.#onCreateItem),
+      deleteItem: editableOnly(shiverActorSheet.#onDeleteItem),
+      itemToChat: editableOnly(shiverActorSheet.#onItemToChat),
+      roll: editableOnly(shiverActorSheet.#onRoll),
+      setFear: editableOnly(shiverActorSheet.#onSetFear),
+      manageEffect: editableOnly(shiverActorSheet.#onManageEffect)
     }
   };
 
