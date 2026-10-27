@@ -3,7 +3,7 @@
   "name": "shiver",
   "title": "Shiver",
   "description": "This is a game system to support the Shiver game by https://www.parablegames.co.uk/ SHIVER and all associated names is copyright of Parable Games LTD --- This product is an independent production and is not affiliated with Parable Games LTD. It is published under the SHIVER Third Party License. Currently, it implements Character Sheet, Npc Sheet, Items, and unique Dice.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14.369"
@@ -40,8 +40,8 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
-  "url": "https://github.com/tomski80/shiver",
-  "manifest": "https://github.com/tomski80/shiver/releases/download/v0.3.0-beta.1/system.json",
-  "download": "https://github.com/tomski80/shiver/releases/download/v0.3.0-beta.1/shiver.zip",
+  "url": "https://github.com/bsmccain/shiver",
+  "manifest": "https://github.com/bsmccain/shiver/releases/latest/download/system.json",
+  "download": "https://github.com/bsmccain/shiver/releases/download/v0.4.0/shiver.zip",
   "license": "LICENSE.txt"
 }
