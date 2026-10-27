@@ -4,10 +4,19 @@
 
 .window-content {
   background: $c-lightgray;
+  padding: 8px;
+
+  // The sheet's template part fills the window.
+  > div {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .sheet-header {
-  flex: 0 auto;
+  flex: 0 0 auto;
   overflow: hidden;
   display: flex;
   flex-direction: row;
@@ -41,7 +50,7 @@
 }
 
 .sheet-tabs {
-  flex: 0;
+  flex: 0 0 auto;
 }
 
 nav.tabs {
@@ -49,9 +58,14 @@ nav.tabs {
   border-top: 3px solid $c-black;
 }
 
-.sheet-body,
+.sheet-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
 .sheet-body .tab,
-.sheet-body .tab .editor {
+.sheet-body .tab prose-mirror {
   height: 100%;
 }
 
@@ -68,15 +82,6 @@ nav.tabs {
   margin: auto;
 }
 
-.tox {
-  .tox-editor-container {
-    background: $c-white;
-  }
-
-  .tox-edit-area {
-    padding: 0 8px;
-  }
-}
 
 .lifeline {
  width: 360px;
@@ -226,6 +231,10 @@ nav.tabs {
   color: $c-white;
   font-weight: bold;
   text-transform: uppercase;
+
+  h4 {
+    color: inherit;
+  }
 }
 
 .trait-controls {

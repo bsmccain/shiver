@@ -1,10 +1,10 @@
-<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+<div class="{{actor.type}} flexcol">
 
   
   {{!-- Sheet Header --}}
   <header class="sheet-header ">
 
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
 
     <div class="header-fields grid grid-8col">
 
@@ -14,7 +14,7 @@
       </div>
 
       <div class="grid-span-3 resource-content">
-        <input name="system.type" type="text" value="{{system.type}}" placeholder="Type"/></h3>
+        <input name="system.type" type="text" value="{{system.type}}" placeholder="Type"/>
         <label for="system.type" class="resource-label">Type</label>
       </div>
 
@@ -36,7 +36,7 @@
       </div>
 
       <div>
-        <input name="system.speed.value" type="Number" value="{{system.speed.value}}" placeholder="20"/></h3>
+        <input name="system.speed.value" type="number" value="{{system.speed.value}}" placeholder="20"/>
         <label for="Speed" class="resource-label">Speed</label>
       </div>
 
@@ -48,12 +48,12 @@
       </div>
 
       <div class="resource grid-span-2">
-        <input class="health" type="Number" name="system.hp.max" value="{{system.hp.max}}" data-dtype="Number" data-target="system.hp.max"/>
+        <input class="health" type="number" name="system.hp.max" value="{{system.hp.max}}"/>
         <label for="system.hp.max" class="resource-label">HP Max</label>
       </div>
       
       <div class="resource grid-span-2">
-        <input class="health" type="Number" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number" data-target="system.hp.value"/>
+        <input class="health" type="number" name="system.hp.value" value="{{system.hp.value}}"/>
         <label for="system.hp.value" class="resource-label">HP</label>
       </div>
 
@@ -75,18 +75,17 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="abilities">Abilities</a>
-    <a class="item" data-tab="attacks">Attacks</a>
-    <a class="item" data-tab="effects">Effects</a>
+    {{!-- Tabs are specified in actor-sheet.mjs --}}
+    {{#each tabs as |tab|}}
+    <a class="item {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
+    {{/each}}
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
     {{!-- description Tab --}}
-    <div class="tab description" data-group="primary" data-tab="description">
+    <div class="tab description {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
 
       <!-- Skills and Talents -->
       <div class="">
@@ -98,16 +97,17 @@
 
             <div class="">
               <div class="grid grid-6col flex-group-center">
-                {{#each system.skills as |skill key|}}
+                {{#each skills as |skill|}}
                 <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{skill.img}}" title="system.skills.{{key}}.img" height="50" width="50" 
-                    data-skillRoll="{{key}}" 
-                    data-skilldice="{{skill.value}}" 
-                    data-talentdice="0"/> 
-                  <span class="skill-text">{{key}}</span>
+                  <img class="skill-img rollable" src="{{skill.img}}" title="{{skill.label}}" height="50" width="50"
+                    data-action="roll"
+                    data-skill="{{skill.key}}"
+                    data-skill-dice="{{skill.value}}"
+                    data-talent-dice="0"/>
+                  <span class="skill-text">{{skill.label}}</span>
                   <hr>
                   <div class="header-fields">
-                    <input class="skill-text" type="text" name="system.skills.{{key}}.value" value="{{skill.value}}" data-dtype="Number"/> 
+                    <input class="skill-text" type="text" name="system.skills.{{skill.key}}.value" value="{{skill.value}}" data-dtype="Number"/>
                   </div>
                 </div>
                 {{/each}}
@@ -118,25 +118,24 @@
       </div>
       
       <span>DESCRIPTION</span>
-      {{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
-      {{editor description target="system.description"  button=true editable=editable}}
+      {{formInput systemFields.description value=system.description enriched=description toggled=true}}
     </div>
 
-    {{!-- Owned Items Tab --}}
-    <div class="tab abilities" data-group="primary" data-tab="abilities">
+    {{!-- Traits Tab --}}
+    <div class="tab abilities {{tabs.abilities.cssClass}}" data-group="primary" data-tab="abilities">
        {{> "systems/shiver/templates/actor/parts/actor-traits.html"}}
     </div>
 
-    {{!-- Owned Items Tab --}}
-    <div class="tab attacks" data-group="primary" data-tab="attacks">
+    {{!-- Attacks Tab --}}
+    <div class="tab attacks {{tabs.attacks.cssClass}}" data-group="primary" data-tab="attacks">
        {{> "systems/shiver/templates/actor/parts/actor-attacks.html"}}
     </div>
 
     {{!-- Active Effects Tab --}}
-    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+    <div class="tab effects flexcol {{tabs.effects.cssClass}}" data-group="primary" data-tab="effects">
       {{> "systems/shiver/templates/actor/parts/actor-effects.html"}}
     </div>
 
   </section>
-</form>
+</div>
 
