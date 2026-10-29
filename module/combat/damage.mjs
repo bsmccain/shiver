@@ -486,3 +486,11 @@ registerGMOperation("claimSave", async ({ messageId, index }) => serialize(`chec
   await message.update({ "flags.shiver.damage.rolledSaves": [...rolled, index] });
   return true;
 }));
+
+// A save whose roll didn't happen (its dialog was cancelled) can be rolled again.
+registerGMOperation("releaseSave", async ({ messageId, index }) => serialize(`check.${messageId}`, async () => {
+  const message = game.messages.get(messageId);
+  const rolled = message?.getFlag("shiver", "damage")?.rolledSaves ?? [];
+  if ( rolled.includes(index) ) await message.update({ "flags.shiver.damage.rolledSaves": rolled.filter(i => i !== index) });
+  return true;
+}));

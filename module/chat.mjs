@@ -122,7 +122,12 @@ async function onAction(message, action, data) {
       const claimed = await asGM("claimSave", { messageId: message.id, index: Number(data.index) });
       if ( claimed === false ) return ui.notifications.warn("shiver.Warn.AlreadyRolled", { localize: true });
       const attacker = dmg.attackerUuid ? await fromUuid(dmg.attackerUuid) : null;
-      return rollSave(actor, save, attacker);
+      const result = await rollSave(actor, save, attacker);
+      // The roll dialog was cancelled: the save can still be rolled from this card.
+      if ( !result && save.skill && !actor.system.immunities?.has(save.status) ) {
+        await asGM("releaseSave", { messageId: message.id, index: Number(data.index) });
+      }
+      return result;
     }
 
     case "deathsDoorRoll": {

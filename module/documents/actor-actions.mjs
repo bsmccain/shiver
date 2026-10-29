@@ -107,6 +107,9 @@ export const ActorActions = {
       });
     }
     const name = game.i18n.localize(`shiver.Status.${statusId}`);
+    // A check that names two Core Skills ("CR 1 Grit/Wit Check" for Burning) is a Combined Skill Check (p.12, p.220):
+    // one skill's Dice Pool, and both skills' symbols count. The dialog shows the combined skill as a checkbox, so a
+    // table that reads it as "Grit or Wit" can untick it.
     const message = await ShiverCheck.prompt({
       actor: this, skill, type: "removal", cr: removal.opposed ? null : removal.cr,
       tags: ["removeStatus"], combined: skills.filter(s => s !== skill),
