@@ -1,0 +1,63 @@
+{
+  "_id": "65WhJwk9aaTIZn5Z",
+  "_key": "!items!65WhJwk9aaTIZn5Z",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 3006,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Improviser",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Make an improvised melee weapon from materials at hand with a Smarts Check; the Smarts symbols rolled set its quality (Improvised Weapon, p136: Smarts, Close, Tier 1/2/3 = 2/4/6 Sharp). It can Malfunction (p132): if you fail a Strike with it and roll at least 1 Strange symbol, it may break or backfire.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.45</em></p>",
+    "summary": "Make an improvised melee weapon from materials at hand with a Smarts Check; the Smarts symbols rolled set its quality (Improvised Weapon, p136: Smarts, Close, Tier 1/2/3 = 2/4/6 Sharp). It can Malfunction (p132): if you fail a Strike with it and roll at least 1 Strange symbol, it may break or backfire.",
+    "archetype": "scholar",
+    "node": "scholar-improviser",
+    "path": "engineer",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "scholar-barricade"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "onSuccess": "Make an Improvised Weapon; its tier equals the Smarts symbols rolled (max Tier 3).",
+        "onFail": "Nothing usable."
+      },
+      {
+        "kind": "custom",
+        "note": "Smarts symbols: 1 = Tier 1 (2 Sharp), 2 = Tier 2 (4 Sharp), 3+ = Tier 3 (6 Sharp). Add the matching Improvised Weapon (Tier N) item (Smarts, Close). It Malfunctions only when you fail a Strike with it and roll at least 1 Strange symbol; then roll on the p132 table. It may break or backfire."
+      }
+    ],
+    "page": 45,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-improviser"
+    }
+  }
+}

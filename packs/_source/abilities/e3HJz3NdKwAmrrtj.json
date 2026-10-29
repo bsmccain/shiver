@@ -1,0 +1,56 @@
+{
+  "_id": "e3HJz3NdKwAmrrtj",
+  "_key": "!items!e3HJz3NdKwAmrrtj",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 4008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mad Scientist",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, roll 1 Skill Die to brew a throwable flask: Grit = Molotov (p147), Wit = Oil Flask (p148), Smarts = Acid Flask (p146), Heart = Sunlight Flask (p148), Luck = your choice. Strange = the experiment backfires and you take 2 Blunt damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.46</em></p>",
+    "summary": "Once per Doom Quarter, roll 1 Skill Die to brew a throwable flask: Grit = Molotov (p147), Wit = Oil Flask (p148), Smarts = Acid Flask (p146), Heart = Sunlight Flask (p148), Luck = your choice. Strange = the experiment backfires and you take 2 Blunt damage.",
+    "archetype": "scholar",
+    "node": "scholar-mad-scientist",
+    "path": "academic",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "scholar-specialist-subject"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Roll 1 Skill Die: Grit Molotov, Wit Oil Flask, Smarts Acid Flask, Heart Sunlight Flask, Luck any of these; add the flask to your gear. Strange: no flask and you take 2 Blunt damage."
+      }
+    ],
+    "page": 46,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-mad-scientist"
+    }
+  }
+}

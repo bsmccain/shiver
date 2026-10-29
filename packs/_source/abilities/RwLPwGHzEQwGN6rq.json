@@ -1,0 +1,84 @@
+{
+  "_id": "RwLPwGHzEQwGN6rq",
+  "_key": "!items!RwLPwGHzEQwGN6rq",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 7021,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Juicy Bait",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>An enemy trying to Strike an ally within Near Range (15 ft) of you must first make a Smarts Check against your CR. If it fails, it must Strike you instead, and your allies treat it as Weakened until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "An enemy trying to Strike an ally within Near Range (15 ft) of you must first make a Smarts Check against your CR. If it fails, it must Strike you instead, and your allies treat it as Weakened until your next Combat Turn.",
+    "archetype": "warrior",
+    "node": "warrior-juicy-bait",
+    "path": "protector",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "warrior-natural-toughness"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "save": {
+          "skill": "smarts",
+          "cr": 1
+        },
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Your CR is 1"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "save": {
+          "skill": "smarts",
+          "cr": 2
+        },
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Your CR is 2 (e.g. Steeled)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "When an enemy tries to Strike an ally near you, target it, use this ability and click the button for your current CR to roll its Smarts save. If it fails, it must Strike you instead. Weakened ends when your next Combat Turn starts. It is meant to help only your allies."
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-juicy-bait"
+    }
+  }
+}

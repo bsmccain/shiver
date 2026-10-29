@@ -1,0 +1,51 @@
+{
+  "_id": "TfDhwA9BaNfzXxQA",
+  "_key": "!items!TfDhwA9BaNfzXxQA",
+  "folder": null,
+  "sort": 14,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Improvised Weapon (Tier 2)",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 4 Sharp; Close (5 ft). Middle of 3 quality tiers (Tier 1: 2 Sharp, Tier 3: 6 Sharp). Built with the Improviser ability (p45), whose Smarts symbols set the tier. It Malfunctions (p132).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.136</em></p>",
+    "summary": "Smarts; 4 Sharp; Close (5 ft). Middle of 3 quality tiers (Tier 1: 2 Sharp, Tier 3: 6 Sharp). Built with the Improviser ability (p45), whose Smarts symbols set the tier. It Malfunctions (p132).",
+    "page": 136,
+    "category": "melee",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "malfunctions"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Malfunctions (p132): the system rolls the Malfunction die after each attack and applies Jammed, Stumble's Prone and Backfire's half damage to you. Clear Jammed with the Reload button. Unjamming costs your next Move Action, but the button marks an Interact Action, so correct the action tracker. Handle the rest by hand: Stumble also makes the attack miss, Lowered Guard (Wit) gives the next attack against you Major Advantage, and Break (Smarts) halves its damage until repaired. Improviser (p45) adds that a failed Strike showing a Strange symbol can break or backfire it."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "improvised-weapon-tier-2"
+    }
+  }
+}

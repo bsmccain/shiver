@@ -1,0 +1,101 @@
+{
+  "_id": "XvBGqbYtV7BmZU2y",
+  "_key": "!items!XvBGqbYtV7BmZU2y",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 6017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dissect",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>When you Strike an enemy with damage it is Weak to, roll your Smarts Pool. If you match or beat its CR, apply Blinded, Paralysed or Stunned to it (your choice).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "When you Strike an enemy with damage it is Weak to, roll your Smarts Pool. If you match or beat its CR, apply Blinded, Paralysed or Stunned to it (your choice).",
+    "archetype": "scholar",
+    "node": "scholar-dissect",
+    "path": "healer",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "scholar-core-plus-healer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "label": "Blinded",
+        "onSuccess": "The targeted enemy is Blinded.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "blinded",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "label": "Paralysed",
+        "onSuccess": "The targeted enemy is Paralysed.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "paralysed",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "label": "Stunned",
+        "onSuccess": "The targeted enemy is Stunned.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "stunned",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Use when your Strike would deal damage the enemy is Weak to; it costs no action. The three Roll buttons are Blinded, Paralysed and Stunned, in that order: roll only the one you want. Keep the enemy targeted and set the CR to its CR (or leave it for the Director)."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-dissect"
+    }
+  }
+}

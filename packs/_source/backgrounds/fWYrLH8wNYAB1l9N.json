@@ -1,0 +1,84 @@
+{
+  "_id": "fWYrLH8wNYAB1l9N",
+  "_key": "!items!fWYrLH8wNYAB1l9N",
+  "folder": null,
+  "sort": 20,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Harbinger",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Game Over Man!.</strong> OPDQ: roll your Luck Pool. If you roll more Luck than Strange symbols, the Director gives guidance on where danger may lurk. If not, you may stumble onto something deadly or get bad advice.</p><p><strong>Morbid (Flaw).</strong> Lose 1 Skill Die on all Fear Checks and on any Check that would make you Afraid or Terrified.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.89</em></p>",
+    "page": 89,
+    "abilityName": "Game Over Man!",
+    "abilitySummary": "OPDQ: roll your Luck Pool. If you roll more Luck than Strange symbols, the Director gives guidance on where danger may lurk. If not, you may stumble onto something deadly or get bad advice.",
+    "abilityDescription": "<p>OPDQ: roll your Luck Pool. If you roll more Luck than Strange symbols, the Director gives guidance on where danger may lurk. If not, you may stumble onto something deadly or get bad advice.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "Game Over Man!",
+        "onSuccess": "More Luck than Strange symbols: the Director hints where danger may lurk.",
+        "onFail": "Otherwise you may stumble onto something deadly, or get bad advice."
+      },
+      {
+        "kind": "custom",
+        "note": "No CR: compare the Luck symbols rolled with the Strange symbols rolled."
+      }
+    ],
+    "flawName": "Morbid",
+    "flawSummary": "Lose 1 Skill Die on all Fear Checks and on any Check that would make you Afraid or Terrified.",
+    "flawDescription": "<p>Lose 1 Skill Die on all Fear Checks and on any Check that would make you Afraid or Terrified.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Morbid",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "fear"
+          ],
+          "label": "Fear Check"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "label": "Morbid",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "fear",
+            "attack"
+          ],
+          "manual": true,
+          "label": "Failing would make you Afraid or Terrified"
+        }
+      }
+    ],
+    "archetype": "fool"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-harbinger"
+    }
+  }
+}

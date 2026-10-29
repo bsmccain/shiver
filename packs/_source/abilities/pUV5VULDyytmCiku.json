@@ -1,0 +1,103 @@
+{
+  "_id": "pUV5VULDyytmCiku",
+  "_key": "!items!pUV5VULDyytmCiku",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 1002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Telekinesis",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Move an object with a Strange Check (CR set by its size); Doom +1 on success. Or, as an Attack Action against a Large or smaller enemy, make an Opposed Strange Check vs its Grit: on a win, move or throw it 30 ft in any direction, dealing falling damage (30 ft = 3 Blunt). Doom +2 on success against an enemy.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.63</em></p>",
+    "summary": "Move an object with a Strange Check (CR set by its size); Doom +1 on success. Or, as an Attack Action against a Large or smaller enemy, make an Opposed Strange Check vs its Grit: on a win, move or throw it 30 ft in any direction, dealing falling damage (30 ft = 3 Blunt). Doom +2 on success against an enemy.",
+    "archetype": "weird",
+    "node": "weird-telekinesis",
+    "path": "psionic",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Move an object (CR by its size)",
+        "onSuccess": "The object moves. Doom +1.",
+        "onFail": "Nothing moves.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Move a targeted enemy 30 ft (opposed vs its Grit)",
+        "onSuccess": "Move the enemy up to 30 ft in any direction. Doom +2.",
+        "onFail": "The enemy doesn't move.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Throw a targeted enemy 30 ft (opposed vs its Grit)",
+        "onSuccess": "Throw the enemy 30 ft; it takes 3 Blunt falling damage. Doom +2.",
+        "onFail": "The enemy doesn't move.",
+        "success": [
+          {
+            "kind": "damage",
+            "amount": 3,
+            "type": "blunt",
+            "target": "enemy",
+            "strike": false
+          },
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Using it on an enemy (Large or smaller only) takes your Attack Action instead of an Interact Action; the Director rolls the enemy's Grit and sets the CR so you need more successes."
+      }
+    ],
+    "page": 63,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-telekinesis"
+    }
+  }
+}

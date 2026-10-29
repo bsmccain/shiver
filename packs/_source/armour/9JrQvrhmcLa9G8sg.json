@@ -1,0 +1,54 @@
+{
+  "_id": "9JrQvrhmcLa9G8sg",
+  "_key": "!items!9JrQvrhmcLa9G8sg",
+  "folder": null,
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bomb Disposal Suit",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>3 Armour Slots. Bombproof: you are Resistant to Fire and Blunt damage and Immune to Burning. Heavy: your Speed drops one tier while it is equipped.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.151</em></p>",
+    "summary": "3 Armour Slots. Bombproof: you are Resistant to Fire and Blunt damage and Immune to Burning. Heavy: your Speed drops one tier while it is equipped.",
+    "page": 151,
+    "slots": 3,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2,
+      2
+    ],
+    "heavy": true,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Bombproof, Heavy",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "fire",
+          "blunt"
+        ]
+      },
+      {
+        "kind": "immunity",
+        "types": [
+          "burning"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bomb-disposal-suit"
+    }
+  }
+}

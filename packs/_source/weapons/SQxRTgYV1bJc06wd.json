@@ -1,0 +1,44 @@
+{
+  "_id": "SQxRTgYV1bJc06wd",
+  "_key": "!items!SQxRTgYV1bJc06wd",
+  "folder": null,
+  "sort": 41,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Longbow",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 2 Pierce; Long (150 ft). No special ability.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.142</em></p>",
+    "summary": "Wit; 2 Pierce; Long (150 ft). No special ability.",
+    "page": 142,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "long",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "longbow"
+    }
+  }
+}

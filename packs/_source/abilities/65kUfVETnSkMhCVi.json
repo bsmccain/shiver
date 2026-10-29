@@ -1,0 +1,63 @@
+{
+  "_id": "65kUfVETnSkMhCVi",
+  "_key": "!items!65kUfVETnSkMhCVi",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Medic!",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, make a CR 1 Smarts Check. On a success, heal yourself or an ally for 2 wounds, plus 1 more wound for each Smarts symbol beyond the first.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.44</em></p>",
+    "summary": "Once per Doom Quarter, make a CR 1 Smarts Check. On a success, heal yourself or an ally for 2 wounds, plus 1 more wound for each Smarts symbol beyond the first.",
+    "archetype": "scholar",
+    "node": "scholar-medic",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "heal",
+        "skill": "smarts",
+        "amount": 2,
+        "perSymbol": 1,
+        "freeSymbols": 1,
+        "cr": 1,
+        "target": "ally"
+      },
+      {
+        "kind": "custom",
+        "note": "Target an ally's token to heal them; with no target you heal yourself."
+      }
+    ],
+    "page": 44,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-medic"
+    }
+  }
+}

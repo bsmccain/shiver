@@ -1,0 +1,71 @@
+{
+  "_id": "Zjo0YIav1UI9cbZS",
+  "_key": "!items!Zjo0YIav1UI9cbZS",
+  "folder": null,
+  "sort": 53,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stake Rifle",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 3 Pierce; Long (150 ft). Pinned: a Large or smaller enemy it hits can&#39;t Move until it spends its Interact Action pulling the stake out, taking 1 wound. Vampire Slayer: after a Critical Hit on a Vampyric enemy of CR 2 or lower, roll a CR 2 Luck Check; on a success it dies outright.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.145</em></p>",
+    "summary": "Wit; 3 Pierce; Long (150 ft). Pinned: a Large or smaller enemy it hits can't Move until it spends its Interact Action pulling the stake out, taking 1 wound. Vampire Slayer: after a Critical Hit on a Vampyric enemy of CR 2 or lower, roll a CR 2 Luck Check; on a success it dies outright.",
+    "page": 145,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "long",
+    "properties": [
+      "pinned",
+      "vampireSlayer"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "immobile",
+        "note": "Pinned: the target is Immobile until it spends its Interact Action removing the projectile, which gives it 1 wound. Only Large or smaller enemies are pinned, so remove Immobile from anything bigger."
+      },
+      {
+        "kind": "onHit",
+        "note": "Vampire Slayer: if this was a Critical Hit on a Vampyric enemy of CR 2 or lower, keep it targeted, post this weapon to chat and roll its CR 2 Luck Check. On a success the enemy is slain instantly."
+      },
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": 2,
+        "label": "Vampire Slayer (after a Critical Hit on a Vampyric enemy of CR 2 or lower)",
+        "onSuccess": "The targeted enemy is slain instantly.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "dead",
+            "target": "enemy"
+          }
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "stake-rifle"
+    }
+  }
+}

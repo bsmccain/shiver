@@ -1,0 +1,81 @@
+{
+  "_id": "6AG1pK4evlbunomk",
+  "_key": "!items!6AG1pK4evlbunomk",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 9028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Buff Tonic",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, roll a CR 1 Smarts Check. On a success, an ally of your choice is Steeled until the Combat Encounter ends; only one target can have it at a time. On a failure, the enemy closest to you is Steeled instead.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "Once per Doom Quarter, roll a CR 1 Smarts Check. On a success, an ally of your choice is Steeled until the Combat Encounter ends; only one target can have it at a time. On a failure, the enemy closest to you is Steeled instead.",
+    "archetype": "scholar",
+    "node": "scholar-buff-tonic",
+    "path": "healer",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "scholar-natural-selection"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "onSuccess": "The targeted ally is Steeled until the Combat Encounter ends.",
+        "onFail": "The enemy closest to you is Steeled until the Combat Encounter ends.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "steeled",
+            "target": "ally",
+            "until": "encounter"
+          }
+        ]
+      },
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "enemy",
+        "until": "encounter",
+        "when": {
+          "manual": true,
+          "label": "Tonic failed (closest enemy)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Target the ally before rolling; on a success they are Steeled until combat ends. On a failure, target the enemy closest to you and click the 'Tonic failed' button. Only one creature can have the tonic at a time, so remove it from the previous one."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-buff-tonic"
+    }
+  }
+}

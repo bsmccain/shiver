@@ -1,0 +1,58 @@
+{
+  "_id": "9i5cnhgUagvz63GL",
+  "_key": "!items!9i5cnhgUagvz63GL",
+  "folder": null,
+  "sort": 11,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Study Pills",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>High Alert (OPDC): +1 Core Skill Point in Wit and in Smarts until the next Doom Event, but you have Major Disadvantage on Fear Checks.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.160</em></p>",
+    "summary": "High Alert (OPDC): +1 Core Skill Point in Wit and in Smarts until the next Doom Event, but you have Major Disadvantage on Fear Checks.",
+    "page": 160,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "opdc",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": [
+          "wit",
+          "smarts"
+        ],
+        "d6": 1,
+        "d8": 0,
+        "when": {
+          "manual": true,
+          "label": "High Alert: Study Pills taken (until the next Doom Event)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Until the Doom Clock reaches its next quarter mark (Doom Event), tick the High Alert bonus on Wit and Smarts Checks and add Major Disadvantage to your Fear Checks in the roll dialog."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "study-pills"
+    }
+  }
+}

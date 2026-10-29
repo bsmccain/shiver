@@ -1,0 +1,64 @@
+{
+  "_id": "cQ98YSudRA9bjVJE",
+  "_key": "!items!cQ98YSudRA9bjVJE",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 2004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Blood Magic",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>After a successful Strike you may make a Strange Check with CR equal to the struck enemy&#39;s CR. Heal 1 wound per Strange symbol rolled above that CR; Doom +1 per wound healed.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "After a successful Strike you may make a Strange Check with CR equal to the struck enemy's CR. Heal 1 wound per Strange symbol rolled above that CR; Doom +1 per wound healed.",
+    "archetype": "weird",
+    "node": "weird-blood-magic",
+    "path": "eldritch",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "weird-madness"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "After a successful Strike (CR = the struck enemy's CR)",
+        "onSuccess": "Heal 1 wound per Strange symbol above the enemy's CR; Doom +1 per wound healed.",
+        "onFail": "No healing."
+      },
+      {
+        "kind": "custom",
+        "note": "Optional, right after one of your Strikes hits; the Director sets the CR to the struck enemy's CR. Heal yourself 1 wound per Strange symbol above the CR and tick Doom +1 per wound healed, by hand (the amount depends on the margin)."
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-blood-magic"
+    }
+  }
+}

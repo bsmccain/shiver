@@ -1,0 +1,69 @@
+{
+  "_id": "Z8aaqYItTQ6FTQQF",
+  "_key": "!items!Z8aaqYItTQ6FTQQF",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 8026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Road Rage",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Vehicles you operate get +20 ft Move Distance, and you get +1 Talent Die on attacks made with vehicles.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "Vehicles you operate get +20 ft Move Distance, and you get +1 Talent Die on attacks made with vehicles.",
+    "archetype": "scholar",
+    "node": "scholar-road-rage",
+    "path": "engineer",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "scholar-talent-plus-engineer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "attack"
+          ],
+          "manual": true,
+          "label": "Attacking with a vehicle"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Vehicles you operate get +20 ft Move Distance."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-road-rage"
+    }
+  }
+}

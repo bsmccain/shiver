@@ -1,0 +1,64 @@
+{
+  "_id": "HjnHLIcWNot7x8lE",
+  "_key": "!items!HjnHLIcWNot7x8lE",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 10041,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Beast Mode",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ (the Director may swap this for another limit, such as moonlight only or a Doom Clock milestone). Transform into a creature that fits your character and use its profile: Dryad (p172), Kitsune (p173), Werewolf (p173) or a custom creature agreed with the Director. Doom +2 for each full Combat Turn you spend transformed.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.70</em></p>",
+    "summary": "OPDQ (the Director may swap this for another limit, such as moonlight only or a Doom Clock milestone). Transform into a creature that fits your character and use its profile: Dryad (p172), Kitsune (p173), Werewolf (p173) or a custom creature agreed with the Director. Doom +2 for each full Combat Turn you spend transformed.",
+    "archetype": "weird",
+    "node": "weird-beast-mode",
+    "path": "body-horror",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "weird-freakish-agility"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "doom",
+        "amount": 2,
+        "when": {
+          "manual": true,
+          "label": "Each full Combat Turn transformed"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Use the chosen creature's profile while transformed. Tick Doom +2 at the end of each full Combat Turn you spend as the creature."
+      }
+    ],
+    "page": 70,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-beast-mode"
+    }
+  }
+}

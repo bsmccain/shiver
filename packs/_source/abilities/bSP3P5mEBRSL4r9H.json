@@ -1,0 +1,56 @@
+{
+  "_id": "bSP3P5mEBRSL4r9H",
+  "_key": "!items!bSP3P5mEBRSL4r9H",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 6020,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Final Survivor",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>For each ally who dies during the story, add +1 Core Skill Point to a Core Skill of your choice for the rest of the story (maximum +3). If you are the last one left alive, also add +1 Talent Point to a chosen Core Skill.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "For each ally who dies during the story, add +1 Core Skill Point to a Core Skill of your choice for the rest of the story (maximum +3). If you are the last one left alive, also add +1 Talent Point to a chosen Core Skill.",
+    "archetype": "survivor",
+    "node": "survivor-final-survivor",
+    "path": "survivalist",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t5-talent-survivalist"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Each time an ally dies this story, add +1 Core Skill Point to a Core Skill of your choice by adding a skillPoints rule to this ability (at most 3 in total). If you are the last one left alive, also add +1 Talent Point to a Core Skill of your choice. Remove these bonuses when the story ends."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-final-survivor"
+    }
+  }
+}

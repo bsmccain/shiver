@@ -1,0 +1,71 @@
+{
+  "_id": "iDaHcUDwsCGGk9Hk",
+  "_key": "!items!iDaHcUDwsCGGk9Hk",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 10028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mutineer",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>OPDQ: roll a Heart Check with CR equal to an enemy&#39;s CR +1. On a success it fights for you until death and counts as a companion (p51). Only 1 Mutineer at a time; the Director adjusts its Core Skills and abilities to suit its power.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.54</em></p>",
+    "summary": "OPDQ: roll a Heart Check with CR equal to an enemy's CR +1. On a success it fights for you until death and counts as a companion (p51). Only 1 Mutineer at a time; the Director adjusts its Core Skills and abilities to suit its power.",
+    "archetype": "socialite",
+    "node": "socialite-mutineer",
+    "path": "charmer",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "socialite-allied-armour"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "label": "Target the enemy; CR = its CR +1",
+        "onSuccess": "The enemy is Beguiled: it fights on your side until death and is treated as a companion.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "beguiled",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "On a success the Director hands the Mutineer to you as a companion and adjusts its Core Skills and abilities to suit its power. You can have only 1 Mutineer at a time."
+      }
+    ],
+    "page": 54,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-mutineer"
+    }
+  }
+}

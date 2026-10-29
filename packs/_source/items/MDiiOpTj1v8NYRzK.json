@@ -1,0 +1,45 @@
+{
+  "_id": "MDiiOpTj1v8NYRzK",
+  "_key": "!items!MDiiOpTj1v8NYRzK",
+  "folder": null,
+  "sort": 8,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Holy Book",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Holy Protection: Demonic enemies have Major Disadvantage when they Strike you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.157</em></p>",
+    "summary": "Holy Protection: Demonic enemies have Major Disadvantage when they Strike you.",
+    "page": 157,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Holy Protection: when a Demonic enemy Strikes you, the Director gives it Major Disadvantage (-1 Talent Die, or -2 Skill Dice if it has no Talent Dice; minimum 1 die)."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "holy-book"
+    }
+  }
+}

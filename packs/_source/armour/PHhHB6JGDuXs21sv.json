@@ -1,0 +1,45 @@
+{
+  "_id": "PHhHB6JGDuXs21sv",
+  "_key": "!items!PHhHB6JGDuXs21sv",
+  "folder": null,
+  "sort": 7,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dragon-Hide Cape",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Hot Blooded: you are Resistant to Fire damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "1 Armour Slot. Hot Blooded: you are Resistant to Fire damage.",
+    "page": 152,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Hot Blooded",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "fire"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "dragon-hide-cape"
+    }
+  }
+}

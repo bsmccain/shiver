@@ -1,0 +1,78 @@
+{
+  "_id": "6BoaQqGowQ8f1usH",
+  "_key": "!items!6BoaQqGowQ8f1usH",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 10030,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Adrenaline Rush",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>When damage would send you to Death&#39;s Door or kill you, roll a Grit Check with CR equal to the number of Adrenaline Rush Checks made this Doom Cycle. On a success you are left on 1 Health Point instead.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "When damage would send you to Death's Door or kill you, roll a Grit Check with CR equal to the number of Adrenaline Rush Checks made this Doom Cycle. On a success you are left on 1 Health Point instead.",
+    "archetype": "warrior",
+    "node": "warrior-adrenaline-rush",
+    "path": "protector",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "warrior-iron-hide"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "grit",
+        "cr": null,
+        "label": "Adrenaline Rush (CR = checks this Doom Cycle)",
+        "onSuccess": "You are left on 1 Health Point instead.",
+        "onFail": "The damage applies as normal.",
+        "success": [
+          {
+            "kind": "removeStatus",
+            "status": "deathsDoor"
+          },
+          {
+            "kind": "removeStatus",
+            "status": "dead"
+          },
+          {
+            "kind": "setHealth",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Roll this after the damage takes you to 0 HP. Keep a count of Adrenaline Rush Checks this Doom Cycle, including this one, and use it as the CR, so the first is CR 1 and the second CR 2. The count resets when a new Doom Cycle starts. The 1 Health Point is set even if you are Cursed."
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-adrenaline-rush"
+    }
+  }
+}

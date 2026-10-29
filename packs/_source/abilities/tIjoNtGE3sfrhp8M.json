@@ -1,0 +1,63 @@
+{
+  "_id": "tIjoNtGE3sfrhp8M",
+  "_key": "!items!tIjoNtGE3sfrhp8M",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 2001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sneak Attack",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Your Stealth Strikes deal +2 damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "Your Stealth Strikes deal +2 damage.",
+    "archetype": "maverick",
+    "node": "maverick-sneak-attack",
+    "path": "assassin",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "maverick-dodge"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "damageBonus",
+        "amount": 2,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "status": "stealth",
+          "label": "Stealth Strike"
+        }
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-sneak-attack"
+    }
+  }
+}

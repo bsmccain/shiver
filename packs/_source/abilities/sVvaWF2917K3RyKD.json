@@ -1,0 +1,60 @@
+{
+  "_id": "sVvaWF2917K3RyKD",
+  "_key": "!items!sVvaWF2917K3RyKD",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 6014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Martial Artist",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Wit symbols count as successes on Grit Checks for Unarmed Strikes.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "Wit symbols count as successes on Grit Checks for Unarmed Strikes.",
+    "archetype": "warrior",
+    "node": "warrior-martial-artist",
+    "path": "berserker",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "warrior-core-plus-berserker"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraSuccessFaces",
+        "rollSkill": "grit",
+        "countsAs": [
+          "wit"
+        ],
+        "when": "unarmed"
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-martial-artist"
+    }
+  }
+}

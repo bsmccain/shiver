@@ -1,0 +1,78 @@
+{
+  "_id": "VZzI15Urh8fnar6E",
+  "_key": "!items!VZzI15Urh8fnar6E",
+  "folder": null,
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Hunter",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Tracker.</strong> +1 Talent Die when tracking or investigating.</p><p><strong>One Track Mind (Flaw).</strong> In a Combat Encounter you become obsessed with the enemy you target. Targeting a different enemy is at Minor Disadvantage until the obsession dies or is out of your view.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.83</em></p>",
+    "page": 83,
+    "abilityName": "Tracker",
+    "abilitySummary": "+1 Talent Die when tracking or investigating.",
+    "abilityDescription": "<p>+1 Talent Die when tracking or investigating.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Tracker",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Tracking or investigating"
+        }
+      }
+    ],
+    "flawName": "One Track Mind",
+    "flawSummary": "In a Combat Encounter you become obsessed with the enemy you target. Targeting a different enemy is at Minor Disadvantage until the obsession dies or is out of your view.",
+    "flawDescription": "<p>In a Combat Encounter you become obsessed with the enemy you target. Targeting a different enemy is at Minor Disadvantage until the obsession dies or is out of your view.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "One Track Mind",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "any": [
+            "strike",
+            "ability"
+          ],
+          "manual": true,
+          "label": "Targeting an enemy other than your obsession"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "The first enemy you target in a Combat Encounter is your obsession until it dies or leaves your view."
+      }
+    ],
+    "archetype": "maverick"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-hunter"
+    }
+  }
+}

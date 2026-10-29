@@ -1,0 +1,79 @@
+{
+  "_id": "XJdXjWO8uTneUU5s",
+  "_key": "!items!XJdXjWO8uTneUU5s",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 4007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Charge",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Spend an Attack Action to Charge an enemy within your Move Distance, ending next to it, then roll a Grit Check against its CR. On a success you Grapple it or knock it Prone, and deal damage as a successful Unarmed Strike, which is 3 Blunt with Furious Fists.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "Spend an Attack Action to Charge an enemy within your Move Distance, ending next to it, then roll a Grit Check against its CR. On a success you Grapple it or knock it Prone, and deal damage as a successful Unarmed Strike, which is 3 Blunt with Furious Fists.",
+    "archetype": "warrior",
+    "node": "warrior-charge",
+    "path": "berserker",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "warrior-furious-fists"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Charge: post Charge to chat from your sheet (speech-bubble icon) and click Grapple or Prone with the enemy targeted."
+      },
+      {
+        "kind": "applyStatus",
+        "status": "grappled",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Charge hit: Grapple it"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "prone",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Charge hit: knock it Prone"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Move your token next to the target, up to your Move Distance, as part of this Attack Action. Target the enemy and use this ability to roll the Grit Check against its CR. On a hit, post Charge to chat and click Grapple or Prone while the enemy is still targeted."
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "grit",
+      "damage": 3,
+      "damageType": "blunt",
+      "range": "close",
+      "unarmed": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-charge"
+    }
+  }
+}

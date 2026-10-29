@@ -1,0 +1,68 @@
+{
+  "_id": "0pHv03rGYzE7BaNZ",
+  "_key": "!items!0pHv03rGYzE7BaNZ",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 5014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Talent (Heart / Wit)",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>+1 Talent Point in Heart or Wit (your choice). Can be used to qualify for a hybrid (p78).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "+1 Talent Point in Heart or Wit (your choice). Can be used to qualify for a hybrid (p78).",
+    "archetype": "survivor",
+    "node": "survivor-t5-talent-leader",
+    "path": "leader",
+    "tier": 5,
+    "tree": true,
+    "prerequisites": [
+      "survivor-tactical-retreat"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "talentPoints",
+      "skills": [
+        "heart",
+        "wit"
+      ],
+      "amount": 1
+    },
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "choice",
+        "amount": 1
+      },
+      {
+        "kind": "custom",
+        "note": "When you unlock this node, pick Heart or Wit in the skill prompt (it lists every Core Skill)."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-t5-talent-leader"
+    }
+  }
+}

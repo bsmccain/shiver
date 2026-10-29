@@ -1,0 +1,73 @@
+{
+  "_id": "iUZrZDUiCp0Uf0jJ",
+  "_key": "!items!iUZrZDUiCp0Uf0jJ",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 10031,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Monster Serum",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, roll 1 Skill Die to turn into a monster: Grit = Corpse Titan (p191), Wit = Night Gaunt (p181), Smarts = Werewolf (p173), Heart = Dryad (p172), Strange = Abomination (p180), Luck = your choice. Each Combat Round you stay transformed, make a CR 3 Smarts Check; on a failure your form becomes unstable and you gain 1 wound.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "Once per Doom Quarter, roll 1 Skill Die to turn into a monster: Grit = Corpse Titan (p191), Wit = Night Gaunt (p181), Smarts = Werewolf (p173), Heart = Dryad (p172), Strange = Abomination (p180), Luck = your choice. Each Combat Round you stay transformed, make a CR 3 Smarts Check; on a failure your form becomes unstable and you gain 1 wound.",
+    "archetype": "scholar",
+    "node": "scholar-monster-serum",
+    "path": "academic",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "scholar-renaissance-man"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 3,
+        "label": "Stay stable",
+        "onSuccess": "Your form stays stable.",
+        "onFail": "Your form becomes unstable: take 1 wound.",
+        "failure": [
+          {
+            "kind": "damage",
+            "amount": 1,
+            "type": "blunt",
+            "target": "self",
+            "strike": false
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Roll 1 Skill Die for the form: Grit Corpse Titan, Wit Night Gaunt, Smarts Werewolf, Heart Dryad, Strange Abomination, Luck your choice. Roll the CR 3 Smarts Check from this card each Combat Round you stay transformed."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-monster-serum"
+    }
+  }
+}

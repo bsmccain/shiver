@@ -1,0 +1,72 @@
+{
+  "_id": "KzFOsuccgiCpeMPI",
+  "_key": "!items!KzFOsuccgiCpeMPI",
+  "folder": null,
+  "sort": 11,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Surgeon",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Surgical Strike.</strong> +1 Talent Die when attacking Humanoid enemies.</p><p><strong>Arrogant (Flaw).</strong> If you miss with a Strike, your next Strike is at Minor Disadvantage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.85</em></p>",
+    "page": 85,
+    "abilityName": "Surgical Strike",
+    "abilitySummary": "+1 Talent Die when attacking Humanoid enemies.",
+    "abilityDescription": "<p>+1 Talent Die when attacking Humanoid enemies.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Surgical Strike",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Attacking a Humanoid enemy"
+        }
+      }
+    ],
+    "flawName": "Arrogant",
+    "flawSummary": "If you miss with a Strike, your next Strike is at Minor Disadvantage.",
+    "flawDescription": "<p>If you miss with a Strike, your next Strike is at Minor Disadvantage.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Arrogant",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Your previous Strike missed"
+        }
+      }
+    ],
+    "archetype": "scholar"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-surgeon"
+    }
+  }
+}

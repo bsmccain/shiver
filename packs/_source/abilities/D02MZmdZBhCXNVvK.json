@@ -1,0 +1,65 @@
+{
+  "_id": "D02MZmdZBhCXNVvK",
+  "_key": "!items!D02MZmdZBhCXNVvK",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 9026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Imposing Presence",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Attack Action: every enemy within Medium Range (50 ft) makes a CR 2 Heart Check; those that fail become Afraid and flee out of that range. Until your next Combat Turn, an enemy must pass a Heart Check with CR equal to your CR to target you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "Attack Action: every enemy within Medium Range (50 ft) makes a CR 2 Heart Check; those that fail become Afraid and flee out of that range. Until your next Combat Turn, an enemy must pass a Heart Check with CR equal to your CR to target you.",
+    "archetype": "socialite",
+    "node": "socialite-imposing-presence",
+    "path": "provoker",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "socialite-talent-plus-provoker"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "afraid",
+        "target": "enemy",
+        "save": {
+          "skill": "heart",
+          "cr": 2
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Target every enemy within 50 ft before using this. Enemies that fail flee beyond 50 ft. Until your next Combat Turn, an enemy must pass a Heart Check with CR equal to your CR before it can target you."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-imposing-presence"
+    }
+  }
+}

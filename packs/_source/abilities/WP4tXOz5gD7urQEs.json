@@ -1,0 +1,70 @@
+{
+  "_id": "WP4tXOz5gD7urQEs",
+  "_key": "!items!WP4tXOz5gD7urQEs",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 3004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Worm-Tongue",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>+1 Talent Die when attempting to lie.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "+1 Talent Die when attempting to lie.",
+    "archetype": "survivor",
+    "node": "survivor-worm-tongue",
+    "path": "cockroach",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "survivor-play-dead"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "heart",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear",
+            "deathsDoor",
+            "heal",
+            "removeStatus",
+            "save"
+          ],
+          "manual": true,
+          "label": "Attempting to lie"
+        }
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-worm-tongue"
+    }
+  }
+}

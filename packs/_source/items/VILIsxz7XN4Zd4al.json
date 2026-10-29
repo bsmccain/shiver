@@ -1,0 +1,55 @@
+{
+  "_id": "VILIsxz7XN4Zd4al",
+  "_key": "!items!VILIsxz7XN4Zd4al",
+  "folder": null,
+  "sort": 12,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Strength Serum",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Strength Boost (OPDC): +2 Core Skill Points in Grit for the current Doom Quarter, but you have Major Disadvantage on Smarts Checks. From the sample adventure Corporate Risers.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.211</em></p>",
+    "summary": "Strength Boost (OPDC): +2 Core Skill Points in Grit for the current Doom Quarter, but you have Major Disadvantage on Smarts Checks. From the sample adventure Corporate Risers.",
+    "page": 211,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "opdc",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "grit",
+        "d6": 2,
+        "d8": 0,
+        "when": {
+          "manual": true,
+          "label": "Strength Boost: Strength Serum taken this Doom Quarter"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Until the Doom Clock enters the next quarter, tick the Strength Boost bonus on Grit Checks and add Major Disadvantage to your Smarts Checks in the roll dialog."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "strength-serum"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "scDrQwQ23HdTPEZb",
+  "_key": "!items!scDrQwQ23HdTPEZb",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 9025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dimwitted Defence",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When targeted by an attack you may roll up to as many Skill Dice as you have banked Luck Points. If any shows a Luck symbol you take no damage from that attack. Lose 1 banked Luck Point per die rolled, whatever the result.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "When targeted by an attack you may roll up to as many Skill Dice as you have banked Luck Points. If any shows a Luck symbol you take no damage from that attack. Lose 1 banked Luck Point per die rolled, whatever the result.",
+    "archetype": "fool",
+    "node": "fool-dimwitted-defence",
+    "path": "last-chancer",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "fool-talent-plus-last-chancer"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cost",
+        "luck": 1
+      },
+      {
+        "kind": "custom",
+        "note": "When targeted by an attack, choose N up to your banked Luck Points and roll N Skill Dice (/r Nds). Any Luck symbol: you take no damage from that attack. Click Use once per die rolled to pay 1 Luck Point each, whatever the result."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-dimwitted-defence"
+    }
+  }
+}

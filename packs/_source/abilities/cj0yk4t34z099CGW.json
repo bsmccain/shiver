@@ -1,0 +1,56 @@
+{
+  "_id": "cj0yk4t34z099CGW",
+  "_key": "!items!cj0yk4t34z099CGW",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Tough",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>When an attack hits you, roll 1 Skill Die. A Grit symbol reduces that attack&#39;s damage by 1.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.32</em></p>",
+    "summary": "When an attack hits you, roll 1 Skill Die. A Grit symbol reduces that attack's damage by 1.",
+    "archetype": "warrior",
+    "node": "warrior-tough",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "damageReductionRoll",
+        "dice": 1,
+        "face": "grit",
+        "when": "hit"
+      }
+    ],
+    "page": 32,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-tough"
+    }
+  }
+}

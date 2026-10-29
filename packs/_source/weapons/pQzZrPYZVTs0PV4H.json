@@ -1,0 +1,85 @@
+{
+  "_id": "pQzZrPYZVTs0PV4H",
+  "_key": "!items!pQzZrPYZVTs0PV4H",
+  "folder": null,
+  "sort": 67,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Smoke Bomb",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; no damage (N/A); Medium (50 ft). Obscure: smoke surrounds you for 2 Combat Rounds. You may Escape a Brawl at once with no penalty. Each enemy within 50 ft (Medium) must pass a CR 2 Wit Check or be Blinded until the start of your next Combat Turn. While inside the cloud you are Steeled and in Stealth.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.148</em></p>",
+    "summary": "Wit; no damage (N/A); Medium (50 ft). Obscure: smoke surrounds you for 2 Combat Rounds. You may Escape a Brawl at once with no penalty. Each enemy within 50 ft (Medium) must pass a CR 2 Wit Check or be Blinded until the start of your next Combat Turn. While inside the cloud you are Steeled and in Stealth.",
+    "page": 148,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 0,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "obscure"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self",
+        "rounds": 2,
+        "when": {
+          "manual": true,
+          "label": "Obscure: you are in the smoke cloud"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "stealth",
+        "target": "self",
+        "rounds": 2,
+        "when": {
+          "manual": true,
+          "label": "Obscure: you are in the smoke cloud"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "blinded",
+        "target": "enemy",
+        "save": {
+          "skill": "wit",
+          "cr": 2
+        },
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Obscure: enemies within 50 ft of you"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Obscure: don't Strike with it. Post the Smoke Bomb to chat, target the enemies within 50 ft and use its buttons: they save or are Blinded, and you gain Steeled and Stealth for the cloud's 2 Combat Rounds. You may Escape a Brawl at once with no free attacks against you. Remove Steeled and Stealth early if you leave the cloud, and mark the bomb as used."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "smoke-bomb"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_id": "g2rZjl8hu8hNBZwg",
+  "_key": "!items!g2rZjl8hu8hNBZwg",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 7019,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Chained Strike",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Once per Combat Turn, after a successful Strike on an enemy, you may make a second Strike at once. If that also succeeds, make a third Strike that deals double damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "Once per Combat Turn, after a successful Strike on an enemy, you may make a second Strike at once. If that also succeeds, make a third Strike that deals double damage.",
+    "archetype": "warrior",
+    "node": "warrior-chained-strike",
+    "path": "fighter",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "warrior-block"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "turn",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Chained Strike (third Strike)",
+        "damageMultiplier": 2,
+        "onHit": []
+      },
+      {
+        "kind": "custom",
+        "note": "Use once per Combat Turn after a Strike hits. The second Strike is a normal Strike. If it hits, roll the third in Chained Strike mode for double damage. Neither extra Strike costs an Action."
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-chained-strike"
+    }
+  }
+}

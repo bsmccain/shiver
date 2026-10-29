@@ -1,0 +1,16 @@
+{
+  "_id": "N6mUC325g5aCDBSS",
+  "_key": "!folders!N6mUC325g5aCDBSS",
+  "name": "The Survivor",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 700000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "o8XmWEw6w87vv6Ns",
+  "_key": "!items!o8XmWEw6w87vv6Ns",
+  "folder": null,
+  "sort": 16,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spectral Goggles",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Ghost Hunter: +1 Talent Die when tracking spirits. Spectre-vision: lets you see Spectral enemies, anything hidden on the astral plane and whatever else is invisible to the naked eye.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.160</em></p>",
+    "summary": "Ghost Hunter: +1 Talent Die when tracking spirits. Spectre-vision: lets you see Spectral enemies, anything hidden on the astral plane and whatever else is invisible to the naked eye.",
+    "page": 160,
+    "category": "tool",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Ghost Hunter: tracking a spirit"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Spectre-vision: you can see Spectral enemies, things hidden on the astral plane and anything else invisible to the naked eye."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "spectral-goggles"
+    }
+  }
+}

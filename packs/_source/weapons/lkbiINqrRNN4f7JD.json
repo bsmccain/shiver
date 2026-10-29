@@ -1,0 +1,58 @@
+{
+  "_id": "lkbiINqrRNN4f7JD",
+  "_key": "!items!lkbiINqrRNN4f7JD",
+  "folder": null,
+  "sort": 65,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Molotov Cocktail",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 4 Fire; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Highly Flammable: a Fire hit&#39;s save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1). Can be made with the Mad Scientist ability (p46).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.147</em></p>",
+    "summary": "Wit; 4 Fire; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Highly Flammable: a Fire hit's save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1). Can be made with the Mad Scientist ability (p46).",
+    "page": 147,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "explosive",
+      "highlyFlammable"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "saveOverride",
+        "damageType": "fire",
+        "cr": 2,
+        "value": 2
+      },
+      {
+        "kind": "onHit",
+        "note": "Explosive (C): this damage, and its effects, also hit every enemy within Close Range (5 ft) of the target."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "molotov-cocktail"
+    }
+  }
+}

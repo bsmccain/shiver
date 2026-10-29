@@ -1,0 +1,66 @@
+{
+  "_id": "jYkPItMywN5oA7Ag",
+  "_key": "!items!jYkPItMywN5oA7Ag",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 3006,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Back Off",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>After a successful Strike on an enemy that is in a Brawl with an ally, you may knock it back 10 ft in a direction you choose, which Escapes it from the Brawl. Each ally who was in that Brawl may immediately make an Attack Action against it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "After a successful Strike on an enemy that is in a Brawl with an ally, you may knock it back 10 ft in a direction you choose, which Escapes it from the Brawl. Each ally who was in that Brawl may immediately make an Attack Action against it.",
+    "archetype": "warrior",
+    "node": "warrior-back-off",
+    "path": "protector",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "warrior-get-behind-me"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Back Off",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "note": "Back Off: if this enemy is in a Brawl with an ally, you may knock it back 10 ft in a direction you choose, Escaping it from the Brawl. Each ally who was in that Brawl may make an immediate Attack Action against it."
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Pick the Back Off mode when you Strike an enemy that is brawling an ally, or apply it by hand after any other successful Strike. Move the enemy 10 ft and end the Brawl by hand. Allies who were in it each get an immediate Attack Action against it."
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-back-off"
+    }
+  }
+}

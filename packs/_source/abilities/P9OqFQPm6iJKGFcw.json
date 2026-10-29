@@ -1,0 +1,56 @@
+{
+  "_id": "P9OqFQPm6iJKGFcw",
+  "_key": "!items!P9OqFQPm6iJKGFcw",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 10028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Witless Warrior",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>All your weapon Strikes roll Luck in place of the weapon&#39;s Core Skill.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.60</em></p>",
+    "summary": "All your weapon Strikes roll Luck in place of the weapon's Core Skill.",
+    "archetype": "fool",
+    "node": "fool-witless-warrior",
+    "path": "last-chancer",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "fool-dimwitted-defence"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Tick Luck under Alternative Skills on each weapon's item sheet, then choose Luck in the Strike dialog. The Strike then rolls your Luck Pool, counts Luck symbols as successes and uses the Luck Critical Hit effect."
+      }
+    ],
+    "page": 60,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-witless-warrior"
+    }
+  }
+}

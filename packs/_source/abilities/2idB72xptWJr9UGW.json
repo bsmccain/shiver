@@ -1,0 +1,83 @@
+{
+  "_id": "2idB72xptWJr9UGW",
+  "_key": "!items!2idB72xptWJr9UGW",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 6024,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hungry",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Attack Action: an Unarmed Strike against an enemy that deals 2 Sharp and heals you 2 wounds. Each use costs Doom +2, and allies who can see you must pass a CR 1 Strange Check or become Afraid. OPDQ: feed on a dead enemy to heal 4 wounds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.66</em></p>",
+    "summary": "Attack Action: an Unarmed Strike against an enemy that deals 2 Sharp and heals you 2 wounds. Each use costs Doom +2, and allies who can see you must pass a CR 1 Strange Check or become Afraid. OPDQ: feed on a dead enemy to heal 4 wounds.",
+    "archetype": "weird",
+    "node": "weird-hungry",
+    "path": "body-horror",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "weird-core-plus-body-horror"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 2,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "onHit",
+        "heal": 2
+      },
+      {
+        "kind": "applyStatus",
+        "status": "afraid",
+        "target": "ally",
+        "save": {
+          "skill": "strange",
+          "cr": 1
+        },
+        "when": {
+          "manual": true,
+          "label": "Each use: every ally who can see you"
+        }
+      },
+      {
+        "kind": "heal",
+        "amount": 4,
+        "target": "self",
+        "when": {
+          "manual": true,
+          "label": "Feed on a dead enemy (OPDQ)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "After each use, every ally who can see you rolls Strange CR 1 or becomes Afraid (post this ability to chat, target them and use its Afraid button). Once per Doom Quarter you may instead feed on a dead enemy (no Strike) to heal 4 wounds; track that use yourself."
+      }
+    ],
+    "page": 66,
+    "attack": {
+      "skill": "grit",
+      "damage": 2,
+      "damageType": "sharp",
+      "range": "close",
+      "unarmed": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-hungry"
+    }
+  }
+}

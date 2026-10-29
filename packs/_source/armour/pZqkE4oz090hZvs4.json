@@ -1,0 +1,47 @@
+{
+  "_id": "pZqkE4oz090hZvs4",
+  "_key": "!items!pZqkE4oz090hZvs4",
+  "folder": null,
+  "sort": 17,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stealth Suit",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>2 Armour Slots. Stealthy: +1 Talent Die on Skill Checks to enter Stealth or to Hide.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.154</em></p>",
+    "summary": "2 Armour Slots. Stealthy: +1 Talent Die on Skill Checks to enter Stealth or to Hide.",
+    "page": 154,
+    "slots": 2,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Stealthy",
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": "stealth|hide"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "stealth-suit"
+    }
+  }
+}

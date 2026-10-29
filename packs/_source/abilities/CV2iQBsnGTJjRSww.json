@@ -1,0 +1,56 @@
+{
+  "_id": "CV2iQBsnGTJjRSww",
+  "_key": "!items!CV2iQBsnGTJjRSww",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 6014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Splash-Back",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When targeted by an attack you may roll 1 Skill Die. On a Luck symbol, half the Strike&#39;s damage (rounded down) is dealt to the attacker instead of you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "When targeted by an attack you may roll 1 Skill Die. On a Luck symbol, half the Strike's damage (rounded down) is dealt to the attacker instead of you.",
+    "archetype": "fool",
+    "node": "fool-splash-back",
+    "path": "last-chancer",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "fool-core-plus-last-chancer"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "When targeted by an attack, roll 1 Skill Die (/r 1ds). On a Luck symbol, half the Strike's damage (rounded down) goes to the attacker instead of you; the Director splits the damage."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-splash-back"
+    }
+  }
+}

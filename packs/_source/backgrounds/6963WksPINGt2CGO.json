@@ -1,0 +1,77 @@
+{
+  "_id": "6963WksPINGt2CGO",
+  "_key": "!items!6963WksPINGt2CGO",
+  "folder": null,
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Soldier",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Gun Nut.</strong> +1 Talent Die on Strikes with ranged weapons that aren&#39;t thrown.</p><p><strong>Superstitious (Flaw).</strong> Any Fear Check caused by an unnatural (non-human) creature fails automatically.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.81</em></p>",
+    "page": 81,
+    "abilityName": "Gun Nut",
+    "abilitySummary": "+1 Talent Die on Strikes with ranged weapons that aren't thrown.",
+    "abilityDescription": "<p>+1 Talent Die on Strikes with ranged weapons that aren&#39;t thrown.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Gun Nut",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike",
+            "ranged",
+            "weapon"
+          ],
+          "notTags": [
+            "thrown"
+          ],
+          "label": "Strike with a non-thrown ranged weapon"
+        }
+      }
+    ],
+    "flawName": "Superstitious",
+    "flawSummary": "Any Fear Check caused by an unnatural (non-human) creature fails automatically.",
+    "flawDescription": "<p>Any Fear Check caused by an unnatural (non-human) creature fails automatically.</p>",
+    "flawAutomation": [
+      {
+        "kind": "autoFail",
+        "label": "Superstitious",
+        "skill": "any",
+        "when": {
+          "tags": [
+            "fear"
+          ],
+          "notTags": [
+            "steady"
+          ],
+          "manual": true,
+          "label": "Fear Check caused by a non-human creature"
+        }
+      }
+    ],
+    "archetype": "warrior"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-soldier"
+    }
+  }
+}

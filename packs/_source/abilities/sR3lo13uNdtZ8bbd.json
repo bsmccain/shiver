@@ -1,0 +1,56 @@
+{
+  "_id": "sR3lo13uNdtZ8bbd",
+  "_key": "!items!sR3lo13uNdtZ8bbd",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 9025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Allied Armour",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Damage dealt to you is reduced by 1 for each ally within 5 ft of you (minimum 1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "Damage dealt to you is reduced by 1 for each ally within 5 ft of you (minimum 1).",
+    "archetype": "socialite",
+    "node": "socialite-allied-armour",
+    "path": "charmer",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "socialite-talent-plus-charmer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Reduce any damage dealt to you by 1 per ally within 5 ft (minimum 1)."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-allied-armour"
+    }
+  }
+}

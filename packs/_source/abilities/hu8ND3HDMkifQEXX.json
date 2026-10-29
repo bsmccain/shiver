@@ -1,0 +1,57 @@
+{
+  "_id": "hu8ND3HDMkifQEXX",
+  "_key": "!items!hu8ND3HDMkifQEXX",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 8030,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Strange TP",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>+1 Talent Point in Strange.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "+1 Talent Point in Strange.",
+    "archetype": "weird",
+    "node": "weird-strange-tp-eldritch",
+    "path": "eldritch",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "weird-beguiler"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "strange",
+        "amount": 1
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-strange-tp-eldritch"
+    }
+  }
+}

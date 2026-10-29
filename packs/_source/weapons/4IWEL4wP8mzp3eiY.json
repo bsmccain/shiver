@@ -1,0 +1,63 @@
+{
+  "_id": "4IWEL4wP8mzp3eiY",
+  "_key": "!items!4IWEL4wP8mzp3eiY",
+  "folder": null,
+  "sort": 18,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Shield",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 2 Blunt; Close (5 ft). Hunker: spend an Interact Action to gain Steeled (CR +1) until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.136</em></p>",
+    "summary": "Grit; 2 Blunt; Close (5 ft). Hunker: spend an Interact Action to gain Steeled (CR +1) until your next Combat Turn.",
+    "page": 136,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "hunker"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self",
+        "flags": {
+          "expires": "startOfNextTurn"
+        },
+        "when": {
+          "manual": true,
+          "label": "Hunker (spend an Interact Action)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Hunker: post the Shield to chat and click its Steeled button. Steeled ends when your next Combat Turn starts. Mark the Interact Action it costs."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "shield"
+    }
+  }
+}

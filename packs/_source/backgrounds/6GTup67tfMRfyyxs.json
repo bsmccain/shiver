@@ -1,0 +1,84 @@
+{
+  "_id": "6GTup67tfMRfyyxs",
+  "_key": "!items!6GTup67tfMRfyyxs",
+  "folder": null,
+  "sort": 25,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Experiment",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Mental Conditioning.</strong> +1 Talent Die when resisting negative effects caused by pain. You take half damage from attacks that deal Soul damage.</p><p><strong>Traumatised (Flaw).</strong> Lose 1 Skill Die on Heart Checks with &#39;normal&#39; people.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.91</em></p>",
+    "page": 91,
+    "abilityName": "Mental Conditioning",
+    "abilitySummary": "+1 Talent Die when resisting negative effects caused by pain. You take half damage from attacks that deal Soul damage.",
+    "abilityDescription": "<p>+1 Talent Die when resisting negative effects caused by pain. You take half damage from attacks that deal Soul damage.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Mental Conditioning",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Resisting a negative effect caused by pain"
+        }
+      },
+      {
+        "kind": "resistance",
+        "types": [
+          "soul"
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Only Soul damage from attacks is halved. The resistance halves all Soul damage, so undo it for non-attack sources (e.g. Painful Memories)."
+      }
+    ],
+    "flawName": "Traumatised",
+    "flawSummary": "Lose 1 Skill Die on Heart Checks with 'normal' people.",
+    "flawDescription": "<p>Lose 1 Skill Die on Heart Checks with &#39;normal&#39; people.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Traumatised",
+        "skill": "heart",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Dealing with 'normal' people"
+        }
+      }
+    ],
+    "archetype": "weird"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-experiment"
+    }
+  }
+}

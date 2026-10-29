@@ -1,0 +1,80 @@
+{
+  "_id": "nCrMhXnDRr0c15NZ",
+  "_key": "!items!nCrMhXnDRr0c15NZ",
+  "folder": null,
+  "sort": 23,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Regular",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Oblivious.</strong> While inebriated, +1 Talent Die on Fear Checks and Opposed Strange Checks.</p><p><strong>Drunkard (Flaw).</strong> Lose 1 Core Skill Point from Wit, to a minimum of 1.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.90</em></p>",
+    "page": 90,
+    "abilityName": "Oblivious",
+    "abilitySummary": "While inebriated, +1 Talent Die on Fear Checks and Opposed Strange Checks.",
+    "abilityDescription": "<p>While inebriated, +1 Talent Die on Fear Checks and Opposed Strange Checks.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Oblivious",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "fear"
+          ],
+          "manual": true,
+          "label": "Fear Check while inebriated"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "label": "Oblivious",
+        "skill": "strange",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "opposed"
+          ],
+          "notTags": [
+            "fear"
+          ],
+          "manual": true,
+          "label": "Opposed Strange Check while inebriated"
+        }
+      }
+    ],
+    "flawName": "Drunkard",
+    "flawSummary": "Lose 1 Core Skill Point from Wit, to a minimum of 1.",
+    "flawDescription": "<p>Lose 1 Core Skill Point from Wit, to a minimum of 1.</p>",
+    "flawAutomation": [
+      {
+        "kind": "skillPoints",
+        "skill": "wit",
+        "amount": -1
+      }
+    ],
+    "archetype": "fool"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-regular"
+    }
+  }
+}

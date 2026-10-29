@@ -1,0 +1,56 @@
+{
+  "_id": "OImvRati3t00HVFm",
+  "_key": "!items!OImvRati3t00HVFm",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 6019,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Power Through",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>While you have 8 or more wounds, roll 1 additional Skill Die for your Plot Armour when it tries to repel damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "While you have 8 or more wounds, roll 1 additional Skill Die for your Plot Armour when it tries to repel damage.",
+    "archetype": "survivor",
+    "node": "survivor-power-through",
+    "path": "chosen",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t5-talent-chosen"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "survivor-plot-armour",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "With 8 or more wounds, when you're hit and Plot Armour rolls, roll 1 extra Skill Die for it: Luck blocks 1 damage; Strange blocks 1 damage and Plot Armour takes 1 wound."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-power-through"
+    }
+  }
+}

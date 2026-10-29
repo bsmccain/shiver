@@ -1,0 +1,44 @@
+{
+  "_id": "nGCxuJn5U952ruA3",
+  "_key": "!items!nGCxuJn5U952ruA3",
+  "folder": null,
+  "sort": 16,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Laser Sword",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 6 Pierce; Close (5 ft). No special ability.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.136</em></p>",
+    "summary": "Smarts; 6 Pierce; Close (5 ft). No special ability.",
+    "page": 136,
+    "category": "melee",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "laser-sword"
+    }
+  }
+}

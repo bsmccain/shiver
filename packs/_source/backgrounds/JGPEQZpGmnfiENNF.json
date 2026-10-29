@@ -1,0 +1,75 @@
+{
+  "_id": "JGPEQZpGmnfiENNF",
+  "_key": "!items!JGPEQZpGmnfiENNF",
+  "folder": null,
+  "sort": 29,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Android",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Iron Skeleton.</strong> Your first Armour Slot is never destroyed or repaired; heal its wounds like Health Points. Push-backs move you half as far. No abilities that need a physical body (e.g. Beast Mode).</p><p><strong>Uncanny Valley (Flaw).</strong> Lose 1 Skill Die on Heart Checks to charm others. If you fail such a Check, the target must make a Fear Check.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.92</em></p>",
+    "page": 92,
+    "abilityName": "Iron Skeleton",
+    "abilitySummary": "Your first Armour Slot is never destroyed or repaired; heal its wounds like Health Points. Push-backs move you half as far. No abilities that need a physical body (e.g. Beast Mode).",
+    "abilityDescription": "<p>Your first Armour Slot is never destroyed or repaired; heal its wounds like Health Points. Push-backs move you half as far. No abilities that need a physical body (e.g. Beast Mode).</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Your first Armour Slot can't be destroyed or repaired. Heal its wounds as if they were Health Points."
+      },
+      {
+        "kind": "custom",
+        "note": "Effects that push you back move you half the distance."
+      },
+      {
+        "kind": "custom",
+        "note": "You can't take abilities that need a physical body, such as Beast Mode."
+      }
+    ],
+    "flawName": "Uncanny Valley",
+    "flawSummary": "Lose 1 Skill Die on Heart Checks to charm others. If you fail such a Check, the target must make a Fear Check.",
+    "flawDescription": "<p>Lose 1 Skill Die on Heart Checks to charm others. If you fail such a Check, the target must make a Fear Check.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Uncanny Valley",
+        "skill": "heart",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Charming others"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "If you fail a Heart Check to charm someone, they must make a Fear Check (the Director sets the CR)."
+      }
+    ],
+    "archetype": "weird"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-android"
+    }
+  }
+}

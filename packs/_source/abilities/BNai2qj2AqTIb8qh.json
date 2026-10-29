@@ -1,0 +1,70 @@
+{
+  "_id": "BNai2qj2AqTIb8qh",
+  "_key": "!items!BNai2qj2AqTIb8qh",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 7018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Unencumbered",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>While you use no weapon and wear no armour, your Speed is Fast and you are Steeled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "While you use no weapon and wear no armour, your Speed is Fast and you are Steeled.",
+    "archetype": "warrior",
+    "node": "warrior-unencumbered",
+    "path": "berserker",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "warrior-martial-artist"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "speed",
+        "set": "fast",
+        "when": {
+          "noWeapon": true,
+          "noArmour": true,
+          "label": "No weapon or armour"
+        }
+      },
+      {
+        "kind": "cr",
+        "amount": 1,
+        "when": {
+          "noWeapon": true,
+          "noArmour": true,
+          "label": "Steeled: no weapon or armour"
+        }
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-unencumbered"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "dGaLsbrkNBLUFCEU",
+  "_key": "!items!dGaLsbrkNBLUFCEU",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Adrenaline Shot",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Revive: a character at Death&#39;s Door comes back conscious with 1 Health Point. One use only.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.156</em></p>",
+    "summary": "Revive: a character at Death's Door comes back conscious with 1 Health Point. One use only.",
+    "page": 156,
+    "category": "healing",
+    "consumable": true,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "removeStatus",
+        "status": "deathsDoor",
+        "target": "ally"
+      },
+      {
+        "kind": "heal",
+        "amount": 1,
+        "target": "ally"
+      },
+      {
+        "kind": "custom",
+        "note": "Target the character at Death's Door before using it. They leave Death's Door at 1 HP and stay conscious, unlike a normal stabilise. A Cursed target can't heal, so the Director sets the 1 HP by hand if they allow the revive."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "adrenaline-shot"
+    }
+  }
+}

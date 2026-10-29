@@ -1,0 +1,65 @@
+{
+  "_id": "tjaOzrXqrwuu5mCd",
+  "_key": "!items!tjaOzrXqrwuu5mCd",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 7019,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Heightened Senses",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>+1 Talent Die on Wit Checks to observe your surroundings and spot hidden things.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "+1 Talent Die on Wit Checks to observe your surroundings and spot hidden things.",
+    "archetype": "maverick",
+    "node": "maverick-heightened-senses",
+    "path": "thief",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "maverick-slippery-character"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "wit",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack"
+          ],
+          "manual": true,
+          "label": "Observing your surroundings or spotting hidden things"
+        }
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-heightened-senses"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "_id": "4o2mvzpUSqP71NRI",
+  "_key": "!items!4o2mvzpUSqP71NRI",
+  "folder": null,
+  "sort": 4,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Boots of Spring-Heeled Jack",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Springy: +1 Talent Die when scaling heights or leaping great distances.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "1 Armour Slot. Springy: +1 Talent Die when scaling heights or leaping great distances.",
+    "page": 152,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Springy",
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Springy: scaling heights or leaping a great distance"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "boots-of-spring-heeled-jack"
+    }
+  }
+}

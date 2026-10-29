@@ -1,0 +1,41 @@
+{
+  "_id": "yP8ttbcDDKH4RUpb",
+  "_key": "!items!yP8ttbcDDKH4RUpb",
+  "folder": null,
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Painful Memories",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>Each failed Fear Check deals you 1 Soul damage. In Combat, each Combat Round you stay Afraid or Terrified deals you 1 more Soul damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "Each failed Fear Check deals you 1 Soul damage. In Combat, each Combat Round you stay Afraid or Terrified deals you 1 more Soul damage.",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "onFearFail",
+        "damage": 1,
+        "type": "soul"
+      },
+      {
+        "kind": "roundFearDamage",
+        "amount": 1,
+        "type": "soul"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-painful-memories"
+    }
+  }
+}

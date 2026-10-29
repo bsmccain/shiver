@@ -12,3 +12,10 @@ jsconfig.json
 foundry
 
 shiver.zip
+# node_modules can be a symlink, which "node_modules/" doesn't match
+node_modules
+
+# LevelDB lock and log files in compiled compendium packs
+packs/*/LOCK
+packs/*/LOG
+packs/*/LOG.old

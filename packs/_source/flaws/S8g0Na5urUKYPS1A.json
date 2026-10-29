@@ -1,0 +1,35 @@
+{
+  "_id": "S8g0Na5urUKYPS1A",
+  "_key": "!items!S8g0Na5urUKYPS1A",
+  "folder": null,
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Scarred",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>Take 2 extra Background Flaws of your choice (pp. 80-94).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "Take 2 extra Background Flaws of your choice (pp. 80-94).",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Pick 2 more Background Flaws (pp. 80-94) and add them to your character."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-scarred"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "_id": "GKmWlCNMKT2xLO7k",
+  "_key": "!folders!GKmWlCNMKT2xLO7k",
+  "name": "The Scholar",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 300000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

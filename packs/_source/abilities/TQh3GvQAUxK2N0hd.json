@@ -1,0 +1,75 @@
+{
+  "_id": "TQh3GvQAUxK2N0hd",
+  "_key": "!items!TQh3GvQAUxK2N0hd",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 10029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Scream Queen",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Every enemy within Long Range (150 ft) makes a CR 2 Heart Check. Each that fails suffers Imposing Presence&#39;s effects (p53), is Weakened until your next Combat Turn, has a random piece of its armour (if any) destroyed and takes 3 Soul damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.54</em></p>",
+    "summary": "Every enemy within Long Range (150 ft) makes a CR 2 Heart Check. Each that fails suffers Imposing Presence's effects (p53), is Weakened until your next Combat Turn, has a random piece of its armour (if any) destroyed and takes 3 Soul damage.",
+    "archetype": "socialite",
+    "node": "socialite-scream-queen",
+    "path": "provoker",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "socialite-imposing-presence"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "afraid",
+        "target": "enemy",
+        "save": {
+          "skill": "heart",
+          "cr": 2
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Enemies that failed the Heart Check"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Target every enemy within 150 ft before using this. Then target the enemies that failed (became Afraid) and use the Weakened button. Each of them also flees beyond 150 ft, loses a random piece of armour if it has any, and takes 3 Soul damage. Until your next Combat Turn, enemies must pass a Heart Check with CR equal to your CR to target you."
+      }
+    ],
+    "page": 54,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-scream-queen"
+    }
+  }
+}

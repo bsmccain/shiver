@@ -1,0 +1,56 @@
+{
+  "_id": "eP348wmKJGxGnE4E",
+  "_key": "!items!eP348wmKJGxGnE4E",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 4010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Meat-Shield",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>While you Grapple an enemy your size or smaller and have an empty Armour Slot, it can be your Meat-Shield. When you are attacked it fills an Armour Slot, and damage to that slot goes to the enemy instead. It breaks free when the slot has no Health Points left, or with an Interact Action as normal. The Director can add or remove slot Health Points to suit the enemy, and the Meat-Shield is gone if it dies.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "While you Grapple an enemy your size or smaller and have an empty Armour Slot, it can be your Meat-Shield. When you are attacked it fills an Armour Slot, and damage to that slot goes to the enemy instead. It breaks free when the slot has no Health Points left, or with an Interact Action as normal. The Director can add or remove slot Health Points to suit the enemy, and the Meat-Shield is gone if it dies.",
+    "archetype": "warrior",
+    "node": "warrior-meat-shield",
+    "path": "protector",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "warrior-back-off"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "When attacked while grappling a valid enemy with an empty Armour Slot, add a temporary 1-slot armour called Meat-Shield (2 HP unless the Director changes it) and roll for it like normal armour. Deal each wound it takes to the grappled enemy. Remove it when the slot hits 0 HP, the Grapple ends or the enemy dies."
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-meat-shield"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "_id": "KS3xoJT24y8syq0Q",
+  "_key": "!items!KS3xoJT24y8syq0Q",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 3007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Crow's Nest",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Minor Advantage (+1 d6) when Striking an enemy from a height with a ranged weapon. +1 Talent Die when climbing.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "Minor Advantage (+1 d6) when Striking an enemy from a height with a ranged weapon. +1 Talent Die when climbing.",
+    "archetype": "maverick",
+    "node": "maverick-crows-nest",
+    "path": "ranger",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "maverick-covering-fire"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "strike",
+            "ranged",
+            "weapon"
+          ],
+          "manual": true,
+          "label": "Striking from a height (Minor Advantage)"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": [
+          "grit",
+          "wit"
+        ],
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack"
+          ],
+          "manual": true,
+          "label": "Climbing"
+        }
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-crows-nest"
+    }
+  }
+}

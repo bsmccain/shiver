@@ -1,0 +1,72 @@
+{
+  "_id": "buSCbgKg7YgQxoxI",
+  "_key": "!items!buSCbgKg7YgQxoxI",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 3010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Future Sight",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ. Strange Check to have the Director reveal information about the plot; the more successes, the more is revealed. A successful divination costs Doom +2 and deals 1 Soul damage to you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "OPDQ. Strange Check to have the Director reveal information about the plot; the more successes, the more is revealed. A successful divination costs Doom +2 and deals 1 Soul damage to you.",
+    "archetype": "weird",
+    "node": "weird-future-sight",
+    "path": "psionic",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "weird-telepathy"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "onSuccess": "The Director reveals plot information, more for more successes. Doom +2 and you take 1 Soul damage.",
+        "onFail": "Nothing is revealed.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 2
+          },
+          {
+            "kind": "damage",
+            "amount": 1,
+            "type": "soul",
+            "target": "self",
+            "strike": false
+          }
+        ]
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-future-sight"
+    }
+  }
+}

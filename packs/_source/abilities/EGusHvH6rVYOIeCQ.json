@@ -1,0 +1,16 @@
+{
+  "_id": "EGusHvH6rVYOIeCQ",
+  "_key": "!folders!EGusHvH6rVYOIeCQ",
+  "name": "The Socialite",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 400000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

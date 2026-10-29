@@ -1,0 +1,56 @@
+{
+  "_id": "1EM4r9wfV9RSWFV5",
+  "_key": "!items!1EM4r9wfV9RSWFV5",
+  "folder": null,
+  "sort": 40,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Leecher",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Strange; 2 Soul; Medium (50 ft). Wither: an enemy it hits must pass a CR 2 Grit Check or be Weakened (CR -1) until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.142</em></p>",
+    "summary": "Strange; 2 Soul; Medium (50 ft). Wither: an enemy it hits must pass a CR 2 Grit Check or be Weakened (CR -1) until your next Combat Turn.",
+    "page": 142,
+    "category": "ranged",
+    "skill": "strange",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "witherLeecher"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "weakened",
+        "save": {
+          "skill": "grit",
+          "cr": 2
+        },
+        "until": "attackerNextTurn"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "leecher"
+    }
+  }
+}

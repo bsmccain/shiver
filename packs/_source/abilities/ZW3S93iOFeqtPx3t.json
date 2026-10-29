@@ -1,0 +1,66 @@
+{
+  "_id": "ZW3S93iOFeqtPx3t",
+  "_key": "!items!ZW3S93iOFeqtPx3t",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 3011,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Unnatural Strength",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Gain +2 Talent Dice on your next Grit Check. Doom +2. Then roll your Strange Pool and add Doom +1 per Strange symbol rolled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.65</em></p>",
+    "summary": "Gain +2 Talent Dice on your next Grit Check. Doom +2. Then roll your Strange Pool and add Doom +1 per Strange symbol rolled.",
+    "archetype": "weird",
+    "node": "weird-unnatural-strength",
+    "path": "body-horror",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "weird-natural-affinity"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 2,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "grit",
+        "d6": 0,
+        "d8": 2,
+        "when": {
+          "manual": true,
+          "label": "First Grit Check after using Unnatural Strength"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "After using it, roll your Strange Pool (not a check) and tick Doom +1 for every Strange symbol rolled. Tick the +2 Talent Dice only on your next Grit Check."
+      }
+    ],
+    "page": 65,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-unnatural-strength"
+    }
+  }
+}

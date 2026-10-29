@@ -1,0 +1,55 @@
+{
+  "_id": "T3SrkGlQyx8bw7NQ",
+  "_key": "!items!T3SrkGlQyx8bw7NQ",
+  "folder": null,
+  "sort": 20,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Monkey's Paw",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Fate Changer: re-roll a Skill Check with +1 Talent Die in your Dice Pool. Each use moves the Doom Clock forward 5 minutes. Limited to 5 uses.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.158</em></p>",
+    "summary": "Fate Changer: re-roll a Skill Check with +1 Talent Die in your Dice Pool. Each use moves the Doom Clock forward 5 minutes. Limited to 5 uses.",
+    "page": 158,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "story",
+      "max": 5
+    },
+    "doom": 5,
+    "action": "free",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Fate Changer: re-rolling with the Monkey's Paw"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "After a Skill Check, click Use (spends 1 of 5 uses and adds 5 minutes to the Doom Clock), then roll the check again with the Fate Changer bonus ticked."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "monkeys-paw"
+    }
+  }
+}

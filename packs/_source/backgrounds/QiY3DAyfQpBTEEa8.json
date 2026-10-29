@@ -1,0 +1,71 @@
+{
+  "_id": "QiY3DAyfQpBTEEa8",
+  "_key": "!items!QiY3DAyfQpBTEEa8",
+  "folder": null,
+  "sort": 28,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Abducted",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Haywire.</strong> Make a CR 1 Strange Check to deactivate a mechanical device or make it malfunction. Also +1 Talent Die when handling otherworldly technology.</p><p><strong>The Cat Knows (Flaw).</strong> Animals avoid you where they can and attack if you get too close. In a Combat Encounter, animals always target you first.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.92</em></p>",
+    "page": 92,
+    "abilityName": "Haywire",
+    "abilitySummary": "Make a CR 1 Strange Check to deactivate a mechanical device or make it malfunction. Also +1 Talent Die when handling otherworldly technology.",
+    "abilityDescription": "<p>Make a CR 1 Strange Check to deactivate a mechanical device or make it malfunction. Also +1 Talent Die when handling otherworldly technology.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "label": "Haywire",
+        "onSuccess": "The mechanical device shuts down or malfunctions.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "poolDice",
+        "label": "Haywire",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Handling otherworldly technology"
+        }
+      }
+    ],
+    "flawName": "The Cat Knows",
+    "flawSummary": "Animals avoid you where they can and attack if you get too close. In a Combat Encounter, animals always target you first.",
+    "flawDescription": "<p>Animals avoid you where they can and attack if you get too close. In a Combat Encounter, animals always target you first.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Director: animals avoid this character where possible and attack if they get too close. In a Combat Encounter, animals always target this character first."
+      }
+    ],
+    "archetype": "weird"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-abducted"
+    }
+  }
+}

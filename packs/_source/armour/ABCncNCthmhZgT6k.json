@@ -1,0 +1,54 @@
+{
+  "_id": "ABCncNCthmhZgT6k",
+  "_key": "!items!ABCncNCthmhZgT6k",
+  "folder": null,
+  "sort": 18,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Symbiotic Entity",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>3 Armour Slots. Organic Armour (OPDQ): when it has 2 or fewer Health Points left across all its slots, you may take wounds to repair the same number of its Health Points. Agile: your Speed rises one tier while it is equipped. Muscle Enhancer: +1 Talent Point in Grit while you wear it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.155</em></p>",
+    "summary": "3 Armour Slots. Organic Armour (OPDQ): when it has 2 or fewer Health Points left across all its slots, you may take wounds to repair the same number of its Health Points. Agile: your Speed rises one tier while it is equipped. Muscle Enhancer: +1 Talent Point in Grit while you wear it.",
+    "page": 155,
+    "slots": 3,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2,
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Organic Armour, Agile, Muscle Enhancer",
+    "automation": [
+      {
+        "kind": "speedStep",
+        "amount": 1
+      },
+      {
+        "kind": "talentPoints",
+        "skill": "grit",
+        "amount": 1
+      },
+      {
+        "kind": "custom",
+        "note": "Organic Armour (once per Doom Quarter): when this armour has 2 or fewer HP left across all its slots, choose a number of wounds to take on your Lifeline and restore that many HP to the armour. Apply both by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "symbiotic-entity"
+    }
+  }
+}

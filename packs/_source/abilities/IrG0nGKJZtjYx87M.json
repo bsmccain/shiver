@@ -1,0 +1,56 @@
+{
+  "_id": "IrG0nGKJZtjYx87M",
+  "_key": "!items!IrG0nGKJZtjYx87M",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 10028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Battle Dancer",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Melee weapons only. Each Attack Action can move you to an enemy within your Move Distance, Strike it, then Escape automatically with no free Attack against you. A kill from one of these Strikes grants +1 Attack Action (max 3).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.42</em></p>",
+    "summary": "Melee weapons only. Each Attack Action can move you to an enemy within your Move Distance, Strike it, then Escape automatically with no free Attack against you. A kill from one of these Strikes grants +1 Attack Action (max 3).",
+    "archetype": "maverick",
+    "node": "maverick-battle-dancer",
+    "path": "assassin",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "maverick-silenced"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Each Attack Action: move up to your Move Distance to an enemy, Strike it with a melee weapon, then Escape it automatically with no free Attack against you. Each kill from these Strikes grants +1 Attack Action (max 3); track the extras by hand."
+      }
+    ],
+    "page": 42,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-battle-dancer"
+    }
+  }
+}

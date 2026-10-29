@@ -1,0 +1,75 @@
+{
+  "_id": "uq8E9Ohnp7iVCwY8",
+  "_key": "!items!uq8E9Ohnp7iVCwY8",
+  "folder": null,
+  "sort": 4,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Troglodyte",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Strong.</strong> Ignore the Heavy property on weapons and armour. On Opposed Grit Checks, add 1 to the successes you roll.</p><p><strong>Stupid (Flaw).</strong> Lose 1 Skill Die on Smarts Checks made outside a Combat Encounter.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.82</em></p>",
+    "page": 82,
+    "abilityName": "Strong",
+    "abilitySummary": "Ignore the Heavy property on weapons and armour. On Opposed Grit Checks, add 1 to the successes you roll.",
+    "abilityDescription": "<p>Ignore the Heavy property on weapons and armour. On Opposed Grit Checks, add 1 to the successes you roll.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "interact",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Only to cover the extra Interact Action a Heavy weapon's Strike costs"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Ignore Heavy: Heavy armour doesn't lower your Speed. The system still slows you one step for equipped Heavy armour, so undo it by hand. (A Heavy weapon's extra Interact Action is covered by this Background's extra Interact Action.)"
+      },
+      {
+        "kind": "custom",
+        "note": "On an Opposed Grit Check, add 1 to your successes when comparing results."
+      }
+    ],
+    "flawName": "Stupid",
+    "flawSummary": "Lose 1 Skill Die on Smarts Checks made outside a Combat Encounter.",
+    "flawDescription": "<p>Lose 1 Skill Die on Smarts Checks made outside a Combat Encounter.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Stupid",
+        "skill": "smarts",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "combat",
+            "attack"
+          ],
+          "label": "Outside a Combat Encounter (untick in combat)"
+        }
+      }
+    ],
+    "archetype": "warrior"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-troglodyte"
+    }
+  }
+}

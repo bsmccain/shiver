@@ -1,0 +1,59 @@
+{
+  "_id": "hfRN6wEanujJHY1h",
+  "_key": "!items!hfRN6wEanujJHY1h",
+  "folder": null,
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Book of Banishment",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Heart; 3 Soul; Medium (50 ft); listed as melee. Weaken: the target must pass a CR 1 Heart Check or be Weakened (CR -1) until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.134</em></p>",
+    "summary": "Heart; 3 Soul; Medium (50 ft); listed as melee. Weaken: the target must pass a CR 1 Heart Check or be Weakened (CR -1) until your next Combat Turn.",
+    "page": 134,
+    "category": "melee",
+    "skill": "heart",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "weaken"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "weakened",
+        "save": {
+          "skill": "heart",
+          "cr": 1
+        },
+        "until": "attackerNextTurn"
+      },
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "book-of-banishment"
+    }
+  }
+}

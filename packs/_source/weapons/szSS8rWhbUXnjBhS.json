@@ -1,0 +1,59 @@
+{
+  "_id": "szSS8rWhbUXnjBhS",
+  "_key": "!items!szSS8rWhbUXnjBhS",
+  "folder": null,
+  "sort": 46,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rivet Gun",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Pierce; Near (15 ft). Knock-back (N): a hit shoves the target 3 hex (Near) away. Two-hander: needs both hands free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.143</em></p>",
+    "summary": "Grit; 4 Pierce; Near (15 ft). Knock-back (N): a hit shoves the target 3 hex (Near) away. Two-hander: needs both hands free.",
+    "page": 143,
+    "category": "ranged",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "knockBack",
+      "twoHander"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Knock-back (N): push the target 15 ft (Near, 3 hex) away from you."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      },
+      {
+        "kind": "ranged"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "rivet-gun"
+    }
+  }
+}

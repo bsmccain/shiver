@@ -1,0 +1,55 @@
+{
+  "_id": "696cWR1zUMitpnWk",
+  "_key": "!items!696cWR1zUMitpnWk",
+  "folder": null,
+  "sort": 71,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Energy Blade",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 6 Fire; Close (5 ft). Legendary weapon, linked to the Survivor&#39;s Legendary Weapon ability (p74). Fuel (10): each Strike burns 1 fuel, and it can&#39;t be used once empty. Highly Flammable: a Fire hit&#39;s save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.149</em></p>",
+    "summary": "Smarts; 6 Fire; Close (5 ft). Legendary weapon, linked to the Survivor's Legendary Weapon ability (p74). Fuel (10): each Strike burns 1 fuel, and it can't be used once empty. Highly Flammable: a Fire hit's save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1).",
+    "page": 149,
+    "category": "legendary",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "legendary",
+      "fuel",
+      "highlyFlammable"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "automation": [
+      {
+        "kind": "saveOverride",
+        "damageType": "fire",
+        "cr": 2,
+        "value": 2
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "energy-blade"
+    }
+  }
+}

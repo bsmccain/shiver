@@ -1,0 +1,64 @@
+{
+  "_id": "pFPNzT4QS4wJ1jYl",
+  "_key": "!items!pFPNzT4QS4wJ1jYl",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 4010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bumbling Presence",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Start of your Combat Turn, while in a Brawl: you may make a Luck Check against the CR of the enemy you&#39;re Brawling. Success lets you Escape without that enemy getting its free Attack Action.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "Start of your Combat Turn, while in a Brawl: you may make a Luck Check against the CR of the enemy you're Brawling. Success lets you Escape without that enemy getting its free Attack Action.",
+    "archetype": "fool",
+    "node": "fool-bumbling-presence",
+    "path": "blessed",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "fool-dodgy-probability"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "turn",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "Start of your Combat Turn in a Brawl; CR = that enemy's CR",
+        "onSuccess": "You may Escape the Brawl without granting that enemy an Attack Action.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "On a success you may Escape this turn. If you do, the enemy you were Brawling doesn't get its free Attack Action, even though the Escape card lists it."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-bumbling-presence"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_id": "CVl8jUeyJCS385mC",
+  "_key": "!items!CVl8jUeyJCS385mC",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 4010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Enrage",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Enemies you Taunt are also Weakened (CR -1, minimum 1) for as long as they remain Taunted.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "Enemies you Taunt are also Weakened (CR -1, minimum 1) for as long as they remain Taunted.",
+    "archetype": "socialite",
+    "node": "socialite-enrage",
+    "path": "provoker",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "socialite-emboldened"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "socialite-taunt",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "flags": {
+          "expires": "endOfNextTurn"
+        },
+        "when": {
+          "manual": true,
+          "label": "Enemy you just Taunted"
+        }
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-enrage"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_id": "U5X8LLSDHyQAmsDP",
+  "_key": "!items!U5X8LLSDHyQAmsDP",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 3007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Emboldened",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>When you Taunt an enemy, the damage of its first Strike against you is reduced by 2 (minimum 1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.51</em></p>",
+    "summary": "When you Taunt an enemy, the damage of its first Strike against you is reduced by 2 (minimum 1).",
+    "archetype": "socialite",
+    "node": "socialite-emboldened",
+    "path": "provoker",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "socialite-taunt"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "socialite-taunt",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "An enemy you Taunted deals 2 less damage (minimum 1) with its first Strike against you."
+      }
+    ],
+    "page": 51,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-emboldened"
+    }
+  }
+}

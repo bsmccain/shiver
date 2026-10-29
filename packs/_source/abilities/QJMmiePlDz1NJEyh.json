@@ -1,0 +1,70 @@
+{
+  "_id": "QJMmiePlDz1NJEyh",
+  "_key": "!items!QJMmiePlDz1NJEyh",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 6016,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Intimidate",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>+1 Talent Die on Heart Checks to intimidate.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "+1 Talent Die on Heart Checks to intimidate.",
+    "archetype": "socialite",
+    "node": "socialite-intimidate",
+    "path": "provoker",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "socialite-core-plus-provoker"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "heart",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear",
+            "deathsDoor",
+            "heal",
+            "removeStatus",
+            "save"
+          ],
+          "manual": true,
+          "label": "Intimidating someone"
+        }
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-intimidate"
+    }
+  }
+}

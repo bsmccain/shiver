@@ -1,0 +1,63 @@
+{
+  "_id": "LM4tQV6RzQ1HDbTY",
+  "_key": "!items!LM4tQV6RzQ1HDbTY",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 7021,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Copycat",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>In combat, spend an Interact Action to try to temporarily steal an ability you have seen the target use: Opposed Smarts Check against an enemy, Opposed Heart Check against an ally. On success you can use one of their abilities (your choice) on your Combat Turn, and the target can&#39;t use it until your next Combat Turn. Outside combat the effect lasts 30 seconds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "In combat, spend an Interact Action to try to temporarily steal an ability you have seen the target use: Opposed Smarts Check against an enemy, Opposed Heart Check against an ally. On success you can use one of their abilities (your choice) on your Combat Turn, and the target can't use it until your next Combat Turn. Outside combat the effect lasts 30 seconds.",
+    "archetype": "survivor",
+    "node": "survivor-copycat",
+    "path": "cockroach",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "survivor-leech"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "onSuccess": "You can use one of the target's abilities that you've seen in action (your choice) on your Combat Turn. The target can't use it until your next Combat Turn (30 seconds outside combat).",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Opposed check: Smarts against an enemy, Heart against an ally (switch the skill in the roll dialog)."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-copycat"
+    }
+  }
+}

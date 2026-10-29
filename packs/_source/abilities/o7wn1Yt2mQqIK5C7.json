@@ -1,0 +1,57 @@
+{
+  "_id": "o7wn1Yt2mQqIK5C7",
+  "_key": "!items!o7wn1Yt2mQqIK5C7",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 9029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Modified",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, spend some time customising a weapon. Choose one: it deals +3 Fire, Electric (Shock) or Corrosive damage, or you roll Smarts for Strikes with it instead of its Core Skill.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "Once per Doom Quarter, spend some time customising a weapon. Choose one: it deals +3 Fire, Electric (Shock) or Corrosive damage, or you roll Smarts for Strikes with it instead of its Core Skill.",
+    "archetype": "scholar",
+    "node": "scholar-modified",
+    "path": "engineer",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "scholar-utility-belt",
+      "scholar-road-rage"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Takes some time to do. Edit the weapon: either +3 Fire, Shock or Corrosive damage, or set its skill to Smarts for your Strikes."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-modified"
+    }
+  }
+}

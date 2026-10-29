@@ -1,0 +1,64 @@
+{
+  "_id": "IXAwkeZwQqcscVhY",
+  "_key": "!items!IXAwkeZwQqcscVhY",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 2002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Clock It Back",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Spend 1 Luck Point (a Luck symbol just rolled or a banked point) to turn the Doom Clock back 1 minute, instead of needing 2 Luck symbols.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "Spend 1 Luck Point (a Luck symbol just rolled or a banked point) to turn the Doom Clock back 1 minute, instead of needing 2 Luck symbols.",
+    "archetype": "fool",
+    "node": "fool-clock-it-back",
+    "path": "accumulator",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "fool-banking-on-it"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cost",
+        "luck": 1
+      },
+      {
+        "kind": "doom",
+        "amount": -1
+      },
+      {
+        "kind": "custom",
+        "note": "Use spends 1 banked Luck Point. To spend a Luck symbol you just rolled, Use after the check resolves; if that symbol was lost to a full bank, add 1 back to your bank afterwards."
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-clock-it-back"
+    }
+  }
+}

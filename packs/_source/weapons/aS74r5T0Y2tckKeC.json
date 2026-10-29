@@ -1,0 +1,52 @@
+{
+  "_id": "aS74r5T0Y2tckKeC",
+  "_key": "!items!aS74r5T0Y2tckKeC",
+  "folder": null,
+  "sort": 58,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Caltrops",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 3 Sharp; Medium (50 ft). Deployable and Trap, as for the Bear Trap: set on a hex, an enemy moving toward it must pass a CR 2 Wit Check to go around, or it stumbles in and takes the damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.146</em></p>",
+    "summary": "Wit; 3 Sharp; Medium (50 ft). Deployable and Trap, as for the Bear Trap: set on a hex, an enemy moving toward it must pass a CR 2 Wit Check to go around, or it stumbles in and takes the damage.",
+    "page": 146,
+    "category": "trap",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "deployable",
+      "trap"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Deployable and Trap: place the caltrops on a hex. An enemy moving toward it makes a CR 2 Wit Check. On a success it goes around; on a failure it takes 3 Sharp and the Sharp save. There is no Strike roll, so apply the damage by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "caltrops"
+    }
+  }
+}

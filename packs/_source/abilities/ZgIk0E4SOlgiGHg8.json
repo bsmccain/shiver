@@ -1,0 +1,56 @@
+{
+  "_id": "ZgIk0E4SOlgiGHg8",
+  "_key": "!items!ZgIk0E4SOlgiGHg8",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 3005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Loveable Fool",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>On Heart Checks you may re-roll any dice showing a Luck symbol.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "On Heart Checks you may re-roll any dice showing a Luck symbol.",
+    "archetype": "fool",
+    "node": "fool-loveable-fool",
+    "path": "accumulator",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "fool-clock-it-back"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Heart Checks: you may re-roll any dice that show a Luck symbol."
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-loveable-fool"
+    }
+  }
+}

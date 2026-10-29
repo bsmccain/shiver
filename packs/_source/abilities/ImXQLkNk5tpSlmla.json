@@ -1,0 +1,56 @@
+{
+  "_id": "ImXQLkNk5tpSlmla",
+  "_key": "!items!ImXQLkNk5tpSlmla",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 3005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Brave and the Bold",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Your companion&#39;s Speed becomes Fast and it can use 1 Armour Slot.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.51</em></p>",
+    "summary": "Your companion's Speed becomes Fast and it can use 1 Armour Slot.",
+    "archetype": "socialite",
+    "node": "socialite-brave-and-the-bold",
+    "path": "companion",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "socialite-best-buddies"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "socialite-best-buddies",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "On your companion's sheet: set its Speed to Fast and allow it 1 Armour Slot."
+      }
+    ],
+    "page": 51,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-brave-and-the-bold"
+    }
+  }
+}

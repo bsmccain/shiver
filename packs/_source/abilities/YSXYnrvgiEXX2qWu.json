@@ -1,0 +1,62 @@
+{
+  "_id": "YSXYnrvgiEXX2qWu",
+  "_key": "!items!YSXYnrvgiEXX2qWu",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 4011,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Nice Ride",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>+1 Talent Die when repairing, modifying or operating vehicles.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.46</em></p>",
+    "summary": "+1 Talent Die when repairing, modifying or operating vehicles.",
+    "archetype": "scholar",
+    "node": "scholar-nice-ride",
+    "path": "engineer",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "scholar-improviser"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Repairing, modifying or operating a vehicle"
+        }
+      }
+    ],
+    "page": 46,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-nice-ride"
+    }
+  }
+}

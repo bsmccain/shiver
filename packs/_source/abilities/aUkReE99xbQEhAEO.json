@@ -1,0 +1,61 @@
+{
+  "_id": "aUkReE99xbQEhAEO",
+  "_key": "!items!aUkReE99xbQEhAEO",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 9029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Talent",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>+1 Talent Point in any Core Skill.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.76</em></p>",
+    "summary": "+1 Talent Point in any Core Skill.",
+    "archetype": "survivor",
+    "node": "survivor-t9-talent-survivalist",
+    "path": "survivalist",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "survivor-showdown"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "talentPoints",
+      "amount": 1,
+      "maxPerSkill": 1
+    },
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "choice",
+        "amount": 1
+      }
+    ],
+    "page": 76,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-t9-talent-survivalist"
+    }
+  }
+}

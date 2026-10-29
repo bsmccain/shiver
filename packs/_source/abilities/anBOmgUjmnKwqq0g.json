@@ -1,0 +1,56 @@
+{
+  "_id": "anBOmgUjmnKwqq0g",
+  "_key": "!items!anBOmgUjmnKwqq0g",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 3008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mirage",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Create one solid-seeming illusion that can affect its surroundings (1 HP, CR 1, no Strikes). In combat, while it is Near you (15 ft), enemies must pass a CR 1 Smarts Check to pick the right target or they attack the Mirage. Doom +2.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "Create one solid-seeming illusion that can affect its surroundings (1 HP, CR 1, no Strikes). In combat, while it is Near you (15 ft), enemies must pass a CR 1 Smarts Check to pick the right target or they attack the Mirage. Doom +2.",
+    "archetype": "weird",
+    "node": "weird-mirage",
+    "path": "eldritch",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "weird-blood-magic"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 2,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Place a Mirage token (1 HP, CR 1, no Strikes); only one at a time. While it is within 15 ft of you, an enemy choosing a target among you rolls Smarts CR 1 and attacks the Mirage on a failure."
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-mirage"
+    }
+  }
+}

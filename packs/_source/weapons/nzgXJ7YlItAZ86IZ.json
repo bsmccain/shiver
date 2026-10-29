@@ -1,0 +1,55 @@
+{
+  "_id": "nzgXJ7YlItAZ86IZ",
+  "_key": "!items!nzgXJ7YlItAZ86IZ",
+  "folder": null,
+  "sort": 33,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Flare Pistol",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 2 Fire; Far (200 ft). Reload: needs an Interact Action to reload after each Strike. Let there be light: each flare sheds bright red light in a 50 ft (Medium) radius for 20 minutes unless put out. You can fire it as long as you have flares.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.140</em></p>",
+    "summary": "Wit; 2 Fire; Far (200 ft). Reload: needs an Interact Action to reload after each Strike. Let there be light: each flare sheds bright red light in a 50 ft (Medium) radius for 20 minutes unless put out. You can fire it as long as you have flares.",
+    "page": 140,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "far",
+    "properties": [
+      "reload",
+      "letThereBeLight"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "custom",
+        "note": "Let there be light: each flare fired lights a 50 ft radius around where it lands for 20 minutes unless put out. Keep track of your flares."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "flare-pistol"
+    }
+  }
+}

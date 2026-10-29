@@ -1,0 +1,64 @@
+{
+  "_id": "TYVnwuR8fo0473b9",
+  "_key": "!items!TYVnwuR8fo0473b9",
+  "folder": null,
+  "sort": 12,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Nerd",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Run Away.</strong> Enemies get no Attack Actions when you Escape a Brawl. A Move Action straight away from an enemy you&#39;re Brawling makes your Speed Fast until your Combat Turn ends.</p><p><strong>Weak (Flaw).</strong> While wearing armour, your Speed is Slow.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.85</em></p>",
+    "page": 85,
+    "abilityName": "Run Away",
+    "abilitySummary": "Enemies get no Attack Actions when you Escape a Brawl. A Move Action straight away from an enemy you're Brawling makes your Speed Fast until your Combat Turn ends.",
+    "abilityDescription": "<p>Enemies get no Attack Actions when you Escape a Brawl. A Move Action straight away from an enemy you&#39;re Brawling makes your Speed Fast until your Combat Turn ends.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "When you Escape from a Brawl, enemies get no Attack Actions against you."
+      },
+      {
+        "kind": "custom",
+        "note": "If your Move Action takes you directly away from an enemy you're Brawling, your Speed is Fast (40 ft) until the end of your Combat Turn."
+      }
+    ],
+    "flawName": "Weak",
+    "flawSummary": "While wearing armour, your Speed is Slow.",
+    "flawDescription": "<p>While wearing armour, your Speed is Slow.</p>",
+    "flawAutomation": [
+      {
+        "kind": "speedStep",
+        "amount": -4
+      },
+      {
+        "kind": "speedStep",
+        "amount": 4,
+        "when": {
+          "noArmour": true,
+          "label": "No armour worn (Weak doesn't apply)"
+        }
+      }
+    ],
+    "archetype": "scholar"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-nerd"
+    }
+  }
+}

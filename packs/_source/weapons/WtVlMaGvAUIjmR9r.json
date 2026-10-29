@@ -1,0 +1,73 @@
+{
+  "_id": "WtVlMaGvAUIjmR9r",
+  "_key": "!items!WtVlMaGvAUIjmR9r",
+  "folder": null,
+  "sort": 52,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sorcerer's Skull Candle",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Heart or Strange; 3 Soul or Corrosive; Long (150 ft). Terrifying: a target hit with Soul damage must pass a CR 2 Strange Check or become Afraid. Corrode: a target hit with Corrosive damage must pass a CR 1 Luck Check or be Weakened (CR -1) until the Combat Encounter ends.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.145</em></p>",
+    "summary": "Heart or Strange; 3 Soul or Corrosive; Long (150 ft). Terrifying: a target hit with Soul damage must pass a CR 2 Strange Check or become Afraid. Corrode: a target hit with Corrosive damage must pass a CR 1 Luck Check or be Weakened (CR -1) until the Combat Encounter ends.",
+    "page": 145,
+    "category": "ranged",
+    "skill": "heart",
+    "altSkills": [
+      "strange"
+    ],
+    "damage": 3,
+    "damageType": "soul",
+    "altDamageTypes": [
+      "corrosive"
+    ],
+    "range": "long",
+    "properties": [
+      "dualDamage",
+      "terrifying",
+      "corrode"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "damageType": "soul",
+        "status": "afraid",
+        "save": {
+          "skill": "strange",
+          "cr": 2
+        },
+        "fear": true
+      },
+      {
+        "kind": "onHit",
+        "damageType": "corrosive",
+        "status": "weakened",
+        "save": {
+          "skill": "luck",
+          "cr": 1
+        },
+        "until": "encounter"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sorcerers-skull-candle"
+    }
+  }
+}

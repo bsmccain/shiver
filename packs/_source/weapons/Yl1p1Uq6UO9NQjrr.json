@@ -1,0 +1,60 @@
+{
+  "_id": "Yl1p1Uq6UO9NQjrr",
+  "_key": "!items!Yl1p1Uq6UO9NQjrr",
+  "folder": null,
+  "sort": 50,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 6 Blunt; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Knock-back (N): a hit shoves the target 3 hex (Near) away. Two-hander: needs both hands free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.144</em></p>",
+    "summary": "Wit; 6 Blunt; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Knock-back (N): a hit shoves the target 3 hex (Near) away. Two-hander: needs both hands free.",
+    "page": 144,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "reload",
+      "knockBack",
+      "twoHander"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "onHit",
+        "note": "Knock-back (N): push the target 15 ft (Near, 3 hex) away from you."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "shotgun"
+    }
+  }
+}

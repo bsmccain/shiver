@@ -1,0 +1,64 @@
+{
+  "_id": "Q4tJhzh1n3XJlqI0",
+  "_key": "!items!Q4tJhzh1n3XJlqI0",
+  "folder": null,
+  "sort": 70,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Doom Bringer",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 3 Pierce; Close (5 ft). Legendary weapon, linked to the Survivor&#39;s Legendary Weapon ability (p74). Wither: a targeted enemy must pass a CR 2 Grit Check or be Weakened (CR -1) for the rest of the Combat Encounter. Vampyric: each successful Strike heals you 1 wound and ticks the Doom Clock up 1 minute.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.149</em></p>",
+    "summary": "Grit; 3 Pierce; Close (5 ft). Legendary weapon, linked to the Survivor's Legendary Weapon ability (p74). Wither: a targeted enemy must pass a CR 2 Grit Check or be Weakened (CR -1) for the rest of the Combat Encounter. Vampyric: each successful Strike heals you 1 wound and ticks the Doom Clock up 1 minute.",
+    "page": 149,
+    "category": "legendary",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "legendary",
+      "witherDoomBringer",
+      "vampyric"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "weakened",
+        "save": {
+          "skill": "grit",
+          "cr": 2
+        },
+        "until": "encounter"
+      },
+      {
+        "kind": "onHit",
+        "heal": 1,
+        "doom": 1,
+        "note": "Vampyric: you heal 1 wound and the Doom Clock ticks up 1 minute."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "doom-bringer"
+    }
+  }
+}

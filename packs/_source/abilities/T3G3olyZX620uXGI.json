@@ -1,0 +1,56 @@
+{
+  "_id": "T3G3olyZX620uXGI",
+  "_key": "!items!T3G3olyZX620uXGI",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 3006,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Plot Armour",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>One of your Armour Slots holds Plot Armour. It works like normal armour, but it heals all its wounds every Doom Quarter and can&#39;t be repaired by normal means. It can&#39;t be removed or permanently destroyed: anything that would destroy it reduces it to 0 Health Points instead.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "One of your Armour Slots holds Plot Armour. It works like normal armour, but it heals all its wounds every Doom Quarter and can't be repaired by normal means. It can't be removed or permanently destroyed: anything that would destroy it reduces it to 0 Health Points instead.",
+    "archetype": "survivor",
+    "node": "survivor-plot-armour",
+    "path": "chosen",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "survivor-rally"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Add an armour item named Plot Armour (1 Armour Slot, 2 HP, no special ability), tick its 'Can't be destroyed' box and keep it equipped; it rolls like normal armour when you're hit. Restore it to full HP at the start of each Doom Quarter. It can't be repaired normally or removed: if something would destroy it, set it to 0 HP instead."
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-plot-armour"
+    }
+  }
+}

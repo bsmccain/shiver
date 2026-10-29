@@ -1,0 +1,74 @@
+{
+  "_id": "RmEA9YSWB2eGfg4t",
+  "_key": "!items!RmEA9YSWB2eGfg4t",
+  "folder": null,
+  "sort": 7,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Criminal",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Underworld Contacts.</strong> +1 Talent Die when dealing in criminal activity.</p><p><strong>Untrustworthy (Flaw).</strong> When trying to persuade others, lose 1 Skill Die and any Talent Dice.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.83</em></p>",
+    "page": 83,
+    "abilityName": "Underworld Contacts",
+    "abilitySummary": "+1 Talent Die when dealing in criminal activity.",
+    "abilityDescription": "<p>+1 Talent Die when dealing in criminal activity.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Underworld Contacts",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Dealing in criminal activity"
+        }
+      }
+    ],
+    "flawName": "Untrustworthy",
+    "flawSummary": "When trying to persuade others, lose 1 Skill Die and any Talent Dice.",
+    "flawDescription": "<p>When trying to persuade others, lose 1 Skill Die and any Talent Dice.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Untrustworthy",
+        "skill": "any",
+        "d6": -1,
+        "d8": -9,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Persuading others (lose 1 Skill Die and all Talent Dice; leave other Talent Die bonuses unticked)"
+        }
+      }
+    ],
+    "archetype": "maverick"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-criminal"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "_id": "gKlNy6AUB7CXW0RK",
+  "_key": "!items!gKlNy6AUB7CXW0RK",
+  "folder": null,
+  "sort": 63,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hunter's Snare",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 1 Pierce; Close (5 ft). Deployable, Trap and Trapped, as for the Bear Trap: an enemy moving toward its hex must pass a CR 2 Wit Check to go around, or it stumbles in and takes the damage. A caught Large or smaller enemy can&#39;t Move until it passes a CR 2 Grit Check, and it takes 1 wound breaking free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.147</em></p>",
+    "summary": "Wit; 1 Pierce; Close (5 ft). Deployable, Trap and Trapped, as for the Bear Trap: an enemy moving toward its hex must pass a CR 2 Wit Check to go around, or it stumbles in and takes the damage. A caught Large or smaller enemy can't Move until it passes a CR 2 Grit Check, and it takes 1 wound breaking free.",
+    "page": 147,
+    "category": "trap",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 1,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "deployable",
+      "trap",
+      "trapped"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "immobile",
+        "target": "enemy",
+        "save": {
+          "skill": "wit",
+          "cr": 2
+        },
+        "when": {
+          "manual": true,
+          "label": "Trap: a Large or smaller enemy moves toward it"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Deployable and Trap: place the snare on a hex. When an enemy moves toward it, target the enemy and click the snare's button on its chat card. The enemy rolls a CR 2 Wit Check, and if it fails it is Immobile (Trapped). There is no Strike roll, so apply the 1 Pierce by hand on a failure. For an enemy bigger than Large, roll its Wit Check by hand: it takes the damage on a failure but isn't Trapped. A Trapped enemy stays put until it passes a CR 2 Grit Check, then removes Immobile and takes 1 wound."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "hunters-snare"
+    }
+  }
+}

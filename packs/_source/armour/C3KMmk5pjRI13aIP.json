@@ -1,0 +1,54 @@
+{
+  "_id": "C3KMmk5pjRI13aIP",
+  "_key": "!items!C3KMmk5pjRI13aIP",
+  "folder": null,
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Berserker's Bear Pelt",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Primal Instincts: +1 Talent Die when tracking enemies. Beastly Strength: +1 Core Skill Point in Grit while it is equipped.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.151</em></p>",
+    "summary": "1 Armour Slot. Primal Instincts: +1 Talent Die when tracking enemies. Beastly Strength: +1 Core Skill Point in Grit while it is equipped.",
+    "page": 151,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Primal Instincts, Beastly Strength",
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Primal Instincts: tracking enemies"
+        }
+      },
+      {
+        "kind": "skillPoints",
+        "skill": "grit",
+        "amount": 1
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "berserkers-bear-pelt"
+    }
+  }
+}

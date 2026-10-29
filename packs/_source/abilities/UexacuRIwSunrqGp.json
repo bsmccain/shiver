@@ -1,0 +1,73 @@
+{
+  "_id": "UexacuRIwSunrqGp",
+  "_key": "!items!UexacuRIwSunrqGp",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 6017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Leech",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>In combat, spend an Interact Action to try to steal a Talent Die. Against an ally, pick a Core Skill in which they have a Talent Die and roll an Opposed Heart Check; against an enemy the Opposed Check uses Smarts. On success you gain that Talent Die and the target loses it until the start of your next Combat Turn. Outside combat the effect lasts 30 seconds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "In combat, spend an Interact Action to try to steal a Talent Die. Against an ally, pick a Core Skill in which they have a Talent Die and roll an Opposed Heart Check; against an enemy the Opposed Check uses Smarts. On success you gain that Talent Die and the target loses it until the start of your next Combat Turn. Outside combat the effect lasts 30 seconds.",
+    "archetype": "survivor",
+    "node": "survivor-leech",
+    "path": "cockroach",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t5-talent-cockroach"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "onSuccess": "You gain the target's Talent Die in the chosen Core Skill and they lose it until the start of your next Combat Turn (30 seconds outside combat).",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Leech: stolen Talent Die (that Core Skill only, until the start of your next Combat Turn)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Opposed check: against an enemy switch the roll to Smarts. While the stolen die lasts, tick the Leech box on checks with that skill; the target rolls 1 fewer Talent Die in it."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-leech"
+    }
+  }
+}

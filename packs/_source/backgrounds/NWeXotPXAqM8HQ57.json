@@ -1,0 +1,63 @@
+{
+  "_id": "NWeXotPXAqM8HQ57",
+  "_key": "!items!NWeXotPXAqM8HQ57",
+  "folder": null,
+  "sort": 10,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Scientist",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Thinking Outside the Box.</strong> After failing a non-Smarts Check outside Combat, you may re-roll every die showing a Smarts symbol.</p><p><strong>Calculating (Flaw).</strong> Lose a Heart die when trying to read someone&#39;s emotional state or tell whether they are telling the truth.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.85</em></p>",
+    "page": 85,
+    "abilityName": "Thinking Outside the Box",
+    "abilitySummary": "After failing a non-Smarts Check outside Combat, you may re-roll every die showing a Smarts symbol.",
+    "abilityDescription": "<p>After failing a non-Smarts Check outside Combat, you may re-roll every die showing a Smarts symbol.</p>",
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "After failing a check of any skill other than Smarts outside Combat, you may re-roll every die that shows a Smarts symbol."
+      }
+    ],
+    "flawName": "Calculating",
+    "flawSummary": "Lose a Heart die when trying to read someone's emotional state or tell whether they are telling the truth.",
+    "flawDescription": "<p>Lose a Heart die when trying to read someone&#39;s emotional state or tell whether they are telling the truth.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Calculating",
+        "skill": "heart",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Reading someone's emotions or whether they're lying"
+        }
+      }
+    ],
+    "archetype": "scholar"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-scientist"
+    }
+  }
+}

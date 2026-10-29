@@ -1,0 +1,70 @@
+{
+  "_id": "u3gpgAWakve6ThLF",
+  "_key": "!items!u3gpgAWakve6ThLF",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 6018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Adrenaline",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>While Afraid or Terrified you are Steeled and Fast.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "While Afraid or Terrified you are Steeled and Fast.",
+    "archetype": "survivor",
+    "node": "survivor-adrenaline",
+    "path": "leader",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t5-talent-leader"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cr",
+        "amount": 1,
+        "when": {
+          "fear": {
+            "gte": 1
+          }
+        }
+      },
+      {
+        "kind": "speed",
+        "set": "fast",
+        "when": {
+          "fear": {
+            "gte": 1
+          }
+        }
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-adrenaline"
+    }
+  }
+}

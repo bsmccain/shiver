@@ -1,0 +1,60 @@
+{
+  "_id": "JwC2FVT9ZzN159Pf",
+  "_key": "!items!JwC2FVT9ZzN159Pf",
+  "folder": null,
+  "sort": 30,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Tactician",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Tactical Re-Deployment.</strong> After the enemies&#39; Combat States are revealed, you may change the Combat State of yourself or one ally.</p><p><strong>People Are Pawns (Flaw).</strong> When you target an enemy that is in a Brawl with an ally, roll a CR 1 Luck Check. On a failure you hit the ally instead.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.93</em></p>",
+    "page": 93,
+    "abilityName": "Tactical Re-Deployment",
+    "abilitySummary": "After the enemies' Combat States are revealed, you may change the Combat State of yourself or one ally.",
+    "abilityDescription": "<p>After the enemies&#39; Combat States are revealed, you may change the Combat State of yourself or one ally.</p>",
+    "action": "free",
+    "uses": {
+      "per": "encounter",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Once the enemies' Combat States are revealed, move yourself or one ally to a different Combat State."
+      }
+    ],
+    "flawName": "People Are Pawns",
+    "flawSummary": "When you target an enemy that is in a Brawl with an ally, roll a CR 1 Luck Check. On a failure you hit the ally instead.",
+    "flawDescription": "<p>When you target an enemy that is in a Brawl with an ally, roll a CR 1 Luck Check. On a failure you hit the ally instead.</p>",
+    "flawAutomation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": 1,
+        "label": "People Are Pawns (targeting an enemy in a Brawl with an ally)",
+        "onSuccess": "Your attack goes ahead against the enemy.",
+        "onFail": "You hit your ally instead of the enemy."
+      },
+      {
+        "kind": "custom",
+        "note": "On a failure, resolve your Strike against the ally instead of the enemy (by hand). Use spends Tactical Re-Deployment, so to roll this check post the Background to chat (speech-bubble icon) and click its Roll button."
+      }
+    ],
+    "archetype": "survivor"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-tactician"
+    }
+  }
+}

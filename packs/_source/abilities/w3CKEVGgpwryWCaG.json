@@ -1,0 +1,86 @@
+{
+  "_id": "w3CKEVGgpwryWCaG",
+  "_key": "!items!w3CKEVGgpwryWCaG",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 8025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Utility Belt",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>In your sanctuary or another suitable place, stock 2 different items: Grappling Hook (+1 Talent Die when climbing), Smoke Bomb (+1 Talent Die on Stealth Checks), Lock-picks (+1 Talent Die to open locks).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "In your sanctuary or another suitable place, stock 2 different items: Grappling Hook (+1 Talent Die when climbing), Smoke Bomb (+1 Talent Die on Stealth Checks), Lock-picks (+1 Talent Die to open locks).",
+    "archetype": "scholar",
+    "node": "scholar-utility-belt",
+    "path": "engineer",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "scholar-talent-plus-engineer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "grit",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Climbing (Grappling Hook stocked)"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": "wit",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Stealth Check (Smoke Bomb stocked)"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": "wit",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Opening a lock (Lock-picks stocked)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Stock 2 different belt items in your sanctuary or another suitable place; only those 2 bonuses apply."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-utility-belt"
+    }
+  }
+}

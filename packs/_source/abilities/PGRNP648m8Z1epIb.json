@@ -1,0 +1,58 @@
+{
+  "_id": "PGRNP648m8Z1epIb",
+  "_key": "!items!PGRNP648m8Z1epIb",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 8022,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Grit Talent",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Add 1 Talent Point to Grit.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "Add 1 Talent Point to Grit.",
+    "archetype": "warrior",
+    "node": "warrior-talent-plus-berserker",
+    "path": "berserker",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "warrior-freight-train",
+      "warrior-unencumbered"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "grit",
+        "amount": 1
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-talent-plus-berserker"
+    }
+  }
+}

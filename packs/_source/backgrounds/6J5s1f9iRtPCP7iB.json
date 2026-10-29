@@ -1,0 +1,67 @@
+{
+  "_id": "6J5s1f9iRtPCP7iB",
+  "_key": "!items!6J5s1f9iRtPCP7iB",
+  "folder": null,
+  "sort": 24,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Conspiracist",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Sounds Familiar.</strong> Roll your Luck Pool. Depending on the result, the Director gives you a story you remember that relates to your current predicament.</p><p><strong>Wackjob (Flaw).</strong> Lose 1 Skill Die when trying to convince others.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.90</em></p>",
+    "page": 90,
+    "abilityName": "Sounds Familiar",
+    "abilitySummary": "Roll your Luck Pool. Depending on the result, the Director gives you a story you remember that relates to your current predicament.",
+    "abilityDescription": "<p>Roll your Luck Pool. Depending on the result, the Director gives you a story you remember that relates to your current predicament.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "Sounds Familiar",
+        "onSuccess": "The Director tells you a related story you recall; the better the roll, the more it helps.",
+        "onFail": "The Director decides what, if anything, you recall."
+      }
+    ],
+    "flawName": "Wackjob",
+    "flawSummary": "Lose 1 Skill Die when trying to convince others.",
+    "flawDescription": "<p>Lose 1 Skill Die when trying to convince others.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Wackjob",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Convincing others"
+        }
+      }
+    ],
+    "archetype": "fool"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-conspiracist"
+    }
+  }
+}

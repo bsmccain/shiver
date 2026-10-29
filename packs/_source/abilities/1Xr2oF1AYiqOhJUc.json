@@ -1,0 +1,63 @@
+{
+  "_id": "1Xr2oF1AYiqOhJUc",
+  "_key": "!items!1Xr2oF1AYiqOhJUc",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 2003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Barricade",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>At a door, window or other entrance, use an Interact Action and roll a Smarts Check to barricade it against pursuers. 1 success builds a barricade with CR 1 and 8 Health Points; each success beyond the first adds 2 Health Points.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.45</em></p>",
+    "summary": "At a door, window or other entrance, use an Interact Action and roll a Smarts Check to barricade it against pursuers. 1 success builds a barricade with CR 1 and 8 Health Points; each success beyond the first adds 2 Health Points.",
+    "archetype": "scholar",
+    "node": "scholar-barricade",
+    "path": "engineer",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "scholar-medic"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "onSuccess": "Barricade built: CR 1, 8 Health Points +2 per success beyond the first.",
+        "onFail": "No barricade."
+      },
+      {
+        "kind": "custom",
+        "note": "Only at a door, window or other entrance. Barricade: CR 1, 8 HP +2 per extra success; the Director tracks it and how it slows pursuers."
+      }
+    ],
+    "page": 45,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-barricade"
+    }
+  }
+}

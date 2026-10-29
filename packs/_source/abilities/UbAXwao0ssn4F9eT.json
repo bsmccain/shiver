@@ -1,0 +1,57 @@
+{
+  "_id": "UbAXwao0ssn4F9eT",
+  "_key": "!items!UbAXwao0ssn4F9eT",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 8022,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Heart Talent Point",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>+1 Talent Point in Heart.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "+1 Talent Point in Heart.",
+    "archetype": "socialite",
+    "node": "socialite-talent-plus-charmer",
+    "path": "charmer",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "socialite-rousing-speech"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "heart",
+        "amount": 1
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-talent-plus-charmer"
+    }
+  }
+}

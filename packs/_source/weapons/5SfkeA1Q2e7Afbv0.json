@@ -1,0 +1,56 @@
+{
+  "_id": "5SfkeA1Q2e7Afbv0",
+  "_key": "!items!5SfkeA1Q2e7Afbv0",
+  "folder": null,
+  "sort": 19,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Silver Dagger",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit or Wit; 2 Sharp; Close (5 ft). Silver: counts as a silver weapon. Bloody: a hit&#39;s Sharp save is a CR 2 Luck Check, and failing it gives Bleed (2) rather than Bleed (1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.136</em></p>",
+    "summary": "Grit or Wit; 2 Sharp; Close (5 ft). Silver: counts as a silver weapon. Bloody: a hit's Sharp save is a CR 2 Luck Check, and failing it gives Bleed (2) rather than Bleed (1).",
+    "page": 136,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [
+      "wit"
+    ],
+    "damage": 2,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "silver",
+      "bloody"
+    ],
+    "material": "silver",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "saveOverride",
+        "damageType": "sharp",
+        "cr": 2,
+        "value": 2
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "silver-dagger"
+    }
+  }
+}

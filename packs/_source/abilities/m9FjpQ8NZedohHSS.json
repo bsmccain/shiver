@@ -1,0 +1,90 @@
+{
+  "_id": "m9FjpQ8NZedohHSS",
+  "_key": "!items!m9FjpQ8NZedohHSS",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 6015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Distract",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Heart Check against the highest CR among enemies within Near Range (15 ft). On a success they are all distracted. Out of combat, all your allies enter Stealth. In combat, those enemies are Taunted until your next Combat Turn, and each ally may take one immediate bonus action: Escape a Brawl with them without giving them an Attack Action, or Strike a distracted enemy as if it were Weakened.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "Heart Check against the highest CR among enemies within Near Range (15 ft). On a success they are all distracted. Out of combat, all your allies enter Stealth. In combat, those enemies are Taunted until your next Combat Turn, and each ally may take one immediate bonus action: Escape a Brawl with them without giving them an Attack Action, or Strike a distracted enemy as if it were Weakened.",
+    "archetype": "socialite",
+    "node": "socialite-distract",
+    "path": "charmer",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "socialite-core-plus-charmer"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "label": "In combat: target every enemy within 15 ft; CR = the highest of their CRs",
+        "onSuccess": "The targeted enemies are Taunted until your next Combat Turn, and each ally gets a bonus action.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "taunted",
+            "target": "enemy",
+            "until": "attackerNextTurn",
+            "flags": {
+              "expires": "combatEnd"
+            }
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "label": "Out of combat: target your allies; CR = the highest CR among enemies within 15 ft",
+        "onSuccess": "The targeted allies enter Stealth.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "stealth",
+            "target": "ally"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "In combat, after a success each ally may at once take one bonus action: Escape a Brawl with Taunted enemies without giving them an Attack Action, or Strike a distracted enemy as if it were Weakened (CR -1, minimum 1)."
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-distract"
+    }
+  }
+}

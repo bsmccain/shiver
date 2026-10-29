@@ -1,0 +1,51 @@
+{
+  "_id": "5i6nuxSJhb45eFXZ",
+  "_key": "!items!5i6nuxSJhb45eFXZ",
+  "folder": null,
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bionic Arm",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 3 Blunt; Close (5 ft). Punch-Up: your Unarmed Strikes use this profile, and it doesn&#39;t take one of your weapon slots.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.134</em></p>",
+    "summary": "Grit; 3 Blunt; Close (5 ft). Punch-Up: your Unarmed Strikes use this profile, and it doesn't take one of your weapon slots.",
+    "page": 134,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "punchUp"
+    ],
+    "material": "",
+    "unarmed": true,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Punch-Up: make your Unarmed Strikes with this (3 Blunt) instead of the basic Unarmed Strike (1 Blunt). It already counts as an Unarmed Strike and takes no weapon slot."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bionic-arm"
+    }
+  }
+}

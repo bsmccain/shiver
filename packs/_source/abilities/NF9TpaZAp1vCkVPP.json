@@ -1,0 +1,63 @@
+{
+  "_id": "NF9TpaZAp1vCkVPP",
+  "_key": "!items!NF9TpaZAp1vCkVPP",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 10030,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "3 Steps Ahead",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>When you&#39;re targeted by a Strike, make a Smarts Check against the attacker&#39;s CR. Match it and you take no damage from that Strike; exceed it and you may also Strike the attacker if it&#39;s within Range.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "When you're targeted by a Strike, make a Smarts Check against the attacker's CR. Match it and you take no damage from that Strike; exceed it and you may also Strike the attacker if it's within Range.",
+    "archetype": "scholar",
+    "node": "scholar-3-steps-ahead",
+    "path": "academic",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "scholar-renaissance-man"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "onSuccess": "Match: no damage from the Strike. Exceed: you may also Strike the attacker if it's within Range.",
+        "onFail": "The Strike resolves normally."
+      },
+      {
+        "kind": "custom",
+        "note": "Roll when targeted by a Strike, with the CR set to the attacker's CR. Match: take no damage from it. Exceed: you may also Strike the attacker if it's within Range."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-3-steps-ahead"
+    }
+  }
+}

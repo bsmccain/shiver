@@ -1,0 +1,67 @@
+{
+  "_id": "6B7QMfHiIuDUJL9t",
+  "_key": "!items!6B7QMfHiIuDUJL9t",
+  "folder": null,
+  "sort": 24,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sword",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Sharp; Close (5 ft). I Stab at Thee!: instead of a normal Strike, your Attack Action can be a Wit Check against the target&#39;s CR; on a success it takes 2 Pierce.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.138</em></p>",
+    "summary": "Grit; 4 Sharp; Close (5 ft). I Stab at Thee!: instead of a normal Strike, your Attack Action can be a Wit Check against the target's CR; on a success it takes 2 Pierce.",
+    "page": 138,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "iStabAtThee"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "wit",
+        "cr": null,
+        "label": "I Stab at Thee! (CR is the target's CR)",
+        "onSuccess": "The targeted enemy takes 2 Pierce.",
+        "success": [
+          {
+            "kind": "damage",
+            "amount": 2,
+            "type": "pierce",
+            "target": "enemy",
+            "strike": true
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "I Stab at Thee!: instead of a normal Strike, target the enemy, post the Sword to chat and roll its Wit Check. The Director sets the CR to the target's CR. It uses your Attack Action, so mark it. It counts as a Strike, so handle the enemy's Reaction and leaving Stealth by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sword"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "_id": "ur8fFupsFBSWzBXM",
+  "_key": "!items!ur8fFupsFBSWzBXM",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 2005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Astral Form",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Leave your body as an Astral Form. It passes through solids, can&#39;t be seen by normal people or most enemies, moves at your Speed and can&#39;t go beyond Long Range (150 ft) of your body. Only astral attackers or Soul-damage Strikes can harm it; your body is left comatose and can&#39;t defend itself. Doom +1 per minute in Astral Form. It can move Small objects with a Strange Check (Doom +1 on success) but can&#39;t otherwise affect the physical world.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "Leave your body as an Astral Form. It passes through solids, can't be seen by normal people or most enemies, moves at your Speed and can't go beyond Long Range (150 ft) of your body. Only astral attackers or Soul-damage Strikes can harm it; your body is left comatose and can't defend itself. Doom +1 per minute in Astral Form. It can move Small objects with a Strange Check (Doom +1 on success) but can't otherwise affect the physical world.",
+    "archetype": "weird",
+    "node": "weird-astral-form",
+    "path": "spiritualist",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "weird-illusionist"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Astral Form moves a Small object",
+        "onSuccess": "You move a Small object. Doom +1.",
+        "onFail": "The object doesn't move.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 1
+          }
+        ]
+      },
+      {
+        "kind": "doom",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Each minute in Astral Form"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "While projecting: the Astral Form ignores all damage except from astral-plane attackers or Strikes dealing Soul damage, and stays within 150 ft of your body. Your body is comatose and defenceless (unless you have Soul Separation). Tick Doom +1 for every minute spent in Astral Form."
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-astral-form"
+    }
+  }
+}

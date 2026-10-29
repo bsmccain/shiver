@@ -1,0 +1,60 @@
+{
+  "_id": "Dplh3RUUP0mfa57x",
+  "_key": "!items!Dplh3RUUP0mfa57x",
+  "folder": null,
+  "sort": 18,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Priest",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Holy Smash.</strong> Interact Action: make an Opposed Heart Check against an ally or enemy. If you succeed, the target has Minor Advantage or Major Disadvantage on its next Skill Check, depending on your sermon.</p><p><strong>Shaken Faith (Flaw).</strong> Meeting a supernatural being (ghost, demon, etc.) calls for a CR 1 Fear Check. Failing makes you Afraid, and your Fear Checks are +1 CR until you are Stable.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.88</em></p>",
+    "page": 88,
+    "abilityName": "Holy Smash",
+    "abilitySummary": "Interact Action: make an Opposed Heart Check against an ally or enemy. If you succeed, the target has Minor Advantage or Major Disadvantage on its next Skill Check, depending on your sermon.",
+    "abilityDescription": "<p>Interact Action: make an Opposed Heart Check against an ally or enemy. If you succeed, the target has Minor Advantage or Major Disadvantage on its next Skill Check, depending on your sermon.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "label": "Holy Smash (opposed by the targeted ally or enemy)",
+        "onSuccess": "The target has your choice of Minor Advantage or Major Disadvantage on its next Skill Check.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Opposed: the Director sets the CR from the target's roll. Apply the chosen Advantage or Disadvantage to the target's next Skill Check by hand."
+      }
+    ],
+    "flawName": "Shaken Faith",
+    "flawSummary": "Meeting a supernatural being (ghost, demon, etc.) calls for a CR 1 Fear Check. Failing makes you Afraid, and your Fear Checks are +1 CR until you are Stable.",
+    "flawDescription": "<p>Meeting a supernatural being (ghost, demon, etc.) calls for a CR 1 Fear Check. Failing makes you Afraid, and your Fear Checks are +1 CR until you are Stable.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Director: when this character meets a supernatural being (ghost, demon, etc.), call for a CR 1 Fear Check. On a failure they become Afraid, and add +1 to the CR of their Fear Checks until they are Stable again."
+      }
+    ],
+    "archetype": "socialite"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-priest"
+    }
+  }
+}

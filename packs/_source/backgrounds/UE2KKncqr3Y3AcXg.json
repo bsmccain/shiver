@@ -1,0 +1,85 @@
+{
+  "_id": "UE2KKncqr3Y3AcXg",
+  "_key": "!items!UE2KKncqr3Y3AcXg",
+  "folder": null,
+  "sort": 21,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Janitor",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Mop Master.</strong> +1 Talent Die when fighting with improvised weapons. Improvised weapons deal +1 damage, or +2 if the weapon is a mop.</p><p><strong>Clean Freak (Flaw).</strong> Minor Disadvantage on all Skill Checks while covered in grime or in a filthy environment.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.89</em></p>",
+    "page": 89,
+    "abilityName": "Mop Master",
+    "abilitySummary": "+1 Talent Die when fighting with improvised weapons. Improvised weapons deal +1 damage, or +2 if the weapon is a mop.",
+    "abilityDescription": "<p>+1 Talent Die when fighting with improvised weapons. Improvised weapons deal +1 damage, or +2 if the weapon is a mop.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Mop Master",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike",
+            "weapon"
+          ],
+          "notTags": [
+            "unarmed"
+          ],
+          "manual": true,
+          "label": "Fighting with an improvised weapon"
+        }
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Mop Master: improvised weapon (+1 damage)",
+        "damageBonus": 1,
+        "onHit": []
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Mop Master: mop (+2 damage)",
+        "damageBonus": 2,
+        "onHit": []
+      }
+    ],
+    "flawName": "Clean Freak",
+    "flawSummary": "Minor Disadvantage on all Skill Checks while covered in grime or in a filthy environment.",
+    "flawDescription": "<p>Minor Disadvantage on all Skill Checks while covered in grime or in a filthy environment.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Clean Freak",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "manual": true,
+          "label": "Covered in grime or in a filthy environment"
+        }
+      }
+    ],
+    "archetype": "fool"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-janitor"
+    }
+  }
+}

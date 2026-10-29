@@ -1,0 +1,43 @@
+{
+  "_id": "lSKPPOXpq4b7zOoW",
+  "_key": "!items!lSKPPOXpq4b7zOoW",
+  "folder": null,
+  "sort": 12,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Jet-Pack",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Temporary Flight: activate it to gain the Fly ability for one Combat Encounter. 2 uses per Doom Quarter.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.153</em></p>",
+    "summary": "1 Armour Slot. Temporary Flight: activate it to gain the Fly ability for one Combat Encounter. 2 uses per Doom Quarter.",
+    "page": 153,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Temporary Flight",
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Temporary Flight: activate to gain Fly for one Combat Encounter (move over any terrain without losing Speed unless a physical barrier blocks you). Up to 2 activations per Doom Quarter; track them by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "jet-pack"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "_id": "guqdsEP0yMGaA07i",
+  "_key": "!items!guqdsEP0yMGaA07i",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Banking On It",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Your Luck Bank can hold up to 3 Luck Points (normally 1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.56</em></p>",
+    "summary": "Your Luck Bank can hold up to 3 Luck Points (normally 1).",
+    "archetype": "fool",
+    "node": "fool-banking-on-it",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "luckBankMax",
+        "amount": 3
+      }
+    ],
+    "page": 56,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-banking-on-it"
+    }
+  }
+}

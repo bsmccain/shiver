@@ -1,0 +1,122 @@
+{
+  "_id": "do9wii9xtYdFf3p5",
+  "_key": "!items!do9wii9xtYdFf3p5",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Poisoner",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, craft a poison: roll 1 Skill Die. Grit: Maimed. Wit: Paralysed. Smarts: Blinded. Heart: Weakened. Strange: Afraid. Luck: choose any of these. Your next successful Strike makes your weapon apply that effect for the next 2 Combat Rounds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "Once per Doom Quarter, craft a poison: roll 1 Skill Die. Grit: Maimed. Wit: Paralysed. Smarts: Blinded. Heart: Weakened. Strange: Afraid. Luck: choose any of these. Your next successful Strike makes your weapon apply that effect for the next 2 Combat Rounds.",
+    "archetype": "maverick",
+    "node": "maverick-poisoner",
+    "path": "thief",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "maverick-hot-property",
+      "maverick-nimble-fingers"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Use to craft (spends the OPDQ use), then roll 1 Skill Die: Grit = Maimed, Wit = Paralysed, Smarts = Blinded, Heart = Weakened, Strange = Afraid, Luck = your choice. Strike with the matching Poison mode until a Strike hits; the status then lasts 2 Combat Rounds."
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Poison: Maimed",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "maimed",
+            "rounds": 2,
+            "until": "encounter",
+            "note": "Poisoner: Maimed for 2 Combat Rounds."
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Poison: Paralysed",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "paralysed",
+            "rounds": 2,
+            "until": "encounter",
+            "note": "Poisoner: Paralysed for 2 Combat Rounds."
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Poison: Blinded",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "blinded",
+            "rounds": 2,
+            "until": "encounter",
+            "note": "Poisoner: Blinded for 2 Combat Rounds."
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Poison: Weakened",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "weakened",
+            "rounds": 2,
+            "until": "encounter",
+            "note": "Poisoner: Weakened for 2 Combat Rounds."
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Poison: Afraid",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "afraid",
+            "rounds": 2,
+            "until": "encounter",
+            "note": "Poisoner: Afraid for 2 Combat Rounds."
+          }
+        ]
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-poisoner"
+    }
+  }
+}

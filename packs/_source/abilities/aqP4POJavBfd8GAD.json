@@ -1,0 +1,64 @@
+{
+  "_id": "aqP4POJavBfd8GAD",
+  "_key": "!items!aqP4POJavBfd8GAD",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 10039,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Ethereal Legion",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ. Create up to 5 fragile illusions. An enemy attacking you must pass a CR 2 Smarts Check or it targets an illusion instead; one successful attack disperses an illusion. With Doppelgänger you may instead have up to 3 Doppelgängers and can move your consciousness into one when you die. Doom +1 per illusion created.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.69</em></p>",
+    "summary": "OPDQ. Create up to 5 fragile illusions. An enemy attacking you must pass a CR 2 Smarts Check or it targets an illusion instead; one successful attack disperses an illusion. With Doppelgänger you may instead have up to 3 Doppelgängers and can move your consciousness into one when you die. Doom +1 per illusion created.",
+    "archetype": "weird",
+    "node": "weird-ethereal-legion",
+    "path": "spiritualist",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "weird-possession"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "doom",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Per illusion created (up to 5)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Track the illusions (max 5). Each enemy attacking you rolls Smarts CR 2 and hits an illusion on a failure, dispersing it. Doom +1 per illusion. Doppelgänger option: up to 3 Doppelgängers instead, and on death you may move into one."
+      }
+    ],
+    "page": 69,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-ethereal-legion"
+    }
+  }
+}

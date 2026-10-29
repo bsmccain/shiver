@@ -1,0 +1,45 @@
+{
+  "_id": "xdt6fXk2ybNjGKpr",
+  "_key": "!items!xdt6fXk2ybNjGKpr",
+  "folder": null,
+  "sort": 8,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Exoskeleton",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>2 Armour Slots. Muscle Enhancer: +1 Talent Point in Grit while you wear it. Heavy: your Speed drops one tier while it is equipped.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "2 Armour Slots. Muscle Enhancer: +1 Talent Point in Grit while you wear it. Heavy: your Speed drops one tier while it is equipped.",
+    "page": 152,
+    "slots": 2,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2
+    ],
+    "heavy": true,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Muscle Enhancer, Heavy",
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "grit",
+        "amount": 1
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "exoskeleton"
+    }
+  }
+}

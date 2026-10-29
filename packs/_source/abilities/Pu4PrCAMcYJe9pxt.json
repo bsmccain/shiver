@@ -1,0 +1,71 @@
+{
+  "_id": "Pu4PrCAMcYJe9pxt",
+  "_key": "!items!Pu4PrCAMcYJe9pxt",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 3005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Off Kilter",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>After a successful Strike against an enemy of size Large or smaller, roll a Smarts Check against its CR. If you match or beat it, the enemy is knocked Prone.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.45</em></p>",
+    "summary": "After a successful Strike against an enemy of size Large or smaller, roll a Smarts Check against its CR. If you match or beat it, the enemy is knocked Prone.",
+    "archetype": "scholar",
+    "node": "scholar-off-kilter",
+    "path": "healer",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "scholar-anatomy"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "label": "Knock Prone",
+        "onSuccess": "The targeted enemy is knocked Prone.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "prone",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Use after each successful Strike on a Large or smaller enemy; it costs no action. Keep that enemy targeted and set the CR to its CR (or leave it for the Director)."
+      }
+    ],
+    "page": 45,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-off-kilter"
+    }
+  }
+}

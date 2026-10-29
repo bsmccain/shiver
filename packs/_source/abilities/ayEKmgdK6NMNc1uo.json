@@ -1,0 +1,65 @@
+{
+  "_id": "ayEKmgdK6NMNc1uo",
+  "_key": "!items!ayEKmgdK6NMNc1uo",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 8024,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Natural Selection",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>+1 Talent Die when Striking the enemy with the lowest CR in the Combat. If CRs are tied, it applies to the tied enemy with the fewest Health Points left.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "+1 Talent Die when Striking the enemy with the lowest CR in the Combat. If CRs are tied, it applies to the tied enemy with the fewest Health Points left.",
+    "archetype": "scholar",
+    "node": "scholar-natural-selection",
+    "path": "healer",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "scholar-talent-plus-healer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Target has the lowest CR in the Combat (tie: fewest Health Points left)"
+        }
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-natural-selection"
+    }
+  }
+}

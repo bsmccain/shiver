@@ -1,0 +1,60 @@
+{
+  "_id": "CfDW1vcRdsDh7rmf",
+  "_key": "!items!CfDW1vcRdsDh7rmf",
+  "folder": null,
+  "sort": 29,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Blunderbuss",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Blunt; Medium (50 ft). Knock-back (N): a hit shoves the target 15 ft (Near) away. Two-hander: needs both hands free. Reload: after attacking with it, spend an Interact Action reloading before attacking with it again.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.139</em></p>",
+    "summary": "Grit; 6 Blunt; Medium (50 ft). Knock-back (N): a hit shoves the target 15 ft (Near) away. Two-hander: needs both hands free. Reload: after attacking with it, spend an Interact Action reloading before attacking with it again.",
+    "page": 139,
+    "category": "ranged",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "knockBack",
+      "twoHander",
+      "reload"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "onHit",
+        "note": "Knock-back (N): push the target 15 ft (Near, 3 hex) away from you."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "blunderbuss"
+    }
+  }
+}

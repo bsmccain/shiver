@@ -1,0 +1,65 @@
+{
+  "_id": "kdSM36tvzkwTPfL7",
+  "_key": "!items!kdSM36tvzkwTPfL7",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 7018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dual Wielder",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>You can wield 2 single-handed melee weapons at once, and make 1 extra Strike with the second weapon each Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "You can wield 2 single-handed melee weapons at once, and make 1 extra Strike with the second weapon each Combat Turn.",
+    "archetype": "maverick",
+    "node": "maverick-dual-wielder",
+    "path": "assassin",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "maverick-evasive"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Wielding two single-handed melee weapons"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Wield 2 single-handed melee weapons at once. The extra Attack Action may only be 1 Strike with your second weapon each Combat Turn."
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-dual-wielder"
+    }
+  }
+}

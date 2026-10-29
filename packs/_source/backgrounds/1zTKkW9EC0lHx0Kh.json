@@ -1,0 +1,63 @@
+{
+  "_id": "1zTKkW9EC0lHx0Kh",
+  "_key": "!items!1zTKkW9EC0lHx0Kh",
+  "folder": null,
+  "sort": 15,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Actor",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Going Method.</strong> +1 Talent Die when disguising yourself as someone else.</p><p><strong>Drama Queen (Flaw).</strong> On Heart Checks to lie, charm or persuade, rolling 2 or more successes over the CR makes you fail.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.87</em></p>",
+    "page": 87,
+    "abilityName": "Going Method",
+    "abilitySummary": "+1 Talent Die when disguising yourself as someone else.",
+    "abilityDescription": "<p>+1 Talent Die when disguising yourself as someone else.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Going Method",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Disguising yourself as someone else"
+        }
+      }
+    ],
+    "flawName": "Drama Queen",
+    "flawSummary": "On Heart Checks to lie, charm or persuade, rolling 2 or more successes over the CR makes you fail.",
+    "flawDescription": "<p>On Heart Checks to lie, charm or persuade, rolling 2 or more successes over the CR makes you fail.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "On a Heart Check to lie, charm or persuade, a roll of CR + 2 or more successes is a failure. Change the outcome by hand."
+      }
+    ],
+    "archetype": "socialite"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-actor"
+    }
+  }
+}

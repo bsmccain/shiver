@@ -1,0 +1,58 @@
+{
+  "_id": "pA9T1u1TtXT4huLH",
+  "_key": "!items!pA9T1u1TtXT4huLH",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 8022,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Luck Talent Point",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Add 1 Talent Point to Luck.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "Add 1 Talent Point to Luck.",
+    "archetype": "fool",
+    "node": "fool-talent-plus-last-chancer",
+    "path": "last-chancer",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "fool-fools-intuition",
+      "fool-what-are-the-chances"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "luck",
+        "amount": 1
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-talent-plus-last-chancer"
+    }
+  }
+}

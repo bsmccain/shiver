@@ -1,0 +1,66 @@
+{
+  "_id": "Zq18nlYClUi0zP35",
+  "_key": "!items!Zq18nlYClUi0zP35",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 9026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Primal Surge",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>While you have 12 or more wounds, Tough rolls 1 extra Skill Die and you may re-roll any non-Grit symbols on those dice. Each Grit symbol blocks 1 damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "While you have 12 or more wounds, Tough rolls 1 extra Skill Die and you may re-roll any non-Grit symbols on those dice. Each Grit symbol blocks 1 damage.",
+    "archetype": "warrior",
+    "node": "warrior-primal-surge",
+    "path": "fighter",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "warrior-talent-plus-fighter"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "warrior-tough",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "damageReductionRoll",
+        "dice": 1,
+        "face": "grit",
+        "reroll": true,
+        "when": {
+          "tags": [
+            "hit"
+          ],
+          "wounds": {
+            "gte": 12
+          }
+        }
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-primal-surge"
+    }
+  }
+}

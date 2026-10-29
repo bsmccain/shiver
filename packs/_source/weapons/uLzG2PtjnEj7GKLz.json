@@ -1,0 +1,57 @@
+{
+  "_id": "uLzG2PtjnEj7GKLz",
+  "_key": "!items!uLzG2PtjnEj7GKLz",
+  "folder": null,
+  "sort": 37,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Heavy Machine Gun",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Pierce; Long (150 ft). Heavy: each Strike costs an Attack and an Interact Action. Two-hander: needs both hands free. Spray&#39;n&#39;Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.141</em></p>",
+    "summary": "Grit; 4 Pierce; Long (150 ft). Heavy: each Strike costs an Attack and an Interact Action. Two-hander: needs both hands free. Spray'n'Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.",
+    "page": 141,
+    "category": "ranged",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "long",
+    "properties": [
+      "heavy",
+      "twoHander",
+      "sprayNPray"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Spray'n'Pray: each other enemy within 5 ft of the target makes a CR 1 Luck Check. Those that fail are also hit by this Strike."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "heavy-machine-gun"
+    }
+  }
+}

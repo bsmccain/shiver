@@ -1,0 +1,73 @@
+{
+  "_id": "QYL1yfLX51OByasJ",
+  "_key": "!items!QYL1yfLX51OByasJ",
+  "folder": null,
+  "sort": 19,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Lawyer",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Legal Speak.</strong> +1 Talent Die when trying to persuade authority figures.</p><p><strong>Law Abiding Citizen (Flaw).</strong> All Skill Checks for any action that could be considered criminal are at Minor Disadvantage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.88</em></p>",
+    "page": 88,
+    "abilityName": "Legal Speak",
+    "abilitySummary": "+1 Talent Die when trying to persuade authority figures.",
+    "abilityDescription": "<p>+1 Talent Die when trying to persuade authority figures.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Legal Speak",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Persuading the law or an authority figure"
+        }
+      }
+    ],
+    "flawName": "Law Abiding Citizen",
+    "flawSummary": "All Skill Checks for any action that could be considered criminal are at Minor Disadvantage.",
+    "flawDescription": "<p>All Skill Checks for any action that could be considered criminal are at Minor Disadvantage.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Law Abiding Citizen",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "fear"
+          ],
+          "manual": true,
+          "label": "Doing something that could be considered criminal"
+        }
+      }
+    ],
+    "archetype": "socialite"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-lawyer"
+    }
+  }
+}

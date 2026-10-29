@@ -1,0 +1,56 @@
+{
+  "_id": "6nAcYH69PgOTeAQf",
+  "_key": "!items!6nAcYH69PgOTeAQf",
+  "folder": null,
+  "sort": 21,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spiked Flail",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Sharp; Near (15 ft); melee. Bloody: a hit&#39;s Sharp save is a CR 2 Luck Check, and failing it gives Bleed (2) rather than Bleed (1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.137</em></p>",
+    "summary": "Grit; 4 Sharp; Near (15 ft); melee. Bloody: a hit's Sharp save is a CR 2 Luck Check, and failing it gives Bleed (2) rather than Bleed (1).",
+    "page": 137,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "bloody"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "saveOverride",
+        "damageType": "sharp",
+        "cr": 2,
+        "value": 2
+      },
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "spiked-flail"
+    }
+  }
+}

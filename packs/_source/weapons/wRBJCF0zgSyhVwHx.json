@@ -1,0 +1,44 @@
+{
+  "_id": "wRBJCF0zgSyhVwHx",
+  "_key": "!items!wRBJCF0zgSyhVwHx",
+  "folder": null,
+  "sort": 26,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Unarmed Strike",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 1 Blunt; Close (5 ft). What you hit with when no weapon is to hand. Takes no weapon slot.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.138</em></p>",
+    "summary": "Grit; 1 Blunt; Close (5 ft). What you hit with when no weapon is to hand. Takes no weapon slot.",
+    "page": 138,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 1,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [],
+    "material": "",
+    "unarmed": true,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "unarmed-strike"
+    }
+  }
+}

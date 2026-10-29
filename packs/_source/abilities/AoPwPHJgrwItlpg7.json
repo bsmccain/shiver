@@ -1,0 +1,55 @@
+{
+  "_id": "AoPwPHJgrwItlpg7",
+  "_key": "!items!AoPwPHJgrwItlpg7",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 5017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+2 Core Points",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Add 2 Core Skill Points to one Core Skill, or 1 to each of two Core Skills. This can qualify you for a hybrid Archetype (p78).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.65</em></p>",
+    "summary": "Add 2 Core Skill Points to one Core Skill, or 1 to each of two Core Skills. This can qualify you for a hybrid Archetype (p78).",
+    "archetype": "weird",
+    "node": "weird-core-plus-eldritch",
+    "path": "eldritch",
+    "tier": 5,
+    "tree": true,
+    "prerequisites": [
+      "weird-hallucination"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "skillPoints",
+      "amount": 2,
+      "maxPerSkill": 2
+    },
+    "automation": [],
+    "page": 65,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-core-plus-eldritch"
+    }
+  }
+}

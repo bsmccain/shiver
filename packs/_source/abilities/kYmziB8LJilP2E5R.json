@@ -1,0 +1,60 @@
+{
+  "_id": "kYmziB8LJilP2E5R",
+  "_key": "!items!kYmziB8LJilP2E5R",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 9024,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bulwark Buddies",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Your companion&#39;s Lifeline becomes 16 Health Points. While it is within 5 ft of you, damage you take from attacks is reduced by 1 (minimum 1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "Your companion's Lifeline becomes 16 Health Points. While it is within 5 ft of you, damage you take from attacks is reduced by 1 (minimum 1).",
+    "archetype": "socialite",
+    "node": "socialite-bulwark-buddies",
+    "path": "companion",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "socialite-talent-plus-companion"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "socialite-stalwart-friends",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "On your companion's sheet: its Lifeline becomes 16 HP."
+      },
+      {
+        "kind": "custom",
+        "note": "While your companion is within 5 ft, reduce damage you take from attacks by 1 (minimum 1)."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-bulwark-buddies"
+    }
+  }
+}

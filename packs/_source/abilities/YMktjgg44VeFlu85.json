@@ -1,0 +1,71 @@
+{
+  "_id": "YMktjgg44VeFlu85",
+  "_key": "!items!YMktjgg44VeFlu85",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 3004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Furious Fists",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Gain 1 Talent Die on Unarmed Strikes. Your Unarmed Strikes deal 3 Blunt damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "Gain 1 Talent Die on Unarmed Strikes. Your Unarmed Strikes deal 3 Blunt damage.",
+    "archetype": "warrior",
+    "node": "warrior-furious-fists",
+    "path": "berserker",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "warrior-fury"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": "unarmed"
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Furious Fists",
+        "damage": 3,
+        "damageType": "blunt",
+        "unarmedOnly": true,
+        "onHit": []
+      },
+      {
+        "kind": "custom",
+        "note": "Your Unarmed Strikes deal 3 Blunt, not 1. Pick the Furious Fists mode, or set your Unarmed Strike's damage to 3 so that Stun, Sweep and Chained Strike modes halve or double the right number."
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-furious-fists"
+    }
+  }
+}

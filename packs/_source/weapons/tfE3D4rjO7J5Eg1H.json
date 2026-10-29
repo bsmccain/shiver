@@ -1,0 +1,55 @@
+{
+  "_id": "tfE3D4rjO7J5Eg1H",
+  "_key": "!items!tfE3D4rjO7J5Eg1H",
+  "folder": null,
+  "sort": 43,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mine Launcher",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 8 Blunt; Long (150 ft). Reload: needs an Interact Action to reload after each Strike. Remote Detonate: an Interact Action sets off a mine this launcher fired.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.142</em></p>",
+    "summary": "Smarts; 8 Blunt; Long (150 ft). Reload: needs an Interact Action to reload after each Strike. Remote Detonate: an Interact Action sets off a mine this launcher fired.",
+    "page": 142,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 8,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "long",
+    "properties": [
+      "reload",
+      "remoteDetonate"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "custom",
+        "note": "Remote Detonate: spend an Interact Action to detonate a mine fired from this launcher. Resolve the blast by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "mine-launcher"
+    }
+  }
+}

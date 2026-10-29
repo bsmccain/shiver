@@ -1,0 +1,57 @@
+{
+  "_id": "eqYcm891wi1hSM9j",
+  "_key": "!items!eqYcm891wi1hSM9j",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 8033,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Strange TP",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>+1 Talent Point in Strange.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "+1 Talent Point in Strange.",
+    "archetype": "weird",
+    "node": "weird-strange-tp-body-horror",
+    "path": "body-horror",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "weird-blood-lust"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "strange",
+        "amount": 1
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-strange-tp-body-horror"
+    }
+  }
+}

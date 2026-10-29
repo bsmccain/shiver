@@ -1,0 +1,60 @@
+{
+  "_id": "4eoUmxus0bJG33V2",
+  "_key": "!items!4eoUmxus0bJG33V2",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 2001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Murphy's Law",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When targeted by an attack you may roll 1 Skill Die. On a Luck symbol the attack misses (no damage) and you bank 1 Luck Point.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "When targeted by an attack you may roll 1 Skill Die. On a Luck symbol the attack misses (no damage) and you bank 1 Luck Point.",
+    "archetype": "fool",
+    "node": "fool-murphys-law",
+    "path": "last-chancer",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "fool-banking-on-it"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "luck",
+        "amount": 1
+      },
+      {
+        "kind": "custom",
+        "note": "When targeted by an attack, roll 1 Skill Die (/r 1ds). On a Luck symbol the attack misses: tell the Director, then click Use to bank the Luck Point."
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-murphys-law"
+    }
+  }
+}

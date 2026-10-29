@@ -1,0 +1,71 @@
+{
+  "_id": "Lob9KsQZu4Ay5YAw",
+  "_key": "!items!Lob9KsQZu4Ay5YAw",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 7026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Ghost Whisperer",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Strange Check against a Ghost&#39;s CR (p182) to convince it to help you. On a success it acts as your companion for the Combat Encounter. Doom +3 per Combat Round the Ghost is present.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "Strange Check against a Ghost's CR (p182) to convince it to help you. On a success it acts as your companion for the Combat Encounter. Doom +3 per Combat Round the Ghost is present.",
+    "archetype": "weird",
+    "node": "weird-ghost-whisperer",
+    "path": "spiritualist",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "weird-doppelganger"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "onSuccess": "The Ghost is your companion for the rest of the Combat Encounter.",
+        "onFail": "The Ghost won't help."
+      },
+      {
+        "kind": "doom",
+        "amount": 3,
+        "when": {
+          "manual": true,
+          "label": "Each Combat Round the Ghost is with you"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "A Ghost must be present (standard Ghost p182: CR 1, 16 HP; change the CR for other ghosts). Tick Doom +3 every Combat Round it stays."
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-ghost-whisperer"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "FyK77eS5wE8YDQsU",
+  "_key": "!items!FyK77eS5wE8YDQsU",
+  "folder": null,
+  "sort": 54,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spore Launcher",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 2 Poison; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Toxic: a hit&#39;s Poison save is a CR 2 Grit Check, and failing it gives Poisoned (2) rather than Poisoned (1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.145</em></p>",
+    "summary": "Smarts; 2 Poison; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Toxic: a hit's Poison save is a CR 2 Grit Check, and failing it gives Poisoned (2) rather than Poisoned (1).",
+    "page": 145,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "poison",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "reload",
+      "toxic"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "saveOverride",
+        "damageType": "poison",
+        "cr": 2,
+        "value": 2
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "spore-launcher"
+    }
+  }
+}

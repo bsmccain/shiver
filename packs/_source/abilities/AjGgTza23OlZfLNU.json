@@ -1,0 +1,65 @@
+{
+  "_id": "AjGgTza23OlZfLNU",
+  "_key": "!items!AjGgTza23OlZfLNU",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 2001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Fury",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Once per Combat Round, when you are attacked and take damage, add 1 Skill Die to your Dice Pool on your next Attack Action.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "Once per Combat Round, when you are attacked and take damage, add 1 Skill Die to your Dice Pool on your next Attack Action.",
+    "archetype": "warrior",
+    "node": "warrior-fury",
+    "path": "berserker",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "warrior-tough"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "round",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "attack"
+          ],
+          "manual": true,
+          "label": "Fury: you were attacked and took damage since your last Attack Action (once per Combat Round)"
+        }
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-fury"
+    }
+  }
+}

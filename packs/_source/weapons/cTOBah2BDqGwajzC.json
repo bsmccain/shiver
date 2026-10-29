@@ -1,0 +1,76 @@
+{
+  "_id": "cTOBah2BDqGwajzC",
+  "_key": "!items!cTOBah2BDqGwajzC",
+  "folder": null,
+  "sort": 61,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Flashbang Grenade",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 1 Soul; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Sensory Overload: every enemy within 50 ft (Medium) of the Strike must pass a CR 2 Smarts Check or be Blinded until your next Combat Round.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.147</em></p>",
+    "summary": "Wit; 1 Soul; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Sensory Overload: every enemy within 50 ft (Medium) of the Strike must pass a CR 2 Smarts Check or be Blinded until your next Combat Round.",
+    "page": 147,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 1,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "explosive",
+      "sensoryOverload"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "blinded",
+        "save": {
+          "skill": "smarts",
+          "cr": 2
+        },
+        "until": "attackerNextTurn",
+        "note": "Sensory Overload: every other enemy within Medium Range (50 ft) of the Strike also makes a CR 2 Smarts Check or is Blinded. Target them, post the Flashbang to chat and click its Blinded button."
+      },
+      {
+        "kind": "applyStatus",
+        "status": "blinded",
+        "target": "enemy",
+        "save": {
+          "skill": "smarts",
+          "cr": 2
+        },
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Sensory Overload: other enemies within 50 ft of the Strike"
+        }
+      },
+      {
+        "kind": "onHit",
+        "note": "Explosive (C): this damage, and its effects, also hit every enemy within Close Range (5 ft) of the target."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "flashbang-grenade"
+    }
+  }
+}

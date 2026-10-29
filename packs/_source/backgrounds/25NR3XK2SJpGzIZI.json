@@ -1,0 +1,63 @@
+{
+  "_id": "25NR3XK2SJpGzIZI",
+  "_key": "!items!25NR3XK2SJpGzIZI",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Jock",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Athlete.</strong> +1 Talent Die on feats of athleticism such as running, jumping and climbing.</p><p><strong>Cocky (Flaw).</strong> When a failed Skill Check ticks the Doom Clock forward, tick it 1 extra minute for each Strange symbol rolled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.81</em></p>",
+    "page": 81,
+    "abilityName": "Athlete",
+    "abilitySummary": "+1 Talent Die on feats of athleticism such as running, jumping and climbing.",
+    "abilityDescription": "<p>+1 Talent Die on feats of athleticism such as running, jumping and climbing.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Athlete",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Feat of athleticism (running, jumping, climbing, etc.)"
+        }
+      }
+    ],
+    "flawName": "Cocky",
+    "flawSummary": "When a failed Skill Check ticks the Doom Clock forward, tick it 1 extra minute for each Strange symbol rolled.",
+    "flawDescription": "<p>When a failed Skill Check ticks the Doom Clock forward, tick it 1 extra minute for each Strange symbol rolled.</p>",
+    "flawAutomation": [
+      {
+        "kind": "doomModifier",
+        "extraPerStrange": 1
+      }
+    ],
+    "archetype": "warrior"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-jock"
+    }
+  }
+}

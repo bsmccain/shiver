@@ -1,0 +1,57 @@
+{
+  "_id": "qa9q9Zh43OGkQ6Yw",
+  "_key": "!items!qa9q9Zh43OGkQ6Yw",
+  "folder": null,
+  "sort": 73,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Excalibur",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Heart; 6 Sharp; Close (5 ft). Legendary weapon, linked to the Survivor&#39;s Legendary Weapon ability (p74). Only the Worthy: only a character the sword judges worthy can wield it. Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.150</em></p>",
+    "summary": "Heart; 6 Sharp; Close (5 ft). Legendary weapon, linked to the Survivor's Legendary Weapon ability (p74). Only the Worthy: only a character the sword judges worthy can wield it. Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).",
+    "page": 150,
+    "category": "legendary",
+    "skill": "heart",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "legendary",
+      "onlyTheWorthy",
+      "cleave"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Cleave: if this Strike killed the target, deal the leftover damage to another enemy of your choice within Close Range (5 ft)."
+      },
+      {
+        "kind": "custom",
+        "note": "Only the Worthy: the Director decides whether you are worthy to use it."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "excalibur"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_id": "F6bTqEPfdFzXwwiv",
+  "_key": "!items!F6bTqEPfdFzXwwiv",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 7019,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "What Are The Chances?",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, use Luck in place of the Core Skill for any one Skill Check.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "Once per Doom Quarter, use Luck in place of the Core Skill for any one Skill Check.",
+    "archetype": "fool",
+    "node": "fool-what-are-the-chances",
+    "path": "last-chancer",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "fool-splash-back"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Use to spend this Doom Quarter's use, then switch the skill to Luck in that check's roll dialog. Strike and Fear Check dialogs can't change skill: for a Strike, tick Luck under the weapon's Alternative Skills first; for a Fear Check, roll a Luck Check from your sheet and have the Director apply the result."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-what-are-the-chances"
+    }
+  }
+}

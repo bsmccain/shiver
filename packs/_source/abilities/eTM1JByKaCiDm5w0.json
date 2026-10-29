@@ -1,0 +1,56 @@
+{
+  "_id": "eTM1JByKaCiDm5w0",
+  "_key": "!items!eTM1JByKaCiDm5w0",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 2003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Idiot Savant",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>On Smarts Checks you may re-roll any dice showing a Luck symbol.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "On Smarts Checks you may re-roll any dice showing a Luck symbol.",
+    "archetype": "fool",
+    "node": "fool-idiot-savant",
+    "path": "blessed",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "fool-banking-on-it"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Smarts Checks: you may re-roll any dice that show a Luck symbol."
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-idiot-savant"
+    }
+  }
+}

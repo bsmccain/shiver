@@ -1,0 +1,66 @@
+{
+  "_id": "tIgB5GppLvaCp5M8",
+  "_key": "!items!tIgB5GppLvaCp5M8",
+  "folder": null,
+  "sort": 59,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bear Trap",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Pierce; Close (5 ft). Deployable: it must be set as a trap, and an enemy coming within Close Range of it takes its damage and triggers its abilities. Trap: an enemy moving toward its hex makes a CR 2 Wit Check, stepping around it on a success or blundering in on a failure. Trapped: a caught Large or smaller enemy can&#39;t Move until it passes a CR 2 Grit Check, and it takes 1 wound breaking free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.146</em></p>",
+    "summary": "Grit; 4 Pierce; Close (5 ft). Deployable: it must be set as a trap, and an enemy coming within Close Range of it takes its damage and triggers its abilities. Trap: an enemy moving toward its hex makes a CR 2 Wit Check, stepping around it on a success or blundering in on a failure. Trapped: a caught Large or smaller enemy can't Move until it passes a CR 2 Grit Check, and it takes 1 wound breaking free.",
+    "page": 146,
+    "category": "trap",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "deployable",
+      "trap",
+      "trapped"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "immobile",
+        "target": "enemy",
+        "save": {
+          "skill": "wit",
+          "cr": 2
+        },
+        "when": {
+          "manual": true,
+          "label": "Trap: a Large or smaller enemy moves toward it"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Deployable and Trap: place the trap on a hex. When an enemy moves toward it, target the enemy and click the trap's button on its chat card. The enemy rolls a CR 2 Wit Check, and if it fails it is Immobile (Trapped). There is no Strike roll, so apply the 4 Pierce by hand on a failure. For an enemy bigger than Large, roll its Wit Check by hand: it takes the damage on a failure but isn't Trapped. A Trapped enemy stays put until it passes a CR 2 Grit Check, then removes Immobile and takes 1 wound."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bear-trap"
+    }
+  }
+}

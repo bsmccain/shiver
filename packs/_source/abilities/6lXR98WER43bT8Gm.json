@@ -1,0 +1,16 @@
+{
+  "_id": "6lXR98WER43bT8Gm",
+  "_key": "!folders!6lXR98WER43bT8Gm",
+  "name": "Earth, Wind & Fire Powers",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 800000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "GVSREtZtNkmoAT2n",
+  "_key": "!items!GVSREtZtNkmoAT2n",
+  "folder": null,
+  "sort": 7,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Energy Drink",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Energy Boost: your Speed becomes Fast for a short time or for one Combat Encounter. 1 use.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.157</em></p>",
+    "summary": "Energy Boost: your Speed becomes Fast for a short time or for one Combat Encounter. 1 use.",
+    "page": 157,
+    "category": "buff",
+    "consumable": true,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Set your Speed to Fast by hand for the rest of this Combat Encounter, or for a short time out of combat (the Director decides how long), then set it back."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "energy-drink"
+    }
+  }
+}

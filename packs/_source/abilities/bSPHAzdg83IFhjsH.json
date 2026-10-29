@@ -1,0 +1,61 @@
+{
+  "_id": "bSPHAzdg83IFhjsH",
+  "_key": "!items!bSPHAzdg83IFhjsH",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 3004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Cashing In",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Spend 3 banked Luck Points to heal yourself 1 wound.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "Spend 3 banked Luck Points to heal yourself 1 wound.",
+    "archetype": "fool",
+    "node": "fool-cashing-in",
+    "path": "last-chancer",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "fool-murphys-law"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cost",
+        "luck": 3
+      },
+      {
+        "kind": "heal",
+        "amount": 1,
+        "target": "self"
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-cashing-in"
+    }
+  }
+}

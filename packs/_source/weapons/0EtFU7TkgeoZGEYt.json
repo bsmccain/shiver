@@ -1,0 +1,51 @@
+{
+  "_id": "0EtFU7TkgeoZGEYt",
+  "_key": "!items!0EtFU7TkgeoZGEYt",
+  "folder": null,
+  "sort": 66,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Oil Flask",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; no damage (N/A); Medium (50 ft). Light &#39;Em Up: Fire damage against an enemy it hits is doubled and gives Burning (1) with no save. The effect ends once one Fire Strike or Fire ability has applied Burning this way. Can be made with the Mad Scientist ability (p46).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.148</em></p>",
+    "summary": "Wit; no damage (N/A); Medium (50 ft). Light 'Em Up: Fire damage against an enemy it hits is doubled and gives Burning (1) with no save. The effect ends once one Fire Strike or Fire ability has applied Burning this way. Can be made with the Mad Scientist ability (p46).",
+    "page": 148,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 0,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "lightEmUp"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Light 'Em Up: the next Fire Strike or Fire ability against this target deals double damage and gives Burning (1) with no save. The effect then ends."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "oil-flask"
+    }
+  }
+}

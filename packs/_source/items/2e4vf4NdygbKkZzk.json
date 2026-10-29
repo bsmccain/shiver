@@ -1,0 +1,51 @@
+{
+  "_id": "2e4vf4NdygbKkZzk",
+  "_key": "!items!2e4vf4NdygbKkZzk",
+  "folder": null,
+  "sort": 15,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hack-Tool",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Hacker: +1 Talent Die when you use the tool to hack or bypass any technology.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.157</em></p>",
+    "summary": "Hacker: +1 Talent Die when you use the tool to hack or bypass any technology.",
+    "page": 157,
+    "category": "tool",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Hacker: hacking or bypassing technology with the Hack-Tool"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "hack-tool"
+    }
+  }
+}

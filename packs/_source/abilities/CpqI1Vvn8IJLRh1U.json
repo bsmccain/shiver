@@ -1,0 +1,63 @@
+{
+  "_id": "CpqI1Vvn8IJLRh1U",
+  "_key": "!items!CpqI1Vvn8IJLRh1U",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 8022,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Elementary",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, roll a Smarts Check. For each success, ask the Director one question about the threat (e.g. its Weaknesses or strengths, where it hides, the key suspects, who can be trusted).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "Once per Doom Quarter, roll a Smarts Check. For each success, ask the Director one question about the threat (e.g. its Weaknesses or strengths, where it hides, the key suspects, who can be trusted).",
+    "archetype": "scholar",
+    "node": "scholar-elementary",
+    "path": "academic",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "scholar-talent-plus-academic"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "onSuccess": "Ask the Director one question about the threat per success.",
+        "onFail": "No questions."
+      },
+      {
+        "kind": "custom",
+        "note": "Ask the Director one question about the threat for each success."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-elementary"
+    }
+  }
+}

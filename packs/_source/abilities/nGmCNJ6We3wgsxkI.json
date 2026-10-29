@@ -1,0 +1,56 @@
+{
+  "_id": "nGmCNJ6We3wgsxkI",
+  "_key": "!items!nGmCNJ6We3wgsxkI",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Inspire",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>OPDQ: a target ally adds +1 Talent Die to their next Skill Check. No roll needed. Costs an Interact Action during a Combat Encounter.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "OPDQ: a target ally adds +1 Talent Die to their next Skill Check. No roll needed. Costs an Interact Action during a Combat Encounter.",
+    "archetype": "socialite",
+    "node": "socialite-inspire",
+    "path": "charmer",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "socialite-liar-liar"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "The target ally adds +1 Talent Die to their next Skill Check, then the bonus ends."
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-inspire"
+    }
+  }
+}

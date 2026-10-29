@@ -1,0 +1,74 @@
+{
+  "_id": "jCqjFiq1FVvdEGfl",
+  "_key": "!items!jCqjFiq1FVvdEGfl",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 10031,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "No One Left Behind",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>While an ally you can see has 12 or more wounds, you gain +1 Talent Point in Grit and in Wit until they are healed. If you are within 10 ft of that ally, they are also Steeled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.76</em></p>",
+    "summary": "While an ally you can see has 12 or more wounds, you gain +1 Talent Point in Grit and in Wit until they are healed. If you are within 10 ft of that ally, they are also Steeled.",
+    "archetype": "survivor",
+    "node": "survivor-no-one-left-behind",
+    "path": "leader",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t9-talent-leader"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": [
+          "grit",
+          "wit"
+        ],
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "An ally you can see has 12 or more wounds"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "ally"
+      },
+      {
+        "kind": "custom",
+        "note": "The +1 Talent Point in Grit and Wit is the +1 Talent Die box on those checks. Target the badly wounded ally while within 10 ft and Use this to mark them Steeled; remove it once they are healed or you are more than 10 ft away."
+      }
+    ],
+    "page": 76,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-no-one-left-behind"
+    }
+  }
+}

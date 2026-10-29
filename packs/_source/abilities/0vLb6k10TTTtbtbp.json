@@ -1,0 +1,56 @@
+{
+  "_id": "0vLb6k10TTTtbtbp",
+  "_key": "!items!0vLb6k10TTTtbtbp",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 10029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Helpful Horde",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>While you carry stolen items, you may fill an empty Armour Slot with &#39;Helpful Horde&#39; armour. Damage to that slot damages or destroys some of your stolen items (Director&#39;s pick); bigger loot can fill more slots.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.42</em></p>",
+    "summary": "While you carry stolen items, you may fill an empty Armour Slot with 'Helpful Horde' armour. Damage to that slot damages or destroys some of your stolen items (Director's pick); bigger loot can fill more slots.",
+    "archetype": "maverick",
+    "node": "maverick-helpful-horde",
+    "path": "thief",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "maverick-one-with-shadow"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "While carrying stolen items, add an armour item named Helpful Horde to an empty Armour Slot (the Director sets how many slots your loot fills). When it takes damage or breaks, the Director damages or destroys stolen items in your inventory."
+      }
+    ],
+    "page": 42,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-helpful-horde"
+    }
+  }
+}

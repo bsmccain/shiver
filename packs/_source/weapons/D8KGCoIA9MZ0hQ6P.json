@@ -1,0 +1,48 @@
+{
+  "_id": "D8KGCoIA9MZ0hQ6P",
+  "_key": "!items!D8KGCoIA9MZ0hQ6P",
+  "folder": null,
+  "sort": 20,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spear",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 3 Pierce; Near (15 ft); a melee weapon with reach. No special ability (its description mentions throwing, but no thrown rule is given).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.137</em></p>",
+    "summary": "Wit; 3 Pierce; Near (15 ft); a melee weapon with reach. No special ability (its description mentions throwing, but no thrown rule is given).",
+    "page": 137,
+    "category": "melee",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "spear"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "_id": "RZfrWPAli4lRj3vW",
+  "_key": "!items!RZfrWPAli4lRj3vW",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 2002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stun",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Spend an Attack Action on a stunning blow. If the Strike succeeds, its weapon damage is halved, rounded down, and the enemy must pass a CR 2 Grit Check or be Stunned.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "Spend an Attack Action on a stunning blow. If the Strike succeeds, its weapon damage is halved, rounded down, and the enemy must pass a CR 2 Grit Check or be Stunned.",
+    "archetype": "warrior",
+    "node": "warrior-stun",
+    "path": "fighter",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "warrior-tough"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Stun",
+        "damageMultiplier": 0.5,
+        "tags": [
+          "stun"
+        ],
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "stunned",
+            "save": {
+              "skill": "grit",
+              "cr": 2
+            }
+          }
+        ]
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-stun"
+    }
+  }
+}

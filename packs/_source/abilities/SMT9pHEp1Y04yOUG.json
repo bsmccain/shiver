@@ -1,0 +1,56 @@
+{
+  "_id": "SMT9pHEp1Y04yOUG",
+  "_key": "!items!SMT9pHEp1Y04yOUG",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 10030,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Suffer The Fool",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>On a non-Luck Skill Check made as part of an Attack Action, you may re-roll dice that show a Luck symbol as Talent Dice.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.60</em></p>",
+    "summary": "On a non-Luck Skill Check made as part of an Attack Action, you may re-roll dice that show a Luck symbol as Talent Dice.",
+    "archetype": "fool",
+    "node": "fool-suffer-the-fool",
+    "path": "blessed",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "fool-domino-effect"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Non-Luck Skill Checks made as part of an Attack Action: you may re-roll dice showing a Luck symbol as Talent Dice."
+      }
+    ],
+    "page": 60,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-suffer-the-fool"
+    }
+  }
+}

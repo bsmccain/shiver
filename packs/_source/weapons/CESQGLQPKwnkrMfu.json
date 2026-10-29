@@ -1,0 +1,46 @@
+{
+  "_id": "CESQGLQPKwnkrMfu",
+  "_key": "!items!CESQGLQPKwnkrMfu",
+  "folder": null,
+  "sort": 6,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Cudgel",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 2 Blunt; Close (5 ft). Stun: on a hit you may deal just 1 Blunt and leave the target Stunned (no save) instead of the normal damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.134</em></p>",
+    "summary": "Grit; 2 Blunt; Close (5 ft). Stun: on a hit you may deal just 1 Blunt and leave the target Stunned (no save) instead of the normal damage.",
+    "page": 134,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "stun"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "cudgel"
+    }
+  }
+}

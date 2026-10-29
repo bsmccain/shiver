@@ -1,0 +1,59 @@
+{
+  "_id": "62CX0LG1ZB49Flgl",
+  "_key": "!items!62CX0LG1ZB49Flgl",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 2002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sneaky",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>+1 Talent Die on Wit Checks to enter Stealth.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "+1 Talent Die on Wit Checks to enter Stealth.",
+    "archetype": "maverick",
+    "node": "maverick-sneaky",
+    "path": "thief",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "maverick-dodge"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "wit",
+        "d6": 0,
+        "d8": 1,
+        "when": "stealth"
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-sneaky"
+    }
+  }
+}

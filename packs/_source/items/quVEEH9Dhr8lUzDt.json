@@ -1,0 +1,50 @@
+{
+  "_id": "quVEEH9Dhr8lUzDt",
+  "_key": "!items!quVEEH9Dhr8lUzDt",
+  "folder": null,
+  "sort": 23,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Skeleton Keys",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Master Key: unlocks any door. Cursed: each use moves the Doom Clock forward 3 minutes and makes you Cursed.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.160</em></p>",
+    "summary": "Master Key: unlocks any door. Cursed: each use moves the Doom Clock forward 3 minutes and makes you Cursed.",
+    "page": 160,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 3,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "cursed",
+        "target": "self"
+      },
+      {
+        "kind": "custom",
+        "note": "Master Key opens any door. While Cursed you can't heal or remove wounds from your Lifeline; the Curse ends only when the Keys are destroyed."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "the-skeleton-keys"
+    }
+  }
+}

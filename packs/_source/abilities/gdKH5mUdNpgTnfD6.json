@@ -1,0 +1,91 @@
+{
+  "_id": "gdKH5mUdNpgTnfD6",
+  "_key": "!items!gdKH5mUdNpgTnfD6",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 6023,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Psi Blast",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Make a Strike against an enemy using Strange. On a hit, a psychic blast deals 3 Blunt to all enemies within Medium Range (50 ft), and each must pass a CR 2 Strange Check or become Afraid. Doom +2 per enemy hit.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.66</em></p>",
+    "summary": "Make a Strike against an enemy using Strange. On a hit, a psychic blast deals 3 Blunt to all enemies within Medium Range (50 ft), and each must pass a CR 2 Strange Check or become Afraid. Doom +2 per enemy hit.",
+    "archetype": "weird",
+    "node": "weird-psi-blast",
+    "path": "psionic",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "weird-core-plus-psionic"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "afraid",
+        "save": {
+          "skill": "strange",
+          "cr": 2
+        }
+      },
+      {
+        "kind": "onHit",
+        "doom": 2,
+        "note": "Psi Blast: Doom +2"
+      },
+      {
+        "kind": "applyStatus",
+        "status": "afraid",
+        "target": "enemy",
+        "save": {
+          "skill": "strange",
+          "cr": 2
+        },
+        "when": {
+          "manual": true,
+          "label": "Blast: every other enemy within 50 ft"
+        }
+      },
+      {
+        "kind": "doom",
+        "amount": 2,
+        "when": {
+          "manual": true,
+          "label": "Blast: each other enemy hit"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Target only the enemy you Strike. If it hits, every other enemy within 50 ft is caught in the blast whatever its CR: apply 3 Blunt to each by hand, then post this ability to chat and target them. Click its Afraid button once (every targeted enemy rolls Strange CR 2) and its Doom button once per enemy."
+      }
+    ],
+    "page": 66,
+    "attack": {
+      "skill": "strange",
+      "damage": 3,
+      "damageType": "blunt",
+      "range": "medium",
+      "ranged": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-psi-blast"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "_id": "mUtuZvt3Mc8xbOit",
+  "_key": "!items!mUtuZvt3Mc8xbOit",
+  "folder": null,
+  "sort": 27,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Woodsman Axe",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 3 Sharp; Close (5 ft). Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.138</em></p>",
+    "summary": "Grit; 3 Sharp; Close (5 ft). Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).",
+    "page": 138,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "cleave"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Cleave: if this Strike killed the target, deal the leftover damage to another enemy of your choice within Close Range (5 ft)."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "woodsman-axe"
+    }
+  }
+}

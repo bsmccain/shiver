@@ -1,0 +1,66 @@
+{
+  "_id": "7NZFtDAA0BcE1pWM",
+  "_key": "!items!7NZFtDAA0BcE1pWM",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 3004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Specialist Subject",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Choose a broad field of expertise (e.g. Language, Occultism, History, Folklore). +1 Talent Die on Smarts Checks related to it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.45</em></p>",
+    "summary": "Choose a broad field of expertise (e.g. Language, Occultism, History, Folklore). +1 Talent Die on Smarts Checks related to it.",
+    "archetype": "scholar",
+    "node": "scholar-specialist-subject",
+    "path": "academic",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "scholar-games-afoot"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "smarts",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Check relates to your Specialist Subject"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Choose and record your subject when you take this ability."
+      }
+    ],
+    "page": 45,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-specialist-subject"
+    }
+  }
+}

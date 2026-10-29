@@ -1,0 +1,64 @@
+{
+  "_id": "LzO94tdiqETzd9na",
+  "_key": "!items!LzO94tdiqETzd9na",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 7020,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Lucky Shot",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When your Strike is a Critical Hit, roll a Luck Check against the enemy&#39;s CR. On a success deal triple damage instead of double; on a Full House deal quadruple damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "When your Strike is a Critical Hit, roll a Luck Check against the enemy's CR. On a success deal triple damage instead of double; on a Full House deal quadruple damage.",
+    "archetype": "fool",
+    "node": "fool-lucky-shot",
+    "path": "accumulator",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "fool-rubbing-off-on-you"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "After one of your Strikes is a Critical Hit; CR = that enemy's CR",
+        "onSuccess": "Triple damage instead of double (quadruple on a Full House).",
+        "onFail": "Normal Critical Hit damage."
+      },
+      {
+        "kind": "custom",
+        "note": "On a success, the Director deals the difference by hand so the Strike totals triple its base damage (quadruple on a Full House). The extra depends on the weapon, so it isn't applied automatically."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-lucky-shot"
+    }
+  }
+}

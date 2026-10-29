@@ -1,0 +1,63 @@
+{
+  "_id": "IQW3FkD2pxOG4Qbw",
+  "_key": "!items!IQW3FkD2pxOG4Qbw",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 2001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Play Dead",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>On your Combat Turn, spend an Interact Action and roll a Heart Check. Enemies whose CR is equal to or less than your successes stop targeting you. At the start of each later Combat Turn you can keep it up by giving up all your other Actions and rolling Heart again; the new number of Heart symbols sets the CR threshold.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.73</em></p>",
+    "summary": "On your Combat Turn, spend an Interact Action and roll a Heart Check. Enemies whose CR is equal to or less than your successes stop targeting you. At the start of each later Combat Turn you can keep it up by giving up all your other Actions and rolling Heart again; the new number of Heart symbols sets the CR threshold.",
+    "archetype": "survivor",
+    "node": "survivor-play-dead",
+    "path": "cockroach",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "survivor-deus-ex-machina"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": 1,
+        "onSuccess": "Every enemy whose CR is no higher than your number of successes stops targeting you.",
+        "onFail": "No successes: no enemy is fooled."
+      },
+      {
+        "kind": "custom",
+        "note": "The Director tracks which enemies ignore you. To keep it up, at the start of each later Combat Turn give up all your other Actions and roll Heart again; the new count of Heart symbols becomes the threshold."
+      }
+    ],
+    "page": 73,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-play-dead"
+    }
+  }
+}

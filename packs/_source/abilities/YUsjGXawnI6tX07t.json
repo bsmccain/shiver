@@ -1,0 +1,75 @@
+{
+  "_id": "YUsjGXawnI6tX07t",
+  "_key": "!items!YUsjGXawnI6tX07t",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 7025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Beguiler",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Attack Action: Opposed Strange Check vs an enemy&#39;s Heart, adding its CR to its successes. On a win it is Beguiled and you control it as a companion. At the start of each of its Combat Turns it makes a Strange Check with CR equal to your successes; success ends the effect. Only one enemy can be Beguiled at a time. Doom +3 on success.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "Attack Action: Opposed Strange Check vs an enemy's Heart, adding its CR to its successes. On a win it is Beguiled and you control it as a companion. At the start of each of its Combat Turns it makes a Strange Check with CR equal to your successes; success ends the effect. Only one enemy can be Beguiled at a time. Doom +3 on success.",
+    "archetype": "weird",
+    "node": "weird-beguiler",
+    "path": "eldritch",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "weird-ungodly-ritual"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Opposed vs the targeted enemy's Heart + its CR",
+        "onSuccess": "The enemy is Beguiled and acts as your companion. Note your successes: that is its CR to break free. Doom +3.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "beguiled",
+            "target": "enemy"
+          },
+          {
+            "kind": "doom",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "The Director rolls the enemy's Heart, adds its CR to its successes, and sets the CR so you need more. At the start of each of its Combat Turns it rolls Strange against your success count and breaks free on a success. Only one Beguiled enemy at a time."
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-beguiler"
+    }
+  }
+}

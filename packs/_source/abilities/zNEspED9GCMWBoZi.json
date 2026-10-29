@@ -1,0 +1,64 @@
+{
+  "_id": "zNEspED9GCMWBoZi",
+  "_key": "!items!zNEspED9GCMWBoZi",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 3009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spirit Talker",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>While in Astral Form you can communicate with spirits of the dead and with enemies roaming the astral plane. Doom +2 per successful communication.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "While in Astral Form you can communicate with spirits of the dead and with enemies roaming the astral plane. Doom +2 per successful communication.",
+    "archetype": "weird",
+    "node": "weird-spirit-talker",
+    "path": "spiritualist",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "weird-astral-form"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "weird-astral-form",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "doom",
+        "amount": 2,
+        "when": {
+          "manual": true,
+          "label": "Successful communication"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Only while in Astral Form. The Director decides whether a conversation succeeds; tick Doom +2 each time it does."
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-spirit-talker"
+    }
+  }
+}

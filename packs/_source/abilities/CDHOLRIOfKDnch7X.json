@@ -1,0 +1,61 @@
+{
+  "_id": "CDHOLRIOfKDnch7X",
+  "_key": "!items!CDHOLRIOfKDnch7X",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 9025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Silenced",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>A Stealth Strike that kills or knocks out its target doesn&#39;t alert other enemies, and you stay in Stealth. They may still find the body.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "A Stealth Strike that kills or knocks out its target doesn't alert other enemies, and you stay in Stealth. They may still find the body.",
+    "archetype": "maverick",
+    "node": "maverick-silenced",
+    "path": "assassin",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "maverick-talent-plus-assassin"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "stealth",
+        "target": "self"
+      },
+      {
+        "kind": "custom",
+        "note": "Use right after a Stealth Strike kills or knocks out its target: it restores the Stealth status the Strike removed, and other enemies stay unaware of you. Hidden bodies are the Director's call."
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-silenced"
+    }
+  }
+}

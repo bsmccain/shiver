@@ -1,0 +1,77 @@
+{
+  "_id": "FRqG0xUk8vWWMVUj",
+  "_key": "!items!FRqG0xUk8vWWMVUj",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 7021,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Clipping Wings",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>When you make a Strike you can choose to deal half damage and impose an effect for the enemy&#39;s next Combat Turn: it can&#39;t use one weapon or ability you have seen it use, or it can&#39;t move.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "When you make a Strike you can choose to deal half damage and impose an effect for the enemy's next Combat Turn: it can't use one weapon or ability you have seen it use, or it can't move.",
+    "archetype": "maverick",
+    "node": "maverick-clipping-wings",
+    "path": "ranger",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "maverick-gun-slinger",
+      "maverick-energy-reserves"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Clipping Wings: can't move",
+        "damageMultiplier": 0.5,
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "immobile",
+            "until": "endOfNextTurn",
+            "note": "Clipping Wings: the target is Immobile until the end of its next Combat Turn."
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Clipping Wings: block weapon or ability",
+        "damageMultiplier": 0.5,
+        "onHit": [
+          {
+            "kind": "onHit",
+            "note": "Clipping Wings: on its next Combat Turn the target can't use one weapon or ability you have seen it use (name it)."
+          }
+        ]
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-clipping-wings"
+    }
+  }
+}

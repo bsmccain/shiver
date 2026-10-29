@@ -1,0 +1,56 @@
+{
+  "_id": "zhS6rNvxd9IWdiKK",
+  "_key": "!items!zhS6rNvxd9IWdiKK",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 2001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Best Buddies",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Start the story with a companion (human, animal or other) tracked on its own character sheet: 8 Health Points, Average Speed, 3 Core Skill Points in every Core Skill, 1 weapon. It can&#39;t wear armour, use your abilities or bank Luck, but you may spend your Luck Points on its checks.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.51</em></p>",
+    "summary": "Start the story with a companion (human, animal or other) tracked on its own character sheet: 8 Health Points, Average Speed, 3 Core Skill Points in every Core Skill, 1 weapon. It can't wear armour, use your abilities or bank Luck, but you may spend your Luck Points on its checks.",
+    "archetype": "socialite",
+    "node": "socialite-best-buddies",
+    "path": "companion",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "socialite-snap-out-of-it"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Create a companion character sheet: 8 HP Lifeline, Average Speed, 3 Core Skill Points in each Core Skill and no Talent Points, 1 weapon, no armour, no Luck Bank, can't use your abilities. You may spend your own Luck Points on its checks."
+      }
+    ],
+    "page": 51,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-best-buddies"
+    }
+  }
+}

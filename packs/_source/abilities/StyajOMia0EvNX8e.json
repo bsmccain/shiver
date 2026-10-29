@@ -1,0 +1,75 @@
+{
+  "_id": "StyajOMia0EvNX8e",
+  "_key": "!items!StyajOMia0EvNX8e",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 2006,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Telepathy",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Strange Check with CR equal to half the target&#39;s Heart Core Skill Points (rounded down). Success: ask 3 questions about its thoughts, Doom +1. Failure: it knows you tried, Doom +3, and later attempts on it use its full Heart Core Skill Points as the CR.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "Strange Check with CR equal to half the target's Heart Core Skill Points (rounded down). Success: ask 3 questions about its thoughts, Doom +1. Failure: it knows you tried, Doom +3, and later attempts on it use its full Heart Core Skill Points as the CR.",
+    "archetype": "weird",
+    "node": "weird-telepathy",
+    "path": "psionic",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "weird-telekinesis"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "onSuccess": "Ask the Director or player 3 questions about the target's thoughts. Doom +1.",
+        "onFail": "The target knows you tried. Doom +3. Future attempts on it use CR = its full Heart Core Skill Points.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 1
+          }
+        ],
+        "failure": [
+          {
+            "kind": "doom",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "The Director sets the CR to half the target's Heart Core Skill Points, rounded down, or its full Heart if it caught a previous attempt."
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-telepathy"
+    }
+  }
+}
