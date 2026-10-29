@@ -2,7 +2,7 @@ import { damageMultiplier, evaluatePool, judge, tallySymbols } from "./pool.mjs"
 import { SkillDie, TalentDie } from "./terms.mjs";
 import { checkDialog } from "./check-dialog.mjs";
 import { DoomClock } from "../doom/doom-clock.mjs";
-import { asGM, registerGMOperation, serialize, waitFor } from "../socket.mjs";
+import { asGM, authorControls, GMOperationRefused, registerGMOperation, requireControl, serialize, waitFor } from "../socket.mjs";
 
 const { OperatorTerm } = foundry.dice.terms;
 
@@ -274,6 +274,8 @@ export class ShiverCheck {
     if ( !state.outcome && !state.attack?.targets?.length ) return;
 
     const actor = state.actorUuid ? await fromUuid(state.actorUuid) : null;
+    // A check only resolves if whoever posted it controls its character, however the request to resolve it arrives.
+    if ( state.actorUuid && ((actor?.documentName !== "Actor") || !authorControls(message, actor)) ) return;
     const results = { doom: 0, doomUp: 0, doomBack: 0, doomReasons: [], luckBanked: 0, luckLost: 0, notes: [] };
     const failed = state.outcome === "failure";
 
@@ -433,9 +435,9 @@ export class ShiverCheck {
     if ( actor && list?.length ) {
       const { applyEffectRules } = await import("../documents/actor-actions.mjs");
       const targets = [];
-      for ( const uuid of state.extra.targetUuids ?? [] ) {
-        const t = await fromUuid(uuid);
-        if ( t ) targets.push(t);
+      for ( const uuid of (state.extra.targetUuids ?? []).slice(0, 20) ) {
+        const t = (typeof uuid === "string") ? await fromUuid(uuid) : null;
+        if ( (t?.documentName === "Actor") && !t.pack ) targets.push(t);
       }
       results.notes.push(...await applyEffectRules(actor, list, targets, state.label));
     }
@@ -443,7 +445,6 @@ export class ShiverCheck {
       await actor.applyStatus(state.extra.onSuccessStatus);
       results.applied = state.extra.onSuccessStatus;
     }
-    if ( state.extra?.onResolve ) Hooks.callAll(`shiver.${state.extra.onResolve}`, state, actor, results);
   }
 
   /* -------------------------------------------- */
@@ -626,17 +627,49 @@ export class ShiverCheck {
 
 /* -------------------------------------------- */
 
-registerGMOperation("resolveCheck", data => ShiverCheck._resolve(data));
-registerGMOperation("claimStrikeAgain", ({ messageId }) => serialize(`check.${messageId}`, async () => {
-  const message = game.messages.get(messageId);
+/**
+ * The check card a player's request is about, refused unless they control its character and that character's own
+ * player (or a GM) posted it.
+ * @param {string} messageId
+ * @param {User} user
+ * @returns {Promise<{message: ChatMessage, state: object}>}
+ */
+async function controlledCheck(messageId, user) {
+  const message = await waitFor(() => game.messages.get(messageId));
   const state = message?.getFlag("shiver", "check");
-  if ( !state || state.extraStrikeTaken ) return false;
-  await message.update({ "flags.shiver.check.extraStrikeTaken": true });
-  return true;
-}));
-registerGMOperation("releaseStrikeAgain", ({ messageId }) => serialize(`check.${messageId}`, async () => {
-  const message = game.messages.get(messageId);
-  if ( message?.getFlag("shiver", "check")?.extraStrikeTaken ) await message.update({ "flags.shiver.check.extraStrikeTaken": false });
-  return true;
-}));
-registerGMOperation("luckChoice", data => ShiverCheck._onLuckChoice(data));
+  if ( !state ) throw new GMOperationRefused("That card isn't a check");
+  const actor = state.actorUuid ? await fromUuid(state.actorUuid) : null;
+  if ( actor ) {
+    requireControl(user, actor);
+    if ( !authorControls(message, actor) ) throw new GMOperationRefused("That check wasn't rolled by its character's player");
+  }
+  else if ( !user.isGM && (message.author?.id !== user.id) ) throw new GMOperationRefused("That isn't your check");
+  return { message, state };
+}
+
+registerGMOperation("resolveCheck", async ({ messageId }, user) => {
+  await controlledCheck(messageId, user);
+  return ShiverCheck._resolve({ messageId });
+});
+registerGMOperation("claimStrikeAgain", async ({ messageId }, user) => {
+  await controlledCheck(messageId, user);
+  return serialize(`check.${messageId}`, async () => {
+    const message = game.messages.get(messageId);
+    const state = message?.getFlag("shiver", "check");
+    if ( !state || state.extraStrikeTaken ) return false;
+    await message.update({ "flags.shiver.check.extraStrikeTaken": true });
+    return true;
+  });
+});
+registerGMOperation("releaseStrikeAgain", async ({ messageId }, user) => {
+  await controlledCheck(messageId, user);
+  return serialize(`check.${messageId}`, async () => {
+    const message = game.messages.get(messageId);
+    if ( message?.getFlag("shiver", "check")?.extraStrikeTaken ) await message.update({ "flags.shiver.check.extraStrikeTaken": false });
+    return true;
+  });
+});
+registerGMOperation("luckChoice", async ({ messageId, choice }, user) => {
+  await controlledCheck(messageId, user);
+  return ShiverCheck._onLuckChoice({ messageId, choice });
+});

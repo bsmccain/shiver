@@ -2,6 +2,7 @@ import { ShiverCheck } from "../dice/check.mjs";
 import { DoomClock } from "../doom/doom-clock.mjs";
 import { doomQuarter } from "../dice/pool.mjs";
 import { markAction } from "../combat/actions.mjs";
+import { statusDuration, statusFlags } from "../gm-ops.mjs";
 
 /**
  * Roll and action methods mixed into the SHIVER Actor class.
@@ -507,11 +508,13 @@ export async function applyEffectRules(actor, rules, targets, source) {
   for ( const r of rules ?? [] ) {
     const who = ["enemy", "ally", "target"].includes(r.target) ? targets : [actor];
     for ( const target of who.filter(Boolean) ) {
-      const flags = { ...(r.flags ?? {}) };
+      // These rules can come from a chat card resolved on the GM's client, so only the expiry, value and infection
+      // flags pass through, as for a status request (gm-ops.mjs).
+      const flags = statusFlags(r.flags);
       if ( r.until === "attackerNextTurn" ) flags.expiresWith = { combatant: actor.uuid, event: "turnStart" };
       if ( r.until === "encounter" ) flags.expires = "combatEnd";
       if ( r.until === "endOfNextTurn" ) flags.expires = "endOfNextTurn";
-      const duration = r.rounds ? { value: Number(r.rounds), units: "rounds", expiry: "turnStart" } : undefined;
+      const duration = r.rounds ? statusDuration({ value: Math.trunc(Number(r.rounds)), units: "rounds", expiry: "turnStart" }) : undefined;
       switch ( r.kind ) {
         case "applyStatus":
           if ( r.save ) await rollSave(target, { skill: r.save.skill, cr: r.save.cr, status: r.status, value: r.value, flags, duration, fear: !!r.fear }, actor);
@@ -523,27 +526,27 @@ export async function applyEffectRules(actor, rules, targets, source) {
           notes.push(game.i18n.format("shiver.Check.statusRemoved", { status: game.i18n.localize(`shiver.Status.${r.status}`) }));
           break;
         case "heal": {
-          const n = await target.heal(Number(r.amount) || 0, { source });
+          const n = await target.heal(Math.clamp(Math.trunc(Number(r.amount) || 0), 0, 1000), { source });
           if ( n ) notes.push(`${target.name}: ${game.i18n.format("shiver.Heal.amount", { n })}`);
           break;
         }
         case "fearStep": await target.stepFear(Number(r.amount) || -1); break;
-        case "luck": if ( r.amount > 0 ) await target.bankLuck(r.amount); break;
+        case "luck": if ( r.amount > 0 ) await target.bankLuck(Math.min(Math.trunc(Number(r.amount)) || 0, 10)); break;
         // "Your remaining Health Points become N": not healing, so Cursed doesn't stop it.
         case "setHealth": {
-          const hp = Math.max(target.system.hp.value, Number(r.amount) || 1);
+          const hp = Math.clamp(Math.max(target.system.hp.value, Math.trunc(Number(r.amount)) || 1), 0, target.system.hp.max);
           await target._ownerUpdate({ "system.hp.value": hp }, { shiverAllowHeal: true });
           notes.push(`${target.name}: ${game.i18n.localize("shiver.Sheet.health")} ${hp}`);
           break;
         }
         case "damage": {
           const { applyDamage } = await import("../combat/damage.mjs");
-          await applyDamage(target, { amount: Number(r.amount) || 0, type: r.type ?? "blunt", strike: !!r.strike });
+          await applyDamage(target, { amount: Math.clamp(Math.trunc(Number(r.amount) || 0), 0, 1000), type: r.type ?? "blunt", strike: !!r.strike });
           break;
         }
       }
     }
-    if ( r.kind === "doom" ) await DoomClock.tick(Number(r.amount) || 0, { reason: source, actorUuid: actor.uuid });
+    if ( r.kind === "doom" ) await DoomClock.tick(Math.clamp(Math.trunc(Number(r.amount) || 0), -60, 60), { reason: source, actorUuid: actor.uuid });
   }
   return notes;
 }

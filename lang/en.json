@@ -225,7 +225,7 @@
       "newCycleConfirm": "Reset the Doom Clock to Clear and start a new Doom Cycle? Once per Doom Cycle abilities recharge.",
       "setTitle": "Set the Doom Clock",
       "eventsTitle": "Doom Events",
-      "eventsHint": "Only the Director sees these. Each one is whispered to the GM when the clock reaches its mark.",
+      "eventsHint": "Players don't see these on screen, and each one is whispered to the GM when the clock reaches its mark. Foundry stores all world data where a player using the browser console could read it, so don't rely on this to keep spoilers from a determined player.",
       "back1": "Turn back 1 minute",
       "forward1": "Tick up 1 minute",
       "forward5": "Tick up 5 minutes",

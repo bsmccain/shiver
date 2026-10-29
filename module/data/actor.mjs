@@ -180,7 +180,9 @@ export class CharacterData extends ShiverActorData {
         stabilised: new BooleanField({ initial: false })
       }),
       haunting: new BooleanField({ initial: false }),
-      notes: new HTMLField({ initial: "" })
+      notes: new HTMLField({ initial: "" }),
+      // A fear level from before 1.0 (0 Stable, 1 Afraid, 2 Terrified), waiting to become a status. See migrateData.
+      legacyFearLevel: new NumberField({ nullable: true, integer: true, min: 0, max: 2, initial: null })
     };
   }
 
@@ -190,8 +192,14 @@ export class CharacterData extends ShiverActorData {
     if ( attrs ) {
       if ( typeof attrs.age === "number" ) attrs.age = String(attrs.age);
       if ( attrs.fear === "I fear..." ) attrs.fear = "";
-      // The fear level is now tracked with the Afraid and Terrified statuses.
-      delete attrs["fear-level"];
+      // The fear level is now tracked with the Afraid and Terrified statuses. Keep an old level until the GM's client
+      // turns it into one of them (migrateLegacyFear in documents/actor.mjs).
+      if ( "fear-level" in attrs ) {
+        if ( (source.legacyFearLevel === undefined) || (source.legacyFearLevel === null) ) {
+          source.legacyFearLevel = Math.clamp(Number(attrs["fear-level"]?.value) || 0, 0, 2);
+        }
+        delete attrs["fear-level"];
+      }
       if ( attrs.luck ) delete attrs.luck.min;
     }
     for ( const ability of Object.values(source.abilities ?? {}) ) {

@@ -1,4 +1,4 @@
-import { asGM, registerGMOperation } from "../socket.mjs";
+import { asGM, boundedInt, canControl, GMOperationRefused, registerGMOperation } from "../socket.mjs";
 import { ruleApplies } from "../rules/automation.mjs";
 
 /**
@@ -88,7 +88,20 @@ export async function setCombatantFlag(combatant, key, value) {
   return asGM("combatantFlag", { combatUuid: combatant.parent.uuid, id: combatant.id, key, value });
 }
 
-registerGMOperation("combatantFlag", async ({ combatUuid, id, key, value }) => {
+// Only the Move/Attack/Interact counts can be set this way. Another character's player can only mark actions as used
+// (an assist spends the helper's Interact, p.13), never give them back.
+registerGMOperation("combatantFlag", async ({ combatUuid, id, key, value }, user) => {
+  if ( key !== "actions" ) throw new GMOperationRefused(`Can't set combatant flag ${key}`);
   const combat = await fromUuid(combatUuid);
-  return combat?.combatants.get(id)?.setFlag("shiver", key, value);
+  const combatant = (combat?.documentName === "Combat") ? combat.combatants.get(id) : null;
+  if ( !combatant ) throw new GMOperationRefused("No such combatant");
+  const used = {};
+  for ( const action of ["move", "attack", "interact"] ) used[action] = boundedInt(value?.[action] ?? 0, 0, 20, action);
+  if ( !canControl(user, combatant.actor ?? combatant) ) {
+    const before = combatant.getFlag("shiver", "actions") ?? {};
+    if ( Object.keys(used).some(a => used[a] < (Number(before[a]) || 0)) ) {
+      throw new GMOperationRefused("Only the owner can give actions back");
+    }
+  }
+  return combatant.setFlag("shiver", "actions", used);
 });

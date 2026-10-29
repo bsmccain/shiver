@@ -1,6 +1,6 @@
 import { receiveDamage, postDamageReport } from "./damage.mjs";
 import { actionAllowance, actionsUsed } from "./actions.mjs";
-import { asGM, registerGMOperation } from "../socket.mjs";
+import { asGM, boundedInt, GMOperationRefused, registerGMOperation, requireControl } from "../socket.mjs";
 
 /**
  * SHIVER combat (p.21-22, p.118). There is no initiative roll: each combatant is put in a Combat State (First, Middle
@@ -105,9 +105,10 @@ export class ShiverCombat extends Combat {
     // Combatants that share a value get distinct ones first.
     if ( a === b ) b = Math.round((b + (direction * 0.01)) * 100) / 100;
     const updates = [{ _id: combatant.id, initiative: b }, { _id: other.id, initiative: a }];
-    // Players reorder their own character, but the swap also moves the other combatant: the GM does it.
+    // Players reorder their own character, but the swap also moves the other combatant: the GM works it out again
+    // and makes it.
     if ( game.user.isGM ) return this.updateEmbeddedDocuments("Combatant", updates);
-    return asGM("combatShift", { combatId: this.id, updates });
+    return asGM("combatShift", { combatId: this.id, combatantId: combatant.id, direction });
   }
 
   /* -------------------------------------------- */
@@ -333,4 +334,13 @@ export class ShiverCombatTracker extends foundry.applications.sidebar.tabs.Comba
   }
 }
 
-registerGMOperation("combatShift", async ({ combatId, updates }) => game.combats.get(combatId)?.updateEmbeddedDocuments("Combatant", updates));
+// A player moves their own combatant one place within its Combat State.
+registerGMOperation("combatShift", async ({ combatId, combatantId, direction }, user) => {
+  const combat = game.combats.get(combatId);
+  const combatant = combat?.combatants.get(combatantId);
+  if ( !combatant ) throw new GMOperationRefused("No such combatant");
+  requireControl(user, combatant.actor ?? combatant);
+  const step = boundedInt(direction, -1, 1, "direction");
+  if ( step ) await combat.shift(combatant, step);
+  return true;
+});

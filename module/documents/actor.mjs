@@ -357,6 +357,10 @@ export class shiverActor extends Actor {
   /** @inheritDoc */
   _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
+    // "Import Data" with a pre-1.0 character replaces the actor through an update (without hooks): migrate its Fear.
+    if ( game.user.isActiveGM && (changed.system?.legacyFearLevel > 0) ) {
+      migrateLegacyFear(this).catch(err => console.error("SHIVER | Fear migration failed", this.name, err));
+    }
     if ( (userId !== game.user.id) || !("shiverHpBefore" in options) ) return;
     const before = options.shiverHpBefore;
     const after = this.system.hp.value;
@@ -543,4 +547,20 @@ async function promptSkill(actor, prompt, skills, allowNone = false) {
     rejectClose: false
   });
   return ((value === "__none__") || !value) ? null : value;
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Turn a fear level saved before 1.0 into the Afraid or Terrified status, once. Runs on the active GM's client when
+ * the world loads, and when an old actor is created or imported over an existing one.
+ * @param {Actor} actor
+ * @returns {Promise<void>}
+ */
+export async function migrateLegacyFear(actor) {
+  const level = actor.system?.legacyFearLevel;
+  if ( !Number.isInteger(level) || (level <= 0) ) return;
+  if ( actor.fearLevel < level ) await actor.setFearLevel(level);
+  // 0 marks it done, so the old field still in the database isn't converted again.
+  await actor.update({ "system.legacyFearLevel": 0 });
 }

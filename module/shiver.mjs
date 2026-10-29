@@ -4,7 +4,7 @@ import {
   AbilityData, ArmourData, BackgroundData, FlawData, GearData, PowerData, TraitData, WeaponData
 } from "./data/item.mjs";
 // Documents.
-import { shiverActor } from "./documents/actor.mjs";
+import { migrateLegacyFear, shiverActor } from "./documents/actor.mjs";
 import { ActorActions } from "./documents/actor-actions.mjs";
 import { shiverItem } from "./documents/item.mjs";
 // Sheets.
@@ -17,7 +17,7 @@ import { SkillDie, TalentDie } from "./dice/terms.mjs";
 import { ShiverCheck } from "./dice/check.mjs";
 import { DoomClock, DoomClockHUD } from "./doom/doom-clock.mjs";
 import { registerStatusEffects } from "./effects/statuses.mjs";
-import { registerQueries } from "./socket.mjs";
+import { authorControls, registerQueries } from "./socket.mjs";
 import { registerSettings } from "./settings.mjs";
 import { registerActorOperations } from "./gm-ops.mjs";
 import { onRenderChatMessage } from "./chat.mjs";
@@ -128,6 +128,10 @@ function registerHandlebarsHelpers() {
 /* -------------------------------------------- */
 
 Hooks.once("ready", async function() {
+  // Characters from before 1.0 kept their fear level in a number; it's now the Afraid and Terrified statuses.
+  if ( game.user.isActiveGM ) {
+    for ( const actor of game.actors ) await migrateLegacyFear(actor).catch(err => console.error("SHIVER | Fear migration failed", actor.name, err));
+  }
   if ( game.settings.get("shiver", "showDoomClock") ) {
     ui.shiverDoom = new DoomClockHUD();
     ui.shiverDoom.render({ force: true });
@@ -215,12 +219,18 @@ Hooks.on("createActiveEffect", async (effect, options, userId) => {
   if ( effect.statuses.has("terrified") && actor.statusEffect("afraid") ) await actor.removeStatus("afraid");
 });
 
-// Requested checks with a hidden CR resolve themselves when the GM's note has the CR.
+// Requested checks with a hidden CR resolve themselves when the GM's note has the CR. Only a GM's request and note
+// count, and only for a check rolled by the character's own player.
 Hooks.on("createChatMessage", async message => {
   if ( !game.user.isActiveGM ) return;
   const check = message.getFlag("shiver", "check");
-  if ( !check?.requestId || Number.isFinite(check.cr) ) return;
-  const note = game.messages.find(m => m.getFlag("shiver", "requestCR")?.requestId === check.requestId)?.getFlag("shiver", "requestCR");
+  if ( !check?.requestId || Number.isFinite(check.cr) || !["check", "fear"].includes(check.type) ) return;
+  const request = game.messages.get(check.requestId);
+  if ( !request?.author?.isGM || !request.getFlag("shiver", "request") ) return;
+  const actor = check.actorUuid ? await fromUuid(check.actorUuid) : null;
+  if ( (actor?.documentName !== "Actor") || !authorControls(message, actor) ) return;
+  const note = game.messages.find(m => m.author?.isGM && (m.getFlag("shiver", "requestCR")?.requestId === check.requestId))
+    ?.getFlag("shiver", "requestCR");
   if ( Number.isFinite(note?.cr) ) await ShiverCheck._onSetCR({ messageId: message.id, cr: note.cr, hidden: !note.show });
 });
 
@@ -285,3 +295,8 @@ function rollItemMacro(itemName) {
   if ( !item ) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
   return item.roll();
 }
+
+// An old actor imported later gets the same Fear migration.
+Hooks.on("createActor", actor => {
+  if ( game.user.isActiveGM ) migrateLegacyFear(actor).catch(err => console.error("SHIVER | Fear migration failed", actor.name, err));
+});

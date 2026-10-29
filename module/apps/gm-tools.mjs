@@ -1,6 +1,7 @@
 import { ShiverCheck, rollDice, facesOf } from "../dice/check.mjs";
 import { tallySymbols } from "../dice/pool.mjs";
-import { asGM, registerGMOperation, serialize, waitFor } from "../socket.mjs";
+import { asGM, authorControls, boundedInt, GMOperationRefused, registerGMOperation, requireControl, requireGM, serialize,
+  waitFor } from "../socket.mjs";
 
 const { DialogV2 } = foundry.applications.api;
 
@@ -250,21 +251,23 @@ async function renderOpposed(state) {
  */
 async function onOpposedResult({ cardId, side, messageId }) {
   const card = await waitFor(() => game.messages.get(cardId));
-  const check = (await waitFor(() => game.messages.get(messageId)))?.getFlag("shiver", "check");
-  if ( !card || !check ) return;
-  const state = foundry.utils.deepClone(card.getFlag("shiver", "opposed"));
-  if ( check.luckChoice === null ) return;
-  const s = state.sides[side];
-  s.messageId = messageId;
-  s.successes = check.finalSuccesses ?? check.successes;
-  s.luck = check.tally?.luck ?? 0;
-  s.strange = check.tally?.strange ?? 0;
-  const actor = await fromUuid(s.actorUuid);
-  s.points = actor?.getPool(s.skill)?.skill ?? 0;
+  await waitFor(() => game.messages.get(messageId));
+  const state = foundry.utils.deepClone(card?.getFlag("shiver", "opposed"));
+  if ( !Array.isArray(state?.sides) || (state.sides.length !== 2) || ![0, 1].includes(side) || (state.winner !== null) ) return;
+  state.sides[side].messageId = messageId;
+  // Each side's result is read again from its own roll, so nothing written on the card itself is trusted.
+  for ( const [i, s] of state.sides.entries() ) {
+    const roll = await sideRoll(card, s, i);
+    s.messageId = roll ? roll.message.id : null;
+    s.successes = roll ? (roll.check.finalSuccesses ?? roll.check.successes) : null;
+    s.luck = roll?.check.tally?.luck ?? 0;
+    s.strange = roll?.check.tally?.strange ?? 0;
+    s.points = roll?.actor.getPool(s.skill)?.skill ?? 0;
+  }
   const [a, b] = state.sides;
   if ( Number.isFinite(a.successes) && Number.isFinite(b.successes) ) {
     if ( a.successes === b.successes ) state.tie = true;
-    else await settleOpposed(state, a.successes > b.successes ? 0 : 1);
+    else await settleOpposed(card, state, a.successes > b.successes ? 0 : 1);
   }
   await card.update({ content: await renderOpposed(state), "flags.shiver.opposed": state });
 }
@@ -274,19 +277,40 @@ async function onOpposedResult({ cardId, side, messageId }) {
  * @param {object} state
  * @param {number|"none"} winner
  */
-async function settleOpposed(state, winner) {
+async function settleOpposed(card, state, winner) {
   state.winner = winner;
   state.tie = false;
-  // Grapples and similar contests apply a status to the loser.
-  if ( state.onWin?.status && Number.isInteger(winner) ) {
-    const loser = await fromUuid(state.sides[1 - winner].actorUuid);
-    await loser?.applyStatus(state.onWin.status);
+  // Grapples apply Grappled to the loser (p.22). Only a GM's own contest card can name another status.
+  const status = state.onWin?.status;
+  const allowed = (status === "grappled") || (card.author?.isGM && CONFIG.statusEffects.some(s => s.id === status));
+  if ( allowed && Number.isInteger(winner) ) {
+    const loser = await fromUuid(state.sides[1 - winner]?.actorUuid);
+    if ( (loser?.documentName === "Actor") && !loser.pack ) await loser.applyStatus(status);
   }
   for ( const [i, s] of state.sides.entries() ) {
-    if ( !s.messageId ) continue;
+    const roll = await sideRoll(card, s, i);
+    if ( !roll ) continue;
     const outcome = (winner === i) ? "success" : "failure";
-    await ShiverCheck._forceOutcome({ messageId: s.messageId, outcome });
+    await ShiverCheck._forceOutcome({ messageId: roll.message.id, outcome });
   }
+}
+
+/**
+ * A side's genuine roll for this opposed card: a check for the side's character, made for this card and side, and
+ * posted by someone who controls that character. Anything else is ignored.
+ * @param {ChatMessage} card
+ * @param {object} side
+ * @param {number} index
+ * @returns {Promise<{message: ChatMessage, check: object, actor: Actor}|null>}
+ */
+async function sideRoll(card, side, index) {
+  if ( (typeof side?.messageId !== "string") || (typeof side.actorUuid !== "string") ) return null;
+  const message = game.messages.get(side.messageId);
+  const check = message?.getFlag("shiver", "check");
+  const actor = await fromUuid(side.actorUuid);
+  if ( !check || (actor?.documentName !== "Actor") || (check.actorUuid !== actor.uuid) ) return null;
+  if ( (check.opposed?.cardId !== card.id) || (check.opposed?.side !== index) || (check.luckChoice === null) ) return null;
+  return authorControls(message, actor) ? { message, check, actor } : null;
 }
 
 async function onOpposedTie({ cardId, choice }) {
@@ -297,7 +321,7 @@ async function onOpposedTie({ cardId, choice }) {
     for ( const s of state.sides ) { s.successes = null; s.messageId = null; }
     state.tie = false;
   }
-  else await settleOpposed(state, choice === "none" ? "none" : Number(choice));
+  else await settleOpposed(card, state, choice === "none" ? "none" : Number(choice));
   await card.update({ content: await renderOpposed(state), "flags.shiver.opposed": state });
 }
 
@@ -314,10 +338,13 @@ async function renderGroup(state) {
 
 async function onGroupResult({ cardId, messageId }) {
   const card = await waitFor(() => game.messages.get(cardId));
-  const check = (await waitFor(() => game.messages.get(messageId)))?.getFlag("shiver", "check");
-  if ( !card || !check ) return;
-  const state = foundry.utils.deepClone(card.getFlag("shiver", "group"));
-  if ( check.luckChoice === null ) return;
+  const message = await waitFor(() => game.messages.get(messageId));
+  const check = message?.getFlag("shiver", "check");
+  const state = foundry.utils.deepClone(card?.getFlag("shiver", "group"));
+  if ( !check || !Array.isArray(state?.entries) || (check.luckChoice === null) ) return;
+  // Only a member's own roll made for this group check counts.
+  const actor = check.actorUuid ? await fromUuid(check.actorUuid) : null;
+  if ( (actor?.documentName !== "Actor") || (check.group?.cardId !== card.id) || !authorControls(message, actor) ) return;
   // Each character rolls once for the group.
   if ( state.resolved || state.entries.some(e => (e.messageId === messageId) || (check.actorUuid && (e.actorUuid === check.actorUuid))) ) return;
   state.entries.push({ messageId, actorUuid: check.actorUuid, name: check.actorName, successes: check.finalSuccesses ?? check.successes });
@@ -328,13 +355,18 @@ async function onGroupResult({ cardId, messageId }) {
 async function onGroupResolve({ cardId }) {
   const card = game.messages.get(cardId);
   const state = foundry.utils.deepClone(card?.getFlag("shiver", "group"));
-  if ( !state || state.resolved ) return;
-  const cr = game.messages.find(m => m.getFlag("shiver", "groupCR")?.groupId === cardId)?.getFlag("shiver", "groupCR").cr;
+  // Group checks are the Director's: only resolve a card a GM posted.
+  if ( !state || state.resolved || !card.author?.isGM || !Array.isArray(state.entries) ) return;
+  // The hidden CR is in the GM's own note.
+  const cr = game.messages.find(m => m.author?.isGM && (m.getFlag("shiver", "groupCR")?.groupId === cardId))?.getFlag("shiver", "groupCR").cr;
   if ( !Number.isFinite(cr) ) return ui.notifications.warn("shiver.Tools.noGroupCR", { localize: true });
   state.cr = cr;
   state.outcome = state.total >= cr ? "success" : "failure";
   state.resolved = true;
-  for ( const e of state.entries ) await ShiverCheck._forceOutcome({ messageId: e.messageId, outcome: state.outcome });
+  for ( const e of state.entries ) {
+    if ( game.messages.get(e.messageId)?.getFlag("shiver", "check")?.group?.cardId !== cardId ) continue;
+    await ShiverCheck._forceOutcome({ messageId: e.messageId, outcome: state.outcome });
+  }
   await card.update({ content: await renderGroup(state), "flags.shiver.group": state });
 }
 
@@ -344,15 +376,40 @@ async function onGroupResolve({ cardId }) {
  * Register the GM operations and expose the tools.
  */
 export function registerGMTools() {
-  registerGMOperation("opposedResult", d => serialize(`card.${d.cardId}`, () => onOpposedResult(d)));
-  registerGMOperation("opposedTie", d => serialize(`card.${d.cardId}`, () => onOpposedTie(d)));
-  registerGMOperation("groupResult", d => serialize(`card.${d.cardId}`, () => onGroupResult(d)));
-  registerGMOperation("groupResolve", d => serialize(`card.${d.cardId}`, () => onGroupResolve(d)));
+  // A side's or a member's roll is posted by whoever controls that character; settling ties and resolving the group
+  // are the Director's calls.
+  registerGMOperation("opposedResult", async ({ cardId, side, messageId }, user) => {
+    const card = await waitFor(() => game.messages.get(cardId));
+    const s = card?.getFlag("shiver", "opposed")?.sides?.[boundedInt(side, 0, 1, "side")];
+    if ( !s ) throw new GMOperationRefused("No such opposed check");
+    await requireOwnRoll(messageId, s.actorUuid, user);
+    return serialize(`card.${cardId}`, () => onOpposedResult({ cardId, side: Number(side), messageId }));
+  });
+  registerGMOperation("opposedTie", async ({ cardId, choice }, user) => {
+    requireGM(user);
+    return serialize(`card.${cardId}`, () => onOpposedTie({ cardId, choice }));
+  });
+  registerGMOperation("groupResult", async ({ cardId, messageId }, user) => {
+    const card = await waitFor(() => game.messages.get(cardId));
+    if ( !card?.getFlag("shiver", "group") ) throw new GMOperationRefused("No such group check");
+    const check = (await waitFor(() => game.messages.get(messageId)))?.getFlag("shiver", "check");
+    await requireOwnRoll(messageId, check?.actorUuid, user);
+    return serialize(`card.${cardId}`, () => onGroupResult({ cardId, messageId }));
+  });
+  registerGMOperation("groupResolve", async ({ cardId }, user) => {
+    requireGM(user);
+    return serialize(`card.${cardId}`, () => onGroupResolve({ cardId }));
+  });
   // A result is recorded once the roller has chosen how to use Double Luck.
   Hooks.on("shiver.luckChosen", async (message, state) => {
     if ( !game.user.isGM ) return;
-    if ( state.opposed ) await serialize(`card.${state.opposed.cardId}`, () => onOpposedResult({ cardId: state.opposed.cardId, side: state.opposed.side, messageId: message.id }));
-    if ( state.group ) await serialize(`card.${state.group.cardId}`, () => onGroupResult({ cardId: state.group.cardId, messageId: message.id }));
+    // The card's opposed/group details come from the roller's client: the handlers check them against the contest.
+    const opposed = state.opposed;
+    if ( (typeof opposed?.cardId === "string") && [0, 1].includes(opposed.side) ) {
+      await serialize(`card.${opposed.cardId}`, () => onOpposedResult({ cardId: opposed.cardId, side: opposed.side, messageId: message.id }));
+    }
+    const group = state.group;
+    if ( typeof group?.cardId === "string" ) await serialize(`card.${group.cardId}`, () => onGroupResult({ cardId: group.cardId, messageId: message.id }));
   });
   Hooks.once("ready", () => game.shiver.tools = GMTools);
 }
@@ -397,4 +454,20 @@ export async function onToolCardAction(card, action, data) {
     if ( !game.user.isGM ) return;
     return onGroupResolve({ cardId: card.id });
   }
+}
+
+/**
+ * Refuse a roll result unless it's a check card for this character, rolled by its own player, and sent by someone who
+ * controls the character.
+ * @param {string} messageId
+ * @param {string} actorUuid
+ * @param {User} user
+ */
+async function requireOwnRoll(messageId, actorUuid, user) {
+  const message = await waitFor(() => game.messages.get(messageId));
+  const check = message?.getFlag("shiver", "check");
+  const actor = actorUuid ? await fromUuid(actorUuid) : null;
+  if ( !check || !actor || (check.actorUuid !== actor.uuid) ) throw new GMOperationRefused("That roll isn't for this character");
+  requireControl(user, actor);
+  if ( !authorControls(message, actor) ) throw new GMOperationRefused("That roll wasn't made by its character's player");
 }

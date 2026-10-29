@@ -1,4 +1,4 @@
-import { asGM, registerGMOperation, serialize } from "../socket.mjs";
+import { asGM, boundedInt, registerGMOperation, resolveActor, serialize, shortText } from "../socket.mjs";
 import { doomMarksCrossed, doomQuarter } from "../dice/pool.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin, DialogV2 } = foundry.applications.api;
@@ -216,7 +216,16 @@ export class DoomClock {
       type: Object,
       default: {}
     });
-    registerGMOperation("doomTick", data => serialize("doom", () => this._onTick(data)));
+    // Rules tick the clock by a few minutes at a time. Only a GM can move it without the actor's Flaws applying (a
+    // Director change or setting the clock), and a player can't move it more than a full cycle at once.
+    registerGMOperation("doomTick", async ({ delta, reason, actorUuid, raw }, user) => {
+      const minutes = boundedInt(delta, -60, 60, "Doom Clock change");
+      let actor = null;
+      if ( actorUuid ) actor = await resolveActor(actorUuid);
+      return serialize("doom", () => this._onTick({
+        delta: minutes, reason: shortText(reason), actorUuid: actor?.uuid ?? null, raw: user.isGM && (raw === true)
+      }));
+    });
   }
 }
 

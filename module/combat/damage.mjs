@@ -1,8 +1,10 @@
 import { damageMultiplier, evaluatePool, modifyDamageForType, resolveArmour, SKILL_DIE_FACES } from "../dice/pool.mjs";
 import { facesOf, rollDice, ShiverCheck } from "../dice/check.mjs";
 import { DoomClock } from "../doom/doom-clock.mjs";
-import { asGM, registerGMOperation, serialize, waitFor } from "../socket.mjs";
+import { asGM, authorControls, boundedInt, canControl, GMOperationRefused, registerGMOperation, requireControl, resolveActor, serialize,
+  shortText, waitFor } from "../socket.mjs";
 import { ruleApplies } from "../rules/automation.mjs";
+import { statusDuration, statusFlags, statusId } from "../gm-ops.mjs";
 
 /**
  * @typedef DamageInput
@@ -228,8 +230,8 @@ async function _applyAttackDamage({ messageId, index, actorUuids }) {
   await message.update({ "flags.shiver.check.attack": attack });
 
   for ( const entry of entries ) {
-    const actor = await fromUuid(entry.actorUuid);
-    if ( !actor ) continue;
+    const actor = (typeof entry.actorUuid === "string") ? await fromUuid(entry.actorUuid) : null;
+    if ( (actor?.documentName !== "Actor") || actor.pack ) continue;
     await serialize(`actor.${actor.uuid}`, () => resolveHit({ attacker, actor, attack, outcome: entry.outcome, skill: state.skill, message }));
   }
   await message.update({ content: await ShiverCheck.renderCard({ ...state, attack: { ...attack } }), "flags.shiver.check": state });
@@ -351,8 +353,11 @@ export async function resolveHit({ attacker, actor, attack, outcome, skill, mess
  * @param {object} save
  * @param {Actor} [attacker]
  */
-export async function rollSave(actor, save, attacker) {
+export async function rollSave(actor, save, attacker, { auto = false } = {}) {
   if ( actor.system.immunities?.has(save.status) ) return;
+  // An ability can make an enemy or another character roll a save. That roll isn't this user's to make, so the GM
+  // rolls it.
+  if ( !actor.isOwner ) return asGM("rollSave", { uuid: actor.uuid, save, attackerUuid: attacker?.uuid ?? null });
   if ( !save.skill ) {
     return actor.applyStatus(save.status, { value: save.value, flags: save.flags ?? {}, duration: save.duration });
   }
@@ -366,7 +371,7 @@ export async function rollSave(actor, save, attacker) {
     tags: ["save"],
     save: { status: save.status, value: save.value, flags: save.flags ?? {}, duration: save.duration, origin: attacker?.uuid },
     fear: save.fear ? { setAtLeast: save.status === "terrified" ? 2 : 1 } : null,
-    skipDialog: isNpc
+    skipDialog: isNpc || auto
   };
   return ShiverCheck.prompt(opts);
 }
@@ -465,22 +470,88 @@ export async function applyDamage(actor, input) {
   return report;
 }
 
-registerGMOperation("applyAttackDamage", applyAttackDamage);
+// Apply a Strike's damage from its card. The GM may always; a player only when the world lets players apply damage,
+// for a card that the attacker's own player posted, and when they control the attacker or the target (p.22).
+registerGMOperation("applyAttackDamage", async ({ messageId, index, actorUuids }, user) => {
+  const message = await waitFor(() => game.messages.get(messageId));
+  const state = message?.getFlag("shiver", "check");
+  if ( !state?.attack ) throw new GMOperationRefused("That card isn't a Strike");
+  const i = Number.isInteger(index) ? index : undefined;
+  if ( !user.isGM ) {
+    if ( !game.settings.get("shiver", "playersApplyDamage") ) throw new GMOperationRefused("Only the GM applies damage in this world");
+    const attacker = state.actorUuid ? await fromUuid(state.actorUuid) : null;
+    if ( !attacker || !authorControls(message, attacker) ) throw new GMOperationRefused("That Strike wasn't rolled by its attacker's player");
+    const targetUuid = (i !== undefined) ? state.attack.targets?.[i]?.actorUuid : null;
+    const target = targetUuid ? await fromUuid(targetUuid) : null;
+    if ( !canControl(user, attacker) && !canControl(user, target) ) throw new GMOperationRefused("You don't control the attacker or the target");
+  }
+  const uuids = Array.isArray(actorUuids) ? actorUuids.filter(u => typeof u === "string").slice(0, 50) : undefined;
+  return applyAttackDamage({ messageId: message.id, index: i, actorUuids: uuids });
+});
+
+// Plain damage from a rule (an ability's damage, Bleed, a fall). The input is checked: a bounded amount of a known
+// damage type, with no other options.
 registerGMOperation("receiveDamage", async ({ uuid, input }) => {
-  const actor = await fromUuid(uuid);
-  if ( !actor ) return;
+  const actor = await resolveActor(uuid);
+  const clean = damageInput(input);
   return serialize(`actor.${actor.uuid}`, async () => {
-    const report = await receiveDamage(actor, input);
-    await postDamageReport(actor, report, { notes: input.notes ?? [] });
+    const report = await receiveDamage(actor, clean);
+    await postDamageReport(actor, report, { notes: clean.notes });
     return report;
   });
 });
 
+/**
+ * A plain damage request, keeping only the fields receiveDamage reads.
+ * @param {object} input
+ * @returns {DamageInput}
+ */
+function damageInput(input = {}) {
+  const type = (typeof input.type === "string") && (input.type in CONFIG.shiver.damageTypes) ? input.type : "blunt";
+  return {
+    amount: boundedInt(Math.floor(Number(input.amount) || 0), 0, 1000, "damage"),
+    type,
+    strike: input.strike === true,
+    ranged: input.ranged === true,
+    ignoreArmour: input.ignoreArmour === true,
+    material: shortText(input.material) || undefined,
+    source: shortText(input.source) || undefined,
+    attackerUuid: shortText(input.attackerUuid) || undefined,
+    notes: Array.isArray(input.notes) ? input.notes.filter(n => typeof n === "string").slice(0, 5).map(n => n.slice(0, 200)) : []
+  };
+}
+
+// A save a player's ability forces on an actor they don't own, rolled by the GM from checked data.
+registerGMOperation("rollSave", async ({ uuid, save, attackerUuid }) => {
+  const actor = await resolveActor(uuid);
+  const attacker = (typeof attackerUuid === "string") ? await fromUuid(attackerUuid) : null;
+  const message = await rollSave(actor, saveRequest(save), (attacker?.documentName === "Actor") ? attacker : null, { auto: true });
+  return message?.id ?? null;
+});
+
+/**
+ * A save from a request: a known status and skill, a bounded CR and value, and filtered flags and duration.
+ * @param {object} save
+ * @returns {object}
+ */
+function saveRequest(save = {}) {
+  return {
+    status: statusId(save.status),
+    skill: (typeof save.skill === "string") && (save.skill in CONFIG.shiver.skills) ? save.skill : "grit",
+    cr: boundedInt(save.cr ?? 1, 1, 10, "CR"),
+    value: (save.value === undefined) || (save.value === null) ? undefined : boundedInt(save.value, 0, 20, "status value"),
+    flags: statusFlags(save.flags),
+    duration: statusDuration(save.duration),
+    fear: save.fear === true
+  };
+}
+
 // A save on a damage card can only be rolled once.
-registerGMOperation("claimSave", async ({ messageId, index }) => serialize(`check.${messageId}`, async () => {
+registerGMOperation("claimSave", async ({ messageId, index }, user) => serialize(`check.${messageId}`, async () => {
   const message = game.messages.get(messageId);
   const dmg = message?.getFlag("shiver", "damage");
   if ( !dmg ) return false;
+  await requireSaveOwner(dmg, user);
   const rolled = dmg.rolledSaves ?? [];
   if ( rolled.includes(index) ) return false;
   await message.update({ "flags.shiver.damage.rolledSaves": [...rolled, index] });
@@ -488,9 +559,22 @@ registerGMOperation("claimSave", async ({ messageId, index }) => serialize(`chec
 }));
 
 // A save whose roll didn't happen (its dialog was cancelled) can be rolled again.
-registerGMOperation("releaseSave", async ({ messageId, index }) => serialize(`check.${messageId}`, async () => {
+registerGMOperation("releaseSave", async ({ messageId, index }, user) => serialize(`check.${messageId}`, async () => {
   const message = game.messages.get(messageId);
-  const rolled = message?.getFlag("shiver", "damage")?.rolledSaves ?? [];
+  const dmg = message?.getFlag("shiver", "damage");
+  if ( !dmg ) return false;
+  await requireSaveOwner(dmg, user);
+  const rolled = dmg.rolledSaves ?? [];
   if ( rolled.includes(index) ) await message.update({ "flags.shiver.damage.rolledSaves": rolled.filter(i => i !== index) });
   return true;
 }));
+
+/**
+ * Only the damaged character's players (or a GM) roll the saves on its damage card.
+ * @param {object} dmg   The card's damage flags
+ * @param {User} user
+ */
+async function requireSaveOwner(dmg, user) {
+  const actor = dmg.actorUuid ? await fromUuid(dmg.actorUuid) : null;
+  requireControl(user, actor);
+}
