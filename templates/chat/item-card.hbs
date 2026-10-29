@@ -1,0 +1,30 @@
+<div class="shiver-card shiver-item-card type-{{item.type}}">
+  <header class="card-header">
+    <img class="item-img" src="{{item.img}}" alt="">
+    <div class="titles">
+      <h3>{{item.name}}</h3>
+      <div class="subtitle">{{localize (concat "TYPES.Item." item.type)}}{{#if item.system.tier}} · {{localize "shiver.Ability.tier"}} {{item.system.tier}}{{/if}}{{#if item.system.abilityName}} · {{item.system.abilityName}}{{/if}}{{#if uses.limited}} · {{uses.remaining}}/{{uses.max}} ({{uses.recharge}}){{/if}}</div>
+    </div>
+  </header>
+  {{#if item.system.summary}}<p class="summary">{{item.system.summary}}</p>{{/if}}
+  {{#if description}}<div class="description">{{{description}}}</div>{{/if}}
+  {{#if item.system.flawName}}<p class="flaw"><strong>{{localize "shiver.Background.flaw"}}: {{item.system.flawName}}</strong></p>{{/if}}
+  {{#each notes}}<p class="note">{{this}}</p>{{/each}}
+  {{#each customs}}<p class="note custom-note"><i class="fa-solid fa-circle-info"></i> {{this}}</p>{{/each}}
+  {{#if actor}}
+  {{#if checks.length}}
+  <div class="card-buttons item-checks owner-only">
+    {{#each checks}}
+    <button type="button" data-shiver-action="itemCheck" data-index="{{index}}" data-tooltip="{{text}}"><i class="fa-solid fa-dice"></i> {{localize "shiver.Check.rollSkill" skill=label}}{{#if cr}} (CR {{cr}}){{/if}}</button>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{#if situational.length}}
+  <div class="card-buttons item-effects owner-only">
+    {{#each situational}}
+    <button type="button" data-shiver-action="itemRule" data-index="{{index}}"><i class="fa-solid fa-wand-sparkles"></i> {{text}}</button>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{/if}}
+</div>

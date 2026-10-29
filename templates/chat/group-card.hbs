@@ -1,0 +1,12 @@
+<div class="shiver-card shiver-group {{#if state.outcome}}outcome-{{state.outcome}}{{/if}}">
+  <header class="card-header"><div class="titles"><h3><i class="fa-solid fa-people-group"></i> {{state.label}}</h3><div class="subtitle">{{skillLabel}}</div></div></header>
+  <ul class="group-entries">{{#each state.entries}}<li>{{name}}: <strong>{{successes}}</strong></li>{{/each}}</ul>
+  <div class="result-line"><span class="successes"><strong>{{state.total}}</strong> {{localize "shiver.Check.successes"}}</span>
+    {{#if outcomeLabel}}<span class="outcome">{{outcomeLabel}}</span>{{/if}}</div>
+  {{#unless state.resolved}}
+  <div class="card-buttons">
+    <button type="button" data-shiver-action="groupJoin"><i class="fa-solid fa-dice"></i> {{localize "shiver.Tools.joinGroup"}}</button>
+    <button type="button" class="gm-only" data-shiver-action="groupResolve"><i class="fa-solid fa-gavel"></i> {{localize "shiver.Tools.resolveGroup"}}</button>
+  </div>
+  {{/unless}}
+</div>

@@ -1,0 +1,89 @@
+<div class="shiver-card shiver-check type-{{state.type}} {{#if state.outcome}}outcome-{{state.outcome}}{{else}}pending{{/if}}" data-check>
+  <header class="card-header">
+    {{#if skillImg}}<img class="skill-icon" src="{{skillImg}}" alt="{{skillLabel}}">{{/if}}
+    <div class="titles">
+      <h3>{{#if state.label}}{{state.label}}{{else}}{{localize "shiver.Check.checkOf" skill=skillLabel}}{{/if}}</h3>
+      <div class="subtitle">
+        {{skillLabel}}{{#each combinedLabels}} + {{this}}{{/each}}
+        · {{state.pool.d6}}d6{{#if state.pool.d8}} + {{state.pool.d8}}d8{{/if}}
+        {{#if luckSpent}} · <i class="fa-solid fa-clover"></i> {{localize "shiver.Check.luckSpentN" n=luckSpent}}{{/if}}
+      </div>
+    </div>
+  </header>
+
+  <div class="dice-faces">
+    {{#each dice}}<img class="face {{type}} {{#if counts}}counts{{else}}blank{{/if}}" src="{{img}}" title="{{title}}" alt="{{title}}">{{/each}}
+  </div>
+  {{#if assistDice.length}}
+  <div class="dice-faces assist"><span class="assist-label">{{localize "shiver.Check.assistShort"}}{{#if state.assist.name}}: {{state.assist.name}}{{/if}}</span>
+    {{#each assistDice}}<img class="face {{type}}" src="{{img}}" alt="">{{/each}}
+  </div>
+  {{/if}}
+
+  <div class="tally">
+    {{#each tally}}<span class="sym sym-{{key}}" data-tooltip="{{label}}">{{label}} ×{{n}}</span>{{/each}}
+  </div>
+
+  <div class="result-line">
+    <span class="successes"><strong>{{state.finalSuccesses}}</strong> {{localize "shiver.Check.successes"}}</span>
+    {{#if showCR}}<span class="vs-cr">{{localize "shiver.Check.vsCR" cr=state.cr}}</span>{{/if}}
+    {{#if state.fullHouse}}<span class="badge full-house">{{localize "shiver.Outcome.fullHouseBadge"}}</span>{{/if}}
+    {{#if outcomeLabel}}{{#unless attack}}<span class="outcome">{{outcomeLabel}}</span>{{/unless}}{{/if}}
+  </div>
+  {{#if state.autoFail}}<p class="note warning">{{localize "shiver.Check.autoFail"}}: {{state.autoFail}}</p>{{/if}}
+  {{#each state.notes}}<p class="note">{{this}}</p>{{/each}}
+
+  {{#if luckPending}}
+  <div class="luck-choice owner-only">
+    <p>{{localize "shiver.Luck.double" n=state.luck}}</p>
+    <div class="card-buttons">
+      <button type="button" data-shiver-action="luckChoice" data-choice="bank"><i class="fa-solid fa-piggy-bank"></i> {{localize "shiver.Luck.bank"}}</button>
+      {{#if luckSuccessAllowed}}<button type="button" data-shiver-action="luckChoice" data-choice="success"><i class="fa-solid fa-plus"></i> {{localize "shiver.Luck.success"}}</button>{{/if}}
+      <button type="button" data-shiver-action="luckChoice" data-choice="doom"><i class="fa-solid fa-clock-rotate-left"></i> {{localize "shiver.Luck.doom"}}</button>
+    </div>
+  </div>
+  {{else if luckChoiceLabel}}
+  <p class="note luck">{{localize "shiver.Luck.chosen"}}: {{luckChoiceLabel}}</p>
+  {{/if}}
+
+  {{#if pendingCR}}{{#unless state.resolved}}
+  <div class="set-cr gm-only">
+    <span>{{localize "shiver.Check.setCR"}}</span>
+    {{#each crOptions}}<button type="button" data-shiver-action="setCR" data-cr="{{this}}">{{this}}</button>{{/each}}
+  </div>
+  <p class="note pending-note">{{localize "shiver.Check.awaitingCR"}}</p>
+  {{/unless}}{{/if}}
+
+  {{#if attack}}
+  <div class="attack-block">
+    <div class="weapon-line">
+      <i class="fa-solid fa-hand-fist"></i> {{attack.itemName}} · {{attack.damage}} {{attack.typeLabel}}
+      {{#if attack.rangeLabel}} · {{attack.rangeLabel}}{{/if}}
+    </div>
+    {{#each attack.targets}}
+    <div class="target-row {{#if hit}}hit{{else}}miss{{/if}}" data-target-index="{{index}}">
+      <img src="{{img}}" alt="">
+      <span class="target-name">{{name}}</span>
+      <span class="outcome">{{outcomeLabel}}</span>
+      {{#if hit}}
+      <span class="damage">{{damage}}{{#if critEffect}} · {{critEffect}}{{/if}}</span>
+      {{#if applied}}<span class="applied"><i class="fa-solid fa-check"></i> {{localize "shiver.Damage.applied"}}</span>
+      {{else}}<button type="button" class="apply-damage" data-shiver-action="applyDamage" data-index="{{index}}"><i class="fa-solid fa-burst"></i> {{localize "shiver.Damage.apply"}}</button>{{/if}}
+      {{#if strikeAgain}}<button type="button" class="strike-again owner-only" data-shiver-action="strikeAgain"><i class="fa-solid fa-repeat"></i> {{localize "shiver.Crit.strikeAgain"}}</button>{{/if}}
+      {{/if}}
+    </div>
+    {{/each}}
+    {{#if attack.untargeted}}{{#if state.outcome}}{{#unless (eq state.outcome "failure")}}
+    <div class="card-buttons">
+      <button type="button" data-shiver-action="applyDamageSelected"><i class="fa-solid fa-burst"></i> {{localize "shiver.Damage.applySelected"}}</button>
+    </div>
+    {{/unless}}{{/if}}{{/if}}
+  </div>
+  {{/if}}
+
+  {{#if results.length}}
+  <ul class="results">
+    {{#each results}}<li class="{{cls}}"><i class="fa-solid {{icon}}"></i> {{text}}</li>{{/each}}
+  </ul>
+  {{/if}}
+</div>

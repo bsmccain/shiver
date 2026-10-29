@@ -1,0 +1,24 @@
+<div class="shiver-card shiver-opposed">
+  <header class="card-header"><div class="titles"><h3><i class="fa-solid fa-people-arrows"></i> {{state.label}}</h3></div></header>
+  {{#each sides}}
+  <div class="opposed-side {{#if win}}win{{/if}} {{#if lose}}lose{{/if}}">
+    <span class="side-name">{{name}}</span> <span class="side-skill">{{skillLabel}}</span>
+    {{#if rolled}}<span class="side-result"><strong>{{successes}}</strong> {{localize "shiver.Check.successes"}}</span>
+    {{else}}<button type="button" data-shiver-action="opposedRoll" data-side="{{index}}"><i class="fa-solid fa-dice"></i> {{localize "shiver.Check.roll"}}</button>{{/if}}
+    {{#if win}}<span class="badge">{{localize "shiver.Tools.wins"}}</span>{{/if}}
+  </div>
+  {{/each}}
+  {{#if tie}}
+  <div class="tie gm-only">
+    <p>{{localize "shiver.Tools.tie"}}</p>
+    <ul class="tie-data">{{#each sides}}<li>{{name}}: {{localize "shiver.Tools.points"}} {{points}} · {{localize "shiver.SkillLuck"}} {{luck}} · {{localize "shiver.SkillStrange"}} {{strange}}</li>{{/each}}</ul>
+    <div class="card-buttons">
+      {{#each sides}}<button type="button" data-shiver-action="opposedTie" data-choice="{{index}}">{{name}} {{localize "shiver.Tools.wins"}}</button>{{/each}}
+      <button type="button" data-shiver-action="opposedTie" data-choice="none">{{localize "shiver.Tools.bothLose"}}</button>
+      <button type="button" data-shiver-action="opposedTie" data-choice="reroll">{{localize "shiver.Tools.reroll"}}</button>
+    </div>
+  </div>
+  <p class="note">{{localize "shiver.Tools.tieNote"}}</p>
+  {{/if}}
+  {{#if bothLose}}<p class="note">{{localize "shiver.Tools.bothLose"}}</p>{{/if}}
+</div>

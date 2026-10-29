@@ -1,141 +1,150 @@
-<div class="{{actor.type}} flexcol">
-
-  
-  {{!-- Sheet Header --}}
-  <header class="sheet-header ">
-
+<div class="{{actor.type}} shiver-npc flexcol">
+  <header class="sheet-header shiver-header">
     <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-
-    <div class="header-fields grid grid-8col">
-
-      <div class="grid-span-4 resource-content">
-        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-        <label for="name" class="resource-label">Name</label>
+    <div class="header-main">
+      <div class="header-row">
+        <div class="field name-field"><input name="name" type="text" value="{{actor.name}}"/><label>{{localize "shiver.Sheet.name"}}</label></div>
+        <div class="field"><input name="system.type" type="text" value="{{system.type}}" placeholder="Slasher"/><label>{{localize "shiver.Npc.group"}}</label></div>
+        <div class="field tiny"><input name="system.cr.base" type="number" min="1" value="{{system.cr.base}}"/><label>CR{{#if (ne system.cr.value system.cr.base)}} ({{system.cr.value}}){{/if}}</label></div>
       </div>
-
-      <div class="grid-span-3 resource-content">
-        <input name="system.type" type="text" value="{{system.type}}" placeholder="Type"/>
-        <label for="system.type" class="resource-label">Type</label>
-      </div>
-
-      <div class="resource">
-        <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.cr" value="{{system.cr}}" data-dtype="Number"/>
+      <div class="header-row">
+        <div class="field small hp-field">
+          <span class="hp-pair"><input type="number" name="system.hp.value" value="{{system.hp.value}}" min="0"/> / <input type="number" name="system.hp.max" value="{{system.hp.max}}" min="1"/></span>
+          <label>{{localize "shiver.Npc.hp"}}</label>
         </div>
-        <label for="system.cr" class="resource-label">CR</label>
+        <div class="field small"><select name="system.speed.base">{{#each speedOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select><label>{{localize "shiver.Sheet.speed"}} ({{system.speed.ft}} ft)</label></div>
+        <div class="field small"><select name="system.size">{{#each sizeOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select><label>{{localize "shiver.Npc.size"}}</label></div>
+        <div class="field small"><select name="system.combatState">{{#each stateOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select><label>{{localize "shiver.Npc.combatState"}}</label></div>
       </div>
-
-      <div class="grid-span-4 resource-content">
-        <input name="system.reaction" type="text" value="{{system.reaction}}" placeholder="Reaction"/>
-        <label for="system.reaction" class="resource-label">Reaction</label>
-      </div>
-      
-      <div class="grid-span-3 resource-content">
-        <input name="system.rating.name" type="text" value="{{system.rating.name}}" placeholder="Amber"/>
-        <label for="system.rating.name" class="resource-label">Deathcon Rating</label>
-      </div>
-
-      <div>
-        <input name="system.speed.value" type="number" value="{{system.speed.value}}" placeholder="20"/>
-        <label for="Speed" class="resource-label">Speed</label>
-      </div>
-
-      <div class="resource grid-span-4">
-        <div class="resource-content">
-          <input type="text" name="system.size" value="{{system.size}}" data-dtype="text" placeholder="Humanoid"/>
-          <label for="system.size" class="resource-label">Size</label>
+      <div class="header-row">
+        <div class="field small deathcon deathcon-{{system.deathcon}}"><select name="system.deathcon">{{#each deathconOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select><label>{{localize "shiver.Npc.deathcon"}}</label></div>
+        <div class="field small"><select name="system.reaction">{{#each reactionOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select><label>{{localize "shiver.Npc.reaction"}}</label></div>
+        <div class="field extra-actions">
+          <span class="trio">
+            <input type="number" name="system.extraActions.move" value="{{system.extraActions.move}}" data-tooltip="shiver.Action.move"/>
+            <input type="number" name="system.extraActions.attack" value="{{system.extraActions.attack}}" data-tooltip="shiver.Action.attack"/>
+            <input type="number" name="system.extraActions.interact" value="{{system.extraActions.interact}}" data-tooltip="shiver.Action.interact"/>
+          </span>
+          <label>{{localize "shiver.Npc.extraActions"}}</label>
         </div>
-      </div>
-
-      <div class="resource grid-span-2">
-        <input class="health" type="number" name="system.hp.max" value="{{system.hp.max}}"/>
-        <label for="system.hp.max" class="resource-label">HP Max</label>
-      </div>
-      
-      <div class="resource grid-span-2">
-        <input class="health" type="number" name="system.hp.value" value="{{system.hp.value}}"/>
-        <label for="system.hp.value" class="resource-label">HP</label>
-      </div>
-
-      <div  class="resource grid-span-8"><hr></div>
-      <div class="resource grid-span-8">
-        <input type="text" name="system.immunity" value="{{system.immunity}}" data-dtype="String" data-target="system.immunity"/>
-        <label for="system.immunity" class="resource-label">Immunity</label>
-      </div>
-      <div class="resource grid-span-8">
-        <input type="text" name="system.resistance" value="{{system.resistance}}" data-dtype="String" data-target="system.resistance"/>
-        <label for="system.resistance" class="resource-label">Resistance</label>
-      </div>
-      <div class="resource grid-span-8">
-        <input type="text" name="system.weakness" value="{{system.weakness}}" data-dtype="String" data-target="system.weakness"/>
-        <label for="system.weakness" class="resource-label">Weakness</label>
+        <div class="field tiny"><input type="checkbox" name="system.ally" {{checked system.ally}}/><label>{{localize "shiver.Npc.ally"}}</label></div>
       </div>
     </div>
   </header>
 
-  {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    {{!-- Tabs are specified in actor-sheet.mjs --}}
     {{#each tabs as |tab|}}
     <a class="item {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
     {{/each}}
   </nav>
 
-  {{!-- Sheet Body --}}
   <section class="sheet-body">
-
-    {{!-- description Tab --}}
     <div class="tab description {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
-
-      <!-- Skills and Talents -->
-      <div class="">
-        <div class="">
-          <div  class="sheet-skills">
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-              use both the "grid" and "grid-Ncol" class where "N" can be any number
-              from 1 to 12 and will create that number of columns.  --}}
-
-            <div class="">
-              <div class="grid grid-6col flex-group-center">
-                {{#each skills as |skill|}}
-                <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{skill.img}}" title="{{skill.label}}" height="50" width="50"
-                    data-action="roll"
-                    data-skill="{{skill.key}}"
-                    data-skill-dice="{{skill.value}}"
-                    data-talent-dice="0"/>
-                  <span class="skill-text">{{skill.label}}</span>
-                  <hr>
-                  <div class="header-fields">
-                    <input class="skill-text" type="text" name="system.skills.{{skill.key}}.value" value="{{skill.value}}" data-dtype="Number"/>
-                  </div>
-                </div>
-                {{/each}}
-              </div>
-            </div>
-         </div>
+      <div class="skill-grid npc-skills">
+        {{#each skills as |skill|}}
+        <div class="skill-card">
+          <img class="skill-img rollable" src="{{skill.img}}" title="{{skill.label}}" data-action="roll" data-skill="{{skill.key}}"/>
+          <span class="skill-name">{{skill.label}}</span>
+          <div class="skill-values">
+            <div class="value-box"><input type="number" name="system.skills.{{skill.key}}.value" value="{{skill.value}}" min="0"/><label>d6</label></div>
+            <div class="value-box talent"><input type="number" name="system.skills.{{skill.key}}.talent" value="{{skill.talent}}" min="0"/><label>d8</label></div>
+          </div>
         </div>
+        {{/each}}
       </div>
-      
-      <span>DESCRIPTION</span>
+      <div class="damage-mods">
+        {{#each damageMods as |mod|}}
+        <fieldset class="damage-mod mod-{{mod.key}}">
+          <legend>{{mod.label}}</legend>
+          <div class="mod-types">
+            {{#each mod.types as |t|}}<label class="checkbox"><input type="checkbox" name="system.damageSet.{{mod.key}}.{{t.key}}" {{checked t.checked}}/> {{t.label}}</label>{{/each}}
+          </div>
+          <input type="text" name="system.damage.{{mod.key}}Notes" value="{{mod.notes}}" placeholder="{{localize 'shiver.Npc.notes'}}"/>
+        </fieldset>
+        {{/each}}
+      </div>
+      {{#if activeStatuses.length}}
+      <div class="status-strip">{{#each activeStatuses}}<span class="tag"><img src="{{img}}" width="16"/> {{label}}{{#if valued}} ({{value}}){{/if}}</span>{{/each}}</div>
+      {{/if}}
+      <h3>{{localize "shiver.Sheet.description"}}</h3>
       {{formInput systemFields.description value=system.description enriched=description toggled=true}}
     </div>
 
-    {{!-- Traits Tab --}}
-    <div class="tab abilities {{tabs.abilities.cssClass}}" data-group="primary" data-tab="abilities">
-       {{> "systems/shiver/templates/actor/parts/actor-traits.html"}}
-    </div>
-
-    {{!-- Attacks Tab --}}
     <div class="tab attacks {{tabs.attacks.cssClass}}" data-group="primary" data-tab="attacks">
-       {{> "systems/shiver/templates/actor/parts/actor-attacks.html"}}
+      {{> "systems/shiver/templates/actor/parts/actor-combat.html"}}
+      <div class="add-row">
+        <button type="button" data-action="createItem" data-type="power"><i class="fas fa-plus"></i> {{localize "TYPES.Item.power"}}</button>
+      </div>
     </div>
 
-    {{!-- Active Effects Tab --}}
+    <div class="tab abilities {{tabs.abilities.cssClass}}" data-group="primary" data-tab="abilities">
+      <h3 class="section-title">{{localize "TYPES.Item.trait"}} <a class="item-control" data-action="createItem" data-type="trait"><i class="fas fa-plus"></i></a></h3>
+      <ol class="items-list">
+        {{#each traits as |item|}}
+        <li class="item ability-row" data-item-id="{{item._id}}">
+          <div class="item-main">
+            <img src="{{item.img}}" width="24" height="24"/>
+            <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+            <span class="tags">{{#if item.system.disrupt}}<span class="tag disrupt">{{localize "shiver.Npc.disrupt"}}</span>{{/if}}{{#if item.actionLabel}}<span class="tag">{{item.actionLabel}}</span>{{/if}}{{#if item.usesLabel}}<span class="tag uses">{{item.usesLabel}}</span>{{/if}}</span>
+            <span class="item-controls">
+              <a class="use" data-action="useItem"><i class="fa-solid fa-bolt"></i></a>
+              <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+              <a data-action="editItem"><i class="fas fa-edit"></i></a>
+              <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+            </span>
+          </div>
+          {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}</div>{{/if}}
+        </li>
+        {{/each}}
+      </ol>
+      {{#each abilityGroups as |group|}}
+      <h3 class="section-title">{{group.name}}</h3>
+      <ol class="items-list">
+        {{#each group.items as |item|}}
+        <li class="item ability-row" data-item-id="{{item._id}}">
+          <div class="item-main">
+            <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+            <span class="item-controls">
+              <a class="use" data-action="useItem"><i class="fa-solid fa-bolt"></i></a>
+              <a data-action="editItem"><i class="fas fa-edit"></i></a>
+              <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+            </span>
+          </div>
+          {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}</div>{{/if}}
+        </li>
+        {{/each}}
+      </ol>
+      {{/each}}
+    </div>
+
+    <div class="tab reactions {{tabs.reactions.cssClass}}" data-group="primary" data-tab="reactions">
+      <p class="hint">{{localize "shiver.Reaction.hint"}}</p>
+      <table class="reaction-table">
+        <thead><tr><th></th><th>{{localize "shiver.Reaction.standard"}}</th><th>{{localize "shiver.Reaction.override"}}</th></tr></thead>
+        <tbody>
+          {{#each reactionRows}}
+          <tr class="{{#if active}}active{{else}}inactive{{/if}}">
+            <td><img src="{{img}}" width="24" height="24" title="{{label}}"/></td>
+            <td class="standard">{{#if standard}}{{standard}}{{else}}—{{/if}}</td>
+            <td><input type="text" name="system.reactions.{{face}}" value="{{custom}}"/></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <button type="button" data-action="rollReaction"><i class="fa-solid fa-dice"></i> {{localize "shiver.Reaction.roll"}}</button>
+    </div>
+
     <div class="tab effects flexcol {{tabs.effects.cssClass}}" data-group="primary" data-tab="effects">
+      <h3 class="section-title">{{localize "shiver.Sheet.statuses"}}</h3>
+      <div class="status-grid">
+        {{#each statuses as |s|}}
+        <div class="status {{#if s.active}}active{{/if}}" data-status="{{s.id}}">
+          <a class="status-toggle" data-action="toggleStatus"><img src="{{s.img}}" alt=""/> {{s.label}}{{#if s.active}}{{#if s.valued}} ({{s.value}}){{/if}}{{/if}}</a>
+          {{#if s.active}}{{#if s.valued}}<span class="status-controls"><a data-action="statusValue" data-delta="-1"><i class="fa-solid fa-minus"></i></a><a data-action="statusValue" data-delta="1"><i class="fa-solid fa-plus"></i></a></span>{{/if}}{{/if}}
+        </div>
+        {{/each}}
+      </div>
       {{> "systems/shiver/templates/actor/parts/actor-effects.html"}}
     </div>
-
   </section>
 </div>
-

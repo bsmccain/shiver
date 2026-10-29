@@ -2,8 +2,8 @@
   "id": "shiver",
   "name": "shiver",
   "title": "Shiver",
-  "description": "This is a game system to support the Shiver game by https://www.parablegames.co.uk/ SHIVER and all associated names is copyright of Parable Games LTD --- This product is an independent production and is not affiliated with Parable Games LTD. It is published under the SHIVER Third Party License. Currently, it implements Character Sheet, Npc Sheet, Items, and unique Dice.",
-  "version": "0.4.0-beta.1",
+  "description": "An unofficial game system for SHIVER by Parable Games (https://www.parablegames.co.uk/). Automates SHIVER dice pools, the Doom Clock, Luck and Fear, the Lifeline, armour, damage, status effects, Archetype Trees and Combat States. SHIVER and all associated names are copyright Parable Games LTD. This product is an independent production, not affiliated with Parable Games LTD, published under the SHIVER Third Party License.",
+  "version": "1.0.0-beta.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14.369"
@@ -13,10 +13,88 @@
       "name": "Tomasz Straszewski"
     }
   ],
-  "esmodules": [ "module/shiver.mjs" ],
-  "styles": [ "css/shiver.css" ],
+  "esmodules": [
+    "module/shiver.mjs"
+  ],
+  "styles": [
+    "css/shiver.css",
+    "css/shiver-system.css"
+  ],
   "scripts": [],
-  "packs": [],
+  "packs": [
+    {
+      "name": "abilities",
+      "label": "Archetype Abilities",
+      "path": "packs/abilities",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "backgrounds",
+      "label": "Backgrounds",
+      "path": "packs/backgrounds",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "flaws",
+      "label": "Fatal Flaws",
+      "path": "packs/flaws",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "weapons",
+      "label": "Weapons",
+      "path": "packs/weapons",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "armour",
+      "label": "Armour",
+      "path": "packs/armour",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "items",
+      "label": "Special Items",
+      "path": "packs/items",
+      "type": "Item",
+      "system": "shiver",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -26,22 +104,86 @@
   ],
   "documentTypes": {
     "Actor": {
-      "character": { "htmlFields": ["biography"] },
-      "npc": { "htmlFields": ["biography", "description"] }
+      "character": {
+        "htmlFields": [
+          "biography",
+          "notes"
+        ]
+      },
+      "npc": {
+        "htmlFields": [
+          "biography",
+          "description"
+        ]
+      }
     },
     "Item": {
-      "item": { "htmlFields": ["description"] },
-      "trait": { "htmlFields": ["description"] },
-      "power": { "htmlFields": ["description"] },
-      "weapon": { "htmlFields": ["description"] },
-      "armour": { "htmlFields": ["description"] }
+      "item": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "trait": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "power": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "weapon": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "armour": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "ability": {
+        "htmlFields": [
+          "description"
+        ]
+      },
+      "background": {
+        "htmlFields": [
+          "description",
+          "abilityDescription",
+          "flawDescription"
+        ]
+      },
+      "flaw": {
+        "htmlFields": [
+          "description"
+        ]
+      }
     }
   },
-  "gridDistance": 5,
-  "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "url": "https://github.com/bsmccain/shiver",
   "manifest": "https://raw.githubusercontent.com/bsmccain/shiver/main/system.json",
-  "download": "https://github.com/bsmccain/shiver/releases/download/v0.4.0-beta.1/shiver.zip",
-  "license": "LICENSE.txt"
+  "download": "https://github.com/bsmccain/shiver/releases/download/v1.0.0-beta.1/shiver.zip",
+  "license": "LICENSE.txt",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "packFolders": [
+    {
+      "name": "SHIVER",
+      "sorting": "m",
+      "color": "#6b1018",
+      "packs": [
+        "abilities",
+        "backgrounds",
+        "flaws",
+        "weapons",
+        "armour",
+        "items"
+      ]
+    }
+  ]
 }
