@@ -1,7 +1,7 @@
 import { receiveDamage, postDamageReport } from "./damage.mjs";
 import { actionAllowance } from "./actions.mjs";
 import { claimOrder, describeFlow, firstSection, moveEntry, nextStop, orderValues, SECTIONS,
-  stateForInitiative } from "./flow.mjs";
+  stateForInitiative, turnsKept } from "./flow.mjs";
 import { asGM, canControl, GMOperationRefused, registerGMOperation, requireControl, serialize } from "../socket.mjs";
 
 /**
@@ -333,7 +333,31 @@ export class ShiverCombat extends Combat {
       const c = this.combatants.get(id);
       if ( c ) list = moveEntry(list, id, { section: this.constructor.suggestState(c), bottom: true }) ?? list;
     }
+    this._requireTurnsKept(list, ids);
     await this._applyOrder(list);
+  }
+
+  /**
+   * How the round would stand after a reorder.
+   * @param {{id: string, state: string|null}[]} list
+   * @returns {object}
+   */
+  _flowAfter(list) {
+    const entries = list.map(e => ({ ...e, defeated: !!this.combatants.get(e.id)?.isDefeated }));
+    const pointer = this.combatant?.id;
+    const turn = pointer ? list.findIndex(e => e.id === pointer) : this.turn;
+    return describeFlow(entries, { round: this.round, turn, pending: this.flow.stop });
+  }
+
+  /**
+   * Mid-round, a reorder may only change the moved combatants' own turns: moving the combatant whose turn it is (or
+   * who just acted) past those still waiting would take their turns away. Such changes wait for the next round.
+   * @param {{id: string, state: string|null}[]} list
+   * @param {string[]} moved
+   */
+  _requireTurnsKept(list, moved) {
+    if ( turnsKept(this.flow, this._flowAfter(list), moved) ) return;
+    throw new GMOperationRefused(game.i18n.localize("shiver.Combat.cantReorder"));
   }
 
   /**
@@ -372,6 +396,7 @@ export class ShiverCombat extends Combat {
     if ( !user.isGM && !this._playerMoveAllowed(combatant, list, user) ) {
       throw new GMOperationRefused(game.i18n.localize("shiver.Combat.cantMove"));
     }
+    this._requireTurnsKept(list, [combatant.id]);
     await this._applyOrder(list);
   }
 
@@ -385,13 +410,8 @@ export class ShiverCombat extends Combat {
   _playerMoveAllowed(combatant, list, user) {
     if ( !this.canMove(combatant, user) ) return false;
     if ( list.find(e => e.id === combatant.id)?.state !== this.constructor.stateOf(combatant) ) return false;
-    const flow = this.flow;
-    if ( !flow.begun ) return true;
-    const entries = list.map(e => ({ ...e, defeated: !!this.combatants.get(e.id)?.isDefeated }));
-    const pointer = this.combatant?.id;
-    const turn = pointer ? list.findIndex(e => e.id === pointer) : this.turn;
-    const after = describeFlow(entries, { round: this.round, turn, pending: flow.stop });
-    return after.waiting.some(e => e.id === combatant.id);
+    if ( !this.flow.begun ) return true;
+    return this._flowAfter(list).waiting.some(e => e.id === combatant.id);
   }
 
   /** @type {Set<string>} */
@@ -775,7 +795,7 @@ export class ShiverCombatTracker extends foundry.applications.sidebar.tabs.Comba
     if ( !game.user.isGM ) return;
     const li = target.closest("[data-combatant-id]");
     const c = this.viewed?.combatants.get(li?.dataset.combatantId);
-    if ( c ) await this.viewed.setState(c, target.dataset.state);
+    if ( c ) await this.viewed.setState(c, target.dataset.state).catch(err => ui.notifications.warn(err.message));
   }
 
   /** @this {ShiverCombatTracker} */
@@ -799,7 +819,7 @@ export class ShiverCombatTracker extends foundry.applications.sidebar.tabs.Comba
         label: game.i18n.format("shiver.Combat.setState", { state: game.i18n.localize(cfg.label) }),
         icon: '<i class="fa-solid fa-list-ol"></i>',
         visible: () => game.user.isGM,
-        onClick: (event, li) => this.viewed.setState(getCombatant(li), key)
+        onClick: (event, li) => this.viewed.setState(getCombatant(li), key).catch(err => ui.notifications.warn(err.message))
       });
     }
     options.unshift({

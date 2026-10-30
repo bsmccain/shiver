@@ -339,6 +339,7 @@
       "nextSection": "Next Combat State: anyone still waiting in this one loses their turn",
       "nextRound": "Next Round: skip the rest of this round",
       "notWaiting": "{name} can't take the turn now: only those still waiting in the current Combat State can.",
+      "cantReorder": "That move would change who still gets a turn this round. Move combatants past the current turn between rounds.",
       "cantMove": "You can only move your own character within its Combat State, while it's still waiting to act.",
       "thisTurn": "This turn",
       "overwhelmNote": "Overwhelmed by {n} characters: CR -1",

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { claimOrder, describeFlow, firstSection, moveEntry, nextStop, orderValues, stateForInitiative }
+import { claimOrder, describeFlow, firstSection, moveEntry, nextStop, orderValues, stateForInitiative, turnsKept }
   from "../module/combat/flow.mjs";
 
 // A, B in First; C, D, E in Middle; F in Last.
@@ -181,4 +181,23 @@ test("flow: a new round whose waiting state empties doesn't pass over those move
   const later = describeFlow(mid, { round: 2, turn: 1, pending: { round: 3, section: "middle" } });
   assert.deepEqual(later.stop, { round: 3, section: "first" });
   assert.deepEqual(ids(later.waiting), ["A", "C"]);
+});
+
+test("flow: mid-round, a reorder can't take turns away from others", () => {
+  const list = [{ id: "A", state: "first" }, { id: "B", state: "first" }, { id: "C", state: "middle" },
+    { id: "D", state: "middle" }, { id: "E", state: "last" }];
+  const at = (l, turn, pending) => describeFlow(l, { round: 1, turn, pending });
+  // The turn rests on B (ended), waiting for Middle. Moving B to the bottom of Last would pass over C, D and E.
+  const before = at(list, 1, { round: 1, section: "middle" });
+  const bLast = [list[0], list[2], list[3], list[4], { id: "B", state: "last" }];
+  assert.equal(turnsKept(before, at(bLast, 4, before.stop), ["B"]), false);
+  // C's turn is in progress; moving C to Last would leave D and E without a turn.
+  const cTurn = at(list, 2, null);
+  const cLast = [list[0], list[1], list[3], list[4], { id: "C", state: "last" }];
+  assert.equal(turnsKept(cTurn, at(cLast, 4, null), ["C"]), false);
+  // Moving a waiting combatant is fine, even into a later state.
+  const dLast = [list[0], list[1], list[2], list[4], { id: "D", state: "last" }];
+  assert.equal(turnsKept(cTurn, at(dLast, 2, null), ["D"]), true);
+  // Before combat, anything goes.
+  assert.equal(turnsKept(describeFlow(list), describeFlow(bLast), ["B"]), true);
 });

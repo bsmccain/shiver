@@ -117,6 +117,23 @@ export function nextStop(entries, flow, { skipSection = false } = {}) {
 }
 
 /**
+ * Does a reorder leave everyone else's turn as it was? Only the moved combatants may change between having acted and
+ * still waiting; the round and the turn in progress must stay the same.
+ * @param {object} before      describeFlow before the reorder.
+ * @param {object} after       describeFlow after it.
+ * @param {Iterable<string>} moved
+ * @returns {boolean}
+ */
+export function turnsKept(before, after, moved) {
+  if ( !before.begun ) return true;
+  if ( (after.round !== before.round) || ((after.current?.id ?? null) !== (before.current?.id ?? null)) ) return false;
+  const skip = new Set(moved);
+  const was = new Set(before.waiting.map(e => e.id));
+  const now = new Set(after.waiting.map(e => e.id));
+  return [...was, ...now].every(id => skip.has(id) || (was.has(id) === now.has(id)));
+}
+
+/**
  * The turn order once a combatant takes the next turn: they move to the front of those waiting in their state.
  * @param {object[]} entries
  * @param {object} flow     From describeFlow.
