@@ -168,3 +168,17 @@ test("flow: a reorder checked against the stop actually in effect can't bring th
   assert.equal(after.round, 2);
   assert.ok(after.waiting.some(e => e.id === "B"));
 });
+
+test("flow: a new round whose waiting state empties doesn't pass over those moved to an earlier state", () => {
+  // Start Combat with A and B in Middle and C in Last, then the GM drags A and B into First.
+  const list = [{ id: "A", state: "first" }, { id: "B", state: "first" }, { id: "C", state: "last" }];
+  const flow = describeFlow(list, { round: 0, turn: null, pending: { round: 1, section: "middle" } });
+  assert.deepEqual(flow.stop, { round: 1, section: "first" });
+  assert.deepEqual(ids(flow.inSection), ["A", "B"]);
+  assert.deepEqual(ids(flow.waiting), ["A", "B", "C"]);
+  // Mid-combat: waiting for Middle of round 3, and Middle's only member moved to First.
+  const mid = [{ id: "A", state: "first" }, { id: "C", state: "last" }];
+  const later = describeFlow(mid, { round: 2, turn: 1, pending: { round: 3, section: "middle" } });
+  assert.deepEqual(later.stop, { round: 3, section: "first" });
+  assert.deepEqual(ids(later.waiting), ["A", "C"]);
+});

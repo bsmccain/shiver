@@ -65,10 +65,10 @@ export function firstSection(entries) {
 export function describeFlow(entries, { round = 0, turn = null, pending = null } = {}) {
   const flow = flowAt(entries, round, turn, pending);
   if ( !flow.pending || flow.inSection.length || !entries.some(playing) ) return flow;
-  // A Combat State left with no-one waiting (they were moved, defeated or removed) passes to the next stop. A round
-  // that hasn't started yet still happens: if no later state has anyone in it, it starts from its first state.
-  let stop = nextStop(entries, flow, { skipSection: true });
-  if ( flow.fresh && (stop.round > flow.round) ) stop = { round: flow.round, section: firstSection(entries) };
+  // A Combat State left with no-one waiting (they were moved, defeated or removed) passes to the next stop. In a round
+  // that hasn't started yet no-one has acted, so it starts again from the first state with anyone in it.
+  const stop = flow.fresh ? { round: flow.round, section: firstSection(entries) }
+    : nextStop(entries, flow, { skipSection: true });
   return flowAt(entries, round, turn, stop);
 }
 
