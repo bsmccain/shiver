@@ -127,7 +127,19 @@
 .shiver-tracker .action-pip.spent { opacity: 0.35; text-decoration: line-through; }
 .shiver-tracker .fear-tag { font-size: 0.7em; color: #c9a3ff; margin-left: 4px; }
 .shiver-tracker .shiver-state { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex: 0 0 auto; }
-.shiver-tracker .shiver-state .shift { width: 18px; height: 14px; line-height: 12px; font-size: 0.75em; }
+.shiver-tracker .combat-state-header.current { opacity: 1; font-weight: bold; box-shadow: inset 3px 0 0 #ffd27a; }
+.shiver-tracker .shiver-flow-banner { list-style: none; margin: 2px 4px; padding: 3px 8px; font-size: 0.85em; text-align: center;
+  border: 1px solid rgba(255,210,122,0.6); border-radius: 4px; background: rgba(255,210,122,0.12); }
+.shiver-tracker .combatant.acted { opacity: 0.5; }
+.shiver-tracker .combatant.acted:hover { opacity: 0.85; }
+.shiver-tracker .combatant[draggable="true"] { cursor: grab; }
+.shiver-tracker .combatant.dragging { opacity: 0.35; }
+.shiver-tracker .combatant.drop-before { box-shadow: inset 0 3px 0 #ffd27a; }
+.shiver-tracker .combatant.drop-after { box-shadow: inset 0 -3px 0 #ffd27a; }
+.shiver-tracker .combat-state-header.drop-into { outline: 2px dashed #ffd27a; outline-offset: -2px; opacity: 1; }
+.shiver-tracker .go-now { flex: 0 0 auto; width: auto; height: 20px; line-height: 18px; padding: 0 6px; font-size: 0.75em; white-space: nowrap;
+  background: rgba(47,122,59,0.55); color: #fff; border-radius: 4px; }
+.shiver-tracker .go-now:hover { background: rgba(47,122,59,0.85); }
 .shiver-tracker .state-buttons { display: flex; gap: 1px; }
 .shiver-tracker .state-btn { font-size: 0.6em; padding: 0 3px; line-height: 1.4; height: auto; min-width: 0; opacity: 0.55; }
 .shiver-tracker .state-btn.active { opacity: 1; background: var(--shiver-red); color: #fff; }
