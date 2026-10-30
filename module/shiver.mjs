@@ -225,7 +225,8 @@ Hooks.on("createActiveEffect", async (effect, options, userId) => {
 Hooks.on("createChatMessage", async message => {
   if ( !game.user.isActiveGM ) return;
   const check = message.getFlag("shiver", "check");
-  if ( !check?.requestId || Number.isFinite(check.cr) || !["check", "fear"].includes(check.type) ) return;
+  // A CR the roller already set (a GM typing their own) isn't replaced.
+  if ( !check?.requestId || Number.isFinite(check.cr) || check.crSet || !["check", "fear"].includes(check.type) ) return;
   const request = game.messages.get(check.requestId);
   if ( !request?.author?.isGM || !request.getFlag("shiver", "request") ) return;
   const actor = check.actorUuid ? await fromUuid(check.actorUuid) : null;

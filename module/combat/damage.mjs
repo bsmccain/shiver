@@ -490,10 +490,15 @@ registerGMOperation("applyAttackDamage", async ({ messageId, index, actorUuids }
 });
 
 // Plain damage from a rule (an ability's damage, Bleed, a fall). The input is checked: a bounded amount of a known
-// damage type, with no other options.
-registerGMOperation("receiveDamage", async ({ uuid, input }) => {
+// damage type, with no other options. Damage to a character the sender doesn't control comes from an ability's rule
+// (the book's largest deals 5), and only when the world lets players apply damage.
+registerGMOperation("receiveDamage", async ({ uuid, input }, user) => {
   const actor = await resolveActor(uuid);
   const clean = damageInput(input);
+  if ( !canControl(user, actor) ) {
+    if ( !game.settings.get("shiver", "playersApplyDamage") ) throw new GMOperationRefused("Only the GM applies damage in this world");
+    if ( clean.amount > 10 ) throw new GMOperationRefused(`Too much damage for an ability: ${clean.amount}`);
+  }
   return serialize(`actor.${actor.uuid}`, async () => {
     const report = await receiveDamage(actor, clean);
     await postDamageReport(actor, report, { notes: clean.notes });

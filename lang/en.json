@@ -652,7 +652,7 @@
       },
       "playersApplyDamage": {
         "name": "Players can apply damage",
-        "hint": "Let players press Apply Damage on their own Strikes."
+        "hint": "Let players press Apply Damage on their own Strikes, and let their abilities' damage reach other characters. When off, only the GM applies damage to characters a player doesn't own."
       },
       "hideEnemyDamage": {
         "name": "Whisper enemy damage to the GM",
