@@ -61,6 +61,19 @@ export function firstSection(entries) {
  *   `inSection` those of them in the current Combat State: the ones who may act next.
  */
 export function describeFlow(entries, { round = 0, turn = null, pending = null } = {}) {
+  const flow = flowAt(entries, round, turn, pending);
+  // A Combat State left with no-one waiting (they were moved, defeated or removed) passes to the next stop.
+  if ( flow.pending && !flow.inSection.length && entries.some(playing) ) {
+    return flowAt(entries, round, turn, nextStop(entries, flow, { skipSection: true }));
+  }
+  return flow;
+}
+
+/**
+ * describeFlow, without passing over an empty Combat State.
+ * @returns {object}
+ */
+function flowAt(entries, round, turn, pending) {
   const pointer = Number.isInteger(turn) ? (entries[turn] ?? null) : null;
   const begun = (round > 0) || !!pending;
   const flowRound = pending ? pending.round : round;

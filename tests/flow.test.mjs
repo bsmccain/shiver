@@ -125,3 +125,19 @@ test("flow: initiative values keep each state's order and range", () => {
   for ( const e of many ) assert.equal(stateForInitiative(v.get(e.id)), "last");
   assert.equal(new Set(v.values()).size, 40);
 });
+
+test("flow: a pending state left with no-one waiting passes to the next stop", () => {
+  const list = entries();
+  list[3].defeated = true;
+  list[4].defeated = true;
+  const flow = describeFlow(list, { round: 1, turn: 2, pending: { round: 1, section: "middle" } });
+  assert.equal(flow.section, "last");
+  assert.deepEqual(ids(flow.inSection), ["F"]);
+  const moved = [...entries().slice(0, 5), { id: "F", state: "last", defeated: true }];
+  const end = describeFlow(moved, { round: 1, turn: 4, pending: { round: 1, section: "last" } });
+  assert.equal(end.fresh, true);
+  assert.equal(end.round, 2);
+  assert.deepEqual(ids(end.inSection), ["A", "B"]);
+  const none = describeFlow([{ id: "X", state: null }], { round: 1, turn: 0, pending: { round: 1, section: "middle" } });
+  assert.equal(none.section, "middle");
+});
