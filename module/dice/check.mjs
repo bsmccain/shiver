@@ -1,6 +1,7 @@
 import { damageMultiplier, evaluatePool, judge, tallySymbols } from "./pool.mjs";
 import { SkillDie, TalentDie } from "./terms.mjs";
 import { checkDialog } from "./check-dialog.mjs";
+import { getHiddenCR, setHiddenCR } from "./hidden-cr.mjs";
 import { DoomClock } from "../doom/doom-clock.mjs";
 import { asGM, authorControls, GMOperationRefused, registerGMOperation, requireControl, serialize, waitFor } from "../socket.mjs";
 
@@ -177,13 +178,16 @@ export class ShiverCheck {
     this._computeOutcome(state);
 
     const messageMode = config.messageMode ?? game.settings.get("core", "messageMode");
+    // A GM's hidden CR stays in the GM's browser: the card only records that one was set.
+    const hiddenCR = (game.user.isGM && state.crHidden && Number.isFinite(state.cr)) ? state.cr : null;
     const message = await ChatMessage.create({
       speaker: ChatMessage.getSpeaker({ actor }),
       content: await this.renderCard(state),
       rolls,
-      flags: { shiver: { check: state } },
+      flags: { shiver: { check: (hiddenCR === null) ? state : this._publicState(state) } },
       sound: CONFIG.sounds.dice
     }, { messageMode });
+    if ( hiddenCR !== null ) await setHiddenCR(`check.${message.id}`, hiddenCR);
 
     // The GM resolves consequences (Doom Clock and anything else the roller may not own).
     if ( this._isResolvable(state) ) await this.requestResolve(message);
@@ -204,6 +208,47 @@ export class ShiverCheck {
     if ( ["opposed", "group"].includes(state.type) ) return !!state.forcedOutcome;
     if ( state.attack?.targets?.length ) return true;
     return Number.isFinite(state.cr) || !!state.autoFail;
+  }
+
+  /**
+   * The state as stored on the card: a hidden CR is replaced by a note that one was set (see hidden-cr.mjs).
+   * @param {object} state
+   * @returns {object}
+   */
+  static _publicState(state) {
+    if ( !state.crHidden || !Number.isFinite(state.cr) ) return state;
+    return { ...state, cr: null, crSet: true };
+  }
+
+  /**
+   * Put a hidden CR this GM set back into a working copy of a card's state.
+   * @param {object} state
+   * @param {string} messageId
+   * @returns {boolean}  Whether the state now has a CR.
+   */
+  static _withHiddenCR(state, messageId) {
+    if ( Number.isFinite(state.cr) ) return true;
+    if ( !state.crHidden ) return false;
+    const cr = getHiddenCR(`check.${messageId}`);
+    if ( cr === null ) return false;
+    state.cr = cr;
+    return true;
+  }
+
+  /**
+   * The rule a check was rolled for, read from the character's own item (see rollItemCheck).
+   * @param {object} state
+   * @param {Actor} actor
+   * @returns {Promise<object|null>}
+   */
+  static async _itemRule(state, actor) {
+    const uuid = state.extra?.itemUuid;
+    const index = state.extra?.ruleIndex;
+    if ( !actor || (typeof uuid !== "string") || !Number.isInteger(index) ) return null;
+    const item = await fromUuid(uuid);
+    if ( (item?.documentName !== "Item") || (item.parent?.uuid !== actor.uuid) ) return null;
+    const { itemRules } = await import("../documents/actor-actions.mjs");
+    return itemRules(item)[index] ?? null;
   }
 
   /**
@@ -269,7 +314,9 @@ export class ShiverCheck {
     const message = await waitFor(() => game.messages.get(messageId));
     if ( !message ) return;
     const state = foundry.utils.deepClone(message.getFlag("shiver", "check"));
-    if ( !state || !this._isResolvable(state) ) return;
+    if ( !state ) return;
+    this._withHiddenCR(state, messageId);
+    if ( !this._isResolvable(state) ) return;
     this._computeOutcome(state);
     if ( !state.outcome && !state.attack?.targets?.length ) return;
 
@@ -315,13 +362,13 @@ export class ShiverCheck {
     }
 
     // Type-specific consequences.
-    await this._applyTypeResults(state, actor, results);
+    await this._applyTypeResults(state, actor, results, message);
 
     state.resolved = true;
     state.results = results;
     await message.update({
       content: await this.renderCard(state),
-      "flags.shiver.check": state
+      "flags.shiver.check": this._publicState(state)
     });
 
     // Ticks up and back are applied separately, so Flaws that change one direction (The Curse doubles increases,
@@ -348,8 +395,12 @@ export class ShiverCheck {
    * @param {object} results
    * @protected
    */
-  static async _applyTypeResults(state, actor, results) {
+  static async _applyTypeResults(state, actor, results, message) {
     const success = ["success", "critical", "fullHouse"].includes(state.outcome);
+    // A GM's card is trusted. On a player's card, effects that reach other characters come from the rule on the
+    // character's own item, not from what the card says.
+    const trusted = !!message?.author?.isGM;
+    const rule = trusted ? null : await this._itemRule(state, actor);
     switch ( state.type ) {
       case "fear": {
         if ( !actor ) break;
@@ -422,17 +473,23 @@ export class ShiverCheck {
       }
       case "heal": {
         const target = state.extra?.targetUuid ? await fromUuid(state.extra.targetUuid) : actor;
-        if ( success && target && state.heal ) {
+        const heal = trusted ? state.heal
+          : ((rule?.kind === "heal") ? { base: rule.amount ?? 0, perSymbol: rule.perSymbol ?? 0, freeSymbols: rule.freeSymbols ?? 0 } : null);
+        if ( success && (target?.documentName === "Actor") && heal ) {
           const symbols = state.counted.reduce((n, s) => n + (state.tally[s] ?? 0), 0)
             + (state.counted.some(s => s !== "strange") ? state.tally.talent : 0);
-          const amount = (state.heal.base ?? 0) + Math.max(0, symbols - (state.heal.freeSymbols ?? 0)) * (state.heal.perSymbol ?? 0);
+          const amount = (heal.base ?? 0) + Math.max(0, symbols - (heal.freeSymbols ?? 0)) * (heal.perSymbol ?? 0);
           results.healed = await target.heal(amount, { source: state.label });
         }
         break;
       }
     }
-    const list = success ? state.extra?.onSuccess : (state.outcome === "failure" ? state.extra?.onFailure : null);
-    if ( actor && list?.length ) {
+    const failed = state.outcome === "failure";
+    // The card keeps the lists as onSuccess/onFailure; on an item rule those are the descriptions and the lists are
+    // success/failure.
+    const list = trusted ? (success ? state.extra?.onSuccess : (failed ? state.extra?.onFailure : null))
+      : (success ? rule?.success : (failed ? rule?.failure : null));
+    if ( actor && Array.isArray(list) && list.length ) {
       const { applyEffectRules } = await import("../documents/actor-actions.mjs");
       const targets = [];
       for ( const uuid of (state.extra.targetUuids ?? []).slice(0, 20) ) {
@@ -492,11 +549,12 @@ export class ShiverCheck {
   static async #setCR({ messageId, cr, hidden }) {
     const message = await waitFor(() => game.messages.get(messageId));
     const state = foundry.utils.deepClone(message?.getFlag("shiver", "check"));
-    if ( !state || state.resolved ) return;
+    if ( !state || state.resolved || !Number.isFinite(cr) ) return;
     state.cr = cr;
     if ( hidden !== undefined ) state.crHidden = hidden;
+    if ( state.crHidden ) await setHiddenCR(`check.${messageId}`, cr);
     this._computeOutcome(state);
-    await message.update({ content: await this.renderCard(state), "flags.shiver.check": state });
+    await message.update({ content: await this.renderCard(state), "flags.shiver.check": this._publicState(state) });
     if ( this._isResolvable(state) ) await this.#resolve({ messageId });
   }
 
@@ -514,8 +572,9 @@ export class ShiverCheck {
     if ( !state || state.resolved ) return;
     state.forcedOutcome = outcome;
     if ( state.luckChoice === null ) state.luckChoice = "bank";
+    this._withHiddenCR(state, messageId);
     this._computeOutcome(state);
-    await message.update({ content: await this.renderCard(state), "flags.shiver.check": state });
+    await message.update({ content: await this.renderCard(state), "flags.shiver.check": this._publicState(state) });
     await this.#resolve({ messageId });
   }
 
@@ -530,8 +589,10 @@ export class ShiverCheck {
     if ( !state || state.resolved || (state.luckChoice !== null) ) return;
     if ( !["bank", "success", "doom"].includes(choice) ) return;
     state.luckChoice = choice;
+    // A hidden CR set in another GM's browser isn't known here: ask for it again.
+    if ( !this._withHiddenCR(state, messageId) && state.crSet ) state.crSet = false;
     this._computeOutcome(state);
-    await message.update({ content: await this.renderCard(state), "flags.shiver.check": state });
+    await message.update({ content: await this.renderCard(state), "flags.shiver.check": this._publicState(state) });
     if ( this._isResolvable(state) ) await this.#resolve({ messageId, local });
     Hooks.callAll("shiver.luckChosen", message, state);
   }
@@ -564,7 +625,7 @@ export class ShiverCheck {
     }));
     const outcomeLabel = state.outcome ? game.i18n.localize(`shiver.Outcome.${state.outcome}`) : null;
     const showCR = Number.isFinite(state.cr) && !state.crHidden;
-    const pendingCR = !state.attack?.targets?.length && !Number.isFinite(state.cr) && !state.autoFail
+    const pendingCR = !state.attack?.targets?.length && !Number.isFinite(state.cr) && !state.crSet && !state.autoFail
       && !["opposed", "group"].includes(state.type);
     const r = state.results ?? {};
     const results = [];

@@ -582,7 +582,7 @@
       "groupOf": "Group {skill} Check",
       "joinGroup": "Roll for the group",
       "resolveGroup": "Resolve",
-      "noGroupCR": "The hidden CR for this group check is missing.",
+      "noGroupCR": "This browser doesn't have the hidden CR for this group check. Enter it to resolve the group.",
       "levelUp": "Level up!",
       "noCharacters": "There are no characters.",
       "actOfGodResult": "Luck {luck} · Strange {strange}",

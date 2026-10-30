@@ -3,6 +3,7 @@ import { requestApplyDamage, rollSave } from "./combat/damage.mjs";
 import { evaluatePool, tallySymbols } from "./dice/pool.mjs";
 import { facesOf } from "./dice/check.mjs";
 import { isShiverDie } from "./dice/terms.mjs";
+import { getHiddenCR } from "./dice/hidden-cr.mjs";
 import { onToolCardAction } from "./apps/gm-tools.mjs";
 
 /**
@@ -33,11 +34,15 @@ export function onRenderChatMessage(message, html) {
     html.querySelector(`[data-shiver-action="itemCheck"][data-index="${i}"]`)?.setAttribute("disabled", "");
   }
 
-  // Hidden Challenge Ratings: show them to the GM only.
-  if ( game.user.isGM && check?.crHidden && Number.isFinite(check.cr) ) {
-    const line = html.querySelector(".result-line");
-    if ( line && !line.querySelector(".gm-cr") ) {
-      line.insertAdjacentHTML("beforeend", `<span class="gm-cr" data-tooltip="${game.i18n.localize("shiver.Check.hiddenCR")}">CR ${check.cr}</span>`);
+  // Hidden Challenge Ratings: only the GM sees them, from their own browser (see dice/hidden-cr.mjs).
+  if ( game.user.isGM ) {
+    let hidden = null;
+    if ( check?.crHidden ) hidden = Number.isFinite(check.cr) ? check.cr : getHiddenCR(`check.${message.id}`);
+    else if ( message.getFlag("shiver", "request") ) hidden = getHiddenCR(`request.${message.id}`);
+    else if ( message.getFlag("shiver", "group") ) hidden = getHiddenCR(`group.${message.id}`);
+    const line = html.querySelector(".result-line") ?? html.querySelector(".message-content .shiver-card");
+    if ( (hidden !== null) && line && !line.querySelector(".gm-cr") ) {
+      line.insertAdjacentHTML("beforeend", `<span class="gm-cr" data-tooltip="${game.i18n.localize("shiver.Check.hiddenCR")}">CR ${hidden}</span>`);
     }
   }
 

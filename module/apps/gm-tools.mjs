@@ -1,5 +1,6 @@
 import { ShiverCheck, rollDice, facesOf } from "../dice/check.mjs";
 import { tallySymbols } from "../dice/pool.mjs";
+import { getHiddenCR, setHiddenCR } from "../dice/hidden-cr.mjs";
 import { asGM, authorControls, boundedInt, GMOperationRefused, registerGMOperation, requireControl, requireGM, serialize,
   waitFor } from "../socket.mjs";
 
@@ -40,15 +41,10 @@ export const GMTools = {
       content: `<div class="shiver-card shiver-request"><h3><i class="fa-solid fa-dice"></i> ${foundry.utils.escapeHTML(label)}</h3>
         <p>${game.i18n.format("shiver.Tools.requestText", { skill: skillLabel })}${result.showCR ? ` (CR ${cr})` : ""}</p>
         <div class="card-buttons"><button type="button" data-shiver-action="requestedCheck"><i class="fa-solid fa-dice"></i> ${game.i18n.localize("shiver.Check.roll")}</button></div></div>`,
-      flags: { shiver: { request: { skill, label, fear: !!result.fear, showCR: !!result.showCR } } }
+      flags: { shiver: { request: { skill, label, fear: !!result.fear, showCR: !!result.showCR, cr: result.showCR ? cr : null } } }
     });
-    // The CR stays in a note only the GMs receive.
-    await ChatMessage.create({
-      speaker: { alias: game.i18n.localize("shiver.Tools.director") },
-      content: `<div class="shiver-card shiver-request-note"><i class="fa-solid fa-eye-slash"></i> ${game.i18n.format("shiver.Tools.hiddenCRNote", { label: foundry.utils.escapeHTML(label), cr })}</div>`,
-      whisper: game.users.filter(u => u.isGM).map(u => u.id),
-      flags: { shiver: { requestCR: { requestId: request.id, cr, show: !!result.showCR } } }
-    });
+    // A hidden CR stays in this GM's browser; the GM sees it on the request card.
+    if ( !result.showCR ) await setHiddenCR(`request.${request.id}`, cr);
     return request;
   },
 
@@ -136,12 +132,8 @@ export const GMTools = {
       content: await renderGroup(state),
       flags: { shiver: { group: state } }
     });
-    await ChatMessage.create({
-      speaker: { alias: game.i18n.localize("shiver.Tools.director") },
-      content: `<div class="shiver-card"><i class="fa-solid fa-eye-slash"></i> ${game.i18n.format("shiver.Tools.hiddenCRNote", { label: state.label, cr: result.cr })}</div>`,
-      whisper: game.users.filter(u => u.isGM).map(u => u.id),
-      flags: { shiver: { groupCR: { groupId: message.id, cr: Number(result.cr) } } }
-    });
+    // The group's CR stays in this GM's browser; the GM sees it on the group card.
+    await setHiddenCR(`group.${message.id}`, Math.max(1, Number(result.cr) || 1));
     return message;
   },
 
@@ -357,10 +349,18 @@ async function onGroupResolve({ cardId }) {
   const state = foundry.utils.deepClone(card?.getFlag("shiver", "group"));
   // Group checks are the Director's: only resolve a card a GM posted.
   if ( !state || state.resolved || !card.author?.isGM || !Array.isArray(state.entries) ) return;
-  // The hidden CR is in the GM's own note.
-  const cr = game.messages.find(m => m.author?.isGM && (m.getFlag("shiver", "groupCR")?.groupId === cardId))?.getFlag("shiver", "groupCR").cr;
-  if ( !Number.isFinite(cr) ) return ui.notifications.warn("shiver.Tools.noGroupCR", { localize: true });
-  state.cr = cr;
+  // The hidden CR is in the GM's browser. A GM on another device (or a card from before 1.0) is asked for it.
+  let cr = getHiddenCR(`group.${cardId}`)
+    ?? game.messages.find(m => m.author?.isGM && (m.getFlag("shiver", "groupCR")?.groupId === cardId))?.getFlag("shiver", "groupCR").cr;
+  if ( !Number.isFinite(cr) ) {
+    cr = await DialogV2.prompt({
+      window: { title: state.label },
+      content: `<p>${game.i18n.localize("shiver.Tools.noGroupCR")}</p><div class="form-group"><label>${game.i18n.localize("shiver.Check.cr")}</label><input type="number" name="cr" min="1" max="20" value="3"></div>`,
+      ok: { callback: (event, button) => Number(button.form.elements.namedItem("cr")?.value) },
+      rejectClose: false
+    });
+    if ( !Number.isFinite(cr) ) return;
+  }
   state.outcome = state.total >= cr ? "success" : "failure";
   state.resolved = true;
   for ( const e of state.entries ) {

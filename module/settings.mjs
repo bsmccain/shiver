@@ -1,7 +1,10 @@
+import { registerHiddenCRs } from "./dice/hidden-cr.mjs";
+
 /**
  * World and client settings.
  */
 export function registerSettings() {
+  registerHiddenCRs();
   const world = (key, data) => game.settings.register("shiver", key, { scope: "world", config: true, ...data,
     name: `shiver.Settings.${key}.name`, hint: `shiver.Settings.${key}.hint` });
 

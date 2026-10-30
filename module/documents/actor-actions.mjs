@@ -411,6 +411,7 @@ export const ActorActions = {
       extra: {
         targetUuid: (heal && (heal.target === "ally") && target) ? target.uuid : null,
         itemUuid: item.uuid,
+        ruleIndex: i,
         // Effects that happen on a success or a failure, applied to the targets chosen when rolling.
         onSuccess: rule.success ?? null,
         onFailure: rule.failure ?? null,

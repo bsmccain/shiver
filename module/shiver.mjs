@@ -15,6 +15,7 @@ import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { shiver } from "./helpers/config.mjs";
 import { SkillDie, TalentDie } from "./dice/terms.mjs";
 import { ShiverCheck } from "./dice/check.mjs";
+import { getHiddenCR } from "./dice/hidden-cr.mjs";
 import { DoomClock, DoomClockHUD } from "./doom/doom-clock.mjs";
 import { registerStatusEffects } from "./effects/statuses.mjs";
 import { authorControls, registerQueries } from "./socket.mjs";
@@ -229,9 +230,14 @@ Hooks.on("createChatMessage", async message => {
   if ( !request?.author?.isGM || !request.getFlag("shiver", "request") ) return;
   const actor = check.actorUuid ? await fromUuid(check.actorUuid) : null;
   if ( (actor?.documentName !== "Actor") || !authorControls(message, actor) ) return;
+  // A shown CR is on the GM's request card; a hidden one is in this GM's browser (or, for requests from before 1.0, in
+  // the GM's note).
+  const req = request.getFlag("shiver", "request");
+  if ( req.showCR && Number.isFinite(req.cr) ) return ShiverCheck._onSetCR({ messageId: message.id, cr: req.cr, hidden: false });
   const note = game.messages.find(m => m.author?.isGM && (m.getFlag("shiver", "requestCR")?.requestId === check.requestId))
     ?.getFlag("shiver", "requestCR");
-  if ( Number.isFinite(note?.cr) ) await ShiverCheck._onSetCR({ messageId: message.id, cr: note.cr, hidden: !note.show });
+  const cr = getHiddenCR(`request.${check.requestId}`) ?? note?.cr;
+  if ( Number.isFinite(cr) ) await ShiverCheck._onSetCR({ messageId: message.id, cr, hidden: !(note?.show ?? req.showCR) });
 });
 
 // Infections advance one stage each Doom Quarter (p.192), unless the Director tracks them on the Lifeline.

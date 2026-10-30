@@ -6,8 +6,9 @@ import { boundedInt, canControl, GMOperationRefused, registerGMOperation, resolv
  * changes what its rule needs.
  */
 export function registerActorOperations() {
-  registerGMOperation("applyStatus", async ({ uuid, id, value, stack, origin, duration, flags, overlay }) => {
+  registerGMOperation("applyStatus", async ({ uuid, id, value, stack, origin, duration, flags, overlay }, user) => {
     const actor = await resolveActor(uuid);
+    requireLifecycleControl(user, actor, statusId(id), "apply");
     await actor.applyStatus(statusId(id), {
       value: (value === undefined) || (value === null) ? undefined : boundedInt(value, 0, 20, "status value"),
       stack: stack === true,
@@ -18,8 +19,9 @@ export function registerActorOperations() {
     });
     return true;
   });
-  registerGMOperation("removeStatus", async ({ uuid, id }) => {
+  registerGMOperation("removeStatus", async ({ uuid, id }, user) => {
     const actor = await resolveActor(uuid);
+    requireLifecycleControl(user, actor, statusId(id), "remove");
     await actor.removeStatus(statusId(id));
     return true;
   });
@@ -41,6 +43,24 @@ export function registerActorOperations() {
 }
 
 /* -------------------------------------------- */
+
+/** Statuses that follow from Health and death, not from an ability's effect. */
+const LIFECYCLE = new Set(["dead", "deathsDoor", "unconscious", "infected"]);
+
+/**
+ * Players' abilities never kill, knock out or infect another character directly: those come from wounds, and the GM
+ * resolves the few abilities that do (a Vampire Slayer's check runs on the GM's client). Reviving an ally (Revive,
+ * Adrenaline Shot) removes them, so a player may remove them from another character, but not from an enemy.
+ * @param {User} user
+ * @param {Actor} actor
+ * @param {string} id
+ * @param {"apply"|"remove"} change
+ */
+function requireLifecycleControl(user, actor, id, change) {
+  if ( !LIFECYCLE.has(id) || canControl(user, actor) ) return;
+  if ( (change === "remove") && (actor.type === "character") ) return;
+  throw new GMOperationRefused(`Only the GM can ${change} ${id} on ${actor.name}`);
+}
 
 /**
  * A status from a request: must be one of the system's statuses.
