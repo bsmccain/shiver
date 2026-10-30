@@ -1,0 +1,46 @@
+{
+  "_id": "PncC5Pd4U0dUiQ00",
+  "_key": "!items!PncC5Pd4U0dUiQ00",
+  "folder": null,
+  "sort": 14,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mining Helmet",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Lifesaver: if a Strike would take your Lifeline to 0 Health Points while it is equipped, the helmet is permanently destroyed instead and you are left at 1 Health Point. Torchlight: lights the area in front of you out to Medium Range.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.154</em></p>",
+    "summary": "1 Armour Slot. Lifesaver: if a Strike would take your Lifeline to 0 Health Points while it is equipped, the helmet is permanently destroyed instead and you are left at 1 Health Point. Torchlight: lights the area in front of you out to Medium Range.",
+    "page": 154,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Lifesaver, Torchlight",
+    "automation": [
+      {
+        "kind": "lifesaver"
+      },
+      {
+        "kind": "custom",
+        "note": "Torchlight: lights the area in front of you out to Medium Range (50 ft). Give your token a light source."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "mining-helmet"
+    }
+  }
+}

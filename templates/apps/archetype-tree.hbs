@@ -1,0 +1,45 @@
+<section class="archetype-tree">
+  <header class="tree-header">
+    <nav class="tree-tabs">
+      {{#each tabs}}<button type="button" class="{{#if active}}active{{/if}}" data-action="selectArchetype" data-archetype="{{id}}">{{name}}</button>{{/each}}
+    </nav>
+    <div class="tree-points {{#if (gt points.available 0)}}unspent{{/if}}">
+      <i class="fa-solid fa-star"></i> {{localize "shiver.Tree.points" available=points.available total=points.total}}
+    </div>
+  </header>
+  {{#if archetype}}
+  <p class="tree-intro"><strong>{{archetype.name}}</strong> · {{localize "shiver.Archetype.strength"}}: {{archetype.strength}}</p>
+  <div class="tree-scroll">
+    <div class="tree-grid" style="grid-template-columns: 3rem repeat({{maxColumn}}, minmax(4.5rem, 1fr));">
+      <svg class="tree-links"></svg>
+      {{#each paths}}<div class="path-label" style="grid-row: 1; {{style}} margin-left: 3rem;">{{name}}</div>{{/each}}
+      {{#each tiers}}<div class="tier-label" style="grid-row: {{row}}; grid-column: 1;">{{localize "shiver.Ability.tier"}} {{tier}}</div>{{/each}}
+      {{#each nodes}}
+      <div class="tree-node kind-{{kind}} {{#if have}}have{{/if}} {{#if available}}available{{/if}} {{#if locked}}locked{{/if}}"
+           data-node-id="{{id}}" data-prereqs="{{#each prerequisites}}{{this}},{{/each}}"
+           style="{{style}} transform: translateX(3rem);"
+           data-tooltip-html="<strong>{{name}}</strong>{{#if actionLabel}} · {{actionLabel}}{{/if}}{{#if uses}} · {{uses}}{{/if}}{{#if doom}} · Doom +{{doom}}{{/if}}<br>{{summary}}">
+        <span class="node-name">{{name}}</span>
+        {{#if have}}
+          {{#if @root.editable}}<a class="node-remove" data-action="removeNode" data-tooltip="shiver.Tree.remove"><i class="fa-solid fa-xmark"></i></a>{{/if}}
+        {{else if canUnlock}}
+          {{#if @root.editable}}<a class="node-unlock" data-action="unlockNode" data-tooltip="shiver.Tree.unlock"><i class="fa-solid fa-unlock"></i></a>{{/if}}
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  {{#if discrepancies.length}}
+  <details class="tree-notes"><summary>{{localize "shiver.Tree.notes"}}</summary><ul>{{#each discrepancies}}<li>{{this}}</li>{{/each}}</ul></details>
+  {{/if}}
+  {{/if}}
+  {{#if canHybrid}}
+  <details class="hybrid">
+    <summary>{{localize "shiver.Tree.hybridise"}}</summary>
+    <p class="hint">{{localize "shiver.Tree.hybridHint"}}</p>
+    {{#each hybridOptions}}
+    <button type="button" data-action="addHybrid" data-archetype="{{id}}" {{#unless ok}}{{#unless @root.isGM}}disabled{{/unless}}{{/unless}} data-tooltip="{{reason}}">{{name}}{{#unless ok}} ✗{{/unless}}</button>
+    {{/each}}
+  </details>
+  {{/if}}
+</section>

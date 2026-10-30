@@ -1,0 +1,56 @@
+{
+  "_id": "J9wwvLs9Tnp0oab8",
+  "_key": "!items!J9wwvLs9Tnp0oab8",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 9027,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Double Tap",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>After a successful Strike on an enemy, immediately make another Strike of the same type against it. The second Strike can&#39;t trigger Double Tap.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "After a successful Strike on an enemy, immediately make another Strike of the same type against it. The second Strike can't trigger Double Tap.",
+    "archetype": "maverick",
+    "node": "maverick-double-tap",
+    "path": "ranger",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "maverick-talent-plus-ranger"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "After each successful Strike, immediately Strike the same enemy again with the same weapon or attack. This extra Strike costs no action and can't trigger Double Tap."
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-double-tap"
+    }
+  }
+}

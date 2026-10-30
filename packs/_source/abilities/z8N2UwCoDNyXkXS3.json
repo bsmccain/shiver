@@ -1,0 +1,69 @@
+{
+  "_id": "z8N2UwCoDNyXkXS3",
+  "_key": "!items!z8N2UwCoDNyXkXS3",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 10034,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Man of Iron",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>You are Steeled while wearing armour or operating any vehicle, and armour&#39;s Heavy property doesn&#39;t affect you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "You are Steeled while wearing armour or operating any vehicle, and armour's Heavy property doesn't affect you.",
+    "archetype": "scholar",
+    "node": "scholar-man-of-iron",
+    "path": "engineer",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "scholar-modified"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self"
+      },
+      {
+        "kind": "removeStatus",
+        "status": "steeled",
+        "when": {
+          "manual": true,
+          "label": "Remove (no armour, not in a vehicle)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Use this ability (no action) to become Steeled when you put on armour or operate a vehicle; click the Remove button when you stop. The system still applies Heavy armour's Speed penalty, so undo it by hand."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-man-of-iron"
+    }
+  }
+}

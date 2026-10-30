@@ -1,16 +1,22 @@
 /**
- * Define a set of template paths to pre-load
- * Pre-loaded templates are compiled and cached for fast access when rendering
- * @return {Promise}
+ * Pre-load the Handlebars partials and templates used by the system.
+ * @returns {Promise}
  */
- export const preloadHandlebarsTemplates = async function() {
+export const preloadHandlebarsTemplates = async function() {
   return foundry.applications.handlebars.loadTemplates([
-
-    // Actor partials.
+    "systems/shiver/templates/actor/parts/actor-combat.html",
+    "systems/shiver/templates/actor/parts/actor-abilities.html",
     "systems/shiver/templates/actor/parts/actor-items.html",
-    "systems/shiver/templates/actor/parts/actor-powers.html",
     "systems/shiver/templates/actor/parts/actor-effects.html",
-    "systems/shiver/templates/actor/parts/actor-traits.html",
-    "systems/shiver/templates/actor/parts/actor-attacks.html"
+    "systems/shiver/templates/chat/check-card.hbs",
+    "systems/shiver/templates/chat/damage-card.hbs",
+    "systems/shiver/templates/chat/reaction-card.hbs",
+    "systems/shiver/templates/chat/item-card.hbs",
+    "systems/shiver/templates/chat/opposed-card.hbs",
+    "systems/shiver/templates/chat/group-card.hbs",
+    "systems/shiver/templates/apps/check-dialog.hbs",
+    "systems/shiver/templates/apps/doom-clock.hbs",
+    "systems/shiver/templates/apps/archetype-tree.hbs",
+    "systems/shiver/templates/combat/tracker.hbs"
   ]);
 };

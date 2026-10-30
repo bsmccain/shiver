@@ -1,0 +1,53 @@
+{
+  "_id": "Ni0nkRTQlf7kZksJ",
+  "_key": "!items!Ni0nkRTQlf7kZksJ",
+  "folder": null,
+  "sort": 22,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Spectral Board",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Spectral Interrogation (OPDC): whoever leads the session rolls their Strange Pool, and each other player taking part may add 1 Skill Die as an assist. Each Strange symbol lets you ask a spirit one question, which it answers. When the ritual ends the Doom Clock moves forward 5 minutes.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.159</em></p>",
+    "summary": "Spectral Interrogation (OPDC): whoever leads the session rolls their Strange Pool, and each other player taking part may add 1 Skill Die as an assist. Each Strange symbol lets you ask a spirit one question, which it answers. When the ritual ends the Doom Clock moves forward 5 minutes.",
+    "page": 159,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "opdc",
+      "max": 1
+    },
+    "doom": 5,
+    "action": "interact",
+    "skill": "strange",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "label": "Spectral Interrogation",
+        "onSuccess": "Ask the spirits one question for each Strange symbol rolled.",
+        "onFail": "No Strange symbols: the spirits answer nothing."
+      },
+      {
+        "kind": "custom",
+        "note": "The leader uses the board and adds 1 Skill Die to the roll for each other player taking part. Each Strange symbol is one question the spirits must answer. The 5 Doom minutes are added when the board is used."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "spectral-board"
+    }
+  }
+}

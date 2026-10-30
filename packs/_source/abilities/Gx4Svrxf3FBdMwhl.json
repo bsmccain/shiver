@@ -1,0 +1,99 @@
+{
+  "_id": "Gx4Svrxf3FBdMwhl",
+  "_key": "!items!Gx4Svrxf3FBdMwhl",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 2007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Natural Affinity",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Strange Check to make a plant do one thing: grow, restrain an enemy or NPC, move, or whisper its secrets to you. A CR 1 Strange Check lets you talk with animals. Doom +2 per successful use.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.64</em></p>",
+    "summary": "Strange Check to make a plant do one thing: grow, restrain an enemy or NPC, move, or whisper its secrets to you. A CR 1 Strange Check lets you talk with animals. Doom +2 per successful use.",
+    "archetype": "weird",
+    "node": "weird-natural-affinity",
+    "path": "body-horror",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "weird-claws"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Plant: grow, move or whisper its secrets",
+        "onSuccess": "The plant does what you asked. Doom +2.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Plant restrains a targeted enemy or NPC",
+        "onSuccess": "The plant restrains the target (Grappled). Doom +2.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "grappled",
+            "target": "enemy"
+          },
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "label": "Talk with animals",
+        "onSuccess": "You can communicate with the animal. Doom +2.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      }
+    ],
+    "page": 64,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-natural-affinity"
+    }
+  }
+}

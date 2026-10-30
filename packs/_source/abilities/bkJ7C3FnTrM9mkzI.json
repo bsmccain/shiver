@@ -1,0 +1,16 @@
+{
+  "_id": "bkJ7C3FnTrM9mkzI",
+  "_key": "!folders!bkJ7C3FnTrM9mkzI",
+  "name": "The Warrior",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 100000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

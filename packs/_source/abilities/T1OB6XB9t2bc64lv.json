@@ -1,0 +1,71 @@
+{
+  "_id": "T1OB6XB9t2bc64lv",
+  "_key": "!items!T1OB6XB9t2bc64lv",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 9027,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Domino Effect",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Each successful Strike forces the target to make a CR 1 Luck Check. On a fail it&#39;s flung into the nearest enemy, goes Prone and takes 2 Blunt damage; that enemy then makes the same CR 1 check and the chain continues on each fail. With no enemy to hit, the Director improvises (terrain or a Status Effect).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "Each successful Strike forces the target to make a CR 1 Luck Check. On a fail it's flung into the nearest enemy, goes Prone and takes 2 Blunt damage; that enemy then makes the same CR 1 check and the chain continues on each fail. With no enemy to hit, the Director improvises (terrain or a Status Effect).",
+    "archetype": "fool",
+    "node": "fool-domino-effect",
+    "path": "blessed",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "fool-talent-plus-blessed"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Domino Effect",
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "prone",
+            "save": {
+              "skill": "luck",
+              "cr": 1
+            },
+            "note": "Domino Effect: if the CR 1 Luck save fails, the enemy also takes 2 Blunt damage and crashes into the nearest enemy, which makes its own CR 1 Luck Check (repeat on a failure)."
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Applies to every successful Strike: pick the Domino Effect mode when you Strike with a weapon. Deal the 2 Blunt damage and run the chain by hand; with no enemy nearby the Director improvises."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-domino-effect"
+    }
+  }
+}

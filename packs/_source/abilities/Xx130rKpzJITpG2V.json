@@ -1,0 +1,54 @@
+{
+  "_id": "Xx130rKpzJITpG2V",
+  "_key": "!items!Xx130rKpzJITpG2V",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dodge",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>When targeted by a Strike, if you have not used your Interact Action this Combat Round, spend it to Dodge: roll 1 Skill Die. On a Wit symbol the Strike automatically fails; any other symbol has no effect.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.38</em></p>",
+    "summary": "When targeted by a Strike, if you have not used your Interact Action this Combat Round, spend it to Dodge: roll 1 Skill Die. On a Wit symbol the Strike automatically fails; any other symbol has no effect.",
+    "archetype": "maverick",
+    "node": "maverick-dodge",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "interact",
+    "uses": {
+      "per": "round",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Use when targeted by a Strike, only if your Interact Action is unused this Combat Round (Dodge spends it). Roll 1 Skill Die (2 with Evasive, +1 more with Lightning Reflexes while your Speed is Fast). Any Wit symbol: the Strike automatically fails. Other symbols: no effect."
+      }
+    ],
+    "page": 38,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-dodge"
+    }
+  }
+}

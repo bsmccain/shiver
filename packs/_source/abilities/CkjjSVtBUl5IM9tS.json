@@ -1,0 +1,63 @@
+{
+  "_id": "CkjjSVtBUl5IM9tS",
+  "_key": "!items!CkjjSVtBUl5IM9tS",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 6016,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Miracle Cure",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Once per Doom Quarter, roll your Smarts Pool. Each Smarts symbol removes one Status Effect from you or an ally; each symbol beyond the number of Status Effects removed heals 1 wound on you or an ally.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "Once per Doom Quarter, roll your Smarts Pool. Each Smarts symbol removes one Status Effect from you or an ally; each symbol beyond the number of Status Effects removed heals 1 wound on you or an ally.",
+    "archetype": "scholar",
+    "node": "scholar-miracle-cure",
+    "path": "healer",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "scholar-core-plus-healer"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "onSuccess": "Spend Smarts symbols: 1 per Status Effect removed, then 1 per wound healed.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Each Smarts symbol (Talent stars count) removes 1 Status Effect from you or an ally; each symbol left over heals 1 wound on you or an ally."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-miracle-cure"
+    }
+  }
+}

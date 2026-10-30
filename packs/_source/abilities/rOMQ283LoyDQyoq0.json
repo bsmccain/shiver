@@ -1,0 +1,65 @@
+{
+  "_id": "rOMQ283LoyDQyoq0",
+  "_key": "!items!rOMQ283LoyDQyoq0",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 9027,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Iron Hide",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Tough rolls 3 Skill Dice in total, each Grit symbol blocking 1 damage. You are also Resistant to Shock and Fire damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "Tough rolls 3 Skill Dice in total, each Grit symbol blocking 1 damage. You are also Resistant to Shock and Fire damage.",
+    "archetype": "warrior",
+    "node": "warrior-iron-hide",
+    "path": "protector",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "warrior-talent-plus-protector"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "warrior-tough",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "damageReductionRoll",
+        "set": 3,
+        "face": "grit",
+        "when": "hit"
+      },
+      {
+        "kind": "resistance",
+        "types": [
+          "shock",
+          "fire"
+        ]
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-iron-hide"
+    }
+  }
+}

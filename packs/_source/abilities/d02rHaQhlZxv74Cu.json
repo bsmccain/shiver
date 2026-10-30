@@ -1,0 +1,64 @@
+{
+  "_id": "d02rHaQhlZxv74Cu",
+  "_key": "!items!d02rHaQhlZxv74Cu",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 4015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Peculiar Artefact",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Attack Action: roll a Skill Die. Grit: gain the Warrior&#39;s Tough (when hit, roll a Skill Die; Grit cuts the damage by 1) for the next 3 Combat Rounds. Wit: +1 Move Action this Combat Turn and your next. Smarts: learn an enemy&#39;s Weakness or get tactical advice from the Director. Heart: enemies won&#39;t target or harm you for 1 Combat Round. Strange: 6 Soul damage to all enemies within Medium Range (50 ft), Doom +5. Luck: choose the effect. Outside combat the Director decides the effect.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.65</em></p>",
+    "summary": "Attack Action: roll a Skill Die. Grit: gain the Warrior's Tough (when hit, roll a Skill Die; Grit cuts the damage by 1) for the next 3 Combat Rounds. Wit: +1 Move Action this Combat Turn and your next. Smarts: learn an enemy's Weakness or get tactical advice from the Director. Heart: enemies won't target or harm you for 1 Combat Round. Strange: 6 Soul damage to all enemies within Medium Range (50 ft), Doom +5. Luck: choose the effect. Outside combat the Director decides the effect.",
+    "archetype": "weird",
+    "node": "weird-peculiar-artefact",
+    "path": "psionic",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "weird-future-sight"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "doom",
+        "amount": 5,
+        "when": {
+          "manual": true,
+          "label": "Peculiar Artefact Strange result"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Roll one Skill Die and apply: Grit - for 3 Combat Rounds, when hit roll a Skill Die and reduce the damage by 1 on Grit. Wit - one extra Move Action this turn and next (the action tracker doesn't count it). Smarts - the Director reveals a Weakness or gives advice. Heart - enemies ignore you for 1 Combat Round. Strange - 6 Soul to every enemy within 50 ft and Doom +5. Luck - pick any of these."
+      }
+    ],
+    "page": 65,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-peculiar-artefact"
+    }
+  }
+}

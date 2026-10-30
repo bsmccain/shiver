@@ -1,0 +1,52 @@
+{
+  "_id": "aA6ioNUfXu5GCXuM",
+  "_key": "!items!aA6ioNUfXu5GCXuM",
+  "folder": null,
+  "sort": 15,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Psychic Amplifier",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Level Headed: Major Advantage (+1 Talent Die) on Fear Checks. Mental Protection: you are Resistant to Soul damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.154</em></p>",
+    "summary": "1 Armour Slot. Level Headed: Major Advantage (+1 Talent Die) on Fear Checks. Mental Protection: you are Resistant to Soul damage.",
+    "page": 154,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Level Headed, Mental Protection",
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": "fear"
+      },
+      {
+        "kind": "resistance",
+        "types": [
+          "soul"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "psychic-amplifier"
+    }
+  }
+}

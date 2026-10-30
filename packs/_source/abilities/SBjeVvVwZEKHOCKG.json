@@ -1,0 +1,60 @@
+{
+  "_id": "SBjeVvVwZEKHOCKG",
+  "_key": "!items!SBjeVvVwZEKHOCKG",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 9034,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Necromancer",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Strange Check with CR equal to a dead target&#39;s CR. Matching the CR revives it briefly (3 Combat Rounds in combat): it can move and attack but has little or no mind. Exceeding the CR makes it closer to its living self, depending on the margin. Doom +3.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.68</em></p>",
+    "summary": "Strange Check with CR equal to a dead target's CR. Matching the CR revives it briefly (3 Combat Rounds in combat): it can move and attack but has little or no mind. Exceeding the CR makes it closer to its living self, depending on the margin. Doom +3.",
+    "archetype": "weird",
+    "node": "weird-necromancer",
+    "path": "eldritch",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "weird-strange-tp-eldritch"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 3,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "CR = the dead target's CR",
+        "onSuccess": "The target rises (3 Combat Rounds in combat), mobile and able to attack; the Director decides how much each success above its CR restores of its living self.",
+        "onFail": "The target stays dead."
+      }
+    ],
+    "page": 68,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-necromancer"
+    }
+  }
+}

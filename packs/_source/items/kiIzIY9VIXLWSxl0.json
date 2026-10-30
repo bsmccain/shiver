@@ -1,0 +1,45 @@
+{
+  "_id": "kiIzIY9VIXLWSxl0",
+  "_key": "!items!kiIzIY9VIXLWSxl0",
+  "folder": null,
+  "sort": 17,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Chew Toy",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Go Fetch!: throw it as a distraction. A target Animal within Medium Range (50 ft) must pass a CR 1 Heart Check or spend its next Move Action chasing the toy. From the sample adventure Corporate Risers.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.211</em></p>",
+    "summary": "Go Fetch!: throw it as a distraction. A target Animal within Medium Range (50 ft) must pass a CR 1 Heart Check or spend its next Move Action chasing the toy. From the sample adventure Corporate Risers.",
+    "page": 211,
+    "category": "tool",
+    "consumable": true,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Pick an Animal within 50 ft. It rolls a CR 1 Heart Check; on a failure the Director spends its next Move Action chasing the toy."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "chew-toy"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "_id": "wXGTdehdblpaGsNG",
+  "_key": "!items!wXGTdehdblpaGsNG",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 6015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Slippery Character",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>When an enemy tries to Grapple or otherwise restrain you, roll a Wit Check against its CR. On success you slip free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "When an enemy tries to Grapple or otherwise restrain you, roll a Wit Check against its CR. On success you slip free.",
+    "archetype": "maverick",
+    "node": "maverick-slippery-character",
+    "path": "thief",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "maverick-core-plus-thief"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "wit",
+        "cr": null,
+        "label": "Wit vs the enemy's CR",
+        "onSuccess": "You slip free of the Grapple or restraint.",
+        "onFail": "The Grapple or restraint resolves as normal.",
+        "success": [
+          {
+            "kind": "removeStatus",
+            "status": "grappled",
+            "target": "self"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Roll when an enemy tries to Grapple or restrain you; the CR is that enemy's CR. Roll once the Grappled status is on you: success then removes it automatically (rolled earlier, remove it by hand). Remove any other restraint (e.g. Immobile) by hand."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-slippery-character"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "BOgqCE3rTDnQwhY1",
+  "_key": "!items!BOgqCE3rTDnQwhY1",
+  "folder": null,
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rosary Beads",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Healing Prayer (OPDQ): roll your Heart Pool and heal yourself 1 wound for each Heart symbol rolled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.159</em></p>",
+    "summary": "Healing Prayer (OPDQ): roll your Heart Pool and heal yourself 1 wound for each Heart symbol rolled.",
+    "page": 159,
+    "category": "healing",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "heart",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "heal",
+        "skill": "heart",
+        "amount": 0,
+        "perSymbol": 1,
+        "freeSymbols": 0,
+        "cr": 1,
+        "target": "self"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "rosary-beads"
+    }
+  }
+}

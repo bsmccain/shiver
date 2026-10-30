@@ -1,0 +1,51 @@
+{
+  "_id": "vD0aBxMaFIFRgkRi",
+  "_key": "!items!vD0aBxMaFIFRgkRi",
+  "folder": null,
+  "sort": 10,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Flare",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 2 Fire; Close (5 ft). Let there be light: once lit it sheds bright red light in a 50 ft (Medium) radius for 20 minutes unless put out.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.135</em></p>",
+    "summary": "Grit; 2 Fire; Close (5 ft). Let there be light: once lit it sheds bright red light in a 50 ft (Medium) radius for 20 minutes unless put out.",
+    "page": 135,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "letThereBeLight"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Let there be light: when lit, give your token a 50 ft bright light. It lasts 20 minutes unless put out."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "flare"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "_id": "6vCnJPWvWnjqK1D3",
+  "_key": "!items!6vCnJPWvWnjqK1D3",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 10029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Brutal Efficiency",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>On a Critical Hit you may pick any Critical Hit effect instead of the one for the Strike&#39;s Core Skill, or one of two extra effects. Hobble stops the enemy taking a Move Action on its next Combat Turn and drops its Speed one step for good. Crushing Blow makes the enemy Weakened until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "On a Critical Hit you may pick any Critical Hit effect instead of the one for the Strike's Core Skill, or one of two extra effects. Hobble stops the enemy taking a Move Action on its next Combat Turn and drops its Speed one step for good. Crushing Blow makes the enemy Weakened until your next Combat Turn.",
+    "archetype": "warrior",
+    "node": "warrior-brutal-efficiency",
+    "path": "fighter",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "warrior-primal-surge"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "until": "attackerNextTurn",
+        "when": {
+          "manual": true,
+          "label": "Crushing Blow"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "immobile",
+        "target": "enemy",
+        "flags": {
+          "expires": "endOfNextTurn"
+        },
+        "when": {
+          "manual": true,
+          "label": "Hobble: no Move Action next turn"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "On a Critical Hit you may swap the automatic crit effect for any skill's crit effect, Crushing Blow or Hobble. Remove the automatic one by hand if you swap. For Crushing Blow or Hobble, target the enemy, use this ability and click the button. Both effects end on their own. Hobble also drops the enemy's base Speed one step for good, so change that by hand."
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-brutal-efficiency"
+    }
+  }
+}

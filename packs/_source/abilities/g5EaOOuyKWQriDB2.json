@@ -1,0 +1,64 @@
+{
+  "_id": "g5EaOOuyKWQriDB2",
+  "_key": "!items!g5EaOOuyKWQriDB2",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 9036,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bullet Time",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>When targeted by a Strike that fires projectiles, make a Strange Check with CR equal to the attacker&#39;s CR. Match the CR: take half damage (rounded down). Exceed it by 1: take no damage. Exceed it by 2 or more: take no damage and the attacker takes half the attack&#39;s damage. Doom +3.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.68</em></p>",
+    "summary": "When targeted by a Strike that fires projectiles, make a Strange Check with CR equal to the attacker's CR. Match the CR: take half damage (rounded down). Exceed it by 1: take no damage. Exceed it by 2 or more: take no damage and the attacker takes half the attack's damage. Doom +3.",
+    "archetype": "weird",
+    "node": "weird-bullet-time",
+    "path": "psionic",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "weird-strange-tp-psionic"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 3,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "CR = the attacker's CR",
+        "onSuccess": "Exactly the CR: half damage (rounded down). CR +1: no damage. CR +2 or more: no damage and the attacker takes half the attack's damage.",
+        "onFail": "You take the full damage."
+      },
+      {
+        "kind": "custom",
+        "note": "Use when a projectile Strike targets you, before damage is applied; adjust the damage by hand from your margin over the CR."
+      }
+    ],
+    "page": 68,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-bullet-time"
+    }
+  }
+}

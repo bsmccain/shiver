@@ -1,0 +1,57 @@
+{
+  "_id": "yraSAxCbbDYTLguC",
+  "_key": "!items!yraSAxCbbDYTLguC",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 4008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stalwart Friends",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Your companion&#39;s Lifeline becomes 12 Health Points.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "Your companion's Lifeline becomes 12 Health Points.",
+    "archetype": "socialite",
+    "node": "socialite-stalwart-friends",
+    "path": "companion",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "socialite-emotional-support",
+      "socialite-brave-and-the-bold"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "socialite-best-buddies",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "On your companion's sheet: its Lifeline becomes 12 HP."
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-stalwart-friends"
+    }
+  }
+}

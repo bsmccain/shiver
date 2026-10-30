@@ -1,0 +1,61 @@
+{
+  "_id": "VdQ0dpiKEbaZE9YF",
+  "_key": "!items!VdQ0dpiKEbaZE9YF",
+  "folder": null,
+  "sort": 47,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Plasma Welder",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 5 Fire; Near (15 ft). Piercer: armour never reduces its damage. Fuel (10): each Strike burns 1 fuel, and it can&#39;t be used once empty. Highly Flammable: a hit&#39;s Fire save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.143</em></p>",
+    "summary": "Smarts; 5 Fire; Near (15 ft). Piercer: armour never reduces its damage. Fuel (10): each Strike burns 1 fuel, and it can't be used once empty. Highly Flammable: a hit's Fire save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1).",
+    "page": 143,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 5,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "piercer",
+      "fuel",
+      "highlyFlammable"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "automation": [
+      {
+        "kind": "ignoreArmour"
+      },
+      {
+        "kind": "saveOverride",
+        "damageType": "fire",
+        "cr": 2,
+        "value": 2
+      },
+      {
+        "kind": "ranged"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "plasma-welder"
+    }
+  }
+}

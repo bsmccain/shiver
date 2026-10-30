@@ -1,0 +1,56 @@
+{
+  "_id": "5iYAqbwbZh2nNKlu",
+  "_key": "!items!5iYAqbwbZh2nNKlu",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 6014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Evasive",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Dodge rolls 2 Skill Dice instead of 1. After a successful Dodge you may Escape the Brawl with that enemy for free: it gets no Attack Action against you and the Escape costs no Interact Action.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "Dodge rolls 2 Skill Dice instead of 1. After a successful Dodge you may Escape the Brawl with that enemy for free: it gets no Attack Action against you and the Escape costs no Interact Action.",
+    "archetype": "maverick",
+    "node": "maverick-evasive",
+    "path": "assassin",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "maverick-core-plus-assassin"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "maverick-dodge",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Dodge rolls 2 Skill Dice instead of 1. After a successful Dodge you may Escape the Brawl with that enemy: it gets no free Attack Action and the Escape costs no Interact Action."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-evasive"
+    }
+  }
+}

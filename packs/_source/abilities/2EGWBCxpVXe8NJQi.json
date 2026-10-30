@@ -1,0 +1,55 @@
+{
+  "_id": "2EGWBCxpVXe8NJQi",
+  "_key": "!items!2EGWBCxpVXe8NJQi",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 5011,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+2 Core Points",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Add 2 Core Skill Points to one Core Skill, or 1 to each of two Core Skills. Can be used to qualify for a hybrid Archetype (p78).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "Add 2 Core Skill Points to one Core Skill, or 1 to each of two Core Skills. Can be used to qualify for a hybrid Archetype (p78).",
+    "archetype": "socialite",
+    "node": "socialite-core-plus-companion",
+    "path": "companion",
+    "tier": 5,
+    "tree": true,
+    "prerequisites": [
+      "socialite-stalwart-friends"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "skillPoints",
+      "amount": 2,
+      "maxPerSkill": 2
+    },
+    "automation": [],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-core-plus-companion"
+    }
+  }
+}

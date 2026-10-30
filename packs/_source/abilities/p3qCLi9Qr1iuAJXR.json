@@ -1,0 +1,63 @@
+{
+  "_id": "p3qCLi9Qr1iuAJXR",
+  "_key": "!items!p3qCLi9Qr1iuAJXR",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 2002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Anatomy",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Use an Interact Action to make a Smarts Check against a target enemy&#39;s CR. On a success the Director reveals one of its Weaknesses; a Critical Success may reveal several.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.45</em></p>",
+    "summary": "Use an Interact Action to make a Smarts Check against a target enemy's CR. On a success the Director reveals one of its Weaknesses; a Critical Success may reveal several.",
+    "archetype": "scholar",
+    "node": "scholar-anatomy",
+    "path": "healer",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "scholar-medic"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": null,
+        "onSuccess": "The Director reveals one of the target's Weaknesses (several on a Critical Success).",
+        "onFail": "Nothing is revealed."
+      },
+      {
+        "kind": "custom",
+        "note": "Set the CR in the roll dialog to the target enemy's CR. On a success the Director reveals one Weakness (maybe more on a Critical Success)."
+      }
+    ],
+    "page": 45,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-anatomy"
+    }
+  }
+}

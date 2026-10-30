@@ -1,0 +1,74 @@
+{
+  "_id": "jChBDV34FVKoEYET",
+  "_key": "!items!jChBDV34FVKoEYET",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Counter Attack",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>After an enemy makes a successful attack against you, roll a Grit Check with CR equal to that enemy&#39;s CR. On a success, deal half your weapon&#39;s damage, rounded down, to that enemy.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "After an enemy makes a successful attack against you, roll a Grit Check with CR equal to that enemy's CR. On a success, deal half your weapon's damage, rounded down, to that enemy.",
+    "archetype": "warrior",
+    "node": "warrior-counter-attack",
+    "path": "fighter",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "warrior-sweep"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Counter Attack",
+        "damageMultiplier": 0.5,
+        "noCrit": true,
+        "tags": [
+          "counter"
+        ],
+        "onHit": []
+      },
+      {
+        "kind": "check",
+        "skill": "grit",
+        "cr": null,
+        "label": "Counter Attack (CR = the attacker's CR)",
+        "onSuccess": "Deal half your weapon's damage (round down) to the attacker.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Target the attacker and Strike with a Grit weapon in Counter Attack mode. It doesn't use your own Attack Action, so ignore the one the tracker marks. If your weapon doesn't roll Grit, roll this card's Grit Check against the attacker's CR and apply half damage by hand."
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-counter-attack"
+    }
+  }
+}

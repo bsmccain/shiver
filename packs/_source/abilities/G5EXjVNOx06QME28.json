@@ -1,0 +1,56 @@
+{
+  "_id": "G5EXjVNOx06QME28",
+  "_key": "!items!G5EXjVNOx06QME28",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 2002,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rally",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>During a Combat Encounter, spend an Interact Action to choose an ally within 10 ft. They add +1 Talent Die to their next Fear Check.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.73</em></p>",
+    "summary": "During a Combat Encounter, spend an Interact Action to choose an ally within 10 ft. They add +1 Talent Die to their next Fear Check.",
+    "archetype": "survivor",
+    "node": "survivor-rally",
+    "path": "chosen-leader",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "survivor-deus-ex-machina"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Choose an ally within 10 ft. On their next Fear Check they add +1 Talent Die in their roll dialog."
+      }
+    ],
+    "page": 73,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-rally"
+    }
+  }
+}

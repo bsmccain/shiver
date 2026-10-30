@@ -1,0 +1,52 @@
+{
+  "_id": "xdlD0isFIaytX4y8",
+  "_key": "!items!xdlD0isFIaytX4y8",
+  "folder": null,
+  "sort": 17,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Con Man",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Big Fight Energy.</strong> In a Brawl you count as 2 characters when Overwhelming an enemy.</p><p><strong>Centre of Attention (Flaw).</strong> In a Combat Encounter, an enemy that would target a character at random always targets you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.87</em></p>",
+    "page": 87,
+    "abilityName": "Big Fight Energy",
+    "abilitySummary": "In a Brawl you count as 2 characters when Overwhelming an enemy.",
+    "abilityDescription": "<p>In a Brawl you count as 2 characters when Overwhelming an enemy.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Count this character twice towards the 3+ characters needed to Overwhelm an enemy in your Brawl."
+      }
+    ],
+    "flawName": "Centre of Attention",
+    "flawSummary": "In a Combat Encounter, an enemy that would target a character at random always targets you.",
+    "flawDescription": "<p>In a Combat Encounter, an enemy that would target a character at random always targets you.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Director: whenever an enemy would pick its target at random, it picks this character."
+      }
+    ],
+    "archetype": "socialite"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-con-man"
+    }
+  }
+}

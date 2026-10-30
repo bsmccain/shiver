@@ -1,0 +1,75 @@
+{
+  "_id": "E5kAfklsJL6YqA92",
+  "_key": "!items!E5kAfklsJL6YqA92",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 10033,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Evolutionary Combatant",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Each successful Strike an enemy lands on you in a Brawl unlocks an effect that lasts while you stay in that Brawl. 1st hit: Escape with an Interact Action and no enemy gets an Attack Action against you. 2nd hit: +1 Attack Action on your Combat Turn. 3rd hit: Steeled until the Combat Encounter ends or that enemy is slain.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.48</em></p>",
+    "summary": "Each successful Strike an enemy lands on you in a Brawl unlocks an effect that lasts while you stay in that Brawl. 1st hit: Escape with an Interact Action and no enemy gets an Attack Action against you. 2nd hit: +1 Attack Action on your Combat Turn. 3rd hit: Steeled until the Combat Encounter ends or that enemy is slain.",
+    "archetype": "scholar",
+    "node": "scholar-evolutionary-combatant",
+    "path": "healer",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "scholar-buff-tonic"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "A Brawling enemy has hit you twice and you're still in that Brawl"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self",
+        "until": "encounter",
+        "when": {
+          "manual": true,
+          "label": "3rd hit from a Brawling enemy"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Count each Brawling enemy's hits on you. 1st: Escape with an Interact Action and no enemy gets a free Attack Action. 2nd: the extra Attack Action is in your allowance; only take it while this applies. 3rd: Use this ability and click the Steeled button (lasts until combat ends); remove Steeled if that enemy is slain first."
+      }
+    ],
+    "page": 48,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-evolutionary-combatant"
+    }
+  }
+}

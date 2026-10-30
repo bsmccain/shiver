@@ -1,0 +1,59 @@
+{
+  "_id": "mPTCJMRu21mdJ71O",
+  "_key": "!items!mPTCJMRu21mdJ71O",
+  "folder": null,
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Med Kit",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Patch Up: roll your Smarts Pool. Heal 2 wounds plus 1 more for each Smarts symbol rolled. Limit 3 uses.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.158</em></p>",
+    "summary": "Patch Up: roll your Smarts Pool. Heal 2 wounds plus 1 more for each Smarts symbol rolled. Limit 3 uses.",
+    "page": 158,
+    "category": "healing",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "story",
+      "max": 3
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "smarts",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "heal",
+        "amount": 2,
+        "target": "ally"
+      },
+      {
+        "kind": "heal",
+        "skill": "smarts",
+        "amount": 0,
+        "perSymbol": 1,
+        "freeSymbols": 0,
+        "cr": 1,
+        "target": "ally"
+      },
+      {
+        "kind": "custom",
+        "note": "Target the patient before using it and keep them targeted when you click Roll. With no target, it treats you. Use heals the 2 wounds at once; Roll heals 1 more wound per Smarts symbol. A roll with no Smarts symbols shows Failure, but the 2 wounds still stand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "med-kit"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "_id": "XrrWFe3sY1WxnlZh",
+  "_key": "!items!XrrWFe3sY1WxnlZh",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 10030,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Ducks in a Row",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Ranged weapons only. When you Strike an enemy and another enemy is within Close Range (5 ft) of it in any direction, or within Medium Range (50 ft) directly behind it, you may make another Strike against that second enemy.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.42</em></p>",
+    "summary": "Ranged weapons only. When you Strike an enemy and another enemy is within Close Range (5 ft) of it in any direction, or within Medium Range (50 ft) directly behind it, you may make another Strike against that second enemy.",
+    "archetype": "maverick",
+    "node": "maverick-ducks-in-a-row",
+    "path": "ranger",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "maverick-double-tap"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "After a ranged-weapon Strike, you may Strike a second enemy that is within 5 ft of the target, or within 50 ft directly behind it. This extra Strike costs no action."
+      }
+    ],
+    "page": 42,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-ducks-in-a-row"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_id": "LmvFZhklxF0lsmfY",
+  "_key": "!items!LmvFZhklxF0lsmfY",
+  "folder": null,
+  "sort": 18,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Amulet of Osiris",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Unlucky: -1 Core Skill Point in Luck while the amulet is in your possession. Spirit Talker: while you wear it, you can see and talk to ghosts and beings on the astral plane.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.156</em></p>",
+    "summary": "Unlucky: -1 Core Skill Point in Luck while the amulet is in your possession. Spirit Talker: while you wear it, you can see and talk to ghosts and beings on the astral plane.",
+    "page": 156,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "skillPoints",
+        "skill": "luck",
+        "amount": -1
+      },
+      {
+        "kind": "custom",
+        "note": "Unlucky applies whenever you carry the amulet, worn or not, so keep it equipped on the sheet. Spirit Talker only works while you actually wear it."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "amulet-of-osiris"
+    }
+  }
+}

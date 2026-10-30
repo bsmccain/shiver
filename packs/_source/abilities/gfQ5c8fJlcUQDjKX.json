@@ -1,0 +1,56 @@
+{
+  "_id": "gfQ5c8fJlcUQDjKX",
+  "_key": "!items!gfQ5c8fJlcUQDjKX",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bleed",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>After a successful Strike, roll the Strike&#39;s Dice Pool again. The enemy gains Bleed (X), where X is the number of Smarts symbols in that second roll.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.46</em></p>",
+    "summary": "After a successful Strike, roll the Strike's Dice Pool again. The enemy gains Bleed (X), where X is the number of Smarts symbols in that second roll.",
+    "archetype": "scholar",
+    "node": "scholar-bleed",
+    "path": "healer",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "scholar-off-kilter"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "After each successful Strike, re-roll the same Dice Pool and count Smarts symbols (Talent stars count): the enemy gains Bleed of that value."
+      }
+    ],
+    "page": 46,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-bleed"
+    }
+  }
+}

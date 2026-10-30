@@ -1,0 +1,64 @@
+{
+  "_id": "CGhqO2U8uUUsIloJ",
+  "_key": "!items!CGhqO2U8uUUsIloJ",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 7019,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rousing Speech",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>OPDQ, during a Combat Encounter only: roll a CR 1 Heart Check. On a success each ally adds +1 Skill Die to Attack Action rolls until the encounter ends, or +1 Talent Die instead if you rolled 3 or more successes.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "OPDQ, during a Combat Encounter only: roll a CR 1 Heart Check. On a success each ally adds +1 Skill Die to Attack Action rolls until the encounter ends, or +1 Talent Die instead if you rolled 3 or more successes.",
+    "archetype": "socialite",
+    "node": "socialite-rousing-speech",
+    "path": "charmer",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "socialite-distract"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": 1,
+        "label": "Combat Encounters only",
+        "onSuccess": "Each ally adds +1 Skill Die to Attack Action rolls until the Combat Encounter ends (+1 Talent Die instead with 3+ successes).",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "On a success, each ally adds the bonus die themselves: +1 Skill Die (or +1 Talent Die if you rolled 3+ successes) on their Attack Action rolls until the encounter ends."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-rousing-speech"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "_id": "JL8OoXDCkEwBp5bh",
+  "_key": "!items!JL8OoXDCkEwBp5bh",
+  "folder": null,
+  "sort": 20,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stab-Proof Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Stab-proof: you are Resistant to Sharp damage while you wear it. From the sample adventure Corporate Risers.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.207</em></p>",
+    "summary": "1 Armour Slot. Stab-proof: you are Resistant to Sharp damage while you wear it. From the sample adventure Corporate Risers.",
+    "page": 207,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Stab-proof",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "sharp"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "stab-proof-vest"
+    }
+  }
+}

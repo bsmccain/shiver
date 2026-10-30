@@ -1,0 +1,49 @@
+{
+  "_id": "3EOSerOGy1ana3To",
+  "_key": "!items!3EOSerOGy1ana3To",
+  "folder": null,
+  "sort": 56,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Thrown Object",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit (assumed, as no skill is printed); 1 Blunt; Medium (50 ft). Any loose object you can hurl. Very tough enemies may be unaffected.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.146</em></p>",
+    "summary": "Wit (assumed, as no skill is printed); 1 Blunt; Medium (50 ft). Any loose object you can hurl. Very tough enemies may be unaffected.",
+    "page": 146,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 1,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "The Director may rule that a tough enemy ignores this damage."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "thrown-object"
+    }
+  }
+}

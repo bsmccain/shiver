@@ -1,0 +1,70 @@
+{
+  "_id": "yTL9B4JPJwdpR31O",
+  "_key": "!items!yTL9B4JPJwdpR31O",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 10029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Jackpot",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Spending a banked Luck Point on a Skill Check adds +1 Talent Die instead of +1 Skill Die (only 1 Luck Point per check this way). When you spend Luck to turn the Doom Clock back, it goes back 1 extra minute.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.60</em></p>",
+    "summary": "Spending a banked Luck Point on a Skill Check adds +1 Talent Die instead of +1 Skill Die (only 1 Luck Point per check this way). When you spend Luck to turn the Doom Clock back, it goes back 1 extra minute.",
+    "archetype": "fool",
+    "node": "fool-jackpot",
+    "path": "accumulator",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "fool-making-it-rain"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": -1,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Spent 1 Luck Point on this check (Talent Die instead of Skill Die)"
+        }
+      },
+      {
+        "kind": "doom",
+        "amount": -1
+      },
+      {
+        "kind": "custom",
+        "note": "Tick the Jackpot bonus when you spend a Luck Point on a check (only 1 point per check converts). Right after spending Luck to turn the Doom Clock back (Clock It Back or two Luck symbols), Use Jackpot to turn it back 1 more minute."
+      }
+    ],
+    "page": 60,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-jackpot"
+    }
+  }
+}

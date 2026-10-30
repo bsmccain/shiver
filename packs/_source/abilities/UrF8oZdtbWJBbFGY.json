@@ -1,0 +1,56 @@
+{
+  "_id": "UrF8oZdtbWJBbFGY",
+  "_key": "!items!UrF8oZdtbWJBbFGY",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 4007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Cunning Linguist",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>You may roll your Smarts Pool for checks to persuade, intimidate or deceive.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.46</em></p>",
+    "summary": "You may roll your Smarts Pool for checks to persuade, intimidate or deceive.",
+    "archetype": "scholar",
+    "node": "scholar-cunning-linguist",
+    "path": "academic",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "scholar-specialist-subject"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "On checks to persuade, intimidate or deceive, you may switch the roll from Heart to Smarts in the roll dialog."
+      }
+    ],
+    "page": 46,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-cunning-linguist"
+    }
+  }
+}

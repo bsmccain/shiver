@@ -1,0 +1,109 @@
+<div class="shiver-check-form">
+  {{#if canChangeSkill}}
+  <div class="form-group">
+    <label>{{localize "shiver.Check.skill"}}</label>
+    <select name="skill">
+      {{#each skills}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}
+    </select>
+  </div>
+  {{else}}
+  <input type="hidden" name="skill" value="{{ctx.skill}}">
+  {{/if}}
+
+  <div class="form-group pool-base">
+    <label>{{localize "shiver.Check.skillDice"}}</label>
+    <input type="number" name="skillDice" value="{{defaults.skillDice}}" min="0" step="1">
+    <label>{{localize "shiver.Check.talentDice"}}</label>
+    <input type="number" name="talentDice" value="{{defaults.talentDice}}" min="0" step="1">
+  </div>
+
+  {{#if ctx.bonuses.length}}
+  <fieldset class="pool-abilities">
+    <legend>{{localize "shiver.Check.abilities"}}</legend>
+    {{#each ctx.bonuses}}
+    <label class="checkbox">
+      <input type="checkbox" name="bonus-{{id}}" {{#if checked}}checked{{/if}}>
+      {{label}} ({{#if d6}}{{d6}}d6{{/if}}{{#if d8}} {{d8}}d8{{/if}}){{#if when}} <span class="hint">{{when}}</span>{{/if}}
+    </label>
+    {{/each}}
+  </fieldset>
+  {{/if}}
+
+  {{#if ctx.faces.length}}
+  <fieldset class="pool-faces">
+    <legend>{{localize "shiver.Check.extraFaces"}}</legend>
+    {{#each ctx.faces}}
+    <label class="checkbox">
+      <input type="checkbox" name="face-{{id}}" {{#if checked}}checked{{/if}}>
+      {{label}}: {{#each countsAs}}{{this}} {{/each}}{{#if when}} <span class="hint">{{when}}</span>{{/if}}
+    </label>
+    {{/each}}
+  </fieldset>
+  {{/if}}
+
+  <fieldset class="pool-advantage">
+    <legend>{{localize "shiver.Check.advantage"}}</legend>
+    <div class="form-group">
+      <label>{{localize "shiver.Check.minorAdv"}}</label>
+      <input type="number" name="minorAdvantage" value="{{defaults.minorAdvantage}}" min="0" step="1">
+      <label>{{localize "shiver.Check.majorAdv"}}</label>
+      <input type="number" name="majorAdvantage" value="{{defaults.majorAdvantage}}" min="0" step="1">
+    </div>
+    <div class="form-group">
+      <label>{{localize "shiver.Check.minorDis"}}</label>
+      <input type="number" name="minorDisadvantage" value="{{defaults.minorDisadvantage}}" min="0" step="1">
+      <label>{{localize "shiver.Check.majorDis"}}</label>
+      <input type="number" name="majorDisadvantage" value="{{defaults.majorDisadvantage}}" min="0" step="1">
+    </div>
+    {{#each ctx.notes}}<p class="hint">{{this}}</p>{{/each}}
+  </fieldset>
+
+  {{#if ctx.luck}}
+  <div class="form-group">
+    <label>{{localize "shiver.Check.spendLuck"}} ({{ctx.luck.value}}/{{ctx.luck.max}})</label>
+    <input type="number" name="luck" value="0" min="0" max="{{ctx.luck.value}}" step="1" {{#unless ctx.luck.value}}disabled{{/unless}}>
+  </div>
+  {{/if}}
+
+  {{#if fearLabel}}
+  <label class="checkbox"><input type="checkbox" name="applyFear" checked> {{fearLabel}}: {{localize "shiver.Check.fearPenalty"}}</label>
+  {{/if}}
+  {{#each ctx.penalties}}
+  <label class="checkbox"><input type="checkbox" name="penalty-{{id}}" {{#if checked}}checked{{/if}}> {{label}} ({{d6}}d6)</label>
+  {{/each}}
+  <label class="checkbox"><input type="checkbox" name="sight"> {{localize "shiver.Check.needsSight"}}</label>
+  {{#each ctx.autoFailOptions}}
+  <label class="checkbox"><input type="checkbox" name="autofail-{{id}}"> {{localize "shiver.Check.autoFail"}}: {{label}}{{#if when}} <span class="hint">{{when}}</span>{{/if}}</label>
+  {{/each}}
+  {{#if ctx.autoFail}}<p class="warning">{{localize "shiver.Check.autoFail"}}: {{ctx.autoFail}}</p>{{/if}}
+
+  <details class="pool-more">
+    <summary>{{localize "shiver.Check.more"}}</summary>
+    <div class="form-group">
+      <label>{{localize "shiver.Check.combined"}}</label>
+      <div class="combined-skills">
+        {{#each skills}}
+        <label class="checkbox"><input type="checkbox" name="combined-{{key}}" {{#if combined}}checked{{/if}}> {{label}}</label>
+        {{/each}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label>{{localize "shiver.Check.assist"}}</label>
+      <input type="number" name="assistD6" value="{{defaults.assistD6}}" min="0" step="1" placeholder="d6">
+      <input type="number" name="assistD8" value="{{defaults.assistD8}}" min="0" step="1" placeholder="d8">
+    </div>
+    <div class="form-group">
+      <label>{{localize "shiver.Check.assistBy"}}</label>
+      <select name="assistActor"><option value=""></option>{{#each helpers}}<option value="{{uuid}}">{{name}}</option>{{/each}}</select>
+    </div>
+  </details>
+
+  {{#if showCR}}
+  <div class="form-group">
+    <label>{{localize "shiver.Check.crLabel"}}</label>
+    <input type="number" name="cr" value="{{defaults.cr}}" min="0" max="10" step="1" placeholder="{{localize "shiver.Check.crUnknown"}}">
+  </div>
+  {{/if}}
+
+  <p class="pool-preview"></p>
+</div>

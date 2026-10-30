@@ -1,0 +1,53 @@
+{
+  "_id": "D4BKdJSbg5PvaMv8",
+  "_key": "!items!D4BKdJSbg5PvaMv8",
+  "folder": null,
+  "sort": 64,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mine",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 8 Blunt; Close (5 ft). Deployable and Trap, as for the Bear Trap: an enemy moving toward its hex must pass a CR 2 Wit Check to go around, or it stumbles in and sets it off. Explosive (C): every enemy within 5 ft (Close) of the target also takes the damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.147</em></p>",
+    "summary": "Smarts; 8 Blunt; Close (5 ft). Deployable and Trap, as for the Bear Trap: an enemy moving toward its hex must pass a CR 2 Wit Check to go around, or it stumbles in and sets it off. Explosive (C): every enemy within 5 ft (Close) of the target also takes the damage.",
+    "page": 147,
+    "category": "trap",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 8,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "deployable",
+      "trap",
+      "explosive"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Deployable and Trap: place the mine on a hex. An enemy moving toward it makes a CR 2 Wit Check. On a success it goes around; on a failure the mine deals 8 Blunt to it and to every enemy within Close Range (5 ft) of it. There is no Strike roll, so apply the damage by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "mine"
+    }
+  }
+}

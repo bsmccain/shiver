@@ -1,0 +1,51 @@
+{
+  "_id": "NOY766Zukm9AXhZf",
+  "_key": "!items!NOY766Zukm9AXhZf",
+  "folder": "6lXR98WER43bT8Gm",
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Decay",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Once per Doom Quarter, use an Attack Action to drain an enemy within Near Range (15 ft): it takes 6 Soul damage and you heal 3 wounds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.95</em></p>",
+    "summary": "Once per Doom Quarter, use an Attack Action to drain an enemy within Near Range (15 ft): it takes 6 Soul damage and you heal 3 wounds.",
+    "page": 95,
+    "archetype": "survivor",
+    "node": "ewf-decay",
+    "path": "ewf",
+    "tier": 10,
+    "tree": false,
+    "action": "attack",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "onHit",
+        "heal": 3
+      }
+    ],
+    "attack": {
+      "skill": "strange",
+      "damage": 6,
+      "damageType": "soul",
+      "range": "near"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ewf-decay"
+    }
+  }
+}

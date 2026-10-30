@@ -1,0 +1,56 @@
+{
+  "_id": "odVYs3Qfx9NqF8KM",
+  "_key": "!items!odVYs3Qfx9NqF8KM",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 9028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 CR",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Your Challenge Rating permanently increases by 1.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.76</em></p>",
+    "summary": "Your Challenge Rating permanently increases by 1.",
+    "archetype": "survivor",
+    "node": "survivor-t9-cr-chosen",
+    "path": "chosen",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "survivor-showdown"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cr",
+        "amount": 1
+      }
+    ],
+    "page": 76,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-t9-cr-chosen"
+    }
+  }
+}

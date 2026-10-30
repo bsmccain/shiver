@@ -1,0 +1,80 @@
+{
+  "_id": "oCCJemFP87ZOYMKJ",
+  "_key": "!items!oCCJemFP87ZOYMKJ",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 4008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Momentum",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Melee weapons only. Your first Strike each Combat Turn deals +1 damage for every 10 ft you move. The effect ends when you fail a Strike on your turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "Melee weapons only. Your first Strike each Combat Turn deals +1 damage for every 10 ft you move. The effect ends when you fail a Strike on your turn.",
+    "archetype": "maverick",
+    "node": "maverick-momentum",
+    "path": "assassin",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "maverick-light-footed"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Momentum: moved 10 ft (+1)",
+        "meleeOnly": true,
+        "damageBonus": 1
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Momentum: moved 20 ft (+2)",
+        "meleeOnly": true,
+        "damageBonus": 2
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Momentum: moved 30 ft (+3)",
+        "meleeOnly": true,
+        "damageBonus": 3
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Momentum: moved 40 ft (+4)",
+        "meleeOnly": true,
+        "damageBonus": 4
+      },
+      {
+        "kind": "custom",
+        "note": "Pick the Momentum mode for how far you moved this Combat Turn, on your first melee-weapon Strike of the turn only, and not once you have failed a Strike this turn. Moved more than 40 ft: add +1 per extra 10 ft by hand."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-momentum"
+    }
+  }
+}

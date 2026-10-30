@@ -1,0 +1,49 @@
+{
+  "_id": "FWImjQSmtr3f7ysi",
+  "_key": "!items!FWImjQSmtr3f7ysi",
+  "folder": null,
+  "sort": 9,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hazmat Suit",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Toxin Free: you are Resistant to Poison damage. Airtight: you can breathe and act normally where the air is unbreathable (space, underwater), but once the suit is at 0 Health Points the environment affects you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "1 Armour Slot. Toxin Free: you are Resistant to Poison damage. Airtight: you can breathe and act normally where the air is unbreathable (space, underwater), but once the suit is at 0 Health Points the environment affects you.",
+    "page": 152,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Toxin Free, Airtight",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "poison"
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Airtight: you breathe and act normally in unbreathable environments such as space or underwater. When this armour reaches 0 HP the environment's effects apply to you."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "hazmat-suit"
+    }
+  }
+}

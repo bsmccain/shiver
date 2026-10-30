@@ -1,0 +1,43 @@
+{
+  "_id": "pvokgk0OJKnxdm8Q",
+  "_key": "!items!pvokgk0OJKnxdm8Q",
+  "folder": null,
+  "sort": 4,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Shakes",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>While Afraid or Terrified, your Wit Dice Pool is cut to just 1 Skill Die.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "While Afraid or Terrified, your Wit Dice Pool is cut to just 1 Skill Die.",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "poolCap",
+        "skill": "wit",
+        "d6": 1,
+        "total": true,
+        "when": {
+          "fear": {
+            "gte": 1
+          },
+          "label": "While Afraid or Terrified"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-the-shakes"
+    }
+  }
+}

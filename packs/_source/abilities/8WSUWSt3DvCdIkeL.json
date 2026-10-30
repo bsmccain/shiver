@@ -1,0 +1,61 @@
+{
+  "_id": "8WSUWSt3DvCdIkeL",
+  "_key": "!items!8WSUWSt3DvCdIkeL",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 7017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Freight Train",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Upgrades Charge. After a successful Charge you may Charge again at once without spending an Action. With an enemy Grappled you can ram it into another enemy within range. Both take 2 Blunt, and the rammed enemy is knocked Prone and back 10 ft. You may instead release the Grappled enemy, knocking it back 10 ft and Prone, or keep holding it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "Upgrades Charge. After a successful Charge you may Charge again at once without spending an Action. With an enemy Grappled you can ram it into another enemy within range. Both take 2 Blunt, and the rammed enemy is knocked Prone and back 10 ft. You may instead release the Grappled enemy, knocking it back 10 ft and Prone, or keep holding it.",
+    "archetype": "warrior",
+    "node": "warrior-freight-train",
+    "path": "berserker",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "warrior-martial-artist"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "warrior-charge",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "prone",
+        "target": "enemy"
+      },
+      {
+        "kind": "custom",
+        "note": "After each successful Charge, you may Charge again for free. Using this ability knocks your targets Prone, so target the rammed enemy, or the grappled enemy if you release it. Deal 2 Blunt to both rammed enemies and move them 10 ft by hand."
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-freight-train"
+    }
+  }
+}

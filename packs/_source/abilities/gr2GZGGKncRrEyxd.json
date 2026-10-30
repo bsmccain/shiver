@@ -1,0 +1,68 @@
+{
+  "_id": "gr2GZGGKncRrEyxd",
+  "_key": "!items!gr2GZGGKncRrEyxd",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 5016,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "+1 Talent (Grit / Wit)",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>+1 Talent Point in Grit or Wit (your choice). Can be used to qualify for a hybrid (p78).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "+1 Talent Point in Grit or Wit (your choice). Can be used to qualify for a hybrid (p78).",
+    "archetype": "survivor",
+    "node": "survivor-t5-talent-survivalist",
+    "path": "survivalist",
+    "tier": 5,
+    "tree": true,
+    "prerequisites": [
+      "survivor-jack-of-all-trades"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "talentPoints",
+      "skills": [
+        "grit",
+        "wit"
+      ],
+      "amount": 1
+    },
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "choice",
+        "amount": 1
+      },
+      {
+        "kind": "custom",
+        "note": "When you unlock this node, pick Grit or Wit in the skill prompt (it lists every Core Skill)."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-t5-talent-survivalist"
+    }
+  }
+}

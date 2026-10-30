@@ -1,0 +1,33 @@
+<div class="shiver-card shiver-damage">
+  <header class="card-header">
+    <img class="actor-img" src="{{actor.img}}" alt="">
+    <div class="titles">
+      <h3>{{localize "shiver.Damage.title" name=actor.name}}</h3>
+      <div class="subtitle">{{#if source}}{{source}}{{#if attacker}} · {{attacker}}{{/if}} · {{/if}}{{report.initial}} {{typeLabel}}{{#if outcome}} · {{outcome}}{{/if}}</div>
+    </div>
+  </header>
+  {{#if steps.length}}
+  <ul class="damage-steps">
+    {{#each steps}}<li class="step-{{key}}">{{text}}</li>{{/each}}
+  </ul>
+  {{/if}}
+  {{#if armour.length}}
+  <div class="armour-rolls">
+    {{#each armour}}<span class="armour-die {{#if blocked}}blocked{{/if}} {{#if wound}}wound{{/if}}" data-tooltip="{{name}}: {{text}}"><img src="{{img}}" alt="">{{#if text}}<small>{{text}}</small>{{/if}}</span>{{/each}}
+  </div>
+  {{/if}}
+  <div class="result-line">
+    <span class="wounds"><strong>{{report.final}}</strong> {{localize "shiver.Damage.wounds"}}</span>
+    <span class="hp">{{hpText}}</span>
+  </div>
+  {{#each notes}}<p class="note">{{this}}</p>{{/each}}
+  {{#if saves.length}}
+  <div class="card-buttons saves owner-only">
+    {{#each saves}}
+    <button type="button" data-shiver-action="rollSave" data-index="{{index}}">
+      <i class="fa-solid fa-shield-halved"></i> {{#if skill}}{{skillLabel}} CR {{cr}}: {{/if}}{{statusLabel}}{{#if value}} ({{value}}){{/if}}
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

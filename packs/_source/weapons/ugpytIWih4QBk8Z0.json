@@ -1,0 +1,56 @@
+{
+  "_id": "ugpytIWih4QBk8Z0",
+  "_key": "!items!ugpytIWih4QBk8Z0",
+  "folder": null,
+  "sort": 39,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hunting Rifle",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 6 Pierce; Long (150 ft). Reload: needs an Interact Action to reload after each Strike. Two-hander: needs both hands free. Take Aim: an Interact Action spent aiming gives your next Strike with it Minor Advantage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.141</em></p>",
+    "summary": "Wit; 6 Pierce; Long (150 ft). Reload: needs an Interact Action to reload after each Strike. Two-hander: needs both hands free. Take Aim: an Interact Action spent aiming gives your next Strike with it Minor Advantage.",
+    "page": 141,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "long",
+    "properties": [
+      "reload",
+      "twoHander",
+      "takeAim"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "hunting-rifle"
+    }
+  }
+}

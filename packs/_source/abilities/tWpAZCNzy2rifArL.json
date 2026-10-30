@@ -1,0 +1,52 @@
+{
+  "_id": "tWpAZCNzy2rifArL",
+  "_key": "!items!tWpAZCNzy2rifArL",
+  "folder": "6lXR98WER43bT8Gm",
+  "sort": 4,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Regenerate",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>When you roll 3 Luck symbols on a Death&#39;s Door Check, you regenerate: you regain consciousness and heal 4 wounds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.95</em></p>",
+    "summary": "When you roll 3 Luck symbols on a Death's Door Check, you regenerate: you regain consciousness and heal 4 wounds.",
+    "page": 95,
+    "archetype": "survivor",
+    "node": "ewf-regenerate",
+    "path": "ewf",
+    "tier": 10,
+    "tree": false,
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "deathsDoorRegenerate",
+        "luck": 3,
+        "heal": 4
+      }
+    ],
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ewf-regenerate"
+    }
+  }
+}

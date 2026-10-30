@@ -1,0 +1,63 @@
+{
+  "_id": "Fcg0taDb6HMTn8Xt",
+  "_key": "!items!Fcg0taDb6HMTn8Xt",
+  "folder": null,
+  "sort": 33,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Khaki Scout",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Survival Badge.</strong> Wit symbols also count as successes on Smarts Checks to heal or to remove Status Effects.</p><p><strong>Always in Uniform (Flaw).</strong> You can use only 1 Armour Slot.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.94</em></p>",
+    "page": 94,
+    "abilityName": "Survival Badge",
+    "abilitySummary": "Wit symbols also count as successes on Smarts Checks to heal or to remove Status Effects.",
+    "abilityDescription": "<p>Wit symbols also count as successes on Smarts Checks to heal or to remove Status Effects.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "extraSuccessFaces",
+        "label": "Survival Badge",
+        "rollSkill": "smarts",
+        "countsAs": [
+          "wit"
+        ],
+        "when": {
+          "any": [
+            "heal",
+            "removeStatus"
+          ],
+          "label": "Healing or removing a Status Effect"
+        }
+      }
+    ],
+    "flawName": "Always in Uniform",
+    "flawSummary": "You can use only 1 Armour Slot.",
+    "flawDescription": "<p>You can use only 1 Armour Slot.</p>",
+    "flawAutomation": [
+      {
+        "kind": "armourSlots",
+        "amount": -2
+      }
+    ],
+    "archetype": "survivor"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-khaki-scout"
+    }
+  }
+}

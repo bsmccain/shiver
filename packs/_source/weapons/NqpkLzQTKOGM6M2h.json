@@ -1,0 +1,44 @@
+{
+  "_id": "NqpkLzQTKOGM6M2h",
+  "_key": "!items!NqpkLzQTKOGM6M2h",
+  "folder": null,
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Baseball Bat (Modified)",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Blunt; Close (5 ft). A nail-studded bat. No special ability.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.133</em></p>",
+    "summary": "Grit; 4 Blunt; Close (5 ft). A nail-studded bat. No special ability.",
+    "page": 133,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "baseball-bat-modified"
+    }
+  }
+}

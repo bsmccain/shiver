@@ -1,0 +1,63 @@
+{
+  "_id": "muV9l1BWWytvjD3J",
+  "_key": "!items!muV9l1BWWytvjD3J",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 4010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Tactical Retreat",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Roll a Heart Check with CR equal to the number of engaged allies within 10 ft of you. On success, all allies can Escape from the enemies Brawling them without giving those enemies an Attack Action. Each enemy escaped from this way makes a Move Action towards you and engages you in a Brawl if it can.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "Roll a Heart Check with CR equal to the number of engaged allies within 10 ft of you. On success, all allies can Escape from the enemies Brawling them without giving those enemies an Attack Action. Each enemy escaped from this way makes a Move Action towards you and engages you in a Brawl if it can.",
+    "archetype": "survivor",
+    "node": "survivor-tactical-retreat",
+    "path": "leader",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "survivor-complex-back-story"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "onSuccess": "All allies can Escape from the enemies Brawling them without giving those enemies an Attack Action. Each enemy escaped from moves towards you and engages you in a Brawl if it can.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Set the CR to the number of engaged allies within 10 ft of you."
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-tactical-retreat"
+    }
+  }
+}

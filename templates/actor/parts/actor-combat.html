@@ -1,0 +1,101 @@
+<div class="combat-quick">
+  <button type="button" data-action="escape" data-tooltip="shiver.Combat.escapeHint"><i class="fa-solid fa-person-running"></i> {{localize "shiver.Combat.escape"}}</button>
+  <button type="button" data-action="grapple" data-tooltip="shiver.Combat.grappleHint"><i class="fa-solid fa-hands"></i> {{localize "shiver.Combat.grapple"}}</button>
+</div>
+{{#if inCombat}}
+<div class="combat-turn">
+  <span class="label">{{localize "shiver.Combat.thisTurn"}}{{#if combatState}} · {{combatState}}{{/if}}</span>
+  {{#each combatActions}}
+  <a class="action-pip {{#if spent}}spent{{/if}} {{#if used}}used{{/if}}" data-action="combatAction" data-key="{{key}}" data-tooltip="{{label}}"><i class="{{icon}}"></i> {{label}} {{used}}/{{max}}</a>
+  {{/each}}
+</div>
+{{/if}}
+
+<h3 class="section-title">{{localize "shiver.Sheet.attacks"}}
+  {{#if slotUsage}}<span class="slot-usage {{#if slotUsage.weaponsOver}}over{{/if}}">{{localize "shiver.Sheet.weaponSlots"}} {{slotUsage.weapons}}/{{slotUsage.weaponsMax}}</span>{{/if}}
+  <a class="item-control" data-action="createItem" data-type="weapon" data-tooltip="shiver.Sheet.addWeapon"><i class="fas fa-plus"></i></a>
+</h3>
+<ol class="items-list attack-list">
+  {{#each attacks as |item|}}
+  <li class="item attack-row" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <a class="roll-attack rollable" data-action="useItem" data-tooltip="shiver.Check.attack"><img src="{{item.img}}" width="28" height="28"/></a>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="tags">
+        {{#if item.lost}}<span class="tag flaw">{{localize "shiver.Nightmare.lostTag"}}</span>{{/if}}
+        {{#if item.attackLabel}}<span class="tag">{{item.attackLabel}}</span>{{else}}
+        <span class="tag">{{item.skillLabel}}</span>
+        <span class="tag">{{item.system.damage}} {{item.damageTypeLabel}}</span>
+        <span class="tag">{{item.rangeLabel}}</span>{{/if}}
+        {{#if (shiverHas item.system.properties "heavy")}}<span class="tag heavy">{{localize "shiver.Weapon.heavy"}}</span>{{/if}}
+        {{#if item.system.ammo.max}}<span class="tag">{{localize "shiver.Weapon.ammo"}} {{item.system.ammo.value}}/{{item.system.ammo.max}}</span>{{/if}}
+        {{#if item.usesLabel}}<span class="tag uses">{{item.usesLabel}}</span>{{/if}}
+      </span>
+      <span class="item-controls">
+        {{#if item.needsReload}}<a class="reload warn" data-action="reload" data-tooltip="shiver.Weapon.reload"><i class="fa-solid fa-rotate"></i></a>{{/if}}
+        {{#if item.canAim}}<a class="{{#if item.aimed}}active{{/if}}" data-action="takeAim" data-tooltip="shiver.Weapon.takeAim"><i class="fa-solid fa-crosshairs"></i></a>{{/if}}
+        <a data-action="itemToChat" data-tooltip="shiver.Sheet.toChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem" data-tooltip="shiver.Sheet.edit"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem" data-tooltip="shiver.Sheet.delete"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}{{#each item.customNotes}}<p class="custom-note"><i class="fa-solid fa-circle-info"></i> {{this}}</p>{{/each}}</div>{{/if}}
+  </li>
+  {{else}}
+  <li class="empty">{{localize "shiver.Sheet.noAttacks"}}</li>
+  {{/each}}
+</ol>
+
+<h3 class="section-title">{{localize "shiver.Sheet.armour"}}
+  {{#if slotUsage}}<span class="slot-usage {{#if slotUsage.armourOver}}over{{/if}}">{{localize "shiver.Sheet.armourSlots"}} {{slotUsage.armour}}/{{slotUsage.armourMax}}</span>{{/if}}
+  <a class="item-control" data-action="createItem" data-type="armour" data-tooltip="shiver.Sheet.addArmour"><i class="fas fa-plus"></i></a>
+</h3>
+<ol class="items-list armour-list">
+  {{#each armour as |item|}}
+  <li class="item armour-row {{#unless item.system.equipped}}unequipped{{/unless}} {{#if item.system.broken}}broken{{/if}}" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <a class="equip-toggle" data-action="toggleEquipped" data-tooltip="shiver.Sheet.equip"><i class="fa-solid {{#if item.system.equipped}}fa-shield-halved{{else}}fa-shield{{/if}}"></i></a>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="slot-hp">
+        {{#each item.slotPips as |slot|}}
+        <span class="armour-slot" data-tooltip="{{localize 'shiver.Sheet.slot'}} {{slot.slot}}">
+          {{#each slot.pips as |pip|}}<a class="hp-pip {{#if pip.filled}}filled{{/if}}" data-action="setArmourHp" data-slot="{{slot.slot}}" data-index="{{pip.index}}"></a>{{/each}}
+        </span>
+        {{/each}}
+      </span>
+      <span class="tags">
+        {{#if item.system.heavy}}<span class="tag heavy">{{localize "shiver.Armour.heavy"}}</span>{{/if}}
+        {{#if item.system.abilityName}}<span class="tag">{{item.system.abilityName}}</span>{{/if}}
+        {{#if item.system.broken}}<span class="tag broken">{{localize "shiver.Armour.broken"}}</span>{{/if}}
+      </span>
+      <span class="item-controls">
+        <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}</div>{{/if}}
+  </li>
+  {{else}}
+  <li class="empty">{{localize "shiver.Sheet.noArmour"}}</li>
+  {{/each}}
+</ol>
+
+{{#unless (eq actor.type "npc")}}
+<h3 class="section-title">{{localize "shiver.Sheet.statuses"}}</h3>
+<div class="status-grid">
+  {{#each statuses as |s|}}
+  <div class="status {{#if s.active}}active{{/if}}" data-status="{{s.id}}" data-tooltip="{{s.hint}}">
+    <a class="status-toggle" data-action="toggleStatus"><img src="{{s.img}}" alt=""/> {{s.label}}{{#if s.active}}{{#if s.valued}} ({{s.value}}){{/if}}{{/if}}</a>
+    {{#if s.active}}
+    <span class="status-controls">
+      {{#if s.valued}}<a data-action="statusValue" data-delta="-1"><i class="fa-solid fa-minus"></i></a><a data-action="statusValue" data-delta="1"><i class="fa-solid fa-plus"></i></a>{{/if}}
+      {{#if s.infection}}<a data-action="infectionType" data-tooltip="{{s.infection}}"><i class="fa-solid fa-virus"></i></a>{{/if}}
+      {{#if s.removable}}<a data-action="removeStatus" data-tooltip="shiver.Status.tryRemove"><i class="fa-solid fa-dice"></i></a>{{/if}}
+      {{#if s.standUp}}<a data-action="standUp" data-tooltip="shiver.Status.standUp"><i class="fa-solid fa-person-arrow-up-from-line"></i></a>{{/if}}
+    </span>
+    {{/if}}
+  </div>
+  {{/each}}
+</div>
+{{/unless}}

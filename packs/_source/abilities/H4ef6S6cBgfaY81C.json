@@ -1,0 +1,67 @@
+{
+  "_id": "H4ef6S6cBgfaY81C",
+  "_key": "!items!H4ef6S6cBgfaY81C",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 3006,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Clumsily Covert",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>At the start of a Combat Encounter, roll a Luck Check with CR equal to the highest enemy CR in the combat. On a success you begin the encounter in Stealth.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "At the start of a Combat Encounter, roll a Luck Check with CR equal to the highest enemy CR in the combat. On a success you begin the encounter in Stealth.",
+    "archetype": "fool",
+    "node": "fool-clumsily-covert",
+    "path": "accumulator",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "fool-clock-it-back"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "encounter",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "Start of the Combat Encounter; CR = the highest enemy CR in the combat",
+        "onSuccess": "You begin the Combat Encounter in Stealth.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "stealth",
+            "target": "self"
+          }
+        ]
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-clumsily-covert"
+    }
+  }
+}

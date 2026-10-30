@@ -1,0 +1,70 @@
+{
+  "_id": "9tOE6nthhghINuwH",
+  "_key": "!items!9tOE6nthhghINuwH",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 4011,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Legendary Weapon",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Gain a Legendary Weapon of your choice (pp.149-150). +1 Talent Die on Strikes with it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "Gain a Legendary Weapon of your choice (pp.149-150). +1 Talent Die on Strikes with it.",
+    "archetype": "survivor",
+    "node": "survivor-legendary-weapon",
+    "path": "chosen",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "survivor-plot-armour"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike",
+            "weapon"
+          ],
+          "manual": true,
+          "label": "Strike with your Legendary Weapon"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Add one Legendary Weapon of your choice from the weapons list (pp.149-150)."
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-legendary-weapon"
+    }
+  }
+}

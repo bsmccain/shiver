@@ -1,0 +1,45 @@
+{
+  "_id": "YuOG7UNPMQYScIKh",
+  "_key": "!items!YuOG7UNPMQYScIKh",
+  "folder": null,
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bulletproof Vest",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Bulletproof: you are Resistant to damage from ranged attacks (bullets, arrows, thrown objects and so on).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "1 Armour Slot. Bulletproof: you are Resistant to damage from ranged attacks (bullets, arrows, thrown objects and so on).",
+    "page": 152,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Bulletproof",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "ranged"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bulletproof-vest"
+    }
+  }
+}

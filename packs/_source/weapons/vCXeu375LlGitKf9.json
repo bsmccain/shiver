@@ -1,0 +1,57 @@
+{
+  "_id": "vCXeu375LlGitKf9",
+  "_key": "!items!vCXeu375LlGitKf9",
+  "folder": null,
+  "sort": 9,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Fire Axe",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 4 Sharp; Close (5 ft). Open Sesame: +1 Talent Die when you use it to open a door.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.135</em></p>",
+    "summary": "Grit; 4 Sharp; Close (5 ft). Open Sesame: +1 Talent Die when you use it to open a door.",
+    "page": 135,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "openSesame"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Opening a door with the Fire Axe"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fire-axe"
+    }
+  }
+}

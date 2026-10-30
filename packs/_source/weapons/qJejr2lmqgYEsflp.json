@@ -1,0 +1,64 @@
+{
+  "_id": "qJejr2lmqgYEsflp",
+  "_key": "!items!qJejr2lmqgYEsflp",
+  "folder": null,
+  "sort": 55,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Wizard's Staff",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts or Strange; 3 Shock or Fire; Long (150 ft). Highly Flammable: a Fire hit&#39;s save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1). Electrocute: Shock damage is doubled against a target standing in water.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.145</em></p>",
+    "summary": "Smarts or Strange; 3 Shock or Fire; Long (150 ft). Highly Flammable: a Fire hit's save is a CR 2 Luck Check, and failing it gives Burning (2) rather than Burning (1). Electrocute: Shock damage is doubled against a target standing in water.",
+    "page": 145,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [
+      "strange"
+    ],
+    "damage": 3,
+    "damageType": "shock",
+    "altDamageTypes": [
+      "fire"
+    ],
+    "range": "long",
+    "properties": [
+      "dualDamage",
+      "highlyFlammable",
+      "electrocute"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "saveOverride",
+        "damageType": "fire",
+        "cr": 2,
+        "value": 2
+      },
+      {
+        "kind": "onHit",
+        "damageType": "shock",
+        "note": "Electrocute: if the target is in water, the Shock damage is doubled. Add the extra wounds by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "wizards-staff"
+    }
+  }
+}

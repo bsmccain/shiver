@@ -1,0 +1,56 @@
+{
+  "_id": "5tb93gyCVMLmAMJI",
+  "_key": "!items!5tb93gyCVMLmAMJI",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 4014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Soul Separation",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>While you are in Astral Form your body doesn&#39;t go comatose. It can take Move and Interact Actions but can&#39;t speak or Attack.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.65</em></p>",
+    "summary": "While you are in Astral Form your body doesn't go comatose. It can take Move and Interact Actions but can't speak or Attack.",
+    "archetype": "weird",
+    "node": "weird-soul-separation",
+    "path": "spiritualist",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "weird-spirit-talker"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "weird-astral-form",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "While in Astral Form, your body stays active: Move and Interact Actions only, no speech and no Attack Actions."
+      }
+    ],
+    "page": 65,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-soul-separation"
+    }
+  }
+}

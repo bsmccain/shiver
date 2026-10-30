@@ -1,0 +1,57 @@
+{
+  "_id": "7L6bxVRLydsVRQAX",
+  "_key": "!items!7L6bxVRLydsVRQAX",
+  "folder": null,
+  "sort": 42,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Lightning Lancer",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 4 Shock; Medium (50 ft). Electrocute: Shock damage is doubled against a target standing in water. Spray&#39;n&#39;Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.142</em></p>",
+    "summary": "Smarts; 4 Shock; Medium (50 ft). Electrocute: Shock damage is doubled against a target standing in water. Spray'n'Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.",
+    "page": 142,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "shock",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "electrocute",
+      "sprayNPray"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "damageType": "shock",
+        "note": "Electrocute: if the target is in water, the Shock damage is doubled. Add the extra wounds by hand."
+      },
+      {
+        "kind": "onHit",
+        "note": "Spray'n'Pray: each other enemy within 5 ft of the target makes a CR 1 Luck Check. Those that fail are also hit by this Strike."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "lightning-lancer"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_id": "iHtHJbEm75aaaNXo",
+  "_key": "!items!iHtHJbEm75aaaNXo",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 2003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Covering Fire",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Ranged weapons only. Spend an Attack Action to choose an enemy and an ally, then roll Wit vs the enemy&#39;s CR. On success the ally has Minor Advantage (+1 d6) on Strikes against that enemy, and the enemy has Minor Disadvantage (-1 d6) on attacks against that ally. If the enemy moves, it takes your weapon&#39;s damage and the effect ends. To maintain it you can take no other Action on your Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "Ranged weapons only. Spend an Attack Action to choose an enemy and an ally, then roll Wit vs the enemy's CR. On success the ally has Minor Advantage (+1 d6) on Strikes against that enemy, and the enemy has Minor Disadvantage (-1 d6) on attacks against that ally. If the enemy moves, it takes your weapon's damage and the effect ends. To maintain it you can take no other Action on your Combat Turn.",
+    "archetype": "maverick",
+    "node": "maverick-covering-fire",
+    "path": "ranger",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "maverick-dodge"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "wit",
+        "cr": null,
+        "label": "Wit vs the enemy's CR",
+        "onSuccess": "Covering Fire holds: the ally has Minor Advantage (+1 d6) on Strikes against the enemy; the enemy has Minor Disadvantage (-1 d6) on attacks against that ally.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Needs an equipped ranged weapon; CR = the enemy's CR. The ally adds Minor Advantage in their own roll dialog and the Director applies Minor Disadvantage to the enemy. If the enemy moves, deal it your weapon's damage and end the effect. Taking any other Action on your Combat Turn ends it."
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-covering-fire"
+    }
+  }
+}

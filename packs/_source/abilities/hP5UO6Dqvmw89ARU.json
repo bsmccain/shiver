@@ -1,0 +1,58 @@
+{
+  "_id": "hP5UO6Dqvmw89ARU",
+  "_key": "!items!hP5UO6Dqvmw89ARU",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 1001,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Illusionist",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Create a small illusion at Long Range (150 ft): a distraction, light, a foul smell or a strange noise. Doom +1 per illusion. A more complex illusion needs a Strange Check at a CR the Director sets.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.63</em></p>",
+    "summary": "Create a small illusion at Long Range (150 ft): a distraction, light, a foul smell or a strange noise. Doom +1 per illusion. A more complex illusion needs a Strange Check at a CR the Director sets.",
+    "archetype": "weird",
+    "node": "weird-illusionist",
+    "path": "spiritualist",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 1,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Complex illusion only (simple illusions need no roll)",
+        "onSuccess": "The complex illusion works as described.",
+        "onFail": "The complex illusion fails."
+      }
+    ],
+    "page": 63,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-illusionist"
+    }
+  }
+}

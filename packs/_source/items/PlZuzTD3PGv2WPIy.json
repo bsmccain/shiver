@@ -1,0 +1,62 @@
+{
+  "_id": "PlZuzTD3PGv2WPIy",
+  "_key": "!items!PlZuzTD3PGv2WPIy",
+  "folder": null,
+  "sort": 10,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Liquor",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Dutch Courage: a drink lowers your Fear Status by one step and gives +1 Talent Die on rolls to resist Fear effects for 2 hours. The Director decides how many drinks the bottle holds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.158</em></p>",
+    "summary": "Dutch Courage: a drink lowers your Fear Status by one step and gives +1 Talent Die on rolls to resist Fear effects for 2 hours. The Director decides how many drinks the bottle holds.",
+    "page": 158,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "fearStep",
+        "amount": -1
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "fear"
+          ],
+          "manual": true,
+          "label": "Dutch Courage: you drank Liquor in the last 2 hours"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Each drink steps your Fear Status down once. For the next 2 in-game hours, tick the Dutch Courage bonus on Fear Checks. The Director sets how many drinks are left."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "liquor"
+    }
+  }
+}

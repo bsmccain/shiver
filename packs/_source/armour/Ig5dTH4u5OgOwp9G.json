@@ -1,0 +1,39 @@
+{
+  "_id": "Ig5dTH4u5OgOwp9G",
+  "_key": "!items!Ig5dTH4u5OgOwp9G",
+  "folder": null,
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Body Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>2 Armour Slots. No special ability: it rolls 2 Skill Dice to prevent damage when you are hit.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.151</em></p>",
+    "summary": "2 Armour Slots. No special ability: it rolls 2 Skill Dice to prevent damage when you are hit.",
+    "page": 151,
+    "slots": 2,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "",
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "body-armour"
+    }
+  }
+}

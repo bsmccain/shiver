@@ -1,0 +1,126 @@
+<div class="shiver-item {{type}}">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-action="editImage" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      <div class="item-subtitle">
+        {{localize (concat "TYPES.Item." type)}}
+        {{#if is_ability}} · {{archetypeName}} · {{localize "shiver.Ability.tier"}} {{system.tier}}{{/if}}
+        {{#if system.page}} · p.{{system.page}}{{/if}}
+        {{#if item.isOwned}}<button type="button" class="use-button" data-action="use"><i class="fa-solid fa-bolt"></i> {{localize "shiver.Sheet.use"}}</button>{{/if}}
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{#each tabs as |tab|}}
+    <a class="item {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
+    {{/each}}
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
+      {{#if system.summary}}<p class="summary">{{system.summary}}</p>{{/if}}
+      {{formInput systemFields.description value=system.description enriched=enrichDescription toggled=true}}
+      {{#if is_background}}
+      <h3>{{system.abilityName}}</h3>
+      {{formInput systemFields.abilityDescription value=system.abilityDescription enriched=enrichAbility toggled=true}}
+      <h3>{{localize "shiver.Background.flaw"}}: {{system.flawName}}</h3>
+      {{formInput systemFields.flawDescription value=system.flawDescription enriched=enrichFlaw toggled=true}}
+      {{/if}}
+    </div>
+
+    <div class="tab details {{tabs.details.cssClass}}" data-group="primary" data-tab="details">
+      <div class="form-grid">
+
+      {{#if (or is_weapon is_power)}}
+        <div class="form-group"><label>{{localize "shiver.Check.skill"}}</label><select name="system.skill">{{#each skillOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        <div class="form-group"><label>{{localize "shiver.Item.damage"}}</label><input type="number" name="system.damage" value="{{system.damage}}" min="0"/></div>
+        <div class="form-group"><label>{{localize "shiver.Damage.type"}}</label><select name="system.damageType">{{#each damageOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        <div class="form-group"><label>{{localize "shiver.Item.range"}}</label><select name="system.range">{{#each rangeOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+      {{/if}}
+
+      {{#if is_weapon}}
+        <div class="form-group stacked"><label>{{localize "shiver.Item.altSkills"}}</label>
+          <div class="checks">{{#each altSkills}}<label class="checkbox"><input type="checkbox" name="system.altSkillSet.{{key}}" {{checked checked}}/> {{label}}</label>{{/each}}</div></div>
+        <div class="form-group stacked"><label>{{localize "shiver.Item.altDamage"}}</label>
+          <div class="checks">{{#each altDamage}}<label class="checkbox"><input type="checkbox" name="system.altDamageSet.{{key}}" {{checked checked}}/> {{label}}</label>{{/each}}</div></div>
+        <div class="form-group"><label>{{localize "shiver.Item.properties"}}</label><input type="text" name="system.propertiesText" value="{{properties}}" placeholder="heavy, stun"/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.material"}}</label><input type="text" name="system.material" value="{{system.material}}" placeholder="silver"/></div>
+        <div class="form-group"><label>{{localize "shiver.Weapon.ammo"}}</label><input type="number" name="system.ammo.value" value="{{system.ammo.value}}" min="0"/> / <input type="number" name="system.ammo.max" value="{{system.ammo.max}}" min="0"/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.category"}}</label><input type="text" name="system.category" value="{{system.category}}"/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.unarmed"}}</label><input type="checkbox" name="system.unarmed" {{checked system.unarmed}}/></div>
+        <div class="form-group"><label>{{localize "shiver.Sheet.equip"}}</label><input type="checkbox" name="system.equipped" {{checked system.equipped}}/></div>
+      {{/if}}
+
+      {{#if is_armour}}
+        <div class="form-group"><label>{{localize "shiver.Armour.slots"}}</label><input type="number" name="system.slots" value="{{system.slots}}" min="1" max="3"/></div>
+        <div class="form-group"><label>{{localize "shiver.Armour.hpPerSlot"}}</label><input type="number" name="system.hpPerSlot" value="{{system.hpPerSlot}}" min="1"/></div>
+        <div class="form-group"><label>{{localize "shiver.Armour.hp"}}</label><span>{{system.hp.value}} / {{system.hp.max}}</span></div>
+        <div class="form-group"><label>{{localize "shiver.Armour.heavy"}}</label><input type="checkbox" name="system.heavy" {{checked system.heavy}}/></div>
+        <div class="form-group"><label>{{localize "shiver.Armour.unbreakable"}}</label><input type="checkbox" name="system.unbreakable" {{checked system.unbreakable}}/></div>
+        <div class="form-group"><label>{{localize "shiver.Armour.ability"}}</label><input type="text" name="system.abilityName" value="{{system.abilityName}}"/></div>
+        <div class="form-group"><label>{{localize "shiver.Sheet.equip"}}</label><input type="checkbox" name="system.equipped" {{checked system.equipped}}/></div>
+      {{/if}}
+
+      {{#if is_item}}
+        <div class="form-group"><label>{{localize "shiver.Item.quantity"}}</label><input type="number" name="system.quantity" value="{{system.quantity}}" min="0"/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.consumable"}}</label><input type="checkbox" name="system.consumable" {{checked system.consumable}}/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.category"}}</label><input type="text" name="system.category" value="{{system.category}}"/></div>
+        <div class="form-group"><label>{{localize "shiver.Item.carried"}}</label><input type="checkbox" name="system.equipped" {{checked system.equipped}}/></div>
+      {{/if}}
+
+      {{#if is_ability}}
+        <div class="form-group"><label>{{localize "shiver.Ability.tier"}}</label><input type="number" name="system.tier" value="{{system.tier}}" min="0" max="10"/></div>
+        <div class="form-group"><label>{{localize "shiver.Ability.path"}}</label><input type="text" name="system.path" value="{{system.path}}"/></div>
+        <div class="form-group"><label>{{localize "shiver.Ability.tree"}}</label><input type="checkbox" name="system.tree" {{checked system.tree}}/></div>
+        <div class="form-group"><label>{{localize "shiver.Ability.attackSkill"}}</label><select name="system.attack.skill">{{#each attackSkillOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        {{#if system.attack.skill}}
+        <div class="form-group"><label>{{localize "shiver.Item.damage"}}</label><input type="number" name="system.attack.damage" value="{{system.attack.damage}}" min="0"/></div>
+        <div class="form-group"><label>{{localize "shiver.Damage.type"}}</label><select name="system.attack.damageType">{{#each damageOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        <div class="form-group"><label>{{localize "shiver.Item.range"}}</label><select name="system.attack.range">{{#each rangeOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        {{/if}}
+      {{/if}}
+
+      {{#if is_background}}
+        <div class="form-group"><label>{{localize "shiver.Background.ability"}}</label><input type="text" name="system.abilityName" value="{{system.abilityName}}"/></div>
+        <div class="form-group"><label>{{localize "shiver.Background.flaw"}}</label><input type="text" name="system.flawName" value="{{system.flawName}}"/></div>
+      {{/if}}
+
+      {{#if is_flaw}}
+        <div class="form-group"><label>{{localize "shiver.Flaw.fatal"}}</label><input type="checkbox" name="system.fatal" {{checked system.fatal}}/></div>
+      {{/if}}
+
+      {{#if is_trait}}
+        <div class="form-group"><label>{{localize "shiver.Npc.disrupt"}}</label><input type="checkbox" name="system.disrupt" {{checked system.disrupt}}/></div>
+      {{/if}}
+
+      {{#unless (or is_armour is_flaw)}}
+        {{#unless is_weapon}}
+        <div class="form-group"><label>{{localize "shiver.Item.action"}}</label><select name="system.action">{{#each actionOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select></div>
+        {{/unless}}
+        <div class="form-group"><label>{{localize "shiver.Item.uses"}}</label>
+          <select name="system.uses.per">{{#each usesOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+          <input type="number" name="system.uses.max" value="{{system.uses.max}}" min="1" data-tooltip="shiver.Item.usesMax"/>
+          <input type="number" name="system.uses.spent" value="{{system.uses.spent}}" min="0" data-tooltip="shiver.Item.usesSpent"/>
+        </div>
+        <div class="form-group"><label>{{localize "shiver.Item.doom"}}</label><input type="number" name="system.doom" value="{{system.doom}}"/></div>
+      {{/unless}}
+      </div>
+    </div>
+
+    <div class="tab rules {{tabs.rules.cssClass}}" data-group="primary" data-tab="rules">
+      <p class="hint">{{localize "shiver.Item.rulesHint"}}</p>
+      <ul class="rule-list">{{#each ruleSummaries}}<li>{{this}}</li>{{else}}<li class="empty">{{localize "shiver.Item.noRules"}}</li>{{/each}}</ul>
+      {{#if isGM}}
+      <label>{{localize "shiver.Item.rulesJSON"}}</label>
+      <textarea class="rules-json" name="system.automationJSON" rows="10">{{automationJSON}}</textarea>
+      {{/if}}
+      {{#if is_background}}
+      <h3>{{localize "shiver.Background.flaw"}}</h3>
+      <ul class="rule-list">{{#each flawRuleSummaries}}<li>{{this}}</li>{{/each}}</ul>
+      {{#if isGM}}<textarea class="rules-json" name="system.flawAutomationJSON" rows="6">{{flawAutomationJSON}}</textarea>{{/if}}
+      {{/if}}
+    </div>
+  </section>
+</div>

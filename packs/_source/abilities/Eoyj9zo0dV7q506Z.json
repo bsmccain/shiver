@@ -1,0 +1,56 @@
+{
+  "_id": "Eoyj9zo0dV7q506Z",
+  "_key": "!items!Eoyj9zo0dV7q506Z",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 6016,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Ignorance Is Bliss",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Roll Luck instead of the normal Core Skill on checks against Fear, being Intimidated, Confusion, and any other check the Director rules you&#39;re too oblivious to notice.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "Roll Luck instead of the normal Core Skill on checks against Fear, being Intimidated, Confusion, and any other check the Director rules you're too oblivious to notice.",
+    "archetype": "fool",
+    "node": "fool-ignorance-is-bliss",
+    "path": "blessed",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "fool-core-plus-blessed"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Resisting Intimidation, Confusion and other checks the Director allows: switch the skill to Luck in the roll dialog. The Fear Check dialog can't change skill, so roll a Luck Check from your sheet instead and have the Director apply the Fear result."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-ignorance-is-bliss"
+    }
+  }
+}

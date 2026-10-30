@@ -1,0 +1,45 @@
+{
+  "_id": "fUhcwKPed8ioFLCe",
+  "_key": "!items!fUhcwKPed8ioFLCe",
+  "folder": null,
+  "sort": 10,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Fur Lined Explorer",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Warm: you are Resistant to Cold damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.153</em></p>",
+    "summary": "1 Armour Slot. Warm: you are Resistant to Cold damage.",
+    "page": 153,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Warm",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "cold"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fur-lined-explorer"
+    }
+  }
+}

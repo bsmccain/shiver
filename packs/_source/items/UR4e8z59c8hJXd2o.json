@@ -1,0 +1,75 @@
+{
+  "_id": "UR4e8z59c8hJXd2o",
+  "_key": "!items!UR4e8z59c8hJXd2o",
+  "folder": null,
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Obadiah's Cure All Tonic",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Unpredictable Tonic: roll your Luck Pool. More Luck than Strange symbols: heal 4 wounds. More Strange than Luck: take 2 Blunt damage and gain Poisoned (1). A tie does nothing.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.159</em></p>",
+    "summary": "Unpredictable Tonic: roll your Luck Pool. More Luck than Strange symbols: heal 4 wounds. More Strange than Luck: take 2 Blunt damage and gain Poisoned (1). A tie does nothing.",
+    "page": 159,
+    "category": "healing",
+    "consumable": true,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "luck",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": null,
+        "label": "Unpredictable Tonic",
+        "onSuccess": "More Luck than Strange symbols: heal 4 wounds.",
+        "onFail": "More Strange than Luck symbols: take 2 Blunt damage and gain Poisoned (1).",
+        "success": [
+          {
+            "kind": "heal",
+            "amount": 4,
+            "target": "self"
+          }
+        ],
+        "failure": [
+          {
+            "kind": "damage",
+            "amount": 2,
+            "type": "blunt",
+            "target": "self",
+            "strike": false
+          },
+          {
+            "kind": "applyStatus",
+            "status": "poisoned",
+            "value": 1,
+            "target": "self"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "The result depends on Luck vs Strange symbols, not a CR, so the Director sets the CR after the roll. Count Talent symbols as Luck. More Luck: set CR 1 (heals 4). More Strange: set CR 5 (2 Blunt damage and Poisoned (1)). A tie: leave the CR unset and nothing happens. CR 5 also counts as a failed check, so the engine ticks the Doom Clock 1 minute per Strange symbol. The tonic doesn't call for that, so turn the clock back."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "obadiahs-cure-all-tonic"
+    }
+  }
+}

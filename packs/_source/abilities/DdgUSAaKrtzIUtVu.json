@@ -1,0 +1,65 @@
+{
+  "_id": "DdgUSAaKrtzIUtVu",
+  "_key": "!items!DdgUSAaKrtzIUtVu",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 2003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Field Surgeon",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Once per Doom Quarter, if you have 8 or more wounds, roll a CR 1 Smarts Check to stitch yourself up. On success heal 1 wound, plus 1 more for each Smarts symbol beyond the first.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.73</em></p>",
+    "summary": "Once per Doom Quarter, if you have 8 or more wounds, roll a CR 1 Smarts Check to stitch yourself up. On success heal 1 wound, plus 1 more for each Smarts symbol beyond the first.",
+    "archetype": "survivor",
+    "node": "survivor-field-surgeon",
+    "path": "survivalist",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "survivor-deus-ex-machina"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "heal",
+        "skill": "smarts",
+        "amount": 1,
+        "perSymbol": 1,
+        "freeSymbols": 1,
+        "cr": 1,
+        "target": "self"
+      },
+      {
+        "kind": "custom",
+        "note": "Only usable while you have 8 or more wounds."
+      }
+    ],
+    "page": 73,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-field-surgeon"
+    }
+  }
+}

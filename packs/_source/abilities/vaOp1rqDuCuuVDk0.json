@@ -1,0 +1,58 @@
+{
+  "_id": "vaOp1rqDuCuuVDk0",
+  "_key": "!items!vaOp1rqDuCuuVDk0",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 10028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rage",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Each time a successful Strike is made against you, gain 1 extra Attack Action for the rest of the Combat Encounter, up to 3 extra.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "Each time a successful Strike is made against you, gain 1 extra Attack Action for the rest of the Combat Encounter, up to 3 extra.",
+    "archetype": "warrior",
+    "node": "warrior-rage",
+    "path": "berserker",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "warrior-zen-master"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "gainActionWhenHit",
+        "action": "attack",
+        "amount": 1,
+        "max": 3
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-rage"
+    }
+  }
+}

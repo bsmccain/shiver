@@ -1,0 +1,72 @@
+{
+  "_id": "mnFZDveXRQARBVt2",
+  "_key": "!items!mnFZDveXRQARBVt2",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 10038,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Eldritch Entity",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ. CR 2 Strange Check to summon an Abomination (p180), Night Gaunt (p181) or Shoggoth (p181) under your control; it takes its Combat Turn right after yours. At the start of each Combat Round, a CR 2 Strange Check keeps it on this plane. At the end of each Combat Round, Doom rises by the number of rounds it has been present (+1, then +2, and so on).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.68</em></p>",
+    "summary": "OPDQ. CR 2 Strange Check to summon an Abomination (p180), Night Gaunt (p181) or Shoggoth (p181) under your control; it takes its Combat Turn right after yours. At the start of each Combat Round, a CR 2 Strange Check keeps it on this plane. At the end of each Combat Round, Doom rises by the number of rounds it has been present (+1, then +2, and so on).",
+    "archetype": "weird",
+    "node": "weird-eldritch-entity",
+    "path": "eldritch",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "weird-necromancer"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 2,
+        "label": "Summon the entity",
+        "onSuccess": "The entity arrives under your control and acts right after you.",
+        "onFail": "Nothing answers."
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 2,
+        "label": "Start of each Combat Round: keep the entity on this plane",
+        "onSuccess": "The entity stays.",
+        "onFail": "The entity leaves."
+      },
+      {
+        "kind": "custom",
+        "note": "At the end of round N with the entity present, tick Doom +N (1, 2, 3...)."
+      }
+    ],
+    "page": 68,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-eldritch-entity"
+    }
+  }
+}

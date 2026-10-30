@@ -1,0 +1,50 @@
+{
+  "_id": "etg1y3pWXqP3EERz",
+  "_key": "!items!etg1y3pWXqP3EERz",
+  "folder": null,
+  "sort": 21,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Mysterious Camera",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Peculiar Photos: its photos capture astral-plane enemies, spirits and secrets the naked eye can&#39;t see. Flash Bulb: for an instant everyone can see what the camera sees, and a spirit caught in the flash is Stunned.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.159</em></p>",
+    "summary": "Peculiar Photos: its photos capture astral-plane enemies, spirits and secrets the naked eye can't see. Flash Bulb: for an instant everyone can see what the camera sees, and a spirit caught in the flash is Stunned.",
+    "page": 159,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "stunned",
+        "target": "enemy"
+      },
+      {
+        "kind": "custom",
+        "note": "Flash Bulb: target only spirits caught in the flash before using it; they are Stunned with no check. Clear your targets to just take a photo. The Director describes what the photo reveals."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "mysterious-camera"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "_id": "AMaWN9GtqiRQeHK7",
+  "_key": "!items!AMaWN9GtqiRQeHK7",
+  "folder": null,
+  "sort": 34,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Final Girl",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Big Bad Beater.</strong> +1 Talent Die on Strikes against enemies with a Red or Black Deathcon rating.</p><p><strong>Destined (Flaw).</strong> In Combat Encounters and chases, enemies with a Red or Black Deathcon rating always target you unless they are distracted.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.94</em></p>",
+    "page": 94,
+    "abilityName": "Big Bad Beater",
+    "abilitySummary": "+1 Talent Die on Strikes against enemies with a Red or Black Deathcon rating.",
+    "abilityDescription": "<p>+1 Talent Die on Strikes against enemies with a Red or Black Deathcon rating.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Big Bad Beater",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Strike against a Red or Black Deathcon enemy"
+        }
+      }
+    ],
+    "flawName": "Destined",
+    "flawSummary": "In Combat Encounters and chases, enemies with a Red or Black Deathcon rating always target you unless they are distracted.",
+    "flawDescription": "<p>In Combat Encounters and chases, enemies with a Red or Black Deathcon rating always target you unless they are distracted.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Director: in Combat Encounters and chases, Red or Black Deathcon enemies always target this character unless distracted."
+      }
+    ],
+    "archetype": "survivor"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-final-girl"
+    }
+  }
+}

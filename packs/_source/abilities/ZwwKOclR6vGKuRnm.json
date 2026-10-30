@@ -1,0 +1,56 @@
+{
+  "_id": "ZwwKOclR6vGKuRnm",
+  "_key": "!items!ZwwKOclR6vGKuRnm",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 7018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Fool's Intuition",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>On Skill Checks outside Combat (not Luck Checks) you may re-roll 1 die showing a Luck symbol as a Talent Die.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "On Skill Checks outside Combat (not Luck Checks) you may re-roll 1 die showing a Luck symbol as a Talent Die.",
+    "archetype": "fool",
+    "node": "fool-fools-intuition",
+    "path": "last-chancer",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "fool-splash-back"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Non-Luck Skill Checks outside Combat: you may re-roll 1 die showing a Luck symbol, rolling a Talent Die in its place."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-fools-intuition"
+    }
+  }
+}

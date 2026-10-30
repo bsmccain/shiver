@@ -1,0 +1,76 @@
+{
+  "_id": "jCgxGAn2JjGTuQ1g",
+  "_key": "!items!jCgxGAn2JjGTuQ1g",
+  "folder": null,
+  "sort": 68,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sunlight Flask",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 1 Fire; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Sunlight: a creature with a Weakness to sunlight takes 5 Fire and gains Burning (1) when the flask hits it. Sensory Overload: the enemy hit must pass a CR 2 Wit Check or be Blinded for the next Combat Round. Can be made with the Mad Scientist ability (p46).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.148</em></p>",
+    "summary": "Wit; 1 Fire; Medium (50 ft). Explosive (C): every enemy within 5 ft (Close) of the target hit also takes the damage. Sunlight: a creature with a Weakness to sunlight takes 5 Fire and gains Burning (1) when the flask hits it. Sensory Overload: the enemy hit must pass a CR 2 Wit Check or be Blinded for the next Combat Round. Can be made with the Mad Scientist ability (p46).",
+    "page": 148,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 1,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "explosive",
+      "sunlight",
+      "sensoryOverload"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 1,
+      "max": 1
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "blinded",
+        "save": {
+          "skill": "wit",
+          "cr": 2
+        },
+        "rounds": 1
+      },
+      {
+        "kind": "onHit",
+        "note": "Sunlight: if the target has a Weakness to sunlight, it takes 5 Fire damage (apply by hand) and gains Burning (1): post the flask to chat and click its Burning button."
+      },
+      {
+        "kind": "applyStatus",
+        "status": "burning",
+        "value": 1,
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Sunlight: the target hit has a Weakness to sunlight"
+        }
+      },
+      {
+        "kind": "onHit",
+        "note": "Explosive (C): this damage, and its effects, also hit every enemy within Close Range (5 ft) of the target."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sunlight-flask"
+    }
+  }
+}

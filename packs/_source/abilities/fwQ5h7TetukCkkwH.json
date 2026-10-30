@@ -1,0 +1,65 @@
+{
+  "_id": "fwQ5h7TetukCkkwH",
+  "_key": "!items!fwQ5h7TetukCkkwH",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 6016,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Gun-Slinger",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>You can wield 2 single-handed ranged weapons at once, and make 1 extra Strike with the second weapon each Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "You can wield 2 single-handed ranged weapons at once, and make 1 extra Strike with the second weapon each Combat Turn.",
+    "archetype": "maverick",
+    "node": "maverick-gun-slinger",
+    "path": "ranger",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "maverick-core-plus-ranger"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Wielding two single-handed ranged weapons"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Wield 2 single-handed ranged weapons at once. The extra Attack Action may only be 1 Strike with your second weapon each Combat Turn."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-gun-slinger"
+    }
+  }
+}

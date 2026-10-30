@@ -1,0 +1,87 @@
+{
+  "_id": "0z9RRreu92aKgTed",
+  "_key": "!items!0z9RRreu92aKgTed",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 7027,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Poltergeist",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>While in Astral Form you can move items (Strange Check, CR set by the item&#39;s size) and throw them at enemies (Strange Check vs the enemy&#39;s CR). As an Attack Action you can crash into an enemy with a Strange Check vs its CR to knock it Prone.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "While in Astral Form you can move items (Strange Check, CR set by the item's size) and throw them at enemies (Strange Check vs the enemy's CR). As an Attack Action you can crash into an enemy with a Strange Check vs its CR to knock it Prone.",
+    "archetype": "weird",
+    "node": "weird-poltergeist",
+    "path": "spiritualist",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "weird-doppelganger"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "weird-astral-form",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Move an item (CR by its size)",
+        "onSuccess": "The item moves.",
+        "onFail": "The item doesn't move."
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Throw an item at a targeted enemy (CR = its CR)",
+        "onSuccess": "The item hits; the Director sets the damage.",
+        "onFail": "The throw misses."
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Crash into a targeted enemy (Attack Action; CR = its CR)",
+        "onSuccess": "The enemy is knocked Prone.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "prone",
+            "target": "enemy"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Only while in Astral Form. The Director sets each CR: by size for an item, or the enemy's CR for a throw or crash. Crashing takes an Attack Action instead of an Interact Action. Thrown-item damage isn't given."
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-poltergeist"
+    }
+  }
+}

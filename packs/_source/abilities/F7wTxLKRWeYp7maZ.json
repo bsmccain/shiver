@@ -1,0 +1,60 @@
+{
+  "_id": "F7wTxLKRWeYp7maZ",
+  "_key": "!items!F7wTxLKRWeYp7maZ",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 9025,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Zen Master",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Smarts symbols count as successes on Grit Checks for Unarmed Strikes.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.36</em></p>",
+    "summary": "Smarts symbols count as successes on Grit Checks for Unarmed Strikes.",
+    "archetype": "warrior",
+    "node": "warrior-zen-master",
+    "path": "berserker",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "warrior-talent-plus-berserker"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraSuccessFaces",
+        "rollSkill": "grit",
+        "countsAs": [
+          "smarts"
+        ],
+        "when": "unarmed"
+      }
+    ],
+    "page": 36,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-zen-master"
+    }
+  }
+}

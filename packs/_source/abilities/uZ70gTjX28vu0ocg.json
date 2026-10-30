@@ -1,0 +1,56 @@
+{
+  "_id": "uZ70gTjX28vu0ocg",
+  "_key": "!items!uZ70gTjX28vu0ocg",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 3007,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dodgy Probability",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When rolling to evade traps or environmental hazards you may roll your Luck Pool instead of Wit.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.57</em></p>",
+    "summary": "When rolling to evade traps or environmental hazards you may roll your Luck Pool instead of Wit.",
+    "archetype": "fool",
+    "node": "fool-dodgy-probability",
+    "path": "blessed",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "fool-idiot-savant"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Evading a trap or environmental hazard: you may switch the check from Wit to Luck in the roll dialog."
+      }
+    ],
+    "page": 57,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-dodgy-probability"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_id": "fLPaAJNROAxd8zkn",
+  "_key": "!items!fLPaAJNROAxd8zkn",
+  "folder": null,
+  "sort": 72,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Helsing",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 3 damage of the loaded type (printed N/A); Long (150 ft). Legendary weapon, linked to the Survivor&#39;s Legendary Weapon ability (p74). Variable Ammo: an Interact Action switches its damage type between Fire, Blunt (Holy or Silver) and Shock.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.149</em></p>",
+    "summary": "Wit; 3 damage of the loaded type (printed N/A); Long (150 ft). Legendary weapon, linked to the Survivor's Legendary Weapon ability (p74). Variable Ammo: an Interact Action switches its damage type between Fire, Blunt (Holy or Silver) and Shock.",
+    "page": 149,
+    "category": "legendary",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "fire",
+    "altDamageTypes": [
+      "blunt",
+      "shock"
+    ],
+    "range": "long",
+    "properties": [
+      "legendary",
+      "variableAmmoHelsing"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Variable Ammo: changing the loaded type costs an Interact Action. Pick the loaded type in the Strike dialog. Blunt rounds are Holy or Silver, so set this weapon's Material to holy or silver while they are loaded, and clear it for Fire or Shock."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "the-helsing"
+    }
+  }
+}

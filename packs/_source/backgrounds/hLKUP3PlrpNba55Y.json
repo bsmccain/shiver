@@ -1,0 +1,74 @@
+{
+  "_id": "hLKUP3PlrpNba55Y",
+  "_key": "!items!hLKUP3PlrpNba55Y",
+  "folder": null,
+  "sort": 13,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Hacker",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>It&#39;s a Unix System.</strong> +1 Talent Die on Smarts Checks to interact with technology.</p><p><strong>Night Owl (Flaw).</strong> In the daytime, lose 1 Skill Die on Wit Checks to observe your surroundings.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.86</em></p>",
+    "page": 86,
+    "abilityName": "It's a Unix System",
+    "abilitySummary": "+1 Talent Die on Smarts Checks to interact with technology.",
+    "abilityDescription": "<p>+1 Talent Die on Smarts Checks to interact with technology.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "It's a Unix System",
+        "skill": "smarts",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Interacting with technology"
+        }
+      }
+    ],
+    "flawName": "Night Owl",
+    "flawSummary": "In the daytime, lose 1 Skill Die on Wit Checks to observe your surroundings.",
+    "flawDescription": "<p>In the daytime, lose 1 Skill Die on Wit Checks to observe your surroundings.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Night Owl",
+        "skill": "wit",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Daytime: observing your surroundings"
+        }
+      }
+    ],
+    "archetype": "scholar"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-hacker"
+    }
+  }
+}

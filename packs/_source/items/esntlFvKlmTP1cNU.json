@@ -1,0 +1,46 @@
+{
+  "_id": "esntlFvKlmTP1cNU",
+  "_key": "!items!esntlFvKlmTP1cNU",
+  "folder": null,
+  "sort": 6,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Alchemist's Almanac",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Studious: +1 Core Skill Point in Smarts while the book is in your possession.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.156</em></p>",
+    "summary": "Studious: +1 Core Skill Point in Smarts while the book is in your possession.",
+    "page": 156,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "skillPoints",
+        "skill": "smarts",
+        "amount": 1
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "alchemists-almanac"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "_id": "KsnuO2dXMavv5r1x",
+  "_key": "!items!KsnuO2dXMavv5r1x",
+  "folder": null,
+  "sort": 6,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Rebel",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Keeping a Distance.</strong> After a successful Strike you may Escape at once; it costs no Interact Action and the enemy gets no Attack Action against you.</p><p><strong>Uncooperative (Flaw).</strong> You can&#39;t Assist allies or be Assisted by them on Skill Checks. Working together with an ally in any other way is at Minor Disadvantage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.83</em></p>",
+    "page": 83,
+    "abilityName": "Keeping a Distance",
+    "abilitySummary": "After a successful Strike you may Escape at once; it costs no Interact Action and the enemy gets no Attack Action against you.",
+    "abilityDescription": "<p>After a successful Strike you may Escape at once; it costs no Interact Action and the enemy gets no Attack Action against you.</p>",
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "interact",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Only to Escape right after a successful Strike"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Right after a successful Strike you may Escape from the Brawl. It costs no Interact Action (the extra Interact Action covers it) and the enemies in the Brawl get no Attack Action against you."
+      }
+    ],
+    "flawName": "Uncooperative",
+    "flawSummary": "You can't Assist allies or be Assisted by them on Skill Checks. Working together with an ally in any other way is at Minor Disadvantage.",
+    "flawDescription": "<p>You can&#39;t Assist allies or be Assisted by them on Skill Checks. Working together with an ally in any other way is at Minor Disadvantage.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "You can't give or receive Assist dice on Skill Checks."
+      },
+      {
+        "kind": "poolDice",
+        "label": "Uncooperative",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "fear",
+            "attack"
+          ],
+          "manual": true,
+          "label": "Working together with an ally (other than Assisting)"
+        }
+      }
+    ],
+    "archetype": "maverick"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-rebel"
+    }
+  }
+}

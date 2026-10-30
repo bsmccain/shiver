@@ -1,0 +1,56 @@
+{
+  "_id": "pJVDeXyx6VI6XLqf",
+  "_key": "!items!pJVDeXyx6VI6XLqf",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 3004,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Light-Footed",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Being in Stealth no longer reduces your Move Distance.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "Being in Stealth no longer reduces your Move Distance.",
+    "archetype": "maverick",
+    "node": "maverick-light-footed",
+    "path": "assassin",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "maverick-sneak-attack"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Stealth does not halve your Move Distance: use your full Speed while the Stealth status is on."
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-light-footed"
+    }
+  }
+}

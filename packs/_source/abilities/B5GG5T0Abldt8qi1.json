@@ -1,0 +1,60 @@
+{
+  "_id": "B5GG5T0Abldt8qi1",
+  "_key": "!items!B5GG5T0Abldt8qi1",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 6015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Block",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Spend an Interact Action to prepare a Block. You are Steeled until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "Spend an Interact Action to prepare a Block. You are Steeled until your next Combat Turn.",
+    "archetype": "warrior",
+    "node": "warrior-block",
+    "path": "fighter",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "warrior-core-plus-fighter"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self",
+        "flags": {
+          "expires": "startOfNextTurn"
+        }
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-block"
+    }
+  }
+}

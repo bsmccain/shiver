@@ -1,0 +1,56 @@
+{
+  "_id": "5sHf7pbwr2nhdl2S",
+  "_key": "!items!5sHf7pbwr2nhdl2S",
+  "folder": null,
+  "sort": 38,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Harpoon Gun",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Sharp; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Pinned: a Large or smaller enemy it hits can&#39;t Move until it spends its Interact Action pulling the harpoon out, taking 1 wound.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.141</em></p>",
+    "summary": "Grit; 6 Sharp; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike. Pinned: a Large or smaller enemy it hits can't Move until it spends its Interact Action pulling the harpoon out, taking 1 wound.",
+    "page": 141,
+    "category": "ranged",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "reload",
+      "pinned"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "onHit",
+        "status": "immobile",
+        "note": "Pinned: the target is Immobile until it spends its Interact Action removing the projectile, which gives it 1 wound. Only Large or smaller enemies are pinned, so remove Immobile from anything bigger."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "harpoon-gun"
+    }
+  }
+}

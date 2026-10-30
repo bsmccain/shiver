@@ -1,0 +1,51 @@
+{
+  "_id": "E2VnKi10e20Ajplm",
+  "_key": "!items!E2VnKi10e20Ajplm",
+  "folder": null,
+  "sort": 14,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Grappling Hook",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Mountaineer: +1 Talent Die when you use the hook to scale difficult terrain or vertical surfaces.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.157</em></p>",
+    "summary": "Mountaineer: +1 Talent Die when you use the hook to scale difficult terrain or vertical surfaces.",
+    "page": 157,
+    "category": "tool",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Mountaineer: scaling difficult terrain or a vertical surface with the Grappling Hook"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "grappling-hook"
+    }
+  }
+}

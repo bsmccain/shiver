@@ -1,0 +1,69 @@
+{
+  "_id": "OeLt2BwSyFA3goW5",
+  "_key": "!items!OeLt2BwSyFA3goW5",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 9026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Making It Rain",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Spend 3 banked Luck Points to gain 1 extra Attack Action on your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "Spend 3 banked Luck Points to gain 1 extra Attack Action on your next Combat Turn.",
+    "archetype": "fool",
+    "node": "fool-making-it-rain",
+    "path": "accumulator",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "fool-talent-plus-accumulator"
+    ],
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cost",
+        "luck": 3
+      },
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Your next Combat Turn after paying 3 Luck Points for Making It Rain"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "The extra Attack Action is only for your next Combat Turn after you Use this. The combat tracker allows it on every turn, so only take it then."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-making-it-rain"
+    }
+  }
+}

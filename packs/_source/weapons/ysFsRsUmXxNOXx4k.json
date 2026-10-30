@@ -1,0 +1,56 @@
+{
+  "_id": "ysFsRsUmXxNOXx4k",
+  "_key": "!items!ysFsRsUmXxNOXx4k",
+  "folder": null,
+  "sort": 17,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sledgehammer",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Blunt; Close (5 ft). Knock-back (N): a hit shoves the target 15 ft (Near) away. Two-hander: needs both hands free.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.136</em></p>",
+    "summary": "Grit; 6 Blunt; Close (5 ft). Knock-back (N): a hit shoves the target 15 ft (Near) away. Two-hander: needs both hands free.",
+    "page": 136,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "knockBack",
+      "twoHander"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Knock-back (N): push the target 15 ft (Near, 3 hex) away from you."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sledgehammer"
+    }
+  }
+}

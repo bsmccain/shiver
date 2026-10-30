@@ -1,0 +1,67 @@
+{
+  "_id": "8cveznNhQfAH4AcD",
+  "_key": "!items!8cveznNhQfAH4AcD",
+  "folder": null,
+  "sort": 22,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stake",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit or Wit; 2 Pierce; Close (5 ft). Vampire Slayer: after a Critical Hit on a Vampyric enemy of CR 2 or lower, roll a CR 2 Luck Check; on a success it dies outright.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.137</em></p>",
+    "summary": "Grit or Wit; 2 Pierce; Close (5 ft). Vampire Slayer: after a Critical Hit on a Vampyric enemy of CR 2 or lower, roll a CR 2 Luck Check; on a success it dies outright.",
+    "page": 137,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [
+      "wit"
+    ],
+    "damage": 2,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "vampireSlayer"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Vampire Slayer: if this was a Critical Hit on a Vampyric enemy of CR 2 or lower, keep it targeted, post this weapon to chat and roll its CR 2 Luck Check. On a success the enemy is slain instantly."
+      },
+      {
+        "kind": "check",
+        "skill": "luck",
+        "cr": 2,
+        "label": "Vampire Slayer (after a Critical Hit on a Vampyric enemy of CR 2 or lower)",
+        "onSuccess": "The targeted enemy is slain instantly.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "dead",
+            "target": "enemy"
+          }
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "stake"
+    }
+  }
+}

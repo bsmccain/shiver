@@ -1,0 +1,64 @@
+{
+  "_id": "HNQG5hM0VLoTSAYe",
+  "_key": "!items!HNQG5hM0VLoTSAYe",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Deus Ex Machina",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Once per Doom Quarter, re-roll a Skill Check and add 1 extra Skill Die to the Dice Pool for the re-roll.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.72</em></p>",
+    "summary": "Once per Doom Quarter, re-roll a Skill Check and add 1 extra Skill Die to the Dice Pool for the re-roll.",
+    "archetype": "survivor",
+    "node": "survivor-deus-ex-machina",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "free",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 1,
+        "d8": 0,
+        "when": {
+          "manual": true,
+          "label": "Deus Ex Machina re-roll (+1 Skill Die)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "After one of your Skill Checks, Use this to spend the Doom Quarter's use, then roll the same check again with the Deus Ex Machina box ticked (+1 Skill Die). The re-roll's result replaces the first."
+      }
+    ],
+    "page": 72,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-deus-ex-machina"
+    }
+  }
+}

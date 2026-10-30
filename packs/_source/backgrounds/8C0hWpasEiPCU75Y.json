@@ -1,0 +1,63 @@
+{
+  "_id": "8C0hWpasEiPCU75Y",
+  "_key": "!items!8C0hWpasEiPCU75Y",
+  "folder": null,
+  "sort": 9,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Drifter",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Street Smarts.</strong> +1 Talent Die when navigating.</p><p><strong>Lone Wolf (Flaw).</strong> You can&#39;t contribute to Overwhelming an enemy.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.84</em></p>",
+    "page": 84,
+    "abilityName": "Street Smarts",
+    "abilitySummary": "+1 Talent Die when navigating.",
+    "abilityDescription": "<p>+1 Talent Die when navigating.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Street Smarts",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Navigating"
+        }
+      }
+    ],
+    "flawName": "Lone Wolf",
+    "flawSummary": "You can't contribute to Overwhelming an enemy.",
+    "flawDescription": "<p>You can&#39;t contribute to Overwhelming an enemy.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Don't count this character among the 3+ characters needed to Overwhelm an enemy (adjust the automatic Overwhelm by hand)."
+      }
+    ],
+    "archetype": "maverick"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-drifter"
+    }
+  }
+}

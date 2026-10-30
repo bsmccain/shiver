@@ -1,0 +1,52 @@
+{
+  "_id": "gyXn8yhwZdNTttfk",
+  "_key": "!items!gyXn8yhwZdNTttfk",
+  "folder": "6lXR98WER43bT8Gm",
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Pyrokinesis",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>You can control fire: put out flames, produce a small flame, make a burning source burn harder, or anything else the Director allows. Once per Doom Quarter, use an Attack Action to hurl a fireball: 3 Fire damage, Long Range (150 ft).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.95</em></p>",
+    "summary": "You can control fire: put out flames, produce a small flame, make a burning source burn harder, or anything else the Director allows. Once per Doom Quarter, use an Attack Action to hurl a fireball: 3 Fire damage, Long Range (150 ft).",
+    "page": 95,
+    "archetype": "survivor",
+    "node": "ewf-pyrokinesis",
+    "path": "ewf",
+    "tier": 10,
+    "tree": false,
+    "action": "attack",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Fire control has no stated use limit or action cost; the Director rules on each use. Rolling this power makes the once-per-Doom-Quarter fireball Strike."
+      }
+    ],
+    "attack": {
+      "skill": "heart",
+      "damage": 3,
+      "damageType": "fire",
+      "range": "long",
+      "ranged": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ewf-pyrokinesis"
+    }
+  }
+}

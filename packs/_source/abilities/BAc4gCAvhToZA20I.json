@@ -1,0 +1,76 @@
+{
+  "_id": "BAc4gCAvhToZA20I",
+  "_key": "!items!BAc4gCAvhToZA20I",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 7029,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Blood Lust",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>When you damage an enemy without killing it, you must target only that enemy until it dies, chasing it if it Escapes. Your Strikes against it deal double damage, and each successful Strike during Blood Lust costs Doom +1. You may roll Smarts CR 1 at the start of each of your Combat Turns to end it.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "When you damage an enemy without killing it, you must target only that enemy until it dies, chasing it if it Escapes. Your Strikes against it deal double damage, and each successful Strike during Blood Lust costs Doom +1. You may roll Smarts CR 1 at the start of each of your Combat Turns to end it.",
+    "archetype": "weird",
+    "node": "weird-blood-lust",
+    "path": "body-horror",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "weird-hungry"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Blood Lust",
+        "damageMultiplier": 2,
+        "onHit": [
+          {
+            "kind": "onHit",
+            "doom": 1,
+            "note": "Blood Lust: Doom +1"
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "label": "Start of your Combat Turn: break out of Blood Lust",
+        "onSuccess": "You break out of Blood Lust.",
+        "onFail": "You stay in Blood Lust."
+      },
+      {
+        "kind": "custom",
+        "note": "Mandatory: damaging an enemy that survives starts Blood Lust against it. Pick the Blood Lust mode for weapon Strikes against that enemy (double damage, Doom +1 per hit); apply the same to ability Strikes by hand."
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-blood-lust"
+    }
+  }
+}

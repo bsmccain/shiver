@@ -1,0 +1,61 @@
+{
+  "_id": "bBJaHB6TIkRdJX8i",
+  "_key": "!items!bBJaHB6TIkRdJX8i",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Fluky Fortress",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Spend 1 banked Luck Point to stop 1 damage to an ally within 10 ft.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "Spend 1 banked Luck Point to stop 1 damage to an ally within 10 ft.",
+    "archetype": "fool",
+    "node": "fool-fluky-fortress",
+    "path": "accumulator",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "fool-loveable-fool",
+      "fool-clumsily-covert"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "cost",
+        "luck": 1
+      },
+      {
+        "kind": "custom",
+        "note": "When an ally within 10 ft would take damage: each Use spends 1 Luck Point and prevents 1 of that damage (reduce it before applying)."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-fluky-fortress"
+    }
+  }
+}

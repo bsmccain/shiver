@@ -1,0 +1,50 @@
+{
+  "_id": "hFYUVDgt6CqpAt4v",
+  "_key": "!items!hFYUVDgt6CqpAt4v",
+  "folder": null,
+  "sort": 45,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Plasma Cutter",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 3 Fire; Medium (50 ft). Piercer: armour never reduces its damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.143</em></p>",
+    "summary": "Smarts; 3 Fire; Medium (50 ft). Piercer: armour never reduces its damage.",
+    "page": 143,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "fire",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "piercer"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "ignoreArmour"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "plasma-cutter"
+    }
+  }
+}

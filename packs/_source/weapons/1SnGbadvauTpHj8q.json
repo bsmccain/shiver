@@ -1,0 +1,56 @@
+{
+  "_id": "1SnGbadvauTpHj8q",
+  "_key": "!items!1SnGbadvauTpHj8q",
+  "folder": null,
+  "sort": 51,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sonic Pacifier",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 4 Soul; Medium (50 ft). Sensory Overload: the target must pass a CR 2 Smarts Check or be Blinded until the end of the next Combat Round.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.144</em></p>",
+    "summary": "Smarts; 4 Soul; Medium (50 ft). Sensory Overload: the target must pass a CR 2 Smarts Check or be Blinded until the end of the next Combat Round.",
+    "page": 144,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 4,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "sensoryOverload"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "blinded",
+        "save": {
+          "skill": "smarts",
+          "cr": 2
+        },
+        "rounds": 1
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sonic-pacifier"
+    }
+  }
+}

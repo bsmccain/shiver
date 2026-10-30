@@ -1,0 +1,97 @@
+<div class="abilities-header">
+  <button type="button" data-action="openTree"><i class="fa-solid fa-sitemap"></i> {{localize "shiver.Tree.open"}}{{#if points}} ({{points.available}} {{localize "shiver.Sheet.pointsLeft"}}){{/if}}</button>
+  <a class="item-control" data-action="createItem" data-type="ability" data-tooltip="shiver.Sheet.addAbility"><i class="fas fa-plus"></i></a>
+</div>
+
+{{#if backgrounds.length}}
+<h3 class="section-title">{{localize "TYPES.Item.background"}}</h3>
+<ol class="items-list">
+  {{#each backgrounds as |item|}}
+  <li class="item ability-row" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <img src="{{item.img}}" width="24" height="24"/>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="tags">{{#if item.lost}}<span class="tag flaw">{{localize "shiver.Nightmare.lostTag"}}</span>{{/if}}<span class="tag">{{item.system.abilityName}}</span><span class="tag flaw">{{item.system.flawName}}</span>{{#if item.usesLabel}}<span class="tag uses">{{item.usesLabel}}</span>{{/if}}</span>
+      <span class="item-controls">
+        {{#if item.canUse}}<a class="use" data-action="useItem" data-tooltip="shiver.Sheet.use"><i class="fa-solid fa-bolt"></i></a>{{/if}}
+        <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}{{#each item.customNotes}}<p class="custom-note"><i class="fa-solid fa-circle-info"></i> {{this}}</p>{{/each}}</div>{{/if}}
+  </li>
+  {{/each}}
+</ol>
+{{/if}}
+
+{{#each abilityGroups as |group|}}
+<h3 class="section-title">{{group.name}}</h3>
+<ol class="items-list">
+  {{#each group.items as |item|}}
+  <li class="item ability-row" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <span class="tier" data-tooltip="shiver.Ability.tier">{{item.system.tier}}</span>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="tags">
+        {{#if item.lost}}<span class="tag flaw">{{localize "shiver.Nightmare.lostTag"}}</span>{{/if}}
+        {{#if item.actionLabel}}<span class="tag">{{item.actionLabel}}</span>{{/if}}
+        {{#if item.attackLabel}}<span class="tag">{{item.attackLabel}}</span>{{/if}}
+        {{#if item.system.doom}}<span class="tag doom">{{localize "shiver.Doom.short"}} +{{item.system.doom}}</span>{{/if}}
+        {{#if item.usesLabel}}<span class="tag uses" data-tooltip="{{item.uses.recharge}}">{{item.usesLabel}}</span>{{/if}}
+      </span>
+      <span class="item-controls">
+        {{#if item.isAttack}}<a class="use" data-action="useItem" data-tooltip="shiver.Check.attack"><i class="fa-solid fa-hand-fist"></i></a>
+        {{else if item.canUse}}<a class="use" data-action="useItem" data-tooltip="shiver.Sheet.use"><i class="fa-solid fa-bolt"></i></a>{{/if}}
+        {{#if item.uses.limited}}{{#if @root.isGM}}<a data-action="resetUses" data-tooltip="shiver.Uses.reset"><i class="fa-solid fa-rotate-left"></i></a>{{/if}}{{/if}}
+        <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}{{#each item.customNotes}}<p class="custom-note"><i class="fa-solid fa-circle-info"></i> {{this}}</p>{{/each}}</div>{{/if}}
+  </li>
+  {{/each}}
+</ol>
+{{/each}}
+
+<h3 class="section-title">{{localize "shiver.Sheet.flaws"}} <a class="item-control" data-action="createItem" data-type="flaw"><i class="fas fa-plus"></i></a></h3>
+<ol class="items-list">
+  {{#each flaws as |item|}}
+  <li class="item ability-row" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <img src="{{item.img}}" width="24" height="24"/>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="tags">{{#if item.system.fatal}}<span class="tag flaw">{{localize "shiver.Flaw.fatal"}}</span>{{/if}}</span>
+      <span class="item-controls">
+        <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}</div>{{/if}}
+  </li>
+  {{else}}<li class="empty">{{localize "shiver.Sheet.noFlaws"}}</li>
+  {{/each}}
+</ol>
+
+{{#if traits.length}}
+<h3 class="section-title">{{localize "TYPES.Item.trait"}}</h3>
+<ol class="items-list">
+  {{#each traits as |item|}}
+  <li class="item ability-row" data-item-id="{{item._id}}">
+    <div class="item-main">
+      <img src="{{item.img}}" width="24" height="24"/>
+      <a class="item-name" data-action="toggleDescription">{{item.name}}</a>
+      <span class="item-controls">
+        {{#if item.canUse}}<a class="use" data-action="useItem"><i class="fa-solid fa-bolt"></i></a>{{/if}}
+        <a data-action="itemToChat"><i class="far fa-comment-alt"></i></a>
+        <a data-action="editItem"><i class="fas fa-edit"></i></a>
+        <a data-action="deleteItem"><i class="fas fa-trash"></i></a>
+      </span>
+    </div>
+    {{#if item.expanded}}<div class="item-description">{{{item.enrichDescription}}}</div>{{/if}}
+  </li>
+  {{/each}}
+</ol>
+{{/if}}

@@ -1,0 +1,84 @@
+{
+  "_id": "Y9T9khPtBkn2gqfq",
+  "_key": "!items!Y9T9khPtBkn2gqfq",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 4008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Wounded Bear",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Gain extra Attack Actions from the wounds on your Lifeline. 4 wounds give +1, 5 to 11 wounds give +2, and 12 or more give +3.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.34</em></p>",
+    "summary": "Gain extra Attack Actions from the wounds on your Lifeline. 4 wounds give +1, 5 to 11 wounds give +2, and 12 or more give +3.",
+    "archetype": "warrior",
+    "node": "warrior-wounded-bear",
+    "path": "berserker",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "warrior-furious-fists"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "wounds": {
+            "gte": 4,
+            "lte": 4
+          }
+        }
+      },
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 2,
+        "when": {
+          "wounds": {
+            "gte": 5,
+            "lte": 11
+          }
+        }
+      },
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 3,
+        "when": {
+          "wounds": {
+            "gte": 12
+          }
+        }
+      }
+    ],
+    "page": 34,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-wounded-bear"
+    }
+  }
+}

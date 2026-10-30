@@ -1,0 +1,16 @@
+{
+  "_id": "woUZVK9fB96eD0cg",
+  "_key": "!folders!woUZVK9fB96eD0cg",
+  "name": "The Weird",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 600000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

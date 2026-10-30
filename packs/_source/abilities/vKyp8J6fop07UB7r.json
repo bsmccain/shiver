@@ -1,0 +1,59 @@
+{
+  "_id": "vKyp8J6fop07UB7r",
+  "_key": "!items!vKyp8J6fop07UB7r",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 6015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Chemistry",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Resistant to Corrosive and Cold damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "Resistant to Corrosive and Cold damage.",
+    "archetype": "scholar",
+    "node": "scholar-chemistry",
+    "path": "academic",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "scholar-core-plus-academic"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "corrosive",
+          "cold"
+        ]
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-chemistry"
+    }
+  }
+}

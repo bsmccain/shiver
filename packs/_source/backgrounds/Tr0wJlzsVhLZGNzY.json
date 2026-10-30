@@ -1,0 +1,67 @@
+{
+  "_id": "Tr0wJlzsVhLZGNzY",
+  "_key": "!items!Tr0wJlzsVhLZGNzY",
+  "folder": null,
+  "sort": 14,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Tinkerer",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Fixer.</strong> +1 Talent Die when fixing or constructing mechanical objects.</p><p><strong>Curious (Flaw).</strong> When you hear a peculiar noise or see an unopened chest or door, you must pass a CR 2 Smarts Check to resist investigating blindly.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.86</em></p>",
+    "page": 86,
+    "abilityName": "Fixer",
+    "abilitySummary": "+1 Talent Die when fixing or constructing mechanical objects.",
+    "abilityDescription": "<p>+1 Talent Die when fixing or constructing mechanical objects.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Fixer",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Fixing or constructing a mechanical object"
+        }
+      }
+    ],
+    "flawName": "Curious",
+    "flawSummary": "When you hear a peculiar noise or see an unopened chest or door, you must pass a CR 2 Smarts Check to resist investigating blindly.",
+    "flawDescription": "<p>When you hear a peculiar noise or see an unopened chest or door, you must pass a CR 2 Smarts Check to resist investigating blindly.</p>",
+    "flawAutomation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 2,
+        "label": "Curious (peculiar noise, or an unopened chest or door)",
+        "onSuccess": "You resist the urge.",
+        "onFail": "You must investigate it blindly."
+      }
+    ],
+    "archetype": "scholar"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-tinkerer"
+    }
+  }
+}

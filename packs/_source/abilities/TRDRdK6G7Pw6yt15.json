@@ -1,0 +1,68 @@
+{
+  "_id": "TRDRdK6G7Pw6yt15",
+  "_key": "!items!TRDRdK6G7Pw6yt15",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Madness",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Attack Action against one enemy: Opposed Strange Check vs its Smarts. On a win, roll a Skill Die to set its next Combat Turn: Grit/Wit it attacks another enemy, Smarts/Heart it moves away from you, Luck/Strange it attacks itself. Doom +2 when successful.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.63</em></p>",
+    "summary": "Attack Action against one enemy: Opposed Strange Check vs its Smarts. On a win, roll a Skill Die to set its next Combat Turn: Grit/Wit it attacks another enemy, Smarts/Heart it moves away from you, Luck/Strange it attacks itself. Doom +2 when successful.",
+    "archetype": "weird",
+    "node": "weird-madness",
+    "path": "eldritch",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Opposed vs the target's Smarts",
+        "onSuccess": "Roll a Skill Die for the target's next Combat Turn: Grit/Wit attack another enemy; Smarts/Heart move away from you; Luck/Strange attack itself. Doom +2.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 2
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Opposed check: target the enemy, then the Director rolls its Smarts and sets the CR so you need more successes. On a win, roll one Skill Die and the Director plays the target's next Combat Turn by the result."
+      }
+    ],
+    "page": 63,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-madness"
+    }
+  }
+}

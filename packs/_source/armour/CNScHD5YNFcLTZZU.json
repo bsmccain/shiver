@@ -1,0 +1,42 @@
+{
+  "_id": "CNScHD5YNFcLTZZU",
+  "_key": "!items!CNScHD5YNFcLTZZU",
+  "folder": null,
+  "sort": 11,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Helmet",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>1 Armour Slot. Lifesaver: if a Strike would take your Lifeline to 0 Health Points while the Helmet is equipped, the Helmet is permanently destroyed instead and you are left at 1 Health Point.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.153</em></p>",
+    "summary": "1 Armour Slot. Lifesaver: if a Strike would take your Lifeline to 0 Health Points while the Helmet is equipped, the Helmet is permanently destroyed instead and you are left at 1 Health Point.",
+    "page": 153,
+    "slots": 1,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Lifesaver",
+    "automation": [
+      {
+        "kind": "lifesaver"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "helmet"
+    }
+  }
+}

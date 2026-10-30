@@ -1,0 +1,56 @@
+{
+  "_id": "gSDBMPBHzg4L9JQw",
+  "_key": "!items!gSDBMPBHzg4L9JQw",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 6015,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Rubbing Off On You",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Allies within 15 ft of you may re-roll 1 die showing a Luck symbol on their Skill Checks.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "Allies within 15 ft of you may re-roll 1 die showing a Luck symbol on their Skill Checks.",
+    "archetype": "fool",
+    "node": "fool-rubbing-off-on-you",
+    "path": "accumulator",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "fool-core-plus-accumulator"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Allies within 15 ft of you may re-roll 1 die showing a Luck symbol on their Skill Checks."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-rubbing-off-on-you"
+    }
+  }
+}

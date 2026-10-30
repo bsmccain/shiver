@@ -1,0 +1,55 @@
+{
+  "_id": "q1Yu8vbylpxv81kI",
+  "_key": "!items!q1Yu8vbylpxv81kI",
+  "folder": null,
+  "sort": 12,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Holy Relic",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Heart; 3 Soul; Medium (50 ft); listed as melee. Ward: a targeted enemy that fails a CR 1 Heart Check spends its next Move Action retreating its full Move Distance straight away from you. Holy: counts as a Holy weapon.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.135</em></p>",
+    "summary": "Heart; 3 Soul; Medium (50 ft); listed as melee. Ward: a targeted enemy that fails a CR 1 Heart Check spends its next Move Action retreating its full Move Distance straight away from you. Holy: counts as a Holy weapon.",
+    "page": 135,
+    "category": "melee",
+    "skill": "heart",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "ward",
+      "holy"
+    ],
+    "material": "holy",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Ward: the target makes a CR 1 Heart Check. On a failure its next Move Action must take it its full Move Distance directly away from the bearer."
+      },
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "holy-relic"
+    }
+  }
+}

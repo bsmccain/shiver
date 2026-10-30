@@ -1,0 +1,57 @@
+{
+  "_id": "ip1zKmU8bbwVihwy",
+  "_key": "!items!ip1zKmU8bbwVihwy",
+  "folder": null,
+  "sort": 8,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Drill",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 3 Pierce; Close (5 ft). Tooled Up: +1 Talent Die on checks to repair vehicles or armour.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.134</em></p>",
+    "summary": "Smarts; 3 Pierce; Close (5 ft). Tooled Up: +1 Talent Die on checks to repair vehicles or armour.",
+    "page": 134,
+    "category": "melee",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "tooledUp"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Repairing a vehicle or armour (Drill)"
+        }
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "drill"
+    }
+  }
+}

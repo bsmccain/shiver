@@ -1,0 +1,70 @@
+{
+  "_id": "SAZehImgkWxKRpjE",
+  "_key": "!items!SAZehImgkWxKRpjE",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 1000,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Snap Out Of It!",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>On your Fear Checks you may re-roll any dice showing Heart symbols. OPDQ: roll a CR 1 Heart Check to lower an ally&#39;s Fear Status by 1 step.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.50</em></p>",
+    "summary": "On your Fear Checks you may re-roll any dice showing Heart symbols. OPDQ: roll a CR 1 Heart Check to lower an ally's Fear Status by 1 step.",
+    "archetype": "socialite",
+    "node": "socialite-snap-out-of-it",
+    "path": "core",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Passive: on your own Fear Checks, you may re-roll any dice that show Heart symbols.",
+        "when": "fear"
+      },
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": 1,
+        "label": "Target the ally to calm",
+        "onSuccess": "The targeted ally's Fear Status drops 1 step (Terrified to Afraid, or Afraid to Stable).",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "fearStep",
+            "amount": -1,
+            "target": "ally"
+          }
+        ]
+      }
+    ],
+    "page": 50,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-snap-out-of-it"
+    }
+  }
+}

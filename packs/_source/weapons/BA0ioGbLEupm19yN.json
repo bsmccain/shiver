@@ -1,0 +1,60 @@
+{
+  "_id": "BA0ioGbLEupm19yN",
+  "_key": "!items!BA0ioGbLEupm19yN",
+  "folder": null,
+  "sort": 28,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Zweihander",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Sharp; Near (15 ft); melee. Heavy: each Strike costs an Attack and an Interact Action. Two-hander: needs both hands free. Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.138</em></p>",
+    "summary": "Grit; 6 Sharp; Near (15 ft); melee. Heavy: each Strike costs an Attack and an Interact Action. Two-hander: needs both hands free. Cleave: if a Strike kills its target, the unused damage carries over to another enemy of your choice within Close Range (5 ft).",
+    "page": 138,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "heavy",
+      "twoHander",
+      "cleave"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Cleave: if this Strike killed the target, deal the leftover damage to another enemy of your choice within Close Range (5 ft)."
+      },
+      {
+        "kind": "custom",
+        "note": "Two-hander: needs both hands free."
+      },
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "zweihander"
+    }
+  }
+}

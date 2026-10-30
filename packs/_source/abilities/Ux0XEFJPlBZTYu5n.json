@@ -1,0 +1,117 @@
+{
+  "_id": "Ux0XEFJPlBZTYu5n",
+  "_key": "!items!Ux0XEFJPlBZTYu5n",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 7023,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hero's Resolve / Monster Hunter",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Pick one. Hero&#39;s Resolve: +1 Talent Die on Heart Checks with good NPCs or allies; -1 Skill Die when disguising yourself or on Heart Checks against enemies or NPCs aligned against your cause. Monster Hunter: +1 Talent Die on Strikes against non-human enemies; -1 Skill Die on Strikes against humans.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.75</em></p>",
+    "summary": "Pick one. Hero's Resolve: +1 Talent Die on Heart Checks with good NPCs or allies; -1 Skill Die when disguising yourself or on Heart Checks against enemies or NPCs aligned against your cause. Monster Hunter: +1 Talent Die on Strikes against non-human enemies; -1 Skill Die on Strikes against humans.",
+    "archetype": "survivor",
+    "node": "survivor-heros-resolve-monster-hunter",
+    "path": "chosen",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "survivor-power-through"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "heart",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear",
+            "deathsDoor",
+            "heal",
+            "removeStatus",
+            "save"
+          ],
+          "manual": true,
+          "label": "Hero's Resolve: Heart Check with a good NPC or an ally"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "fear",
+            "deathsDoor",
+            "heal",
+            "removeStatus",
+            "save"
+          ],
+          "manual": true,
+          "label": "Hero's Resolve: disguising yourself, or a Heart Check against an enemy or NPC opposed to your cause (-1 Skill Die)"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Monster Hunter: Strike against a non-human enemy"
+        }
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Monster Hunter: Strike against a human (-1 Skill Die)"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Choose Hero's Resolve or Monster Hunter when you take this, then delete the other option's two rules (or ignore their boxes)."
+      }
+    ],
+    "page": 75,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-heros-resolve-monster-hunter"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "_id": "PdA7aH89P41ehFwy",
+  "_key": "!items!PdA7aH89P41ehFwy",
+  "folder": null,
+  "sort": 48,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sawn-off Shotgun",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Blunt; Near (15 ft). Reload: needs an Interact Action to reload after each Strike. Spray&#39;n&#39;Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.144</em></p>",
+    "summary": "Grit; 6 Blunt; Near (15 ft). Reload: needs an Interact Action to reload after each Strike. Spray'n'Pray: every other enemy within 5 ft of the target must pass a CR 1 Luck Check or also be hit by the Strike.",
+    "page": 144,
+    "category": "ranged",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "reload",
+      "sprayNPray"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      },
+      {
+        "kind": "onHit",
+        "note": "Spray'n'Pray: each other enemy within 5 ft of the target makes a CR 1 Luck Check. Those that fail are also hit by this Strike."
+      },
+      {
+        "kind": "ranged"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "sawn-off-shotgun"
+    }
+  }
+}

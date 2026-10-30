@@ -1,0 +1,73 @@
+{
+  "_id": "jKoeeBnCj4gwivBz",
+  "_key": "!items!jKoeeBnCj4gwivBz",
+  "folder": null,
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Gentle Giant",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Feed the Rabbits.</strong> +1 Talent Die when interacting with animals.</p><p><strong>Pacifist (Flaw).</strong> Lose 1 Skill Die when Striking humans or animals.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.81</em></p>",
+    "page": 81,
+    "abilityName": "Feed the Rabbits",
+    "abilitySummary": "+1 Talent Die when interacting with animals.",
+    "abilityDescription": "<p>+1 Talent Die when interacting with animals.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Feed the Rabbits",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Interacting with animals"
+        }
+      }
+    ],
+    "flawName": "Pacifist",
+    "flawSummary": "Lose 1 Skill Die when Striking humans or animals.",
+    "flawDescription": "<p>Lose 1 Skill Die when Striking humans or animals.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Pacifist",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "tags": [
+            "strike"
+          ],
+          "manual": true,
+          "label": "Striking a human or an animal"
+        }
+      }
+    ],
+    "archetype": "warrior"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-gentle-giant"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "_id": "imy0rR8zRbslPZfl",
+  "_key": "!items!imy0rR8zRbslPZfl",
+  "folder": null,
+  "sort": 31,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Sheriff",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Quick-Draw.</strong> If you&#39;re using a ranged weapon when a Combat Encounter starts, you may make a Strike with it after Combat States are set and before the first Combat Round.</p><p><strong>Too Many Doughnuts (Flaw).</strong> Your Move Distance is 5 ft lower, whatever your Speed.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.93</em></p>",
+    "page": 93,
+    "abilityName": "Quick-Draw",
+    "abilitySummary": "If you're using a ranged weapon when a Combat Encounter starts, you may make a Strike with it after Combat States are set and before the first Combat Round.",
+    "abilityDescription": "<p>If you&#39;re using a ranged weapon when a Combat Encounter starts, you may make a Strike with it after Combat States are set and before the first Combat Round.</p>",
+    "action": "free",
+    "uses": {
+      "per": "encounter",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "At the start of a Combat Encounter, if you're using a ranged weapon, make one Strike with it after Combat States are set and before Combat Round 1."
+      }
+    ],
+    "flawName": "Too Many Doughnuts",
+    "flawSummary": "Your Move Distance is 5 ft lower, whatever your Speed.",
+    "flawDescription": "<p>Your Move Distance is 5 ft lower, whatever your Speed.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Reduce your Move Distance by 5 ft at every Speed: Slow 15 ft, Average 25 ft, Fast 35 ft."
+      }
+    ],
+    "archetype": "survivor"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-sheriff"
+    }
+  }
+}

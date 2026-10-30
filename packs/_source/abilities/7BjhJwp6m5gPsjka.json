@@ -1,0 +1,56 @@
+{
+  "_id": "7BjhJwp6m5gPsjka",
+  "_key": "!items!7BjhJwp6m5gPsjka",
+  "folder": "6lXR98WER43bT8Gm",
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Wind Walker",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Once per Doom Quarter, use a Move Action to teleport up to 60 ft. Every enemy within 5 ft of where you started or where you arrive is knocked Prone.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.95</em></p>",
+    "summary": "Once per Doom Quarter, use a Move Action to teleport up to 60 ft. Every enemy within 5 ft of where you started or where you arrive is knocked Prone.",
+    "page": 95,
+    "archetype": "survivor",
+    "node": "ewf-wind-walker",
+    "path": "ewf",
+    "tier": 10,
+    "tree": false,
+    "action": "move",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "prone",
+        "target": "enemy"
+      },
+      {
+        "kind": "custom",
+        "note": "Target the enemies within 5 ft of your starting point and of your destination, then Use to knock them Prone (no save). Move your token up to 60 ft."
+      }
+    ],
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ewf-wind-walker"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "_id": "lGYBTjSBOKe6CANr",
+  "_key": "!items!lGYBTjSBOKe6CANr",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 3005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sweep",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>If enemies are within Close Range (5 ft) of you and of each other, one Attack Action makes Strikes on up to 3 of them. Each successful Strike deals half damage, rounded down, and knocks that enemy back 10 ft.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "If enemies are within Close Range (5 ft) of you and of each other, one Attack Action makes Strikes on up to 3 of them. Each successful Strike deals half damage, rounded down, and knocks that enemy back 10 ft.",
+    "archetype": "warrior",
+    "node": "warrior-sweep",
+    "path": "fighter",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "warrior-stun"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "strikeMode",
+        "label": "Sweep",
+        "damageMultiplier": 0.5,
+        "onHit": [
+          {
+            "kind": "onHit",
+            "note": "Sweep: knock this enemy back 10 ft."
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Target up to 3 enemies that are all within 5 ft of you and of each other, then Strike in Sweep mode."
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-sweep"
+    }
+  }
+}

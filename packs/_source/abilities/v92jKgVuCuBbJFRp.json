@@ -1,0 +1,82 @@
+{
+  "_id": "v92jKgVuCuBbJFRp",
+  "_key": "!items!v92jKgVuCuBbJFRp",
+  "folder": "6lXR98WER43bT8Gm",
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Lightning Arc",
+  "type": "ability",
+  "img": "icons/svg/lightning.svg",
+  "system": {
+    "description": "<p>Once per Doom Quarter, use an Attack Action to Strike for 5 Shock damage at Medium Range (50 ft). If you hit and another enemy is within 20 ft, roll a CR 1 Smarts Check; on success the lightning chains to that enemy and damages it too. The chain can reach up to 5 more enemies.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.95</em></p>",
+    "summary": "Once per Doom Quarter, use an Attack Action to Strike for 5 Shock damage at Medium Range (50 ft). If you hit and another enemy is within 20 ft, roll a CR 1 Smarts Check; on success the lightning chains to that enemy and damages it too. The chain can reach up to 5 more enemies.",
+    "page": 95,
+    "archetype": "survivor",
+    "node": "ewf-lightning-arc",
+    "path": "ewf",
+    "tier": 10,
+    "tree": false,
+    "action": "attack",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Lightning Arc: if another enemy is within 20 ft, post the power to chat (speech-bubble icon), target that enemy and click the CR 1 Smarts roll button to chain to it."
+      },
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "label": "Chain to the next enemy",
+        "onSuccess": "The targeted enemy takes 5 Shock damage (Grit CR 1 or Stunned); the arc can jump again from it.",
+        "onFail": "The chain stops.",
+        "success": [
+          {
+            "kind": "damage",
+            "amount": 5,
+            "type": "shock",
+            "target": "enemy",
+            "strike": true
+          },
+          {
+            "kind": "applyStatus",
+            "status": "stunned",
+            "target": "enemy",
+            "save": {
+              "skill": "grit",
+              "cr": 1
+            }
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Chain: after a hit, post this power to chat (speech-bubble icon), target one more enemy within 20 ft of the last one hit and click the Smarts roll button. Repeat for each jump, up to 5 extra enemies; the chain roll doesn't spend the power's use."
+      }
+    ],
+    "attack": {
+      "skill": "smarts",
+      "damage": 5,
+      "damageType": "shock",
+      "range": "medium",
+      "ranged": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ewf-lightning-arc"
+    }
+  }
+}

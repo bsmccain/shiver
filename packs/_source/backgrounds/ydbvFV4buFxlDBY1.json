@@ -1,0 +1,52 @@
+{
+  "_id": "ydbvFV4buFxlDBY1",
+  "_key": "!items!ydbvFV4buFxlDBY1",
+  "folder": null,
+  "sort": 32,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The New Kid",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>All Rounder.</strong> Gain the starting ability of an Archetype Tree other than your own.</p><p><strong>Blank Slate (Flaw).</strong> You have two Flaws, which you pick from any other Backgrounds.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.93</em></p>",
+    "page": 93,
+    "abilityName": "All Rounder",
+    "abilitySummary": "Gain the starting ability of an Archetype Tree other than your own.",
+    "abilityDescription": "<p>Gain the starting ability of an Archetype Tree other than your own.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Add the Tier 1 starting ability of another Archetype's tree to your character."
+      }
+    ],
+    "flawName": "Blank Slate",
+    "flawSummary": "You have two Flaws, which you pick from any other Backgrounds.",
+    "flawDescription": "<p>You have two Flaws, which you pick from any other Backgrounds.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "Instead of this Flaw, pick two Flaws from other Backgrounds and add them to your character."
+      }
+    ],
+    "archetype": "survivor"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-new-kid"
+    }
+  }
+}

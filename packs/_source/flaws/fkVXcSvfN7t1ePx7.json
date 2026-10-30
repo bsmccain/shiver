@@ -1,0 +1,35 @@
+{
+  "_id": "fkVXcSvfN7t1ePx7",
+  "_key": "!items!fkVXcSvfN7t1ePx7",
+  "folder": null,
+  "sort": 5,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Curse",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>Every Doom Clock increase you cause is doubled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "Every Doom Clock increase you cause is doubled.",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "doomModifier",
+        "multiplyIncrease": 2
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-the-curse"
+    }
+  }
+}

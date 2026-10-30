@@ -1,0 +1,72 @@
+{
+  "_id": "iJ1r4kSPbJ0b68n7",
+  "_key": "!items!iJ1r4kSPbJ0b68n7",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 7028,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Levitation",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Interact Action: start levitating up to a height equal to your Move Distance. Doom +2 for every Combat Round you are airborne. Outside combat, Doom +1, with more at the Director&#39;s discretion if the flight is sustained.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.67</em></p>",
+    "summary": "Interact Action: start levitating up to a height equal to your Move Distance. Doom +2 for every Combat Round you are airborne. Outside combat, Doom +1, with more at the Director's discretion if the flight is sustained.",
+    "archetype": "weird",
+    "node": "weird-levitation",
+    "path": "psionic",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "weird-psi-blast"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "doom",
+        "amount": 2,
+        "when": {
+          "manual": true,
+          "label": "Each Combat Round airborne"
+        }
+      },
+      {
+        "kind": "doom",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Used outside a Combat Encounter"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Maximum height = your Move Distance. In combat tick Doom +2 each round you stay airborne; outside combat tick Doom +1, more if the Director rules the flight is sustained."
+      }
+    ],
+    "page": 67,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-levitation"
+    }
+  }
+}

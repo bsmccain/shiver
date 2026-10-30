@@ -1,0 +1,50 @@
+{
+  "_id": "DxVQM9oO2HQvsfyf",
+  "_key": "!items!DxVQM9oO2HQvsfyf",
+  "folder": null,
+  "sort": 34,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Flintlock Pistol",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 3 Pierce; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.140</em></p>",
+    "summary": "Wit; 3 Pierce; Medium (50 ft). Reload: needs an Interact Action to reload after each Strike.",
+    "page": 140,
+    "category": "ranged",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 3,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "reload"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "reload"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "flintlock-pistol"
+    }
+  }
+}

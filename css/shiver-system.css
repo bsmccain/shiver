@@ -1,0 +1,299 @@
+/* SHIVER system UI: chat cards, dialogs, Doom Clock, combat tracker, sheets, Archetype Tree. */
+:root {
+  --shiver-red: #a3202a;
+  --shiver-red-dark: #6b1018;
+  --shiver-bone: #ece4d0;
+  --shiver-ink: #1d1a17;
+  --shiver-purple: #6e3fa3;
+  --shiver-green: #2f7a3b;
+  --shiver-gold: #b8860b;
+  --shiver-muted: #7a736a;
+}
+
+/* ---------------- Chat cards ---------------- */
+.shiver-card { font-size: var(--font-size-13, 13px); line-height: 1.35; }
+.shiver-card h3 { margin: 0; font-size: 1.05em; border: none; }
+.shiver-card .card-header { display: flex; gap: 6px; align-items: center; margin-bottom: 4px; }
+.shiver-card .card-header img { width: 32px; height: 32px; border: none; flex: 0 0 32px; object-fit: contain; }
+.shiver-card .titles { flex: 1; min-width: 0; }
+.shiver-card .subtitle { font-size: 0.85em; opacity: 0.8; }
+.shiver-card .dice-faces { display: flex; flex-wrap: wrap; gap: 2px; margin: 4px 0; }
+.shiver-card .dice-faces .face { width: 30px; height: 30px; border: 1px solid rgba(0,0,0,0.25); border-radius: 4px; background: rgba(255,255,255,0.08); padding: 1px; }
+.shiver-card .dice-faces .face.d8 { border-radius: 8px; }
+.shiver-card .dice-faces .face.counts { border-color: var(--shiver-green); box-shadow: 0 0 4px rgba(47,122,59,0.8); }
+.shiver-card .dice-faces .face.blank { opacity: 0.45; }
+.shiver-card .dice-faces.assist { opacity: 0.85; }
+.shiver-card .assist-label { font-size: 0.8em; align-self: center; margin-right: 4px; }
+.shiver-card .tally, .shiver-tally { display: flex; flex-wrap: wrap; gap: 3px; margin: 3px 0; }
+.shiver-card .tally .sym, .shiver-tally .sym { font-size: 0.8em; padding: 0 5px; border-radius: 8px; background: rgba(127,127,127,0.25); }
+.sym-strange { color: #c9a3ff; }
+.sym-luck { color: #7fd38a; }
+.sym-talent { color: #f0c94a; }
+.shiver-card .result-line { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; margin: 4px 0; font-size: 1.05em; }
+.shiver-card .result-line .outcome { margin-left: auto; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+.shiver-card.outcome-failure .result-line .outcome { color: #e06060; }
+.shiver-card.outcome-success .result-line .outcome { color: #6fcf7a; }
+.shiver-card.outcome-critical .result-line .outcome, .shiver-card.outcome-fullHouse .result-line .outcome { color: #f0c94a; }
+.shiver-card .badge { font-size: 0.75em; padding: 0 6px; border-radius: 8px; background: var(--shiver-gold); color: #111; }
+.shiver-card .gm-cr { font-size: 0.8em; opacity: 0.7; border: 1px dashed currentColor; padding: 0 4px; border-radius: 4px; }
+.shiver-card .note { font-size: 0.85em; opacity: 0.9; margin: 2px 0; }
+.shiver-card .note.warning, .shiver-check-form .warning { color: #e06060; }
+.shiver-card .pending-note { font-style: italic; opacity: 0.75; }
+.shiver-card .card-buttons { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.shiver-card .card-buttons button, .shiver-card .set-cr button { flex: 1 1 auto; line-height: 1.6; min-height: 24px; padding: 0 6px; font-size: 0.9em; }
+.shiver-card .set-cr { display: flex; gap: 3px; align-items: center; margin: 4px 0; }
+.shiver-card .set-cr span { font-size: 0.85em; margin-right: 4px; }
+.shiver-card .set-cr button { flex: 0 0 28px; }
+.shiver-card .luck-choice p { margin: 4px 0 2px; font-size: 0.9em; }
+.shiver-card ul.results { list-style: none; margin: 4px 0 0; padding: 4px 0 0; border-top: 1px solid rgba(127,127,127,0.35); }
+.shiver-card ul.results li { font-size: 0.9em; }
+.shiver-card ul.results li.doom { color: #e06060; }
+.shiver-card ul.results li.doom-back, .shiver-card ul.results li.luck { color: #6fcf7a; }
+.shiver-card ul.results li.fear { color: #c9a3ff; }
+.shiver-card .attack-block { margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(127,127,127,0.35); }
+.shiver-card .weapon-line { font-size: 0.9em; margin-bottom: 3px; }
+.shiver-card .target-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding: 2px 0; }
+.shiver-card .target-row img { width: 24px; height: 24px; border: none; }
+.shiver-card .target-row .outcome { font-weight: bold; }
+.shiver-card .target-row.miss .outcome { color: #e06060; }
+.shiver-card .target-row.hit .outcome { color: #6fcf7a; }
+.shiver-card .target-row .damage { font-weight: bold; }
+.shiver-card .target-row button { flex: 0 0 auto; line-height: 1.5; font-size: 0.85em; padding: 0 6px; margin-left: auto; }
+.shiver-card .target-row .applied { margin-left: auto; font-size: 0.85em; opacity: 0.8; }
+.shiver-card .damage-steps { margin: 2px 0; padding-left: 16px; font-size: 0.9em; }
+.shiver-card .armour-rolls { display: flex; flex-wrap: wrap; gap: 4px; margin: 3px 0; }
+.shiver-card .armour-die { display: inline-flex; align-items: center; gap: 2px; font-size: 0.8em; }
+.shiver-card .armour-die img { width: 22px; height: 22px; border: 1px solid rgba(0,0,0,0.25); border-radius: 3px; }
+.shiver-card .armour-die.blocked img { border-color: var(--shiver-green); }
+.shiver-card .armour-die.wound img { border-color: #e06060; }
+.shiver-doom-log { font-size: 0.9em; }
+.shiver-doom-log .reason { opacity: 0.75; font-size: 0.9em; }
+.shiver-doom-event { border-left: 3px solid var(--shiver-red); padding-left: 6px; }
+.shiver-doom-event h3 { color: #e06060; }
+.shiver-reaction.reacts .reaction-text { font-weight: bold; }
+.shiver-opposed .opposed-side { display: flex; gap: 6px; align-items: center; padding: 2px 0; }
+.shiver-opposed .opposed-side.win .side-name { color: #6fcf7a; font-weight: bold; }
+.shiver-opposed .opposed-side.lose { opacity: 0.6; }
+.shiver-opposed .opposed-side button { margin-left: auto; flex: 0 0 auto; line-height: 1.5; padding: 0 6px; }
+.shiver-group .group-entries { margin: 2px 0; padding-left: 16px; }
+.shiver-hidden-total { display: none; }
+.shiver-dead h3, .shiver-deaths-door h3 { color: #e06060; }
+
+/* ---------------- Check dialog ---------------- */
+.shiver-check-dialog .shiver-check-form { display: flex; flex-direction: column; gap: 6px; }
+.shiver-check-form .form-group { display: flex; align-items: center; gap: 6px; margin: 0; }
+.shiver-check-form .form-group label { flex: 1 1 auto; }
+.shiver-check-form .form-group input[type=number] { flex: 0 0 52px; text-align: center; }
+.shiver-check-form fieldset { margin: 0; padding: 4px 8px; }
+.shiver-check-form label.checkbox { display: flex; gap: 4px; align-items: center; font-size: 0.95em; }
+.shiver-check-form .hint { font-size: 0.85em; opacity: 0.75; margin: 2px 0; }
+.shiver-check-form .combined-skills { display: grid; grid-template-columns: repeat(3, 1fr); }
+.shiver-check-form .pool-preview { text-align: center; font-size: 1.05em; margin: 4px 0 0; padding: 4px; border-radius: 4px; background: rgba(127,127,127,0.15); }
+
+/* ---------------- Doom Clock ---------------- */
+#shiver-doom-clock .window-content { padding: 6px; background: #1b1416; color: #ece4d0; }
+#shiver-doom-clock .window-header { background: #2a1a1c; color: #ece4d0; }
+#shiver-doom-clock button { color: #ece4d0; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); }
+.doom-clock { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.doom-dial { width: 130px; height: 130px; }
+.doom-dial .face { fill: #151012; stroke: #4a3c3c; stroke-width: 2; }
+.doom-dial .fill { fill: rgba(163, 32, 42, 0.75); }
+.doom-dial .tick { stroke: #6b5d5d; stroke-width: 1; }
+.doom-dial .tick.major { stroke: #ece4d0; stroke-width: 2.5; }
+.doom-dial .tick.passed { stroke: #ff6b6b; }
+.doom-dial .hand { stroke: #ece4d0; stroke-width: 3; stroke-linecap: round; }
+.doom-dial .hub { fill: #ece4d0; }
+.doom-dial .mark { fill: #c9bfa7; font-size: 9px; font-family: var(--font-primary, sans-serif); }
+.doom-clock.midnight .doom-dial .face { animation: shiver-pulse 1.6s ease-in-out infinite; }
+@keyframes shiver-pulse { 0%, 100% { fill: #151012; } 50% { fill: #4a0d12; } }
+.doom-readout { text-align: center; }
+.doom-minutes { font-size: 1.1em; }
+.doom-minutes strong { font-size: 1.3em; color: #ff8080; }
+.doom-label { font-weight: bold; letter-spacing: 0.04em; }
+.doom-meta, .doom-next { font-size: 0.85em; opacity: 0.8; }
+.doom-controls { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; }
+.doom-controls button { flex: 0 0 auto; min-width: 28px; line-height: 1.6; padding: 0 5px; font-size: 0.85em; }
+.doom-tools { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 4px; }
+.doom-tools button { flex: 0 0 auto; line-height: 1.6; padding: 0 5px; font-size: 0.8em; }
+
+/* ---------------- Combat tracker ---------------- */
+.shiver-tracker .combat-state-header { padding: 2px 8px; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.85;
+  background: linear-gradient(90deg, rgba(163,32,42,0.45), transparent); border: none; list-style: none; }
+.shiver-tracker .combat-state-header.state-first { background: linear-gradient(90deg, rgba(47,122,59,0.5), transparent); }
+.shiver-tracker .combat-state-header.state-last { background: linear-gradient(90deg, rgba(110,63,163,0.5), transparent); }
+.shiver-tracker .shiver-actions { display: flex; gap: 2px; align-items: center; margin-top: 2px; }
+.shiver-tracker .action-pip { flex: 0 0 auto; width: auto; min-width: 22px; height: 20px; line-height: 18px; padding: 0 3px; font-size: 0.75em; border-radius: 4px; }
+.shiver-tracker .action-pip.used { background: rgba(255,200,80,0.25); }
+.shiver-tracker .action-pip.spent { opacity: 0.35; text-decoration: line-through; }
+.shiver-tracker .fear-tag { font-size: 0.7em; color: #c9a3ff; margin-left: 4px; }
+.shiver-tracker .shiver-state { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex: 0 0 auto; }
+.shiver-tracker .shiver-state .shift { width: 18px; height: 14px; line-height: 12px; font-size: 0.75em; }
+.shiver-tracker .state-buttons { display: flex; gap: 1px; }
+.shiver-tracker .state-btn { font-size: 0.6em; padding: 0 3px; line-height: 1.4; height: auto; min-width: 0; opacity: 0.55; }
+.shiver-tracker .state-btn.active { opacity: 1; background: var(--shiver-red); color: #fff; }
+
+/* ---------------- Sheets ---------------- */
+.shiver.sheet .window-content { background: #efe9dc; color: var(--shiver-ink); }
+.shiver.sheet .shiver-header { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start; }
+.shiver.sheet .shiver-header .profile-img { flex: 0 0 110px; height: 110px; object-fit: cover; border: 2px solid var(--shiver-ink); }
+.shiver.sheet .header-main { flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.shiver.sheet .header-row { display: flex; gap: 6px; align-items: flex-end; }
+.shiver.sheet .field { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; }
+.shiver.sheet .field.small { flex: 0.7 1 0; }
+.shiver.sheet .field.tiny { flex: 0 0 52px; }
+.shiver.sheet .field > label { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.06em; color: var(--shiver-muted); border-top: 1px solid var(--shiver-ink); }
+.shiver.sheet .field input[type=text], .shiver.sheet .field input[type=number], .shiver.sheet .field select { background: transparent; border: none; border-radius: 0; height: 26px; }
+.shiver.sheet .name-field input { font-size: 1.4em; font-weight: bold; height: 32px; }
+.shiver.sheet .archetype-name { font-weight: bold; line-height: 26px; }
+.shiver.sheet .choose-archetype, .shiver.sheet .tree-button { line-height: 22px; height: 26px; padding: 0 6px; font-size: 0.9em; }
+.shiver.sheet .points-field.unspent .tree-button { background: var(--shiver-gold); color: #111; }
+.shiver.sheet .points-field.overspent .tree-button { background: #e06060; color: #111; }
+.shiver.sheet .luck-bank .pips { display: flex; gap: 4px; height: 26px; align-items: center; }
+.shiver.sheet .luck-pip { font-size: 1.2em; color: #bdb4a3; }
+.shiver.sheet .luck-pip.filled { color: var(--shiver-green); }
+.shiver.sheet .fear-buttons { display: flex; gap: 2px; height: 26px; align-items: center; }
+.shiver.sheet .fear-level { padding: 0 5px; border: 1px solid var(--shiver-ink); border-radius: 3px; font-size: 0.8em; opacity: 0.55; }
+.shiver.sheet .fear-level.active { opacity: 1; color: #fff; background: var(--shiver-ink); }
+.shiver.sheet .fear-level.level-afraid.active { background: #8a5a00; }
+.shiver.sheet .fear-level.level-terrified.active { background: var(--shiver-red); }
+.shiver.sheet .fear-roll { padding: 0 3px; }
+.shiver.sheet .speed-line { display: flex; gap: 4px; align-items: center; height: 26px; }
+.shiver.sheet .speed-line select { flex: 0 0 80px; }
+.shiver.sheet .speed-value { font-size: 0.85em; white-space: nowrap; }
+.shiver.sheet .cr-value { font-size: 1.4em; font-weight: bold; text-align: center; line-height: 26px; }
+.shiver.sheet .lifeline-block { flex: 1 1 100%; }
+.shiver.sheet .lifeline { display: flex; gap: 2px; }
+.shiver.sheet .life-box { flex: 1 1 0; height: 24px; border: 2px solid var(--shiver-ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fffaf0; color: var(--shiver-red); font-size: 1.1em; }
+.shiver.sheet .life-box.quarter { border-right-width: 4px; }
+.shiver.sheet .life-box.wounded { background: #f3d7d2; }
+.shiver.sheet .lifeline-labels { display: grid; grid-template-columns: repeat(4, 1fr); font-size: 0.65em; text-transform: uppercase; letter-spacing: 0.06em; text-align: right; opacity: 0.5; }
+.shiver.sheet .lifeline-labels.nightmare { opacity: 1; color: var(--shiver-red); }
+.shiver.sheet .lifeline-info { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 0.85em; margin-top: 2px; }
+.shiver.sheet .lifeline-info .hp-input { width: 44px; height: 22px; text-align: center; }
+.shiver.sheet .lifeline-info .penalty { color: var(--shiver-red); font-weight: bold; }
+.shiver.sheet .lifeline-info .deaths-door { background: var(--shiver-red); color: #fff; line-height: 20px; height: 22px; flex: 0 0 auto; }
+.shiver.sheet .lifeline-info .dead-tag { color: var(--shiver-red); font-weight: bold; }
+.shiver.sheet .sheet-tabs { margin: 6px 0 4px; border-top: 1px solid var(--shiver-ink); border-bottom: 1px solid var(--shiver-ink); }
+.shiver.sheet .sheet-body { overflow-y: auto; }
+.shiver.sheet .skill-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.shiver.sheet .skill-card { display: flex; flex-direction: column; align-items: center; padding: 6px 2px; border: 1px solid rgba(0,0,0,0.2); border-radius: 6px; background: #fbf7ee; }
+.shiver.sheet .skill-card.deficiency { border-style: dashed; }
+.shiver.sheet .skill-card.modified { box-shadow: inset 0 0 0 2px rgba(184,134,11,0.4); }
+.shiver.sheet .skill-img { width: 56px; height: 56px; border: none; cursor: pointer; }
+.shiver.sheet .skill-img:hover { filter: drop-shadow(0 0 6px var(--shiver-red)); }
+.shiver.sheet .skill-name { font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85em; margin: 2px 0; }
+.shiver.sheet .skill-values { display: flex; gap: 4px; }
+.shiver.sheet .value-box { display: flex; flex-direction: column; align-items: center; position: relative; }
+.shiver.sheet .value-box input { width: 38px; height: 28px; text-align: center; font-size: 1.15em; font-weight: bold; }
+.shiver.sheet .value-box.talent input { color: var(--shiver-gold); }
+.shiver.sheet .value-box label { font-size: 0.65em; text-transform: uppercase; color: var(--shiver-muted); }
+.shiver.sheet .value-box .total { position: absolute; top: -6px; right: -6px; font-size: 0.7em; background: var(--shiver-gold); color: #111; border-radius: 8px; padding: 0 4px; }
+.shiver.sheet .quick-checks { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.shiver.sheet .quick-checks button { flex: 1 1 auto; line-height: 1.6; font-size: 0.9em; }
+.shiver.sheet .archetype-summary { font-size: 0.85em; margin-top: 6px; opacity: 0.85; }
+.shiver.sheet .section-title { display: flex; align-items: center; gap: 8px; margin: 8px 0 2px; font-size: 1em; border-bottom: 1px solid var(--shiver-ink); }
+.shiver.sheet .section-title .slot-usage { font-size: 0.75em; font-weight: normal; margin-left: auto; }
+.shiver.sheet .section-title .slot-usage.over { color: var(--shiver-red); font-weight: bold; }
+.shiver.sheet .items-list { list-style: none; margin: 0; padding: 0; }
+.shiver.sheet .items-list li.item { border-bottom: 1px solid rgba(0,0,0,0.12); padding: 3px 0; }
+.shiver.sheet .items-list li.empty { font-size: 0.85em; opacity: 0.6; padding: 4px; }
+.shiver.sheet .item-main { display: flex; align-items: center; gap: 6px; }
+.shiver.sheet .item-main img { border: none; flex: 0 0 auto; }
+.shiver.sheet .item-name { font-weight: bold; flex: 0 1 auto; }
+.shiver.sheet .tags { display: flex; flex-wrap: wrap; gap: 3px; flex: 1; }
+.shiver.sheet .tag { font-size: 0.72em; padding: 0 5px; border-radius: 8px; background: rgba(0,0,0,0.08); white-space: nowrap; }
+.shiver.sheet .tag.heavy, .shiver.sheet .tag.flaw, .shiver.sheet .tag.broken, .shiver.sheet .tag.doom { background: rgba(163,32,42,0.15); color: var(--shiver-red-dark); }
+.shiver.sheet .tag.uses { background: rgba(184,134,11,0.2); }
+.shiver.sheet .tag.disrupt { background: var(--shiver-purple); color: #fff; }
+.shiver.sheet .item-controls { display: flex; gap: 6px; flex: 0 0 auto; }
+.shiver.sheet .item-controls .warn { color: var(--shiver-red); }
+.shiver.sheet .item-controls .active { color: var(--shiver-green); }
+.shiver.sheet .item-controls .use { color: var(--shiver-red-dark); }
+.shiver.sheet .item-description { font-size: 0.9em; padding: 4px 8px; background: rgba(255,255,255,0.5); border-radius: 4px; margin-top: 2px; }
+.shiver.sheet .custom-note { margin: 2px 0; font-style: italic; }
+.shiver.sheet .unequipped { opacity: 0.55; }
+.shiver.sheet .broken .item-name { text-decoration: line-through; }
+.shiver.sheet .tier { display: inline-flex; width: 20px; height: 20px; border-radius: 50%; background: var(--shiver-ink); color: #fff; align-items: center; justify-content: center; font-size: 0.75em; flex: 0 0 20px; }
+.shiver.sheet .slot-hp { display: flex; gap: 6px; }
+.shiver.sheet .armour-slot { display: inline-flex; gap: 2px; padding: 1px 3px; border: 1px solid var(--shiver-ink); border-radius: 8px 8px 10px 10px; }
+.shiver.sheet .hp-pip { width: 10px; height: 10px; border-radius: 50%; border: 1px solid var(--shiver-ink); }
+.shiver.sheet .hp-pip.filled { background: var(--shiver-ink); }
+.shiver.sheet .combat-turn { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 4px; background: rgba(163,32,42,0.08); border-radius: 4px; }
+.shiver.sheet .combat-turn .action-pip { padding: 0 6px; border: 1px solid var(--shiver-ink); border-radius: 4px; font-size: 0.85em; }
+.shiver.sheet .combat-turn .action-pip.used { background: rgba(184,134,11,0.25); }
+.shiver.sheet .combat-turn .action-pip.spent { opacity: 0.5; text-decoration: line-through; }
+.shiver.sheet .status-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.shiver.sheet .status { display: flex; align-items: center; gap: 4px; padding: 1px 4px; border-radius: 4px; font-size: 0.85em; opacity: 0.55; }
+.shiver.sheet .status.active { opacity: 1; background: rgba(163,32,42,0.12); font-weight: bold; }
+.shiver.sheet .status img { width: 18px; height: 18px; border: none; vertical-align: middle; filter: invert(0.8); }
+.shiver.sheet .status-toggle { flex: 1; }
+.shiver.sheet .status-controls { display: flex; gap: 4px; }
+.shiver.sheet .abilities-header { display: flex; gap: 6px; align-items: center; }
+.shiver.sheet .abilities-header button { flex: 1; line-height: 1.8; }
+.shiver.sheet .deathcon-amber select { color: #c96a2b; }
+.shiver.sheet .deathcon-blue select { color: #3a7cc9; }
+.shiver.sheet .deathcon-yellow select { color: #a88a00; }
+.shiver.sheet .deathcon-red select { color: #d01020; }
+.shiver.sheet .deathcon-black select { color: #000; font-weight: bold; }
+.shiver.sheet .hp-pair input { width: 44px; }
+.shiver.sheet .extra-actions .trio { display: flex; gap: 2px; }
+.shiver.sheet .extra-actions .trio input { width: 32px; text-align: center; }
+.shiver.sheet .damage-mods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 6px; }
+.shiver.sheet .damage-mod { padding: 2px 6px; font-size: 0.85em; }
+.shiver.sheet .damage-mod .mod-types { display: grid; grid-template-columns: repeat(2, 1fr); }
+.shiver.sheet .reaction-table { width: 100%; }
+.shiver.sheet .reaction-table tr.inactive { opacity: 0.45; }
+.shiver.sheet .reaction-table .standard { font-size: 0.85em; }
+.shiver.sheet.item .item-subtitle { display: flex; gap: 6px; align-items: center; font-size: 0.85em; opacity: 0.85; }
+.shiver.sheet.item .use-button { margin-left: auto; flex: 0 0 auto; line-height: 1.6; }
+.shiver.sheet.item .form-grid .form-group { margin: 3px 0; }
+.shiver.sheet.item .checks { display: flex; flex-wrap: wrap; gap: 6px; }
+.shiver.sheet.item .rules-json { width: 100%; font-family: monospace; font-size: 0.8em; min-height: 160px; }
+.shiver.sheet.item .rule-list { font-size: 0.9em; }
+.shiver.sheet.item .summary { font-style: italic; }
+
+/* ---------------- Archetype Tree ---------------- */
+.shiver-tree .window-content { padding: 8px; background: #1b1416; color: #ece4d0; }
+.archetype-tree { display: flex; flex-direction: column; gap: 6px; height: 100%; }
+.archetype-tree .tree-header { display: flex; align-items: center; gap: 8px; }
+.archetype-tree .tree-tabs { display: flex; gap: 4px; flex: 1; }
+.archetype-tree .tree-tabs button { flex: 0 0 auto; line-height: 1.8; }
+.archetype-tree .tree-tabs button.active { background: var(--shiver-red); color: #fff; }
+.archetype-tree .tree-points.unspent { color: #f0c94a; font-weight: bold; }
+.archetype-tree .tree-intro { font-size: 0.9em; margin: 0; opacity: 0.85; }
+.archetype-tree .tree-scroll { flex: 1; overflow: auto; }
+.archetype-tree .tree-grid { position: relative; display: grid; grid-template-rows: 1.6rem repeat(10, 4.4rem); gap: 6px 4px; padding-right: 3rem; }
+.archetype-tree .tree-links { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.archetype-tree .tree-links path { fill: none; stroke: rgba(236,228,208,0.25); stroke-width: 2; }
+.archetype-tree .tree-links path.active { stroke: #f0a040; stroke-width: 3; }
+.archetype-tree .tier-label { align-self: center; font-size: 0.7em; text-transform: uppercase; opacity: 0.6; }
+.archetype-tree .path-label { text-align: center; font-weight: bold; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85em; }
+.archetype-tree .tree-node { position: relative; z-index: 1; margin: 0 2px; align-self: center; min-height: 3.6rem; display: flex; align-items: center; justify-content: center;
+  text-align: center; font-size: 0.78em; font-weight: bold; padding: 4px; border-radius: 10px; border: 2px solid #5a4f4a; background: #241e1d; color: #b9ae9b; }
+.archetype-tree .tree-node.kind-bonus { border-radius: 50%; border-style: dashed; font-weight: normal; }
+.archetype-tree .tree-node.have { background: #c96a2b; color: #111; border-color: #f0a040; }
+.archetype-tree .tree-node.available { border-color: #f0c94a; box-shadow: 0 0 8px rgba(240,201,74,0.6); color: #f3ead2; }
+.archetype-tree .tree-node.locked { opacity: 0.55; }
+.archetype-tree .tree-node .node-unlock, .archetype-tree .tree-node .node-remove { position: absolute; top: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 0.85em; background: #111; color: #f0c94a; border: 1px solid currentColor; }
+.archetype-tree .tree-node .node-remove { color: #e06060; }
+.archetype-tree details { font-size: 0.85em; }
+.archetype-tree .hybrid button { margin: 2px; line-height: 1.6; }
+
+/* Layout fixes over the legacy stylesheet. */
+.shiver.sheet .lifeline { width: auto; height: auto; }
+.shiver.sheet .header-row.trackers { display: grid; grid-template-columns: auto minmax(90px, 1fr) auto auto 44px; gap: 8px; }
+.shiver.sheet .header-row.trackers .field { flex: none; min-width: 0; }
+.shiver.sheet .status-toggle { display: flex; align-items: center; gap: 4px; flex: 1; min-width: 0; }
+.shiver.sheet .status img { display: inline-block; flex: 0 0 18px; }
+.shiver.sheet .status .status-controls { flex: 0 0 auto; }
+.shiver.sheet .items-list .item-name { flex: 0 1 auto; }
+.shiver.sheet .items-list .item-controls { flex: 0 0 auto; }
+.shiver.sheet .items-list .item-controls a { margin: 0 3px; }
+
+.shiver.sheet .combat-quick { display: flex; gap: 4px; margin-bottom: 4px; }
+.shiver.sheet .combat-quick button { flex: 1; line-height: 1.6; font-size: 0.9em; }
+
+/* Dialogs keep Foundry's own theme; the sheet-only light background doesn't apply to them. */
+.shiver-check-dialog .window-content { padding: 8px 10px; }
+.shiver-check-form legend { padding: 0 4px; }

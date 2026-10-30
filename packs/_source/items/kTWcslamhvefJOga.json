@@ -1,0 +1,67 @@
+{
+  "_id": "kTWcslamhvefJOga",
+  "_key": "!items!kTWcslamhvefJOga",
+  "folder": null,
+  "sort": 24,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Voodoo Doll",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Cursed: each use moves the Doom Clock forward 5 minutes and makes you Cursed. Pinhead (OPDQ): choose a target and roll a Strange Check. For each Strange symbol, the target takes 2 Sharp damage and must make a Fear Check.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.160</em></p>",
+    "summary": "Cursed: each use moves the Doom Clock forward 5 minutes and makes you Cursed. Pinhead (OPDQ): choose a target and roll a Strange Check. For each Strange symbol, the target takes 2 Sharp damage and must make a Fear Check.",
+    "page": 160,
+    "category": "curiosity",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 5,
+    "action": "interact",
+    "skill": "strange",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "cursed",
+        "target": "self"
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "label": "Pinhead",
+        "onSuccess": "For each Strange symbol, the target takes 2 Sharp damage and makes a Fear Check.",
+        "onFail": "No Strange symbols: the target is unharmed.",
+        "success": [
+          {
+            "kind": "damage",
+            "amount": 2,
+            "type": "sharp",
+            "target": "enemy",
+            "strike": false
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Pinhead: target your victim before clicking Roll. A success deals the first 2 Sharp damage to it automatically. Deal 2 more Sharp damage by hand for each further Strange symbol. The target also makes a Fear Check for each Strange symbol (a Strange Check; the Director sets the CR) by hand. While Cursed you can't heal; the Curse ends only when the doll is destroyed."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "voodoo-doll"
+    }
+  }
+}

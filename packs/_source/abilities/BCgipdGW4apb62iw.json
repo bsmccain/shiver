@@ -1,0 +1,66 @@
+{
+  "_id": "BCgipdGW4apb62iw",
+  "_key": "!items!BCgipdGW4apb62iw",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 3005,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hot Property",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>+1 Talent Die on Strikes made with a stolen item.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.39</em></p>",
+    "summary": "+1 Talent Die on Strikes made with a stolen item.",
+    "archetype": "maverick",
+    "node": "maverick-hot-property",
+    "path": "thief",
+    "tier": 3,
+    "tree": true,
+    "prerequisites": [
+      "maverick-sneaky"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "tags": [
+            "strike",
+            "weapon"
+          ],
+          "manual": true,
+          "label": "Strike with a stolen item"
+        }
+      }
+    ],
+    "page": 39,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-hot-property"
+    }
+  }
+}

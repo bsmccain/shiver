@@ -1,0 +1,61 @@
+{
+  "_id": "T5LNv6jNmwnTenjV",
+  "_key": "!items!T5LNv6jNmwnTenjV",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 4012,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Jack Of All Trades",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>+1 Core Skill Point in a Core Skill in which you have no Talent Point.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "+1 Core Skill Point in a Core Skill in which you have no Talent Point.",
+    "archetype": "survivor",
+    "node": "survivor-jack-of-all-trades",
+    "path": "survivalist",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "survivor-camouflage",
+      "survivor-batter-up"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "skillPoints",
+      "amount": 1,
+      "maxPerSkill": 1
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "When you take this, put the point in a Core Skill in which you have no Talent Point."
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-jack-of-all-trades"
+    }
+  }
+}

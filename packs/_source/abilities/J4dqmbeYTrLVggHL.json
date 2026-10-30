@@ -1,0 +1,68 @@
+{
+  "_id": "J4dqmbeYTrLVggHL",
+  "_key": "!items!J4dqmbeYTrLVggHL",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 4010,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bullseye",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Thrown weapons and objects get +30 ft Range, and you get +1 Talent Die on Strikes with them.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "Thrown weapons and objects get +30 ft Range, and you get +1 Talent Die on Strikes with them.",
+    "archetype": "maverick",
+    "node": "maverick-bullseye",
+    "path": "ranger",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "maverick-crows-nest"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": "strike+thrown"
+      },
+      {
+        "kind": "rangeBonus",
+        "ft": 30,
+        "when": "thrown"
+      },
+      {
+        "kind": "custom",
+        "note": "Thrown weapons get +30 ft Range automatically; add it yourself for objects that aren't Thrown weapons. The +1 Talent Die is automatic for Thrown weapons; when throwing an object that isn't one, add the Talent Die in the roll dialog. The system also counts Traps as thrown: untick the die for a deployed trap."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-bullseye"
+    }
+  }
+}

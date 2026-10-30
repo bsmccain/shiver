@@ -1,0 +1,65 @@
+{
+  "_id": "U0vA6Z87uIOHizUo",
+  "_key": "!items!U0vA6Z87uIOHizUo",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 6017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Intoxicating Knowledge",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>Investigation Smarts Checks may roll Luck instead (the Director may make the result vague). +1 Talent Die on checks to resist poisons and toxins, whether helpful or harmful.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "Investigation Smarts Checks may roll Luck instead (the Director may make the result vague). +1 Talent Die on checks to resist poisons and toxins, whether helpful or harmful.",
+    "archetype": "fool",
+    "node": "fool-intoxicating-knowledge",
+    "path": "blessed",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "fool-core-plus-blessed"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "Resisting the effects of poison or toxins"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Smarts Checks to investigate your surroundings: you may switch to your Luck Pool, but the Director may make the information hazy."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-intoxicating-knowledge"
+    }
+  }
+}

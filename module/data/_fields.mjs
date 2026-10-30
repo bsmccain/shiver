@@ -23,8 +23,14 @@ export function dropInvalidNumbers(source, schema) {
     const value = source[key];
     if ( field instanceof SchemaField ) dropInvalidNumbers(value, field);
     else if ( field instanceof NumberField ) {
+      // Null is valid for nullable fields (e.g. an unknown page or Challenge Rating).
+      if ( (value === null) && field.nullable ) continue;
+      if ( (value === null) && !field.required ) continue;
       const number = ((value === null) || (value === "")) ? NaN : Number(value);
-      if ( Number.isFinite(number) ) source[key] = number;
+      if ( Number.isFinite(number) ) {
+        if ( number !== value ) source[key] = number;
+      }
+      else if ( Object.isFrozen(source) ) continue;
       else delete source[key];
     }
   }

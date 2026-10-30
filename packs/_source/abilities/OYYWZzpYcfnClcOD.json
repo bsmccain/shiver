@@ -1,0 +1,63 @@
+{
+  "_id": "OYYWZzpYcfnClcOD",
+  "_key": "!items!OYYWZzpYcfnClcOD",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 4009,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Not Worth It",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>While in a Brawl with an enemy, spend an Interact Action to roll a Heart Check against that enemy&#39;s CR. On success you Escape from it without giving it an Attack Action, and it can&#39;t target you until your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.74</em></p>",
+    "summary": "While in a Brawl with an enemy, spend an Interact Action to roll a Heart Check against that enemy's CR. On success you Escape from it without giving it an Attack Action, and it can't target you until your next Combat Turn.",
+    "archetype": "survivor",
+    "node": "survivor-not-worth-it",
+    "path": "cockroach",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "survivor-worm-tongue"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "onSuccess": "You Escape from that enemy without giving it an Attack Action, and it can't target you until your next Combat Turn.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "Only while in a Brawl with the enemy. The CR is that enemy's CR."
+      }
+    ],
+    "page": 74,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-not-worth-it"
+    }
+  }
+}

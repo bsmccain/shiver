@@ -1,0 +1,44 @@
+{
+  "_id": "xYVfCsTXerqxYdQL",
+  "_key": "!items!xYVfCsTXerqxYdQL",
+  "folder": null,
+  "sort": 69,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Throwing Knives",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 2 Pierce; Medium (50 ft). No special ability.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.148</em></p>",
+    "summary": "Wit; 2 Pierce; Medium (50 ft). No special ability.",
+    "page": 148,
+    "category": "thrown",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "throwing-knives"
+    }
+  }
+}

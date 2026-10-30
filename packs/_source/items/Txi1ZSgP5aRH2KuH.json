@@ -1,0 +1,45 @@
+{
+  "_id": "Txi1ZSgP5aRH2KuH",
+  "_key": "!items!Txi1ZSgP5aRH2KuH",
+  "folder": null,
+  "sort": 9,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Holy Pendant",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Warding Energy: Demonic enemies have Minor Disadvantage when they Strike you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.157</em></p>",
+    "summary": "Warding Energy: Demonic enemies have Minor Disadvantage when they Strike you.",
+    "page": 157,
+    "category": "buff",
+    "consumable": false,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "passive",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Warding Energy: when a Demonic enemy Strikes you, the Director gives it Minor Disadvantage (-1 Skill Die, minimum 1 die)."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "holy-pendant"
+    }
+  }
+}

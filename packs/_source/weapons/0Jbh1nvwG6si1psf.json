@@ -1,0 +1,46 @@
+{
+  "_id": "0Jbh1nvwG6si1psf",
+  "_key": "!items!0Jbh1nvwG6si1psf",
+  "folder": null,
+  "sort": 7,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Chainsaw",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Grit; 6 Sharp; Close (5 ft). Fuel (10): each Strike burns 1 fuel, and it can&#39;t be used once empty.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.134</em></p>",
+    "summary": "Grit; 6 Sharp; Close (5 ft). Fuel (10): each Strike burns 1 fuel, and it can't be used once empty.",
+    "page": 134,
+    "category": "melee",
+    "skill": "grit",
+    "altSkills": [],
+    "damage": 6,
+    "damageType": "sharp",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "fuel"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": 10,
+      "max": 10
+    },
+    "automation": []
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "chainsaw"
+    }
+  }
+}

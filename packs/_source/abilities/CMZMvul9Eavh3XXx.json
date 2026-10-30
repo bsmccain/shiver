@@ -1,0 +1,62 @@
+{
+  "_id": "CMZMvul9Eavh3XXx",
+  "_key": "!items!CMZMvul9Eavh3XXx",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 7021,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Insurance Policy",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>While your Luck Bank holds 3 Luck Points you are Steeled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.59</em></p>",
+    "summary": "While your Luck Bank holds 3 Luck Points you are Steeled.",
+    "archetype": "fool",
+    "node": "fool-insurance-policy",
+    "path": "blessed",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "fool-ignorance-is-bliss",
+      "fool-intoxicating-knowledge"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "steeled",
+        "target": "self"
+      },
+      {
+        "kind": "custom",
+        "note": "Steeled only while your Luck Bank holds 3 Luck Points: Use to apply Steeled when the bank fills, and remove it as soon as it drops below 3."
+      }
+    ],
+    "page": 59,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-insurance-policy"
+    }
+  }
+}

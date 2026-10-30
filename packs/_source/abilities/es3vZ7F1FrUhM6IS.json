@@ -1,0 +1,64 @@
+{
+  "_id": "es3vZ7F1FrUhM6IS",
+  "_key": "!items!es3vZ7F1FrUhM6IS",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 2003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Get Behind Me",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>On your Combat Turn, spend an Interact Action to pick 1 ally within Near Range (15 ft). If that ally is attacked before your next Combat Turn, roll a CR 1 Grit Check. On a success you either take all of the attack&#39;s damage yourself, or you and the ally each take half, rounded down.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.33</em></p>",
+    "summary": "On your Combat Turn, spend an Interact Action to pick 1 ally within Near Range (15 ft). If that ally is attacked before your next Combat Turn, roll a CR 1 Grit Check. On a success you either take all of the attack's damage yourself, or you and the ally each take half, rounded down.",
+    "archetype": "warrior",
+    "node": "warrior-get-behind-me",
+    "path": "protector",
+    "tier": 2,
+    "tree": true,
+    "prerequisites": [
+      "warrior-tough"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "grit",
+        "cr": 1,
+        "label": "Guarded ally is attacked",
+        "onSuccess": "Take all of the attack's damage yourself, or you and the ally each take half (round down).",
+        "onFail": "The ally takes the attack as normal."
+      },
+      {
+        "kind": "custom",
+        "note": "Name the guarded ally when you use this. Roll the Grit Check from this card when that ally is attacked before your next Combat Turn, then split the damage by hand."
+      }
+    ],
+    "page": 33,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-get-behind-me"
+    }
+  }
+}

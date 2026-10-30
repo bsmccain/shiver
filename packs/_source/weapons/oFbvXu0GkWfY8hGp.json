@@ -1,0 +1,54 @@
+{
+  "_id": "oFbvXu0GkWfY8hGp",
+  "_key": "!items!oFbvXu0GkWfY8hGp",
+  "folder": null,
+  "sort": 23,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Stun Baton",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts or Grit; 2 Shock; Close (5 ft). Electrocute: Shock damage is doubled against a target standing in water.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.137</em></p>",
+    "summary": "Smarts or Grit; 2 Shock; Close (5 ft). Electrocute: Shock damage is doubled against a target standing in water.",
+    "page": 137,
+    "category": "melee",
+    "skill": "smarts",
+    "altSkills": [
+      "grit"
+    ],
+    "damage": 2,
+    "damageType": "shock",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "electrocute"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "damageType": "shock",
+        "note": "Electrocute: if the target is in water, the Shock damage is doubled. Add the extra wounds by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "stun-baton"
+    }
+  }
+}

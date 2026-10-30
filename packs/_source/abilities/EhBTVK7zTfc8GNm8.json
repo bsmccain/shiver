@@ -1,0 +1,16 @@
+{
+  "_id": "EhBTVK7zTfc8GNm8",
+  "_key": "!folders!EhBTVK7zTfc8GNm8",
+  "name": "The Fool",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 500000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "_id": "L4axdSpe40W8z5Hk",
+  "_key": "!items!L4axdSpe40W8z5Hk",
+  "folder": null,
+  "sort": 74,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Necronomicon",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Strange; 5 Soul; Medium (50 ft). Legendary weapon, linked to the Survivor&#39;s Legendary Weapon ability (p74). Terrifying: an enemy it hits must pass a CR 2 Strange Check or become Afraid.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.150</em></p>",
+    "summary": "Strange; 5 Soul; Medium (50 ft). Legendary weapon, linked to the Survivor's Legendary Weapon ability (p74). Terrifying: an enemy it hits must pass a CR 2 Strange Check or become Afraid.",
+    "page": 150,
+    "category": "legendary",
+    "skill": "strange",
+    "altSkills": [],
+    "damage": 5,
+    "damageType": "soul",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "legendary",
+      "terrifying"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "afraid",
+        "save": {
+          "skill": "strange",
+          "cr": 2
+        },
+        "fear": true
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "necronomicon"
+    }
+  }
+}

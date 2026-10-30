@@ -1,0 +1,74 @@
+{
+  "_id": "B7bf2XCwQ0Kok6iZ",
+  "_key": "!items!B7bf2XCwQ0Kok6iZ",
+  "folder": null,
+  "sort": 3,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Goon",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Knock Knock.</strong> +1 Talent Die when forcing entry through a door or entrance, breaking a lock or busting down a barricade.</p><p><strong>Blunt (Flaw).</strong> Lose 1 Skill Die when trying to persuade or lie.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.82</em></p>",
+    "page": 82,
+    "abilityName": "Knock Knock",
+    "abilitySummary": "+1 Talent Die when forcing entry through a door or entrance, breaking a lock or busting down a barricade.",
+    "abilityDescription": "<p>+1 Talent Die when forcing entry through a door or entrance, breaking a lock or busting down a barricade.</p>",
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "poolDice",
+        "label": "Knock Knock",
+        "skill": "any",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Forcing a door or entrance, breaking a lock or busting a barricade"
+        }
+      }
+    ],
+    "flawName": "Blunt",
+    "flawSummary": "Lose 1 Skill Die when trying to persuade or lie.",
+    "flawDescription": "<p>Lose 1 Skill Die when trying to persuade or lie.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Blunt",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear"
+          ],
+          "manual": true,
+          "label": "Persuading or lying"
+        }
+      }
+    ],
+    "archetype": "warrior"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-goon"
+    }
+  }
+}

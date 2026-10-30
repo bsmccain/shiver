@@ -1,0 +1,68 @@
+{
+  "_id": "8B42clbFpSwCJS8G",
+  "_key": "!items!8B42clbFpSwCJS8G",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 1003,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Claws",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Claw Unarmed Strikes roll Strange instead of the usual skill and deal 3 Pierce. To hide the claws while attacking, pass a CR 1 Wit Check or fight in a way that hides them. Doom +1 per successful claw Strike.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.63</em></p>",
+    "summary": "Claw Unarmed Strikes roll Strange instead of the usual skill and deal 3 Pierce. To hide the claws while attacking, pass a CR 1 Wit Check or fight in a way that hides them. Doom +1 per successful claw Strike.",
+    "archetype": "weird",
+    "node": "weird-claws",
+    "path": "body-horror",
+    "tier": 1,
+    "tree": true,
+    "prerequisites": [],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "onHit",
+        "doom": 1,
+        "note": "Claws: Doom +1"
+      },
+      {
+        "kind": "check",
+        "skill": "wit",
+        "cr": 1,
+        "label": "Hide your claws while attacking",
+        "onSuccess": "Onlookers don't see the claws.",
+        "onFail": "Your claws are seen."
+      },
+      {
+        "kind": "custom",
+        "note": "Use this ability for your Unarmed Strikes (Strange, 3 Pierce, Close) instead of the normal Unarmed Strike. Instead of the Wit Check you can describe fighting in a way that hides the claws."
+      }
+    ],
+    "page": 63,
+    "attack": {
+      "skill": "strange",
+      "damage": 3,
+      "damageType": "pierce",
+      "range": "close",
+      "unarmed": true
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-claws"
+    }
+  }
+}

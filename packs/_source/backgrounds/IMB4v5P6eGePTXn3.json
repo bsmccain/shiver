@@ -1,0 +1,61 @@
+{
+  "_id": "IMB4v5P6eGePTXn3",
+  "_key": "!items!IMB4v5P6eGePTXn3",
+  "folder": null,
+  "sort": 16,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Cheerleader",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Back-Flip.</strong> When targeted by an attack from a Large to Colossal enemy, roll 1 Skill Die. On a Wit symbol you take no damage.</p><p><strong>Vain (Flaw).</strong> While you have 8 or more wounds, lose 1 Core Skill Point from Heart until you&#39;ve healed.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.87</em></p>",
+    "page": 87,
+    "abilityName": "Back-Flip",
+    "abilitySummary": "When targeted by an attack from a Large to Colossal enemy, roll 1 Skill Die. On a Wit symbol you take no damage.",
+    "abilityDescription": "<p>When targeted by an attack from a Large to Colossal enemy, roll 1 Skill Die. On a Wit symbol you take no damage.</p>",
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "When a Large, Giant or Colossal enemy targets you with an attack, roll 1 Skill Die. On a Wit symbol you take no damage from that attack."
+      }
+    ],
+    "flawName": "Vain",
+    "flawSummary": "While you have 8 or more wounds, lose 1 Core Skill Point from Heart until you've healed.",
+    "flawDescription": "<p>While you have 8 or more wounds, lose 1 Core Skill Point from Heart until you&#39;ve healed.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Vain",
+        "skill": "heart",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "wounds": {
+            "gte": 8
+          },
+          "label": "8 or more wounds"
+        }
+      }
+    ],
+    "archetype": "socialite"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-cheerleader"
+    }
+  }
+}

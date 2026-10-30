@@ -1,0 +1,56 @@
+{
+  "_id": "zw7LjnZoa4wdqyWB",
+  "_key": "!items!zw7LjnZoa4wdqyWB",
+  "folder": "N6mUC325g5aCDBSS",
+  "sort": 10032,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Earth, Wind, and Fire",
+  "type": "ability",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "<p>Gain one unnatural power from p95, chosen with the Director.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.76</em></p>",
+    "summary": "Gain one unnatural power from p95, chosen with the Director.",
+    "archetype": "survivor",
+    "node": "survivor-earth-wind-and-fire",
+    "path": "chosen",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "survivor-t9-cr-chosen"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Choose one Earth, Wind and Fire power (p95) with the Director and add it from the powers list."
+      }
+    ],
+    "page": 76,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "survivor-earth-wind-and-fire"
+    }
+  }
+}

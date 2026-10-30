@@ -1,0 +1,48 @@
+{
+  "_id": "GsYNSjMXKEYYhRFA",
+  "_key": "!items!GsYNSjMXKEYYhRFA",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Battle Armour",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>3 Armour Slots. Clang!: you are Resistant to Blunt and Sharp damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.151</em></p>",
+    "summary": "3 Armour Slots. Clang!: you are Resistant to Blunt and Sharp damage.",
+    "page": 151,
+    "slots": 3,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2,
+      2
+    ],
+    "heavy": false,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Clang!",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "blunt",
+          "sharp"
+        ]
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "battle-armour"
+    }
+  }
+}

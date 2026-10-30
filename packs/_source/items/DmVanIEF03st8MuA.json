@@ -1,0 +1,55 @@
+{
+  "_id": "DmVanIEF03st8MuA",
+  "_key": "!items!DmVanIEF03st8MuA",
+  "folder": null,
+  "sort": 1,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Medicine",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Cure: heals 1 wound and removes the Poisoned status from a character.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.158</em></p>",
+    "summary": "Cure: heals 1 wound and removes the Poisoned status from a character.",
+    "page": 158,
+    "category": "healing",
+    "consumable": true,
+    "quantity": 1,
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "removeStatus",
+        "status": "poisoned",
+        "target": "ally"
+      },
+      {
+        "kind": "heal",
+        "amount": 1,
+        "target": "ally"
+      },
+      {
+        "kind": "custom",
+        "note": "Target the character to treat before using it. With no target, it treats you."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "medicine"
+    }
+  }
+}

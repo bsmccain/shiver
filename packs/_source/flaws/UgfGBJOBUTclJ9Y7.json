@@ -1,0 +1,39 @@
+{
+  "_id": "UgfGBJOBUTclJ9Y7",
+  "_key": "!items!UgfGBJOBUTclJ9Y7",
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Scared Stiff",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>Gain 2 extra Fears. When either of them makes you Afraid or Terrified, your Speed drops to Slow until you are Stable again.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "Gain 2 extra Fears. When either of them makes you Afraid or Terrified, your Speed drops to Slow until you are Stable again.",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Add 2 more Fears to your character."
+      },
+      {
+        "kind": "custom",
+        "note": "When one of those 2 Fears makes you Afraid or Terrified, your Speed is Slow (20 ft) until your Fear Status is Stable again. Set it by hand."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-scared-stiff"
+    }
+  }
+}

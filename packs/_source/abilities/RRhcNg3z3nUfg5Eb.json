@@ -1,0 +1,65 @@
+{
+  "_id": "RRhcNg3z3nUfg5Eb",
+  "_key": "!items!RRhcNg3z3nUfg5Eb",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 6017,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Energy Reserves",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>You get 1 additional Attack Action on any Combat Turn in which you do not use a Move Action.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.40</em></p>",
+    "summary": "You get 1 additional Attack Action on any Combat Turn in which you do not use a Move Action.",
+    "archetype": "maverick",
+    "node": "maverick-energy-reserves",
+    "path": "ranger",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "maverick-core-plus-ranger"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "extraActions",
+        "action": "attack",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "You have not used your Move Action this Combat Turn"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "The action tracker always allows this extra Attack Action; only take it on a Combat Turn in which you don't use your Move Action."
+      }
+    ],
+    "page": 40,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-energy-reserves"
+    }
+  }
+}

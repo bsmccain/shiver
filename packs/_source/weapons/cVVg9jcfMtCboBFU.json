@@ -1,0 +1,51 @@
+{
+  "_id": "cVVg9jcfMtCboBFU",
+  "_key": "!items!cVVg9jcfMtCboBFU",
+  "folder": null,
+  "sort": 11,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hidden Blade",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit; 2 Pierce; Close (5 ft). Hidden: easy to conceal, so a search won&#39;t turn it up.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.135</em></p>",
+    "summary": "Wit; 2 Pierce; Close (5 ft). Hidden: easy to conceal, so a search won't turn it up.",
+    "page": 135,
+    "category": "melee",
+    "skill": "wit",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "close",
+    "properties": [
+      "hidden"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Hidden: searches don't find this weapon."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "hidden-blade"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "_id": "TgmRbNZmchQ0wR1o",
+  "_key": "!items!TgmRbNZmchQ0wR1o",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 10040,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Quit Hitting Yourself",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Opposed Strange vs Grit against an enemy within Medium Range (50 ft). On a win, that enemy makes a Strike against itself or another enemy (your choice) with any weapon it is using or any ability it has. Doom +3.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.69</em></p>",
+    "summary": "Opposed Strange vs Grit against an enemy within Medium Range (50 ft). On a win, that enemy makes a Strike against itself or another enemy (your choice) with any weapon it is using or any ability it has. Doom +3.",
+    "archetype": "weird",
+    "node": "weird-quit-hitting-yourself",
+    "path": "psionic",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "weird-bullet-time"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 3,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Opposed vs the targeted enemy's Grit",
+        "onSuccess": "The enemy Strikes itself or another enemy of your choice with one of its weapons or abilities.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "The Director rolls the enemy's Grit and sets the CR so you need more successes. On a win, the Director makes the enemy's Strike against the target you choose."
+      }
+    ],
+    "page": 69,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-quit-hitting-yourself"
+    }
+  }
+}

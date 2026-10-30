@@ -1,0 +1,52 @@
+{
+  "_id": "JswTaBXcEwc8ZIXu",
+  "_key": "!items!JswTaBXcEwc8ZIXu",
+  "folder": null,
+  "sort": 8,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Operative",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Ghost.</strong> You may re-roll your first failed Wit Check when trying to enter Stealth.</p><p><strong>Covert (Flaw).</strong> You can&#39;t use items with the Heavy property, including weapons and armour.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.84</em></p>",
+    "page": 84,
+    "abilityName": "Ghost",
+    "abilitySummary": "You may re-roll your first failed Wit Check when trying to enter Stealth.",
+    "abilityDescription": "<p>You may re-roll your first failed Wit Check when trying to enter Stealth.</p>",
+    "action": "free",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "If your first Wit Check to enter Stealth fails, you may re-roll it."
+      }
+    ],
+    "flawName": "Covert",
+    "flawSummary": "You can't use items with the Heavy property, including weapons and armour.",
+    "flawDescription": "<p>You can&#39;t use items with the Heavy property, including weapons and armour.</p>",
+    "flawAutomation": [
+      {
+        "kind": "custom",
+        "note": "You can't equip or use any weapon, armour or other item with the Heavy property."
+      }
+    ],
+    "archetype": "maverick"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-operative"
+    }
+  }
+}

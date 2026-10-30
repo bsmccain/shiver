@@ -1,0 +1,70 @@
+{
+  "_id": "7zK4M0z1IApKZMMa",
+  "_key": "!items!7zK4M0z1IApKZMMa",
+  "folder": "EhBTVK7zTfc8GNm8",
+  "sort": 4008,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Luck Drain",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_LUCK.png",
+  "system": {
+    "description": "<p>When targeted by an attack you may roll 1 Skill Die. On a Luck symbol the attacker is Cursed and has Minor Disadvantage on its next Combat Turn, and you add +1 Talent Die to every Skill Check you make on your next Combat Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.58</em></p>",
+    "summary": "When targeted by an attack you may roll 1 Skill Die. On a Luck symbol the attacker is Cursed and has Minor Disadvantage on its next Combat Turn, and you add +1 Talent Die to every Skill Check you make on your next Combat Turn.",
+    "archetype": "fool",
+    "node": "fool-luck-drain",
+    "path": "last-chancer",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "fool-cashing-in"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "cursed",
+        "target": "enemy"
+      },
+      {
+        "kind": "poolDice",
+        "skill": "any",
+        "d8": 1,
+        "when": {
+          "manual": true,
+          "label": "During your next Combat Turn after a Luck Drain success"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "When targeted by an attack, roll 1 Skill Die (/r 1ds). On a Luck symbol, target the attacker and click Use to Curse it; it also has Minor Disadvantage (-1 Skill Die) on its next Combat Turn. Tick the +1 Talent Die on your checks during your next Combat Turn."
+      }
+    ],
+    "page": 58,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "fool-luck-drain"
+    }
+  }
+}

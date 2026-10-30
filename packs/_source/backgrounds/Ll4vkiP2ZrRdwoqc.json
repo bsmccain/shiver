@@ -1,0 +1,91 @@
+{
+  "_id": "Ll4vkiP2ZrRdwoqc",
+  "_key": "!items!Ll4vkiP2ZrRdwoqc",
+  "folder": null,
+  "sort": 26,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Possessed",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Demon&#39;s Claw.</strong> Attack Action: make a CR 1 Strange Check. On a success, deal 2 Soul damage to all enemies within Near Range in front of you. It deals 1 Soul damage to you and ticks the Doom Clock 3 minutes.</p><p><strong>Unholy (Flaw).</strong> Minor Disadvantage while on holy ground. You have a Weakness to Holy weapons and abilities.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.91</em></p>",
+    "page": 91,
+    "abilityName": "Demon's Claw",
+    "abilitySummary": "Attack Action: make a CR 1 Strange Check. On a success, deal 2 Soul damage to all enemies within Near Range in front of you. It deals 1 Soul damage to you and ticks the Doom Clock 3 minutes.",
+    "abilityDescription": "<p>Attack Action: make a CR 1 Strange Check. On a success, deal 2 Soul damage to all enemies within Near Range in front of you. It deals 1 Soul damage to you and ticks the Doom Clock 3 minutes.</p>",
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 3,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 1,
+        "label": "Demon's Claw (target every enemy within Near Range in front of you before rolling)",
+        "onSuccess": "2 Soul damage to each targeted enemy; you take 1 Soul damage.",
+        "onFail": "No damage to enemies; you still take 1 Soul damage.",
+        "success": [
+          {
+            "kind": "damage",
+            "amount": 2,
+            "type": "soul",
+            "target": "enemy"
+          },
+          {
+            "kind": "damage",
+            "amount": 1,
+            "type": "soul",
+            "target": "self"
+          }
+        ],
+        "failure": [
+          {
+            "kind": "damage",
+            "amount": 1,
+            "type": "soul",
+            "target": "self"
+          }
+        ]
+      }
+    ],
+    "flawName": "Unholy",
+    "flawSummary": "Minor Disadvantage while on holy ground. You have a Weakness to Holy weapons and abilities.",
+    "flawDescription": "<p>Minor Disadvantage while on holy ground. You have a Weakness to Holy weapons and abilities.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Unholy",
+        "skill": "any",
+        "d6": -1,
+        "d8": 0,
+        "when": {
+          "manual": true,
+          "label": "On holy ground"
+        }
+      },
+      {
+        "kind": "weakness",
+        "types": [
+          "holy"
+        ]
+      }
+    ],
+    "archetype": "weird"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-possessed"
+    }
+  }
+}

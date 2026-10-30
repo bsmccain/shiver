@@ -1,0 +1,60 @@
+{
+  "_id": "9XkJ7z6VaYmZheqG",
+  "_key": "!items!9XkJ7z6VaYmZheqG",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 7020,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Lightning Reflexes",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>Your Speed increases to Fast. While your Speed is Fast, Dodge rolls 1 extra Skill Die.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "Your Speed increases to Fast. While your Speed is Fast, Dodge rolls 1 extra Skill Die.",
+    "archetype": "maverick",
+    "node": "maverick-lightning-reflexes",
+    "path": "thief",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "maverick-slippery-character"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "maverick-dodge",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "speed",
+        "set": "fast"
+      },
+      {
+        "kind": "custom",
+        "note": "Dodge: +1 Skill Die while your current Speed is Fast (not while slowed, e.g. by Maimed or Prone)."
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-lightning-reflexes"
+    }
+  }
+}

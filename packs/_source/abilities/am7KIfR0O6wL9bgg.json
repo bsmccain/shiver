@@ -1,0 +1,129 @@
+{
+  "_id": "am7KIfR0O6wL9bgg",
+  "_key": "!items!am7KIfR0O6wL9bgg",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 6021,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Ungodly Ritual",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>Attack Action, Doom +2 every use. Roll a Skill Die. Grit: all enemies within Near Range (15 ft) are knocked Prone and take 3 Blunt. Wit: shadow tendrils Grapple an enemy of your choice, and its checks to break free are opposed by your Strange instead of Grit. Smarts: Opposed Strange vs an enemy&#39;s Smarts; on a win it is Immobile and Weakened until your next Combat Turn. Heart: Opposed Strange vs an enemy&#39;s Heart; on a win it must obey one command that won&#39;t harm itself (1 Combat Round in combat). Strange: the ritual backfires; everyone within Long Range (150 ft), you included, passes a CR 2 Strange Check or takes 3 Soul, and Doom +1 per enemy damaged. Luck: choose the effect.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.66</em></p>",
+    "summary": "Attack Action, Doom +2 every use. Roll a Skill Die. Grit: all enemies within Near Range (15 ft) are knocked Prone and take 3 Blunt. Wit: shadow tendrils Grapple an enemy of your choice, and its checks to break free are opposed by your Strange instead of Grit. Smarts: Opposed Strange vs an enemy's Smarts; on a win it is Immobile and Weakened until your next Combat Turn. Heart: Opposed Strange vs an enemy's Heart; on a win it must obey one command that won't harm itself (1 Combat Round in combat). Strange: the ritual backfires; everyone within Long Range (150 ft), you included, passes a CR 2 Strange Check or takes 3 Soul, and Doom +1 per enemy damaged. Luck: choose the effect.",
+    "archetype": "weird",
+    "node": "weird-ungodly-ritual",
+    "path": "eldritch",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "weird-core-plus-eldritch"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 2,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Smarts result: opposed vs the targeted enemy's Smarts",
+        "onSuccess": "The enemy is Immobile and Weakened until your next Combat Turn.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "immobile",
+            "target": "enemy",
+            "until": "attackerNextTurn"
+          },
+          {
+            "kind": "applyStatus",
+            "status": "weakened",
+            "target": "enemy",
+            "until": "attackerNextTurn"
+          }
+        ]
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Heart result: opposed vs the targeted enemy's Heart",
+        "onSuccess": "The enemy must obey one command that won't harm itself (1 Combat Round in combat).",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 2,
+        "label": "Strange result: resist your own backfire",
+        "onSuccess": "You avoid the 3 Soul damage.",
+        "onFail": "You take 3 Soul damage.",
+        "failure": [
+          {
+            "kind": "damage",
+            "amount": 3,
+            "type": "soul",
+            "target": "self",
+            "strike": false
+          }
+        ]
+      },
+      {
+        "kind": "applyStatus",
+        "status": "prone",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Grit result: every enemy within 15 ft"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "grappled",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Wit result: one enemy of your choice"
+        }
+      },
+      {
+        "kind": "doom",
+        "amount": 1,
+        "when": {
+          "manual": true,
+          "label": "Strange result: per enemy damaged"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Roll one Skill Die after using it. Grit: Prone + 3 Blunt to every enemy within 15 ft (apply the damage by hand). Wit: Grapple one enemy; to break free it opposes your Strange. Smarts/Heart: the Director rolls the enemy's skill and sets the CR so you need more successes. Strange: everyone else within 150 ft also rolls Strange CR 2 or takes 3 Soul; Doom +1 per enemy damaged. Luck: pick the result."
+      }
+    ],
+    "page": 66,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-ungodly-ritual"
+    }
+  }
+}

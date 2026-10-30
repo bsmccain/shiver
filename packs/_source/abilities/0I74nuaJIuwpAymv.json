@@ -1,0 +1,82 @@
+{
+  "_id": "0I74nuaJIuwpAymv",
+  "_key": "!items!0I74nuaJIuwpAymv",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 6014,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Cute or Vicious",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Choose one permanently. Cute: when your companion is targeted by a Strike, roll a Heart Check against the attacker&#39;s CR; on a success the companion is Steeled. While it is Near, you may re-roll failed Heart Checks to charm. Vicious: your companion gets +1 Attack Action. While it is Near, you may re-roll failed Heart Checks to intimidate.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.52</em></p>",
+    "summary": "Choose one permanently. Cute: when your companion is targeted by a Strike, roll a Heart Check against the attacker's CR; on a success the companion is Steeled. While it is Near, you may re-roll failed Heart Checks to charm. Vicious: your companion gets +1 Attack Action. While it is Near, you may re-roll failed Heart Checks to intimidate.",
+    "archetype": "socialite",
+    "node": "socialite-cute-or-vicious",
+    "path": "companion",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "socialite-core-plus-companion"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Choose Cute or Vicious when you take this ability. The choice is permanent."
+      },
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": null,
+        "label": "Cute only: when your companion is targeted by a Strike, target the companion; CR = the attacker's CR",
+        "onSuccess": "Your companion is Steeled until its next Combat Turn starts.",
+        "onFail": "No effect.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "steeled",
+            "target": "ally",
+            "flags": {
+              "expires": "startOfNextTurn"
+            }
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Cute: while your companion is within Near Range (15 ft), you may re-roll failed Heart Checks to charm."
+      },
+      {
+        "kind": "custom",
+        "note": "Vicious: your companion gets +1 Attack Action on its Combat Turn. While it is within Near Range (15 ft), you may re-roll failed Heart Checks to intimidate."
+      }
+    ],
+    "page": 52,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-cute-or-vicious"
+    }
+  }
+}

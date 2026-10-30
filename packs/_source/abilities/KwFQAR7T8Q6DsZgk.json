@@ -1,0 +1,71 @@
+{
+  "_id": "KwFQAR7T8Q6DsZgk",
+  "_key": "!items!KwFQAR7T8Q6DsZgk",
+  "folder": "bOfJc1DXcoUr2W2h",
+  "sort": 9026,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "One With Shadow",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_WIT.png",
+  "system": {
+    "description": "<p>While in Stealth, entering an enemy&#39;s line of sight doesn&#39;t end Stealth outright: make an Opposed Wit Check against the enemy. If it fails, you stay in Stealth.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.41</em></p>",
+    "summary": "While in Stealth, entering an enemy's line of sight doesn't end Stealth outright: make an Opposed Wit Check against the enemy. If it fails, you stay in Stealth.",
+    "archetype": "maverick",
+    "node": "maverick-one-with-shadow",
+    "path": "thief",
+    "tier": 9,
+    "tree": true,
+    "prerequisites": [
+      "maverick-talent-plus-thief"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "wit",
+        "cr": null,
+        "label": "Opposed Wit vs the enemy",
+        "onSuccess": "The enemy fails to spot you; you stay in Stealth.",
+        "onFail": "The enemy spots you; Stealth ends.",
+        "failure": [
+          {
+            "kind": "removeStatus",
+            "status": "stealth",
+            "target": "self"
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Roll whenever you enter an enemy's line of sight while in Stealth. Opposed: the Director rolls the enemy's Wit and sets the CR to beat its successes (ties are the Director's call, p12). Failure removes your Stealth status automatically."
+      }
+    ],
+    "page": 41,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "maverick-one-with-shadow"
+    }
+  }
+}

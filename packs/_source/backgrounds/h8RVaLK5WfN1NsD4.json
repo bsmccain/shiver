@@ -1,0 +1,63 @@
+{
+  "_id": "h8RVaLK5WfN1NsD4",
+  "_key": "!items!h8RVaLK5WfN1NsD4",
+  "folder": null,
+  "sort": 27,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Cursed",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Evil Eye.</strong> Make a Strange Check against the target enemy&#39;s CR. On a success it loses its next Attack Action and must make a Fear Check. Ticks the Doom Clock 2 minutes.</p><p><strong>The Curse (Flaw).</strong> You can&#39;t bank Luck, and you can never tick the Doom Clock back.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.91</em></p>",
+    "page": 91,
+    "abilityName": "Evil Eye",
+    "abilitySummary": "Make a Strange Check against the target enemy's CR. On a success it loses its next Attack Action and must make a Fear Check. Ticks the Doom Clock 2 minutes.",
+    "abilityDescription": "<p>Make a Strange Check against the target enemy&#39;s CR. On a success it loses its next Attack Action and must make a Fear Check. Ticks the Doom Clock 2 minutes.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 2,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Evil Eye (CR = the targeted enemy's CR)",
+        "onSuccess": "The target loses its next Attack Action and must make a Fear Check.",
+        "onFail": "No effect."
+      },
+      {
+        "kind": "custom",
+        "note": "The CR is the target enemy's CR. The book gives no CR for the target's Fear Check, so the Director sets it."
+      }
+    ],
+    "flawName": "The Curse",
+    "flawSummary": "You can't bank Luck, and you can never tick the Doom Clock back.",
+    "flawDescription": "<p>You can&#39;t bank Luck, and you can never tick the Doom Clock back.</p>",
+    "flawAutomation": [
+      {
+        "kind": "noLuckBank"
+      },
+      {
+        "kind": "doomModifier",
+        "noTickBack": true
+      }
+    ],
+    "archetype": "weird"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-cursed"
+    }
+  }
+}

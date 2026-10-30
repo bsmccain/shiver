@@ -1,0 +1,77 @@
+{
+  "_id": "vrCdmKcGqqSZEMp7",
+  "_key": "!items!vrCdmKcGqqSZEMp7",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 7018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sick Em!",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Your companion may spend an Attack Action to roll a Heart Check against an enemy&#39;s CR. On a success the companion Taunts that enemy, which is also Weakened while it stays Taunted.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "Your companion may spend an Attack Action to roll a Heart Check against an enemy's CR. On a success the companion Taunts that enemy, which is also Weakened while it stays Taunted.",
+    "archetype": "socialite",
+    "node": "socialite-sick-em",
+    "path": "companion",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "socialite-cute-or-vicious"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "applyStatus",
+        "status": "taunted",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Your companion's Sick Em! check succeeded"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "flags": {
+          "expires": "endOfNextTurn"
+        },
+        "when": {
+          "manual": true,
+          "label": "Your companion's Sick Em! check succeeded"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Companion action: it spends its own Attack Action and rolls its own Heart against the enemy's CR. On a success, target that enemy and use this card's Taunted and Weakened buttons. The Taunt's source is the companion: the enemy must attack it."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-sick-em"
+    }
+  }
+}

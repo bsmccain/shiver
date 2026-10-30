@@ -1,0 +1,63 @@
+{
+  "_id": "p3Gcobh71ThIpqOx",
+  "_key": "!items!p3Gcobh71ThIpqOx",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 10027,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Loyal to a Fault",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>When an attack would leave you dead or at Death&#39;s Door, you may roll a CR 1 Heart Check. On a success, if your companion is within 25 ft, it takes all of that Strike&#39;s damage instead of you.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.54</em></p>",
+    "summary": "When an attack would leave you dead or at Death's Door, you may roll a CR 1 Heart Check. On a success, if your companion is within 25 ft, it takes all of that Strike's damage instead of you.",
+    "archetype": "socialite",
+    "node": "socialite-loyal-to-a-fault",
+    "path": "companion",
+    "tier": 10,
+    "tree": true,
+    "prerequisites": [
+      "socialite-bulwark-buddies"
+    ],
+    "action": "reaction",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": 1,
+        "onSuccess": "If your companion is within 25 ft, it takes all of the Strike's damage instead of you.",
+        "onFail": "You take the damage as normal."
+      },
+      {
+        "kind": "custom",
+        "note": "Roll before the damage is applied. On a success with your companion within 25 ft, apply the whole Strike's damage to the companion instead of you."
+      }
+    ],
+    "page": 54,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-loyal-to-a-fault"
+    }
+  }
+}

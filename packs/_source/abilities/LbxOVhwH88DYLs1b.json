@@ -1,0 +1,64 @@
+{
+  "_id": "LbxOVhwH88DYLs1b",
+  "_key": "!items!LbxOVhwH88DYLs1b",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 4013,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Hallucination",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ. Opposed Strange Check against everyone within Near Range (15 ft), allies included. Anyone who doesn&#39;t match or beat your roll hallucinates: they can&#39;t attack you and may only take Interact or Move Actions. Each may make a CR 2 Strange Check at the start of its Combat Turn to break free. The effect ends if you take damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.65</em></p>",
+    "summary": "OPDQ. Opposed Strange Check against everyone within Near Range (15 ft), allies included. Anyone who doesn't match or beat your roll hallucinates: they can't attack you and may only take Interact or Move Actions. Each may make a CR 2 Strange Check at the start of its Combat Turn to break free. The effect ends if you take damage.",
+    "archetype": "weird",
+    "node": "weird-hallucination",
+    "path": "eldritch",
+    "tier": 4,
+    "tree": true,
+    "prerequisites": [
+      "weird-mirage"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": null,
+        "label": "Opposed vs everyone within 15 ft",
+        "onSuccess": "Everyone within 15 ft who rolled fewer Strange successes than you hallucinates.",
+        "onFail": "Targets who matched or beat your roll are unaffected."
+      },
+      {
+        "kind": "custom",
+        "note": "Everyone within 15 ft (friend or foe) rolls Strange against your result. Hallucinating creatures can't attack you and may only Interact or Move; each rolls Strange CR 2 at the start of its Combat Turn to break free. All of it ends as soon as you take damage."
+      }
+    ],
+    "page": 65,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-hallucination"
+    }
+  }
+}

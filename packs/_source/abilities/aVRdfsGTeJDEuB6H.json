@@ -1,0 +1,56 @@
+{
+  "_id": "aVRdfsGTeJDEuB6H",
+  "_key": "!items!aVRdfsGTeJDEuB6H",
+  "folder": "EGusHvH6rVYOIeCQ",
+  "sort": 7020,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Barbed Words",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_HEART.png",
+  "system": {
+    "description": "<p>Spend an Attack or Interact Action to insult an enemy: it must pass a CR 2 Heart Check or take 3 Soul damage.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.53</em></p>",
+    "summary": "Spend an Attack or Interact Action to insult an enemy: it must pass a CR 2 Heart Check or take 3 Soul damage.",
+    "archetype": "socialite",
+    "node": "socialite-barbed-words",
+    "path": "provoker",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "socialite-intimidate"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "The target enemy rolls a CR 2 Heart Check; if it fails, it takes 3 Soul damage (Soul ignores armour). You may spend an Interact Action instead of an Attack Action."
+      }
+    ],
+    "page": 53,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "socialite-barbed-words"
+    }
+  }
+}

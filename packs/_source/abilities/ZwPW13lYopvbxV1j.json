@@ -1,0 +1,80 @@
+{
+  "_id": "ZwPW13lYopvbxV1j",
+  "_key": "!items!ZwPW13lYopvbxV1j",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 8023,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Duality",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>When you take this, choose a persona. The Mind: +1 Talent Point in Smarts, -1 Core Skill Point in Heart. The Monster: +1 Talent Point in Grit, -1 Core Skill Point in Wit. Once per Doom Quarter you may try a CR 3 check to switch persona: Smarts as The Mind, Heart as The Monster.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "When you take this, choose a persona. The Mind: +1 Talent Point in Smarts, -1 Core Skill Point in Heart. The Monster: +1 Talent Point in Grit, -1 Core Skill Point in Wit. Once per Doom Quarter you may try a CR 3 check to switch persona: Smarts as The Mind, Heart as The Monster.",
+    "archetype": "scholar",
+    "node": "scholar-duality",
+    "path": "academic",
+    "tier": 8,
+    "tree": true,
+    "prerequisites": [
+      "scholar-talent-plus-academic"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {
+      "type": "talentPoints",
+      "amount": 1
+    },
+    "automation": [
+      {
+        "kind": "talentPoints",
+        "skill": "choice",
+        "amount": 1
+      },
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 3,
+        "label": "Switch as The Mind",
+        "onSuccess": "You become The Monster.",
+        "onFail": "You stay The Mind."
+      },
+      {
+        "kind": "check",
+        "skill": "heart",
+        "cr": 3,
+        "label": "Switch as The Monster",
+        "onSuccess": "You become The Mind.",
+        "onFail": "You stay The Monster."
+      },
+      {
+        "kind": "custom",
+        "note": "When unlocking, give the Talent Point to Smarts (The Mind) or Grit (The Monster), then remove 1 Core Point from Heart (Mind) or Wit (Monster) on your skill tracker. Roll the first button as The Mind, the second as The Monster. After a switch, move the Talent Point (edit this ability's talentPoints rule) and the lost Core Point by hand."
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-duality"
+    }
+  }
+}

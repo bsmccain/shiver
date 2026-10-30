@@ -1,0 +1,82 @@
+{
+  "_id": "wNqXshWnaJ7SazWO",
+  "_key": "!items!wNqXshWnaJ7SazWO",
+  "folder": null,
+  "sort": 31,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Dart Thrower",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Smarts; 2 Pierce; Medium (50 ft). Variable ammo: an Interact Action swaps the loaded dart. Sleep Dart: a damaged enemy must pass a CR 1 Grit Check or be Paralysed. Poison Dart: a damaged enemy must pass a CR 1 Grit Check or gain Poisoned (1). Tracking Dart: leaves a glowing trail (no further rule is printed).</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.139</em></p>",
+    "summary": "Smarts; 2 Pierce; Medium (50 ft). Variable ammo: an Interact Action swaps the loaded dart. Sleep Dart: a damaged enemy must pass a CR 1 Grit Check or be Paralysed. Poison Dart: a damaged enemy must pass a CR 1 Grit Check or gain Poisoned (1). Tracking Dart: leaves a glowing trail (no further rule is printed).",
+    "page": 139,
+    "category": "ranged",
+    "skill": "smarts",
+    "altSkills": [],
+    "damage": 2,
+    "damageType": "pierce",
+    "altDamageTypes": [],
+    "range": "medium",
+    "properties": [
+      "variableAmmoDarts"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "note": "Loaded dart. Sleep or Poison: keep the damaged target targeted, post the Dart Thrower to chat and click that dart's button (the target saves with Grit CR 1). Tracking: it leaves a trail of glowing liquid."
+      },
+      {
+        "kind": "applyStatus",
+        "status": "paralysed",
+        "target": "enemy",
+        "save": {
+          "skill": "grit",
+          "cr": 1
+        },
+        "when": {
+          "manual": true,
+          "label": "Sleep Dart damaged the target"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "poisoned",
+        "value": 1,
+        "target": "enemy",
+        "save": {
+          "skill": "grit",
+          "cr": 1
+        },
+        "when": {
+          "manual": true,
+          "label": "Poison Dart damaged the target"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Variable ammo: switching between Sleep, Poison and Tracking darts costs an Interact Action. The book gives no way to end the Sleep Dart's Paralysed, so the Director decides when it wears off."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "dart-thrower"
+    }
+  }
+}

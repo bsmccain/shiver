@@ -1,0 +1,50 @@
+{
+  "_id": "kLq4XzIVKZAvuwRS",
+  "_key": "!items!kLq4XzIVKZAvuwRS",
+  "folder": null,
+  "sort": 6,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Diving Suit",
+  "type": "armour",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "description": "<p>2 Armour Slots. Warm: you are Resistant to Cold damage. Airtight: you can breathe and act normally where the air is unbreathable (space, underwater), but once the suit is at 0 Health Points the environment affects you. Heavy: your Speed drops one tier while it is equipped.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.152</em></p>",
+    "summary": "2 Armour Slots. Warm: you are Resistant to Cold damage. Airtight: you can breathe and act normally where the air is unbreathable (space, underwater), but once the suit is at 0 Health Points the environment affects you. Heavy: your Speed drops one tier while it is equipped.",
+    "page": 152,
+    "slots": 2,
+    "hpPerSlot": 2,
+    "slotHp": [
+      2,
+      2
+    ],
+    "heavy": true,
+    "unbreakable": false,
+    "equipped": true,
+    "abilityName": "Warm, Airtight, Heavy",
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "cold"
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Airtight: you breathe and act normally in unbreathable environments such as space or underwater. When this armour reaches 0 HP the environment's effects apply to you."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "diving-suit"
+    }
+  }
+}

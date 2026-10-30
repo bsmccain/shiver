@@ -1,0 +1,69 @@
+{
+  "_id": "mq8VgY43sv2EDJwH",
+  "_key": "!items!mq8VgY43sv2EDJwH",
+  "folder": "woUZVK9fB96eD0cg",
+  "sort": 6022,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Doppelgänger",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_STRANGE.png",
+  "system": {
+    "description": "<p>OPDQ. CR 2 Strange Check to create one physical copy of yourself that you control as a companion. The copy has CR 1 and half your current HP, does half damage, wears no armour and has no abilities. Creating it costs Doom +3.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.66</em></p>",
+    "summary": "OPDQ. CR 2 Strange Check to create one physical copy of yourself that you control as a companion. The copy has CR 1 and half your current HP, does half damage, wears no armour and has no abilities. Creating it costs Doom +3.",
+    "archetype": "weird",
+    "node": "weird-doppelganger",
+    "path": "spiritualist",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "weird-core-plus-spiritualist"
+    ],
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "strange",
+        "cr": 2,
+        "onSuccess": "Your Doppelgänger appears. Doom +3.",
+        "onFail": "No copy appears.",
+        "success": [
+          {
+            "kind": "doom",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "kind": "custom",
+        "note": "Doppelgänger companion: half your current HP, CR 1, half damage, no armour, no abilities. You control it like a companion."
+      }
+    ],
+    "page": 66,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "weird-doppelganger"
+    }
+  }
+}

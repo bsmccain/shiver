@@ -1,0 +1,35 @@
+{
+  "_id": "RTIkEWh04nCCXdc8",
+  "_key": "!items!RTIkEWh04nCCXdc8",
+  "folder": null,
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Easy Target",
+  "type": "flaw",
+  "img": "icons/svg/hazard.svg",
+  "system": {
+    "description": "<p>While you are Afraid or Terrified, enemies may make 1 extra attack against you on their Turn.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.79</em></p>",
+    "summary": "While you are Afraid or Terrified, enemies may make 1 extra attack against you on their Turn.",
+    "page": 79,
+    "fatal": true,
+    "automation": [
+      {
+        "kind": "custom",
+        "note": "Director: while this character is Afraid or Terrified, each enemy may make 1 extra attack against them on its Turn."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "ff-easy-target"
+    }
+  }
+}

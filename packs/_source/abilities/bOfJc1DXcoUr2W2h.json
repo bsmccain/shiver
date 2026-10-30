@@ -1,0 +1,16 @@
+{
+  "_id": "bOfJc1DXcoUr2W2h",
+  "_key": "!folders!bOfJc1DXcoUr2W2h",
+  "name": "The Maverick",
+  "type": "Item",
+  "folder": null,
+  "sorting": "m",
+  "sort": 200000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  }
+}

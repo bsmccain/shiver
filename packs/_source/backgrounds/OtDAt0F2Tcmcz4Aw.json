@@ -1,0 +1,60 @@
+{
+  "_id": "OtDAt0F2Tcmcz4Aw",
+  "_key": "!items!OtDAt0F2Tcmcz4Aw",
+  "folder": null,
+  "sort": 22,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "The Stoner",
+  "type": "background",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "description": "<p><strong>Taking a Hit.</strong> OPDQ: take a big hit from your stash to heal 3 wounds.</p><p><strong>Stoned (Flaw).</strong> Lose 1 Skill Die on Wit Checks. Failed Wit Checks may cause hallucinations.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.89</em></p>",
+    "page": 89,
+    "abilityName": "Taking a Hit",
+    "abilitySummary": "OPDQ: take a big hit from your stash to heal 3 wounds.",
+    "abilityDescription": "<p>OPDQ: take a big hit from your stash to heal 3 wounds.</p>",
+    "action": "interact",
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "automation": [
+      {
+        "kind": "heal",
+        "amount": 3,
+        "target": "self"
+      }
+    ],
+    "flawName": "Stoned",
+    "flawSummary": "Lose 1 Skill Die on Wit Checks. Failed Wit Checks may cause hallucinations.",
+    "flawDescription": "<p>Lose 1 Skill Die on Wit Checks. Failed Wit Checks may cause hallucinations.</p>",
+    "flawAutomation": [
+      {
+        "kind": "poolDice",
+        "label": "Stoned",
+        "skill": "wit",
+        "d6": -1,
+        "d8": 0
+      },
+      {
+        "kind": "custom",
+        "note": "Director: a failed Wit Check may cause hallucinations."
+      }
+    ],
+    "archetype": "fool"
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bg-stoner"
+    }
+  }
+}

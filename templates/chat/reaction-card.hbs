@@ -1,0 +1,10 @@
+<div class="shiver-card shiver-reaction {{#if reacts}}reacts{{/if}}">
+  <header class="card-header">
+    <img class="skill-icon" src="{{img}}" alt="{{symbolLabel}}">
+    <div class="titles">
+      <h3>{{localize "shiver.Reaction.title" name=actor.name}}</h3>
+      <div class="subtitle">{{deathcon}}{{#if tableLabel}} · {{tableLabel}}{{/if}} · {{symbolLabel}}</div>
+    </div>
+  </header>
+  {{#if reacts}}<p class="reaction-text">{{text}}</p>{{else}}<p class="note">{{localize "shiver.Reaction.none"}}</p>{{/if}}
+</div>

@@ -1,0 +1,60 @@
+{
+  "_id": "eQQWxLZGfAvkQS5b",
+  "_key": "!items!eQQWxLZGfAvkQS5b",
+  "folder": null,
+  "sort": 2,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Bike Chain",
+  "type": "weapon",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "description": "<p>Wit or Grit; 3 Blunt; Near (15 ft); melee. Restrain: an enemy it hits must pass a CR 1 Wit Check or be Grappled.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.133</em></p>",
+    "summary": "Wit or Grit; 3 Blunt; Near (15 ft); melee. Restrain: an enemy it hits must pass a CR 1 Wit Check or be Grappled.",
+    "page": 133,
+    "category": "melee",
+    "skill": "wit",
+    "altSkills": [
+      "grit"
+    ],
+    "damage": 3,
+    "damageType": "blunt",
+    "altDamageTypes": [],
+    "range": "near",
+    "properties": [
+      "restrain"
+    ],
+    "material": "",
+    "unarmed": false,
+    "equipped": true,
+    "ammo": {
+      "value": null,
+      "max": null
+    },
+    "automation": [
+      {
+        "kind": "onHit",
+        "status": "grappled",
+        "save": {
+          "skill": "wit",
+          "cr": 1
+        }
+      },
+      {
+        "kind": "melee"
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "bike-chain"
+    }
+  }
+}

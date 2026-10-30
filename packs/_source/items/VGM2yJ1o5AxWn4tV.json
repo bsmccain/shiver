@@ -1,0 +1,53 @@
+{
+  "_id": "VGM2yJ1o5AxWn4tV",
+  "_key": "!items!VGM2yJ1o5AxWn4tV",
+  "folder": null,
+  "sort": 4,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Repair Kit",
+  "type": "item",
+  "img": "icons/svg/item-bag.svg",
+  "system": {
+    "description": "<p>Repair (OPDQ): roll your Smarts Pool. Repair 1 wound on a piece of armour or a vehicle, plus 1 more for each Smarts symbol rolled. Limit 3 uses.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.159</em></p>",
+    "summary": "Repair (OPDQ): roll your Smarts Pool. Repair 1 wound on a piece of armour or a vehicle, plus 1 more for each Smarts symbol rolled. Limit 3 uses.",
+    "page": 159,
+    "category": "healing",
+    "consumable": true,
+    "quantity": 3,
+    "uses": {
+      "per": "opdq",
+      "max": 1
+    },
+    "doom": 0,
+    "action": "interact",
+    "skill": "smarts",
+    "equipped": true,
+    "automation": [
+      {
+        "kind": "check",
+        "skill": "smarts",
+        "cr": 1,
+        "label": "Repair",
+        "onSuccess": "Repair 1 wound on one piece of armour or a vehicle, plus 1 per Smarts symbol rolled.",
+        "onFail": "No Smarts symbols: repair 1 wound only."
+      },
+      {
+        "kind": "custom",
+        "note": "Quantity tracks the 3 total uses. After the roll, restore 1 + (Smarts symbols) Health Points to the chosen armour's slots or the vehicle by hand. A roll with no Smarts symbols shows Failure but still repairs 1."
+      }
+    ]
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "repair-kit"
+    }
+  }
+}

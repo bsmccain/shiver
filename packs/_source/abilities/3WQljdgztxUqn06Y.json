@@ -1,0 +1,127 @@
+{
+  "_id": "3WQljdgztxUqn06Y",
+  "_key": "!items!3WQljdgztxUqn06Y",
+  "folder": "bkJ7C3FnTrM9mkzI",
+  "sort": 7020,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Pro Wrestler",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_GRIT.png",
+  "system": {
+    "description": "<p>Gain 1 Talent Die on Grit Checks to Grapple. While you have an enemy Grappled, an Attack Action lets you make one move. Caber Toss throws it up to 20 ft. Aimed at another enemy, roll a Grit Check against that enemy&#39;s CR, and on a success both are knocked Prone and take 1 Blunt. Into a solid object, it takes 1 Blunt per 10 ft thrown. Headlock makes it Weakened while you keep the Grapple. Suplex is a Grit Check against its CR that deals 5 Blunt on a success, and it is knocked Prone either way.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.35</em></p>",
+    "summary": "Gain 1 Talent Die on Grit Checks to Grapple. While you have an enemy Grappled, an Attack Action lets you make one move. Caber Toss throws it up to 20 ft. Aimed at another enemy, roll a Grit Check against that enemy's CR, and on a success both are knocked Prone and take 1 Blunt. Into a solid object, it takes 1 Blunt per 10 ft thrown. Headlock makes it Weakened while you keep the Grapple. Suplex is a Grit Check against its CR that deals 5 Blunt on a success, and it is knocked Prone either way.",
+    "archetype": "warrior",
+    "node": "warrior-pro-wrestler",
+    "path": "protector",
+    "tier": 7,
+    "tree": true,
+    "prerequisites": [
+      "warrior-natural-toughness"
+    ],
+    "action": "attack",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "poolDice",
+        "skill": "grit",
+        "d6": 0,
+        "d8": 1,
+        "when": {
+          "notTags": [
+            "attack",
+            "fear",
+            "deathsDoor",
+            "heal",
+            "removeStatus",
+            "save"
+          ],
+          "manual": true,
+          "label": "Grit Check to Grapple"
+        }
+      },
+      {
+        "kind": "applyStatus",
+        "status": "weakened",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Headlock"
+        }
+      },
+      {
+        "kind": "check",
+        "skill": "grit",
+        "cr": null,
+        "label": "Caber Toss at an enemy (CR = that enemy's CR)",
+        "onSuccess": "Both enemies are knocked Prone and take 1 Blunt.",
+        "onFail": "No Prone or damage from the throw.",
+        "success": [
+          {
+            "kind": "applyStatus",
+            "status": "prone",
+            "target": "enemy"
+          },
+          {
+            "kind": "damage",
+            "amount": 1,
+            "type": "blunt",
+            "target": "enemy",
+            "strike": false
+          }
+        ]
+      },
+      {
+        "kind": "strikeMode",
+        "label": "Suplex",
+        "damage": 5,
+        "damageType": "blunt",
+        "unarmedOnly": true,
+        "onHit": [
+          {
+            "kind": "onHit",
+            "status": "prone"
+          }
+        ]
+      },
+      {
+        "kind": "applyStatus",
+        "status": "prone",
+        "target": "enemy",
+        "when": {
+          "manual": true,
+          "label": "Suplex missed"
+        }
+      },
+      {
+        "kind": "custom",
+        "note": "Each move needs an enemy in your Grapple. For Headlock or Caber Toss, use this ability (it spends the Attack Action) and work from its card. Headlock: target the held enemy and click Headlock, then remove Weakened when the Grapple ends. Caber Toss at an enemy: target both enemies and roll the card's Grit Check against the target enemy's CR. End your Grapple on the thrown enemy by hand. Thrown into a solid object, it takes 1 Blunt per 10 ft (up to 20 ft) by hand. Suplex: Strike the held enemy with your Unarmed Strike in Suplex mode. If that misses, post this ability to chat and click Suplex missed."
+      }
+    ],
+    "page": 35,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "warrior-pro-wrestler"
+    }
+  }
+}

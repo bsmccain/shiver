@@ -1,0 +1,64 @@
+{
+  "_id": "ggvEQuRFYdCjXyaO",
+  "_key": "!items!ggvEQuRFYdCjXyaO",
+  "folder": "GKmWlCNMKT2xLO7k",
+  "sort": 6018,
+  "ownership": {
+    "default": 0
+  },
+  "effects": [],
+  "_stats": {
+    "coreVersion": "14.369",
+    "systemId": "shiver",
+    "systemVersion": "1.0.0-beta.1"
+  },
+  "name": "Sparky",
+  "type": "ability",
+  "img": "systems/shiver/assets/dice/skill/SHIVER_SMARTS.png",
+  "system": {
+    "description": "<p>Resistant to Shock damage, and you can&#39;t be Stunned.</p><p class=\"page-ref\"><em>SHIVER Core Rulebook p.47</em></p>",
+    "summary": "Resistant to Shock damage, and you can't be Stunned.",
+    "archetype": "scholar",
+    "node": "scholar-sparky",
+    "path": "engineer",
+    "tier": 6,
+    "tree": true,
+    "prerequisites": [
+      "scholar-core-plus-engineer"
+    ],
+    "action": "passive",
+    "uses": {
+      "per": "always",
+      "max": 1
+    },
+    "doom": 0,
+    "upgrades": "",
+    "choices": {},
+    "automation": [
+      {
+        "kind": "resistance",
+        "types": [
+          "shock"
+        ]
+      },
+      {
+        "kind": "immunity",
+        "types": [
+          "stunned"
+        ]
+      }
+    ],
+    "page": 47,
+    "attack": {
+      "skill": "",
+      "damage": 0,
+      "damageType": "blunt",
+      "range": "close"
+    }
+  },
+  "flags": {
+    "shiver": {
+      "sourceId": "scholar-sparky"
+    }
+  }
+}

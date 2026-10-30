@@ -1,192 +1,178 @@
-<div class="{{actor.type}} flexcol">
+<div class="{{actor.type}} shiver-character flexcol">
 
-  {{!-- Sheet Header --}}
-  <header class="sheet-header ">
-
-    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-
-    <div class="header-fields grid grid-8col">
-
-      <div class="grid-span-4 resource-content">
-        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
-        <label for="name" class="resource-label">Name</label>
-      </div>
-
-      <div class="grid-span-3 resource-content">
-        <input name="system.attributes.archetype" type="text" value="{{system.attributes.archetype}}" placeholder="Archetype"/>
-        <label for="system.attributes.archetype" class="resource-label">Archetype</label>
-      </div>
-
-      <div class="resource">
-        <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}" data-dtype="Number"/>
+  {{!-- Header --}}
+  <header class="sheet-header shiver-header">
+    <img class="profile-img" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" height="110" width="110"/>
+    <div class="header-main">
+      <div class="header-row">
+        <div class="field name-field">
+          <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'shiver.Sheet.name'}}"/>
+          <label>{{localize "shiver.Sheet.name"}}</label>
         </div>
-        <label for="system.attributes.level.value" class="resource-label">Level</label>
-      </div>
-
-      <div class="grid-span-4 resource-content">
-        <input name="system.attributes.background" type="text" value="{{system.attributes.background}}" placeholder="Background"/>
-        <label for="system.attributes.background" class="resource-label">Background</label>
-      </div>
-      
-      <div class="grid-span-2 resource-content">
-        <input name="system.attributes.gender" type="text" value="{{system.attributes.gender}}" placeholder="Gender"/>
-        <label for="system.attributes.gender" class="resource-label">Gender</label>
-      </div>
-
-      <div class="resource-content">
-        <input name="system.attributes.age" type="number" value="{{system.attributes.age}}" placeholder="20"/>
-        <label for="system.attributes.age" class="resource-label">Age</label>
-      </div>
-
-      <div class="resource-content">
-        <input name="system.attributes.luck.value" type="number" value="{{system.attributes.luck.value}}" placeholder="0"/>
-        <label for="system.attributes.luck.value" class="resource-label">Luck</label>
-      </div>
-
-      <div class="grid-span-8">
-        <hr>
-      </div>
-
-      <div class="resource grid-span-3">
-        <div class="resource-content">
-          <input type="text" name="system.attributes.fear" value="{{system.attributes.fear}}" data-dtype="text"/>
-          <label for="system.attributes.fear" class="resource-label">Fear</label>
+        <div class="field archetype-field">
+          {{#if archetype}}
+          <span class="archetype-name">{{archetype.name}}{{#each hybrids}} / {{this}}{{/each}}</span>
+          {{else}}
+          <button type="button" class="choose-archetype" data-action="chooseArchetype"><i class="fa-solid fa-masks-theater"></i> {{localize "shiver.Archetype.choose"}}</button>
+          {{/if}}
+          <label>{{localize "shiver.Archetype.label"}}</label>
+        </div>
+        <div class="field level-field">
+          <select name="system.attributes.level.value" {{#unless isGM}}disabled data-tooltip="shiver.Sheet.levelGM"{{/unless}}>{{#each levelOptions}}<option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>{{/each}}</select>
+          <label>{{localize "shiver.Sheet.level"}}</label>
+        </div>
+        <div class="field points-field {{#if (gt points.available 0)}}unspent{{/if}} {{#if (lt points.available 0)}}overspent{{/if}}">
+          <button type="button" class="tree-button" data-action="openTree" data-tooltip="shiver.Tree.open"><i class="fa-solid fa-sitemap"></i> {{points.available}}</button>
+          <label>{{localize "shiver.Sheet.abilityPoints"}}</label>
         </div>
       </div>
-  
-      <!-- fear breakdown -->
-      <div class="resource flex-group-center grid-span-4">
-        <hr>
-        {{#each fearLevels as |fear|}}
-        <a class="checkbox-fear" title="{{fear.key}}" data-action="setFear" data-level="{{fear.value}}">
-          {{fear.key}}
-        <i class="far {{#if fear.active}}fa-times-circle{{else}}fa-circle{{/if}}"></i></a>
-        {{/each}}
+      <div class="header-row">
+        <div class="field">
+          <input name="system.attributes.background" type="text" value="{{system.attributes.background}}"/>
+          <label>{{localize "shiver.Sheet.background"}}</label>
+        </div>
+        <div class="field small">
+          <input name="system.attributes.gender" type="text" value="{{system.attributes.gender}}"/>
+          <label>{{localize "shiver.Sheet.gender"}}</label>
+        </div>
+        <div class="field tiny">
+          <input name="system.attributes.age" type="text" value="{{system.attributes.age}}"/>
+          <label>{{localize "shiver.Sheet.age"}}</label>
+        </div>
+        <div class="field small">
+          <input name="system.attributes.player" type="text" value="{{system.attributes.player}}"/>
+          <label>{{localize "shiver.Sheet.player"}}</label>
+        </div>
       </div>
-  
-      <div>
-        <input name="system.speed.value" type="number" value="{{system.speed.value}}" placeholder="20"/>
-        <label for="Speed" class="resource-label">Speed</label>
+      <div class="header-row trackers">
+        <div class="field luck-bank" data-tooltip="shiver.Sheet.luckBankHint">
+          <div class="pips">
+            {{#each luckPips}}<a class="luck-pip {{#if filled}}filled{{/if}}" data-action="setLuck" data-index="{{index}}"><i class="fa-solid fa-clover"></i></a>{{/each}}
+          </div>
+          <label>{{localize "shiver.Sheet.luckBank"}}</label>
+        </div>
+        <div class="field fear-field">
+          <input name="system.attributes.fear" type="text" value="{{system.attributes.fear}}" placeholder="{{localize 'shiver.Sheet.fearPlaceholder'}}"/>
+          <label>{{localize "shiver.Sheet.fear"}}</label>
+        </div>
+        <div class="field fear-status">
+          <div class="fear-buttons">
+            {{#each fearLevels}}<a class="fear-level level-{{key}} {{#if active}}active{{/if}}" data-action="setFear" data-level="{{value}}">{{label}}</a>{{/each}}
+            <a class="fear-roll" data-action="fearCheck" data-purpose="resist" data-tooltip="shiver.Fear.check"><i class="fa-solid fa-ghost"></i></a>
+            {{#if fearLevel}}<a class="fear-roll" data-action="fearCheck" data-purpose="steady" data-tooltip="shiver.Fear.steady"><i class="fa-solid fa-heart-pulse"></i></a>{{/if}}
+          </div>
+          <label>{{localize "shiver.Sheet.fearStatus"}}</label>
+        </div>
+        <div class="field speed-field">
+          <div class="speed-line">
+            <select name="system.speed.base" data-tooltip="shiver.Sheet.baseSpeed">{{#each speedOptions}}<option value="{{key}}" {{#if selected}}selected{{/if}}>{{label}}</option>{{/each}}</select>
+            <span class="speed-value" data-tooltip="shiver.Sheet.currentSpeed">{{system.speed.label}} · {{system.speed.ft}} ft</span>
+          </div>
+          <label>{{localize "shiver.Sheet.speed"}}</label>
+        </div>
+        <div class="field tiny cr-field" data-tooltip="shiver.Sheet.crHint">
+          <span class="cr-value">{{system.cr.value}}</span>
+          <label>CR</label>
+        </div>
       </div>
-
-      <div class="grid-span-8 flex-group-center" >
-        <hr>
-      </div>
-
-      <div class="grid-span-7 flex-group-center">
-        {{#each lifeline as |check|}}
-        {{#if check}}
-        <span><i class="far fa-times-circle"></i></span>
-        {{/if}}
-        {{#unless check}}
-        <span><i class="far fa-circle"></i></span>
-        {{/unless}}
-        {{/each}}
-      </div>
-
-      <div class="resource">
-        <input class="health" type="number" name="system.hp.value" value="{{system.hp.value}}" min="{{system.hp.min}}" max="{{system.hp.max}}"/>
-      </div>
-
-      <div class="grid-span-7 flex-group-center lifeline-offset">
-          <span class="label-black background-white align-center">WEAKENED</span> 
-          <span class="label-white background-tan align-center">LIMPING</span> 
-          <span class="label-white background-black align-center">TRAUMA</span>
-          <span class="label-white background-red align-center">DEAD</span>
-      </div>
-      
-      <div class="resource nopadding nomargin">
-        <label for="system.hp.value" class="resource-label">Health</label>
-      </div>
-
     </div>
 
+    {{!-- Lifeline --}}
+    <div class="lifeline-block">
+      <div class="lifeline" data-tooltip="shiver.Sheet.lifelineHint">
+        {{#each lifeline}}
+        <a class="life-box {{#if wounded}}wounded{{/if}} {{#if quarter}}quarter quarter-{{quarter}}{{/if}}" data-action="setWounds" data-index="{{index}}">
+          {{#if wounded}}<i class="fa-solid fa-xmark"></i>{{/if}}
+        </a>
+        {{/each}}
+      </div>
+      <div class="lifeline-labels {{#if nightmare}}nightmare{{/if}}">
+        <span>{{localize "shiver.Nightmare.weakened"}}</span><span>{{localize "shiver.Nightmare.limping"}}</span>
+        <span>{{localize "shiver.Nightmare.trauma"}}</span><span>{{localize "shiver.Nightmare.dead"}}</span>
+      </div>
+      <div class="lifeline-info">
+        <span class="hp">{{localize "shiver.Sheet.health"}} <input class="hp-input" type="number" name="system.hp.value" value="{{system.hp.value}}" min="0" max="{{system.hp.max}}"> / {{system.hp.max}} · {{localize "shiver.Sheet.wounds"}} {{wounds}}</span>
+        <span class="mode">{{modeLabel}}</span>
+        {{#each penalties}}<span class="penalty">{{this}}</span>{{/each}}
+        {{#if penalties.length}}{{#if isGM}}<a data-action="clearNightmare" data-tooltip="shiver.Nightmare.clear"><i class="fa-solid fa-eraser"></i></a>{{/if}}{{/if}}
+        {{#if atDeathsDoor}}<button type="button" class="deaths-door" data-action="deathsDoor"><i class="fa-solid fa-skull-crossbones"></i> {{localize "shiver.Death.rollLuck"}}</button>{{/if}}
+        {{#if isDead}}<span class="dead-tag"><i class="fa-solid fa-skull"></i> {{localize "shiver.Status.dead"}}</span>{{/if}}
+      </div>
+    </div>
   </header>
-  
-  {{!-- Sheet Tab Navigation --}}
-  <nav class="sheet-tabs tabs nopadding nomargin" data-group="primary">
-    {{!-- Tabs are specified in actor-sheet.mjs --}}
+
+  {{!-- Tabs --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
     {{#each tabs as |tab|}}
     <a class="item {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
     {{/each}}
   </nav>
 
-  {{!-- Sheet Body --}}
-  <section class="sheet-body"> 
+  <section class="sheet-body">
 
-    {{!-- Owned skills Tab --}}
+    {{!-- Skills --}}
     <div class="tab skills {{tabs.skills.cssClass}}" data-group="primary" data-tab="skills">
-
-      <!-- Skills and Talents -->
-      <div class="">
-        <div class="">
-          <div  class="sheet-skills">
-            {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-              use both the "grid" and "grid-Ncol" class where "N" can be any number
-              from 1 to 12 and will create that number of columns.  --}}
-
-            <div class="">
-              <div class="grid grid-7col flex-group-center">
-                <div class="skill flex-group-center">
-                  <div class="skill-label-offset"></div>
-                  <div class="skill-label">skill</div>
-                  <div class="skill-label">talent</div>
-                </div>
-                {{#each abilities as |ability|}}
-                <div class="skill flex-group-center">
-                  <img class="skill-img rollable" src="{{ability.img}}" title="{{ability.label}}" height="50" width="50"
-                    data-action="roll"
-                    data-skill="{{ability.key}}"
-                    data-skill-dice="{{ability.skill.value}}"
-                    data-talent-dice="{{ability.talent.value}}"/>
-                  <span class="skill-text">{{ability.label}}</span>
-                  <div class="header-fields grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="system.abilities.{{ability.key}}.skill.reference" value="{{ability.skill.reference}}" data-dtype="Number"/>
-                    <input class="skill-text" type="text" name="system.abilities.{{ability.key}}.skill.value" value="{{ability.skill.value}}" data-dtype="Number"/>
-                  </div>
-                  <div class="grid grid-2col">
-                    <input class="skill-text text-grey" type="text" name="system.abilities.{{ability.key}}.talent.reference" value="{{ability.talent.reference}}" data-dtype="Number"/>
-                    <input class="skill-text" type="text" name="system.abilities.{{ability.key}}.talent.value" value="{{ability.talent.value}}" data-dtype="Number"/>
-                  </div>
-                </div>
-                {{/each}}
-              </div>
+      <div class="skill-grid">
+        {{#each abilities as |ability|}}
+        <div class="skill-card {{#if ability.deficiency}}deficiency{{/if}} {{#if ability.modified}}modified{{/if}}">
+          <img class="skill-img rollable" src="{{ability.img}}" title="{{localize 'shiver.Check.rollSkill' skill=ability.label}}" data-action="roll" data-skill="{{ability.key}}"/>
+          <span class="skill-name">{{ability.label}}{{#if ability.weakened}} <i class="fa-solid fa-arrow-down" data-tooltip="shiver.Nightmare.weakened"></i>{{/if}}{{#if ability.trauma}} <i class="fa-solid fa-heart-crack" data-tooltip="shiver.Nightmare.trauma"></i>{{/if}}</span>
+          <div class="skill-values">
+            <div class="value-box">
+              <input type="number" name="system.abilities.{{ability.key}}.skill.value" value="{{ability.skill.base}}" min="0" data-tooltip="shiver.Sheet.skillPoints"/>
+              {{#if ability.modified}}<span class="total" data-tooltip="shiver.Sheet.effective">{{ability.skill.total}}</span>{{/if}}
+              <label>{{localize "shiver.Sheet.skill"}}</label>
             </div>
-
-         </div>
+            <div class="value-box talent">
+              <input type="number" name="system.abilities.{{ability.key}}.talent.value" value="{{ability.talent.base}}" min="0" data-tooltip="shiver.Sheet.talentPoints"/>
+              {{#if ability.modified}}<span class="total" data-tooltip="shiver.Sheet.effective">{{ability.talent.total}}</span>{{/if}}
+              <label>{{localize "shiver.Sheet.talent"}}</label>
+            </div>
+          </div>
         </div>
+        {{/each}}
       </div>
-      <div class="sheet-skills">
-       <img class="logo-img flex-group-center" src="systems/shiver/assets/sheet-elements/COMPATIBLE_WITH_SHIVER-03.png" title="shiver logo" height="135" width="520"/> 
+      <div class="quick-checks">
+        <button type="button" data-action="roll" data-skill="wit" data-tags="stealth"><i class="fa-solid fa-user-ninja"></i> {{localize "shiver.Quick.stealth"}}</button>
+        <button type="button" data-action="roll" data-skill="wit" data-tags="hide"><i class="fa-solid fa-box-archive"></i> {{localize "shiver.Quick.hide"}}</button>
+        <button type="button" data-action="fearCheck" data-purpose="resist"><i class="fa-solid fa-ghost"></i> {{localize "shiver.Fear.check"}}</button>
+        <button type="button" data-action="fearCheck" data-purpose="steady"><i class="fa-solid fa-heart-pulse"></i> {{localize "shiver.Fear.steady"}}</button>
+        <button type="button" data-action="stabilise"><i class="fa-solid fa-kit-medical"></i> {{localize "shiver.Death.stabilise"}}</button>
       </div>
+      {{#if archetype}}
+      <div class="archetype-summary">
+        <p><strong>{{localize "shiver.Archetype.strength"}}:</strong> {{archetype.strength}}</p>
+        <p><strong>{{localize "shiver.Archetype.deficiency"}}:</strong> {{archetype.deficiency.text}}</p>
+      </div>
+      {{/if}}
     </div>
 
-    {{!-- Biography Tab --}}
-    <div class="tab biography {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
-      {{formInput systemFields.biography value=system.biography enriched=enrichBio toggled=true}}
+    {{!-- Combat --}}
+    <div class="tab combat {{tabs.combat.cssClass}}" data-group="primary" data-tab="combat">
+      {{> "systems/shiver/templates/actor/parts/actor-combat.html"}}
     </div>
 
-    {{!-- Owned Items Tab --}}
+    {{!-- Abilities --}}
+    <div class="tab abilities {{tabs.abilities.cssClass}}" data-group="primary" data-tab="abilities">
+      {{> "systems/shiver/templates/actor/parts/actor-abilities.html"}}
+    </div>
+
+    {{!-- Items --}}
     <div class="tab items {{tabs.items.cssClass}}" data-group="primary" data-tab="items">
-       {{> "systems/shiver/templates/actor/parts/actor-items.html"}}
+      {{> "systems/shiver/templates/actor/parts/actor-items.html"}}
     </div>
 
-    {{!-- Owned Spells Tab --}}
-    <div class="tab spells {{tabs.spells.cssClass}}" data-group="primary" data-tab="spells">
-      {{> "systems/shiver/templates/actor/parts/actor-powers.html"}}
+    {{!-- Description --}}
+    <div class="tab biography {{tabs.description.cssClass}}" data-group="primary" data-tab="description">
+      <h3>{{localize "shiver.Sheet.biography"}}</h3>
+      {{formInput systemFields.biography value=system.biography enriched=enrichBio toggled=true}}
+      <h3>{{localize "shiver.Sheet.notes"}}</h3>
+      {{formInput systemFields.notes value=system.notes enriched=enrichNotes toggled=true}}
     </div>
 
-    {{!-- Active Effects Tab --}}
+    {{!-- Effects --}}
     <div class="tab effects flexcol {{tabs.effects.cssClass}}" data-group="primary" data-tab="effects">
       {{> "systems/shiver/templates/actor/parts/actor-effects.html"}}
     </div>
-
-    {{!-- Traits Tab --}}
-    <div class="tab traits flexcol {{tabs.traits.cssClass}}" data-group="primary" data-tab="traits">
-      {{> "systems/shiver/templates/actor/parts/actor-traits.html"}}
-    </div>
-
   </section>
 </div>
-
