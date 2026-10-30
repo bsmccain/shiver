@@ -749,6 +749,7 @@ export class ShiverCombatTracker extends foundry.applications.sidebar.tabs.Comba
       await this.viewed.goNow(c);
     } catch(err) {
       ui.notifications.warn(err.message);
+    } finally {
       target.disabled = false;
     }
   }
@@ -841,11 +842,13 @@ registerGMOperation("combatMove", async (data, user) => {
   return true;
 });
 
-// A player puts their own characters into their suggested Combat States.
+// A player puts their own characters into their suggested Combat States. Only characters without a state yet: moving
+// one that already has a state could undo the GM's choice, or put a character who has acted back among those waiting.
 registerGMOperation("combatAssign", async (data, user) => {
   const { combat } = requested({ combatId: data.combatId });
   const ids = Array.isArray(data.ids) ? data.ids.filter(id => typeof id === "string") : [];
-  const own = ids.map(id => combat.combatants.get(id)).filter(c => c && canControl(user, c.actor ?? c)).map(c => c.id);
+  const own = ids.map(id => combat.combatants.get(id))
+    .filter(c => c && (c.initiative === null) && canControl(user, c.actor ?? c)).map(c => c.id);
   if ( own.length ) await combat._serial(() => combat._assignStates(own));
   return true;
 });
