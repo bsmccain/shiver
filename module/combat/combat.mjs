@@ -387,9 +387,13 @@ export class ShiverCombat extends Combat {
 
   /** Place combatants that joined together in one go, so they get distinct places. */
   #placeEntering = foundry.utils.debounce(() => {
-    const ids = [...this.#entering].filter(id => this.combatants.get(id)?.initiative === null);
+    const entering = [...this.#entering];
     this.#entering.clear();
-    if ( ids.length ) this._serial(() => this._assignStates(ids)).catch(err => console.error(err));
+    // Checked in the queue, so a move the GM made in the meantime isn't undone.
+    this._serial(async () => {
+      const ids = entering.filter(id => this.combatants.get(id)?.initiative === null);
+      if ( ids.length ) await this._assignStates(ids);
+    }).catch(err => console.error(err));
   }, 100);
 
   /**
@@ -847,8 +851,11 @@ registerGMOperation("combatMove", async (data, user) => {
 registerGMOperation("combatAssign", async (data, user) => {
   const { combat } = requested({ combatId: data.combatId });
   const ids = Array.isArray(data.ids) ? data.ids.filter(id => typeof id === "string") : [];
-  const own = ids.map(id => combat.combatants.get(id))
-    .filter(c => c && (c.initiative === null) && canControl(user, c.actor ?? c)).map(c => c.id);
-  if ( own.length ) await combat._serial(() => combat._assignStates(own));
+  // Checked in the queue, right before placing, so a placement queued ahead of this one counts.
+  await combat._serial(async () => {
+    const own = ids.map(id => combat.combatants.get(id))
+      .filter(c => c && (c.initiative === null) && canControl(user, c.actor ?? c)).map(c => c.id);
+    if ( own.length ) await combat._assignStates(own);
+  });
   return true;
 });
