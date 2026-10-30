@@ -54,19 +54,22 @@ export function firstSection(entries) {
  * @param {number} combat.round            The combat's round (0 before it starts).
  * @param {number|null} combat.turn        The index of Foundry's current turn.
  * @param {{round: number, section: string}|null} [combat.pending]  Set while waiting for someone to take the turn.
- * @returns {{begun: boolean, round: number, section: string|null, pending: boolean, fresh: boolean,
- *   current: object|null, waiting: object[], inSection: object[]}}
+ * @returns {{begun: boolean, round: number, section: string|null, pending: boolean, stop: object|null,
+ *   fresh: boolean, current: object|null, waiting: object[], inSection: object[]}}
+ *   `stop` is the stop the combat is actually waiting at: the stored one, or the next one if the stored state has
+ *   no-one left waiting.
  *   `round` is the round being played (one ahead of the combat's while a new round waits for its first turn).
  *   `current` is the combatant whose turn is in progress. `waiting` lists everyone still to act this round, and
  *   `inSection` those of them in the current Combat State: the ones who may act next.
  */
 export function describeFlow(entries, { round = 0, turn = null, pending = null } = {}) {
   const flow = flowAt(entries, round, turn, pending);
-  // A Combat State left with no-one waiting (they were moved, defeated or removed) passes to the next stop.
-  if ( flow.pending && !flow.inSection.length && entries.some(playing) ) {
-    return flowAt(entries, round, turn, nextStop(entries, flow, { skipSection: true }));
-  }
-  return flow;
+  if ( !flow.pending || flow.inSection.length || !entries.some(playing) ) return flow;
+  // A Combat State left with no-one waiting (they were moved, defeated or removed) passes to the next stop. A round
+  // that hasn't started yet still happens: if no later state has anyone in it, it starts from its first state.
+  let stop = nextStop(entries, flow, { skipSection: true });
+  if ( flow.fresh && (stop.round > flow.round) ) stop = { round: flow.round, section: firstSection(entries) };
+  return flowAt(entries, round, turn, stop);
 }
 
 /**
@@ -87,6 +90,7 @@ function flowAt(entries, round, turn, pending) {
     round: flowRound,
     section,
     pending: !!pending,
+    stop: pending ? { round: flowRound, section } : null,
     fresh,
     current: (begun && !pending) ? pointer : null,
     waiting,

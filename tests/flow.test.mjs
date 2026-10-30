@@ -141,3 +141,30 @@ test("flow: a pending state left with no-one waiting passes to the next stop", (
   const none = describeFlow([{ id: "X", state: null }], { round: 1, turn: 0, pending: { round: 1, section: "middle" } });
   assert.equal(none.section, "middle");
 });
+
+test("flow: a new round whose waiting state empties starts from its first state, not a round later", () => {
+  // Start of combat: everyone placed in Middle, then all moved to First.
+  const start = [{ id: "A", state: "first" }, { id: "B", state: "first" }];
+  const begin = describeFlow(start, { round: 0, turn: null, pending: { round: 1, section: "middle" } });
+  assert.equal(begin.round, 1);
+  assert.equal(begin.section, "first");
+  assert.deepEqual(begin.stop, { round: 1, section: "first" });
+  // Mid-combat: waiting for Last of round 3, and its only combatant moved to Middle.
+  const mid = [{ id: "A", state: "middle" }];
+  const later = describeFlow(mid, { round: 2, turn: 0, pending: { round: 3, section: "last" } });
+  assert.equal(later.round, 3);
+  assert.deepEqual(ids(later.inSection), ["A"]);
+});
+
+test("flow: a reorder checked against the stop actually in effect can't bring the old round back", () => {
+  // A in First; B, C, D in Last. B and C have acted, the turn rests on C, D is defeated.
+  const list = [{ id: "A", state: "first" }, { id: "B", state: "last" }, { id: "C", state: "last" },
+    { id: "D", state: "last", defeated: true }];
+  const flow = describeFlow(list, { round: 1, turn: 2, pending: { round: 1, section: "last" } });
+  assert.deepEqual(flow.stop, { round: 2, section: "first" });
+  // B drags after C. Against the stop in effect, B is still waiting in round 2.
+  const moved = [list[0], list[2], list[1], list[3]];
+  const after = describeFlow(moved, { round: 1, turn: 1, pending: flow.stop });
+  assert.equal(after.round, 2);
+  assert.ok(after.waiting.some(e => e.id === "B"));
+});

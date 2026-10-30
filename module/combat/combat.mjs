@@ -242,6 +242,16 @@ export class ShiverCombat extends Combat {
   }
 
   /**
+   * Store the stop the combat is actually waiting at, if the stored one has been passed over because no-one is left
+   * waiting in it. Done before reordering, so that a reorder can't bring the old stop back into effect.
+   */
+  async _settlePending() {
+    const stop = this.flow.stop;
+    const stored = this.pendingStop;
+    if ( stop && stored && ((stop.round !== stored.round) || (stop.section !== stored.section)) ) await this._setPending(stop);
+  }
+
+  /**
    * Wait for someone to take the turn.
    * @param {{round: number, section: string}} stop
    */
@@ -317,6 +327,7 @@ export class ShiverCombat extends Combat {
 
   /** @param {string[]} ids */
   async _assignStates(ids) {
+    await this._settlePending();
     let list = this._orderList();
     for ( const id of ids ) {
       const c = this.combatants.get(id);
@@ -355,6 +366,7 @@ export class ShiverCombat extends Combat {
    * @param {User} user
    */
   async _moveCombatant(combatant, target, user) {
+    await this._settlePending();
     const list = moveEntry(this._orderList(), combatant.id, target);
     if ( !list ) return;
     if ( !user.isGM && !this._playerMoveAllowed(combatant, list, user) ) {
@@ -378,7 +390,7 @@ export class ShiverCombat extends Combat {
     const entries = list.map(e => ({ ...e, defeated: !!this.combatants.get(e.id)?.isDefeated }));
     const pointer = this.combatant?.id;
     const turn = pointer ? list.findIndex(e => e.id === pointer) : this.turn;
-    const after = describeFlow(entries, { round: this.round, turn, pending: this.pendingStop });
+    const after = describeFlow(entries, { round: this.round, turn, pending: flow.stop });
     return after.waiting.some(e => e.id === combatant.id);
   }
 
