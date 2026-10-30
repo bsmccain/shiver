@@ -216,6 +216,18 @@ export class DoomClock {
       type: Object,
       default: {}
     });
+    // A button in the Notes controls on the left brings the Doom Clock back after it's been closed.
+    Hooks.on("getSceneControlButtons", controls => {
+      if ( !controls.notes?.tools ) return;
+      controls.notes.tools.shiverDoomClock = {
+        name: "shiverDoomClock",
+        order: Object.keys(controls.notes.tools).length + 1,
+        title: "shiver.Doom.open",
+        icon: "fa-solid fa-clock",
+        button: true,
+        onChange: () => DoomClockHUD.open()
+      };
+    });
     // Rules tick the clock by a few minutes at a time. Only a GM can move it without the actor's Flaws applying (a
     // Director change or setting the clock), and a player can't move it more than a full cycle at once.
     registerGMOperation("doomTick", async ({ delta, reason, actorUuid, raw }, user) => {
@@ -265,6 +277,14 @@ export class DoomClockHUD extends HandlebarsApplicationMixin(ApplicationV2) {
   static PARTS = {
     clock: { template: "systems/shiver/templates/apps/doom-clock.hbs" }
   };
+
+  /**
+   * Show the Doom Clock, bringing it to the front (and restoring it if minimized) when it's already open.
+   */
+  static open() {
+    ui.shiverDoom ??= new DoomClockHUD();
+    return ui.shiverDoom.render({ force: true });
+  }
 
   /** @inheritDoc */
   _initializeApplicationOptions(options) {

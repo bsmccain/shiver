@@ -203,6 +203,7 @@
     },
     "Doom": {
       "title": "Doom Clock",
+      "open": "Show the Doom Clock",
       "short": "Doom",
       "clear": "Clear",
       "quarterPast": "Quarter Past",
