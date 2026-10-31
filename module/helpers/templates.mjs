@@ -17,6 +17,7 @@ export const preloadHandlebarsTemplates = async function() {
     "systems/shiver/templates/apps/check-dialog.hbs",
     "systems/shiver/templates/apps/doom-clock.hbs",
     "systems/shiver/templates/apps/archetype-tree.hbs",
-    "systems/shiver/templates/combat/tracker.hbs"
+    "systems/shiver/templates/combat/tracker.hbs",
+    "systems/shiver/templates/combat/footer.hbs"
   ]);
 };
