@@ -3,7 +3,7 @@
   "name": "shiver",
   "title": "Shiver",
   "description": "An unofficial game system for SHIVER by Parable Games (https://www.parablegames.co.uk/). Automates SHIVER dice pools, the Doom Clock, Luck and Fear, the Lifeline, armour, damage, status effects, Archetype Trees and Combat States. SHIVER and all associated names are copyright Parable Games LTD. This product is an independent production, not affiliated with Parable Games LTD, published under the SHIVER Third Party License.",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "compatibility": {
     "minimum": "14",
     "verified": "14.369"
@@ -165,7 +165,7 @@
   "primaryTokenAttribute": "hp",
   "url": "https://github.com/bsmccain/shiver",
   "manifest": "https://raw.githubusercontent.com/bsmccain/shiver/main/system.json",
-  "download": "https://github.com/bsmccain/shiver/releases/download/v1.0.0-beta.1/shiver.zip",
+  "download": "https://github.com/bsmccain/shiver/releases/download/v1.0.0-beta.2/shiver.zip",
   "license": "LICENSE.txt",
   "grid": {
     "distance": 5,
