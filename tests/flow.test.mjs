@@ -201,3 +201,15 @@ test("flow: mid-round, a reorder can't take turns away from others", () => {
   // Before combat, anything goes.
   assert.equal(turnsKept(describeFlow(list), describeFlow(bLast), ["B"]), true);
 });
+
+test("flow: before a round's first turn, combatants can be moved one at a time", () => {
+  // Start Combat with A and B in Middle and C in Last, then move A into First, then B.
+  const pending = { round: 1, section: "middle" };
+  const start = [{ id: "A", state: "middle" }, { id: "B", state: "middle" }, { id: "C", state: "last" }];
+  const aFirst = [{ id: "A", state: "first" }, start[1], start[2]];
+  const bothFirst = [aFirst[0], { id: "B", state: "first" }, start[2]];
+  const at = list => describeFlow(list, { round: 0, turn: null, pending });
+  assert.equal(turnsKept(at(start), at(aFirst), ["A"]), true);
+  assert.equal(turnsKept(at(aFirst), at(bothFirst), ["B"]), true);
+  assert.deepEqual(ids(at(bothFirst).waiting), ["A", "B", "C"]);
+});

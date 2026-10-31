@@ -118,7 +118,8 @@ export function nextStop(entries, flow, { skipSection = false } = {}) {
 
 /**
  * Does a reorder leave everyone else's turn as it was? Only the moved combatants may change between having acted and
- * still waiting; the round and the turn in progress must stay the same.
+ * still waiting; the round and the turn in progress must stay the same. Before a round's first turn, any move within
+ * the round is allowed.
  * @param {object} before      describeFlow before the reorder.
  * @param {object} after       describeFlow after it.
  * @param {Iterable<string>} moved
@@ -126,6 +127,8 @@ export function nextStop(entries, flow, { skipSection = false } = {}) {
  */
 export function turnsKept(before, after, moved) {
   if ( !before.begun ) return true;
+  // In a round that hasn't started no-one has acted. A move can only bring back the turns of a passed-over state.
+  if ( before.fresh ) return after.round === before.round;
   if ( (after.round !== before.round) || ((after.current?.id ?? null) !== (before.current?.id ?? null)) ) return false;
   const skip = new Set(moved);
   const was = new Set(before.waiting.map(e => e.id));
